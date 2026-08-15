@@ -1,4 +1,6 @@
 from pathlib import Path
+
+from pydantic import model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -23,13 +25,22 @@ class Settings(BaseSettings):
     POSTGRES_DB: str = "threat_intelligence"
     POSTGRES_USER: str = "postgres"
     POSTGRES_PASSWORD: str = "postgres"
-    DATABASE_URL: str
+    POSTGRES_URL: str = ""
+    # Alias so app/database/postgres.py (settings.POSTGRES_URL) and any code
+    # using POSTGRES_URL both work off the same Neon connection string.
+    POSTGRES_URL: str = ""
 
     # Qdrant
     QDRANT_HOST: str = "localhost"
     QDRANT_PORT: int = 6333
+    QDRANT_URL: str = ""
     QDRANT_COLLECTION: str = "threat_documents"
     QDRANT_API_KEY: str = ""
+
+    # Neo4j
+    NEO4J_URI: str = "neo4j://localhost:7687"
+    NEO4J_USER: str = "neo4j"
+    NEO4J_PASSWORD: str = ""
 
     # Embeddings / LLM
     EMBEDDING_MODEL: str = "BAAI/bge-small-en-v1.5"
@@ -66,6 +77,16 @@ class Settings(BaseSettings):
         env_file=BASE_DIR / ".env",
         extra="ignore",
     )
+
+    @model_validator(mode="after")
+    def _fill_derived_urls(self) -> "Settings":
+        # Neon (and any Postgres URL) may be provided as DATABASE_URL; keep
+        # POSTGRES_URL in sync so either name works throughout the codebase.
+        if not self.POSTGRES_URL:
+            self.POSTGRES_URL = self.DATABASE_URL
+        if not self.QDRANT_URL:
+            self.QDRANT_URL = f"http://{self.QDRANT_HOST}:{self.QDRANT_PORT}"
+        return self
 
 
 settings = Settings()
