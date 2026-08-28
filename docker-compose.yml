@@ -1,0 +1,46 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: threat-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: threat_intelligence
+      POSTGRES_USER: threat_user
+      POSTGRES_PASSWORD: threat_password
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  weaviate:
+    image: semitechnologies/weaviate:1.30.6
+    container_name: threat-weaviate
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
+
+      PERSISTENCE_DATA_PATH: "/var/lib/weaviate"
+
+      DEFAULT_VECTORIZER_MODULE: "none"
+
+      CLUSTER_HOSTNAME: "node1"
+
+      ENABLE_API_BASED_MODULES: "true"
+
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+
+volumes:
+  postgres_data:
+  weaviate_data:

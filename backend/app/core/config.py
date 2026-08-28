@@ -30,12 +30,11 @@ class Settings(BaseSettings):
     # using POSTGRES_URL both work off the same Neon connection string.
     POSTGRES_URL: str = ""
 
-    # Qdrant
-    QDRANT_HOST: str = "localhost"
-    QDRANT_PORT: int = 6333
-    QDRANT_URL: str = ""
-    QDRANT_COLLECTION: str = "threat_documents"
-    QDRANT_API_KEY: str = ""
+    # Weaviate
+    WEAVIATE_URL: str
+    WEAVIATE_API_KEY: str
+
+    WEAVIATE_COLLECTION: str = "Vulnerability"
 
     # Neo4j
     NEO4J_URI: str = "neo4j://localhost:7687"
@@ -84,8 +83,8 @@ class Settings(BaseSettings):
         # POSTGRES_URL in sync so either name works throughout the codebase.
         if not self.POSTGRES_URL:
             self.POSTGRES_URL = self.DATABASE_URL
-        if not self.QDRANT_URL:
-            self.QDRANT_URL = f"http://{self.QDRANT_HOST}:{self.QDRANT_PORT}"
+        if not self.WEAVIATE_URL:
+            self.WEAVIATE_URL = f"http://{self.WEAVIATE_HOST}:{self.WEAVIATE_PORT}"
         return self
 
 
