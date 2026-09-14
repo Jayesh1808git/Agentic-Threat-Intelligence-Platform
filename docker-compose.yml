@@ -2,45 +2,64 @@ services:
 
   postgres:
     image: postgres:16
-    container_name: threat-postgres
+    container_name: cyberrag-postgres
     restart: unless-stopped
 
     environment:
       POSTGRES_DB: threat_intelligence
-      POSTGRES_USER: threat_user
-      POSTGRES_PASSWORD: threat_password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - cyberrag_postgres_data:/var/lib/postgresql/data
 
-  weaviate:
-    image: semitechnologies/weaviate:1.30.6
-    container_name: threat-weaviate
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U postgres -d threat_intelligence"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: cyberrag-qdrant
     restart: unless-stopped
 
     ports:
-      - "8080:8080"
-      - "50051:50051"
-
-    environment:
-      QUERY_DEFAULTS_LIMIT: 25
-
-      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
-
-      PERSISTENCE_DATA_PATH: "/var/lib/weaviate"
-
-      DEFAULT_VECTORIZER_MODULE: "none"
-
-      CLUSTER_HOSTNAME: "node1"
-
-      ENABLE_API_BASED_MODULES: "true"
+      - "6333:6333"
+      - "6334:6334"
 
     volumes:
-      - weaviate_data:/var/lib/weaviate
+      - cyberrag_qdrant_data:/qdrant/storage
+
+
+  neo4j:
+    image: neo4j:5
+    container_name: cyberrag-neo4j
+    restart: unless-stopped
+
+    environment:
+      NEO4J_AUTH: neo4j/password
+
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+    volumes:
+      - cyberrag_neo4j_data:/data
+      - cyberrag_neo4j_logs:/logs
+
 
 volumes:
-  postgres_data:
-  weaviate_data:
+
+  cyberrag_postgres_data:
+  cyberrag_qdrant_data:
+  cyberrag_neo4j_data:
+  cyberrag_neo4j_logs:

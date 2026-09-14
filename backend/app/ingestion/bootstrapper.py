@@ -123,7 +123,7 @@ async def bootstrap(
 
     print(
         f"Period: "
-        f"{start.date()} → "
+        f"{start.date()} -> "
         f"{(end - timedelta(seconds=1)).date()}"
     )
 
@@ -175,7 +175,7 @@ async def bootstrap(
             )
 
             print(
-                f"    {window_start.date()} → "
+                f"    {window_start.date()} -> "
                 f"{window_end.date()}"
             )
 
@@ -189,7 +189,7 @@ async def bootstrap(
         )
 
         print(
-            f"    {window_start.date()} → "
+            f"    {window_start.date()} -> "
             f"{window_end.date()}"
         )
 
@@ -221,7 +221,7 @@ async def bootstrap(
             failed += 1
 
             logger.exception(
-                "Window failed: %s → %s",
+                "Window failed: %s -> %s",
                 window_start,
                 window_end,
             )

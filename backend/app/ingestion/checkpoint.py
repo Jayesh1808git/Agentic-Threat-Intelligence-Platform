@@ -1,5 +1,4 @@
 from datetime import datetime, timezone
-from pdb import run
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -8,6 +7,12 @@ from app.models.ingestion import IngestionRun
 
 
 class CheckpointManager:
+    """
+    PostgreSQL-backed ingestion checkpoint manager.
+
+    A window is considered complete only after the corresponding
+    ingestion has successfully committed its vulnerability records.
+    """
 
     def __init__(self, db: Session):
         self.db = db
@@ -19,7 +24,6 @@ class CheckpointManager:
         window_start: datetime,
         window_end: datetime,
     ) -> IngestionRun:
-
         run = IngestionRun(
             source=source,
             run_type=run_type,
@@ -27,6 +31,8 @@ class CheckpointManager:
             window_end=window_end,
             status="running",
             started_at=datetime.now(timezone.utc),
+            records_fetched=0,
+            records_processed=0,
         )
 
         self.db.add(run)
@@ -41,23 +47,18 @@ class CheckpointManager:
         records_fetched: int,
         records_processed: int,
     ) -> None:
-
         run.status = "completed"
-
         run.records_fetched = records_fetched
-
         run.records_processed = records_processed
-
         run.completed_at = datetime.now(timezone.utc)
 
         self.db.commit()
 
     def fail_run(
-    self,
-    run: IngestionRun,
-    error_message: str,
+        self,
+        run: IngestionRun,
+        error_message: str,
     ) -> None:
-
         try:
             run.status = "failed"
             run.error_message = error_message
@@ -66,11 +67,8 @@ class CheckpointManager:
             self.db.commit()
 
         except Exception as exc:
-            # The database connection itself may be dead.
-            # Do not allow checkpoint failure to hide
-            # the original ingestion error.
             print(
-                f"WARNING: Could not update failed "
+                "WARNING: Could not update failed "
                 f"checkpoint: {exc}"
             )
 
@@ -78,12 +76,13 @@ class CheckpointManager:
                 self.db.rollback()
             except Exception:
                 pass
+
     def get_completed_windows(
         self,
         source: str,
         run_type: str,
-        ) -> list[IngestionRun]:
-        stmt = (
+    ) -> list[IngestionRun]:
+        statement = (
             select(IngestionRun)
             .where(
                 IngestionRun.source == source,
@@ -95,17 +94,16 @@ class CheckpointManager:
             )
         )
 
-        result = self.db.execute(stmt)
-
-        return list(result.scalars().all())
+        return list(
+            self.db.scalars(statement).all()
+        )
 
     def last_successful_window(
         self,
         source: str,
         run_type: str,
     ) -> datetime | None:
-
-        stmt = (
+        statement = (
             select(IngestionRun)
             .where(
                 IngestionRun.source == source,
@@ -118,11 +116,9 @@ class CheckpointManager:
             .limit(1)
         )
 
-        result = self.db.execute(stmt)
+        run = self.db.scalar(statement)
 
-        run = result.scalar_one_or_none()
-
-        if not run:
+        if run is None:
             return None
 
         return run.window_end

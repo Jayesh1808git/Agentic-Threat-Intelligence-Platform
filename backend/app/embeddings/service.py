@@ -7,6 +7,7 @@ class EmbeddingService:
         self,
         model_name: str,
     ):
+        self.model_name = model_name
 
         print(
             f"Loading embedding model: "
@@ -16,6 +17,19 @@ class EmbeddingService:
         self.model = SentenceTransformer(
             model_name
         )
+
+    @staticmethod
+    def build_text(vulnerability) -> str:
+
+        return "\n".join([
+            f"Vendor: {vulnerability.vendor or ''}",
+            f"Product: {vulnerability.product or ''}",
+            f"Title: {vulnerability.title or ''}",
+            (
+                "Description: "
+                f"{vulnerability.description or ''}"
+            ),
+        ])
 
     def embed(
         self,

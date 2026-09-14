@@ -45,7 +45,7 @@ class NVDIngestionService:
         try:
 
             logger.info(
-                "Starting NVD ingestion: %s → %s",
+                "Starting NVD ingestion: %s -> %s",
                 window_start,
                 window_end,
             )

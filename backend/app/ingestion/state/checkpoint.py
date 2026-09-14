@@ -1,84 +1,191 @@
-import json
-from pathlib import Path
+from __future__ import annotations
+
+from datetime import datetime, timezone
+
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+from app.models.ingestion import IngestionRun
 
 
-class Checkpoint:
+class CheckpointManager:
 
-    def __init__(
+    def __init__(self, db: Session):
+        self.db = db
+
+    # ============================================================
+    # START
+    # ============================================================
+
+    def start_run(
         self,
-        path="data/ingestion_checkpoint.json",
-    ):
+        source: str,
+        run_type: str,
+        window_start: datetime,
+        window_end: datetime,
+    ) -> IngestionRun:
 
-        self.path = Path(path)
-
-        self.path.parent.mkdir(
-            parents=True,
-            exist_ok=True,
+        run = IngestionRun(
+            source=source,
+            run_type=run_type,
+            window_start=window_start,
+            window_end=window_end,
+            status="running",
+            records_fetched=0,
+            records_processed=0,
+            started_at=datetime.now(timezone.utc),
         )
 
-        self.state = self.load()
+        self.db.add(run)
+        self.db.commit()
+        self.db.refresh(run)
 
-    def load(self):
+        return run
 
-        if not self.path.exists():
-            return {
-                "nvd_completed": [],
-                "osv_completed": False,
-                "github_completed": False,
-                "cisa_completed": False,
-                "epss_completed": False,
-            }
+    # ============================================================
+    # COMPLETE
+    # ============================================================
+
+    def complete_run(
+        self,
+        run: IngestionRun,
+        records_fetched: int,
+        records_processed: int,
+    ) -> None:
+
+        run.status = "completed"
+
+        run.records_fetched = records_fetched
+
+        run.records_processed = records_processed
+
+        run.completed_at = datetime.now(
+            timezone.utc
+        )
+
+        self.db.commit()
+
+    # ============================================================
+    # FAIL
+    # ============================================================
+
+    def fail_run(
+        self,
+        run: IngestionRun,
+        error_message: str,
+    ) -> None:
 
         try:
 
-            return json.loads(
-                self.path.read_text()
+            run.status = "failed"
+
+            run.error_message = (
+                error_message[:5000]
             )
 
-        except Exception:
-
-            return {
-                "nvd_completed": [],
-                "osv_completed": False,
-                "github_completed": False,
-                "cisa_completed": False,
-                "epss_completed": False,
-            }
-
-    def save(self):
-
-        tmp = self.path.with_suffix(
-            ".tmp"
-        )
-
-        tmp.write_text(
-            json.dumps(
-                self.state,
-                indent=2,
+            run.completed_at = datetime.now(
+                timezone.utc
             )
-        )
 
-        tmp.replace(self.path)
+            self.db.commit()
 
-    def nvd_done(
+        except Exception as exc:
+
+            print(
+                "WARNING: Could not update "
+                f"failed checkpoint: {exc}"
+            )
+
+            try:
+                self.db.rollback()
+            except Exception:
+                pass
+
+    # ============================================================
+    # COMPLETED WINDOWS
+    # ============================================================
+
+    def get_completed_windows(
         self,
-        window,
-    ):
+        source: str,
+        run_type: str,
+    ) -> list[IngestionRun]:
+
+        statement = (
+            select(IngestionRun)
+            .where(
+                IngestionRun.source == source,
+                IngestionRun.run_type == run_type,
+                IngestionRun.status == "completed",
+            )
+            .order_by(
+                IngestionRun.window_start.asc()
+            )
+        )
+
+        return list(
+            self.db.scalars(
+                statement
+            ).all()
+        )
+
+    # ============================================================
+    # CHECK EXACT WINDOW
+    # ============================================================
+
+    def is_window_completed(
+        self,
+        source: str,
+        run_type: str,
+        window_start: datetime,
+        window_end: datetime,
+    ) -> bool:
+
+        statement = (
+            select(IngestionRun.id)
+            .where(
+                IngestionRun.source == source,
+                IngestionRun.run_type == run_type,
+                IngestionRun.status == "completed",
+                IngestionRun.window_start
+                == window_start,
+                IngestionRun.window_end
+                == window_end,
+            )
+            .limit(1)
+        )
 
         return (
-            window
-            in self.state["nvd_completed"]
+            self.db.scalar(statement)
+            is not None
         )
 
-    def mark_nvd_done(
+    # ============================================================
+    # LAST SUCCESSFUL WINDOW
+    # ============================================================
+
+    def last_successful_window(
         self,
-        window,
-    ):
+        source: str,
+        run_type: str,
+    ) -> datetime | None:
 
-        if not self.nvd_done(window):
+        statement = (
+            select(IngestionRun)
+            .where(
+                IngestionRun.source == source,
+                IngestionRun.run_type == run_type,
+                IngestionRun.status == "completed",
+            )
+            .order_by(
+                IngestionRun.window_end.desc()
+            )
+            .limit(1)
+        )
 
-            self.state[
-                "nvd_completed"
-            ].append(window)
+        run = self.db.scalar(statement)
 
-            self.save()
+        if run is None:
+            return None
+
+        return run.window_end
