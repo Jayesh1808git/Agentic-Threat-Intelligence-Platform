@@ -57,9 +57,30 @@ services:
       - cyberrag_neo4j_logs:/logs
 
 
+  ingestion-scheduler:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cyberrag-scheduler
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: threat_intelligence
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      QDRANT_URL: http://qdrant:6333
+      THREAT_SYNC_INTERVAL_HOURS: 5
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+
 volumes:
 
   cyberrag_postgres_data:
   cyberrag_qdrant_data:
   cyberrag_neo4j_data:
-  cyberrag_neo4j_logs:
+  cyberrag_neo4j_logs:

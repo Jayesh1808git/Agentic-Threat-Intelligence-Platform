@@ -1,27 +1,19 @@
 import httpx
+from app.core.config import settings
 
 
 class CISASource:
 
-    def __init__(self, url):
+    def __init__(self, url: str | None = None):
+        self.url = url or settings.CISA_KEV_URL
 
-        self.url = url
-
-    async def fetch(self):
-
+    async def fetch(self) -> list[dict]:
         async with httpx.AsyncClient(
-            timeout=120
+            timeout=120.0,
+            headers={"User-Agent": "CyberRAG-ThreatIntel/1.0"},
         ) as client:
-
-            response = await client.get(
-                self.url
-            )
-
+            response = await client.get(self.url)
             response.raise_for_status()
-
             data = response.json()
 
-        return data.get(
-            "vulnerabilities",
-            []
-        )
+        return data.get("vulnerabilities", [])
