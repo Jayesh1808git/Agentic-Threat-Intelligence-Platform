@@ -3,7 +3,7 @@ from app.models.vulnerability import (
     Vulnerability,
 )
 
-from app.models.ingestion import IngestionRun
+from app.models.ingestion import IngestionRun, IngestionState
 
 
 __all__ = [

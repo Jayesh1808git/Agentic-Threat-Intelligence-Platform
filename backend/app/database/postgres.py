@@ -17,8 +17,7 @@ engine = create_engine(
     pool_pre_ping=True,
     pool_recycle=1800,
 
-    # Local PostgreSQL can handle more connections
-    # than the Neon free tier.
+    
     pool_size=10,
     max_overflow=20,
 

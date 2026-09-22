@@ -9,6 +9,7 @@ services:
       POSTGRES_DB: threat_intelligence
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+      THREAT_SYNC_INTERVAL_MINUTES: 15
 
     ports:
       - "5433:5432"
@@ -65,13 +66,17 @@ services:
     restart: unless-stopped
 
     environment:
+      POSTGRES_URL: postgresql+psycopg2://postgres:postgres@postgres:5432/threat_intelligence
+
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_DB: threat_intelligence
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+
       QDRANT_URL: http://qdrant:6333
-      THREAT_SYNC_INTERVAL_HOURS: 5
+
+      THREAT_SYNC_INTERVAL_MINUTES: 15
 
     depends_on:
       postgres:
@@ -83,4 +88,4 @@ volumes:
   cyberrag_postgres_data:
   cyberrag_qdrant_data:
   cyberrag_neo4j_data:
-  cyberrag_neo4j_logs:
+  cyberrag_neo4j_logs:

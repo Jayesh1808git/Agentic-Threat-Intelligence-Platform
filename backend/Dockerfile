@@ -26,4 +26,4 @@ COPY check_sources_db.py .
 
 ENV PYTHONPATH=/app
 
-CMD ["python", "scheduler.py", "--interval-hours", "5"]
+CMD ["python", "scheduler.py", "--interval-minutes", "15"]

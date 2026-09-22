@@ -26,6 +26,7 @@ class IncrementalIngestionOrchestrator:
     async def run_all_incremental(
         self,
         nvd_lookback_hours: int = 6,
+        nvd_overlap_minutes: int = 10,
         github_max_pages: int = 3,
         osv_max_records: int = 500,
     ) -> dict:
@@ -41,7 +42,10 @@ class IncrementalIngestionOrchestrator:
         # 1. NVD Incremental Sync
         try:
             logger.info("Executing NVD incremental ingestion...")
-            nvd_result = await self.nvd_service.ingest_incremental(lookback_hours=nvd_lookback_hours)
+            nvd_result = await self.nvd_service.ingest_incremental(
+                lookback_hours=nvd_lookback_hours,
+                overlap_minutes=nvd_overlap_minutes,
+            )
             summary["sources"]["NVD"] = nvd_result
         except Exception as exc:
             logger.error("NVD incremental sync failed: %s", exc)
@@ -84,8 +88,29 @@ class IncrementalIngestionOrchestrator:
             summary["sources"]["OSV"] = {"status": "failed", "error": str(exc)}
 
         end_time = datetime.now(timezone.utc)
-        summary["end_time"] = end_time.isoformat()
-        summary["duration_seconds"] = round((end_time - start_time).total_seconds(), 2)
 
-        logger.info("Unified incremental sync cycle completed in %.2f seconds.", summary["duration_seconds"])
+        failed_sources = [
+            source
+            for source, result in summary["sources"].items()
+            if result.get("status") != "completed"
+        ]
+
+        summary["end_time"] = end_time.isoformat()
+        summary["duration_seconds"] = round(
+            (end_time - start_time).total_seconds(),
+            2,
+        )
+        summary["failed_sources"] = failed_sources
+        summary["status"] = (
+            "partial"
+            if failed_sources
+            else "completed"
+        )
+
+        logger.info(
+            "Unified incremental cycle finished: status=%s duration=%.2fs",
+            summary["status"],
+            summary["duration_seconds"],
+        )
+
         return summary

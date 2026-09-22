@@ -50,30 +50,64 @@ class EPSSSource:
         return result
 
 
-    async def fetch_batch(self, cves: list[str]) -> dict[str, float]:
+    
+    async def fetch_batch(
+        self,
+        cves: list[str],
+        batch_size: int = 100,
+    ) -> dict[str, float]:
         if not cves:
             return {}
 
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
+
         result: dict[str, float] = {}
-        batch_size = 100
+        total_batches = (
+            len(cves) + batch_size - 1
+        ) // batch_size
 
         async with httpx.AsyncClient(timeout=60.0) as client:
             for i in range(0, len(cves), batch_size):
-                batch = cves[i : i + batch_size]
-                try:
-                    response = await client.get(
-                        self.url,
-                        params={"cve": ",".join(batch)},
+                batch = cves[i:i + batch_size]
+                batch_number = i // batch_size + 1
+
+                response = await client.get(
+                    self.url,
+                    params={"cve": ",".join(batch)},
+                )
+                response.raise_for_status()
+
+                data = response.json()
+
+                if not isinstance(data, dict):
+                    raise RuntimeError(
+                        "Unexpected FIRST API response"
                     )
-                    response.raise_for_status()
-                    data = response.json()
 
-                    for row in data.get("data", []):
-                        try:
-                            result[row["cve"].upper()] = float(row["epss"])
-                        except (KeyError, TypeError, ValueError):
-                            pass
-                except Exception as exc:
-                    logger.warning("EPSS batch fetch error: %s", exc)
+                rows = data.get("data", [])
 
-        return result
+                if not isinstance(rows, list):
+                    raise RuntimeError(
+                        "FIRST API data field is not a list"
+                    )
+
+                for row in rows:
+                    try:
+                        result[row["cve"].upper()] = float(
+                            row["epss"]
+                        )
+                    except (KeyError, TypeError, ValueError):
+                        logger.warning(
+                            "Skipping malformed EPSS row"
+                        )
+
+                logger.info(
+                    "EPSS batch %d/%d: requested=%d received=%d",
+                    batch_number,
+                    total_batches,
+                    len(batch),
+                    len(rows),
+                )
+
+        return result

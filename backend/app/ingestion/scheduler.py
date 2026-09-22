@@ -1,8 +1,8 @@
+
 from __future__ import annotations
 
 import asyncio
 import logging
-import signal
 from datetime import datetime, timedelta, timezone
 
 from app.core.config import settings
@@ -12,66 +12,98 @@ logger = logging.getLogger(__name__)
 
 
 class ThreatIngestionScheduler:
-
+    
     def __init__(
         self,
-        interval_hours: int | None = None,
+        interval_minutes: int | None = None,
         run_on_startup: bool = True,
     ):
-        self.interval_hours = interval_hours or getattr(settings, "THREAT_SYNC_INTERVAL_HOURS", 5)
-        self.run_on_startup = run_on_startup
-        self.orchestrator = IncrementalIngestionOrchestrator()
-        self._running = False
-        self._task: asyncio.Task | None = None
-
-    async def start(self):
-        """
-        Start the automated background scheduler loop.
-        """
-        self._running = True
-        logger.info(
-            "Threat Ingestion Scheduler started. Automated sync interval: %d hours.",
-            self.interval_hours,
+        
+        configured_interval = (
+            interval_minutes
+            if interval_minutes is not None
+            else getattr(settings, "THREAT_SYNC_INTERVAL_MINUTES", 15)
         )
 
-        interval_seconds = self.interval_hours * 3600
+        self.interval_minutes = int(configured_interval)
 
-        if self.run_on_startup:
-            logger.info("Executing initial startup ingestion cycle...")
-            await self._run_cycle()
+        if self.interval_minutes < 1:
+            raise ValueError("interval_minutes must be at least 1")
 
-        while self._running:
-            next_run = datetime.now(timezone.utc) + timedelta(seconds=interval_seconds)
-            logger.info("Next scheduled incremental ingestion run at: %s (in %d hours)", next_run.isoformat(), self.interval_hours)
+        self.run_on_startup = run_on_startup
+        self.orchestrator = IncrementalIngestionOrchestrator()
 
-            try:
-                await asyncio.sleep(interval_seconds)
-            except asyncio.CancelledError:
-                logger.info("Scheduler task cancelled.")
-                break
+        self._running = False
+        self._stop_event = asyncio.Event()
 
-            if self._running:
+    async def start(self):
+        """Run incremental ingestion on a repeating interval."""
+        if self._running:
+            logger.warning("Scheduler is already running.")
+            return
+
+        self._running = True
+        self._stop_event.clear()
+
+        logger.info(
+            "Threat Ingestion Scheduler started. Interval: %d minutes.",
+            self.interval_minutes,
+        )
+
+        try:
+            if self.run_on_startup:
+                logger.info("Executing initial startup ingestion cycle...")
                 await self._run_cycle()
+
+            interval_seconds = self.interval_minutes * 60
+
+            while self._running:
+                next_run = datetime.now(timezone.utc) + timedelta(
+                    seconds=interval_seconds
+                )
+                logger.info(
+                    "Next incremental ingestion run at: %s",
+                    next_run.isoformat(),
+                )
+
+                try:
+                    await asyncio.wait_for(
+                        self._stop_event.wait(),
+                        timeout=interval_seconds,
+                    )
+                    # Stop event was set.
+                    break
+                except asyncio.TimeoutError:
+                    pass
+
+                if self._running:
+                    await self._run_cycle()
+
+        finally:
+            self._running = False
+            logger.info("Threat Ingestion Scheduler stopped.")
 
     async def _run_cycle(self):
         try:
             logger.info("Starting scheduled incremental ingestion cycle...")
             summary = await self.orchestrator.run_all_incremental()
-            logger.info("Completed scheduled sync cycle in %.2fs. NVD=%s CISA=%s EPSS=%s GITHUB=%s OSV=%s",
-                        summary.get("duration_seconds", 0),
-                        summary.get("sources", {}).get("NVD", {}).get("status"),
-                        summary.get("sources", {}).get("CISA", {}).get("status"),
-                        summary.get("sources", {}).get("EPSS", {}).get("status"),
-                        summary.get("sources", {}).get("GITHUB", {}).get("status"),
-                        summary.get("sources", {}).get("OSV", {}).get("status"))
-        except Exception as exc:
-            logger.error("Scheduled ingestion cycle failed: %s", exc)
+
+            sources = summary.get("sources", {})
+            logger.info(
+                "Completed sync cycle in %.2fs. "
+                "NVD=%s CISA=%s EPSS=%s GITHUB=%s OSV=%s",
+                summary.get("duration_seconds", 0),
+                sources.get("NVD", {}).get("status"),
+                sources.get("CISA", {}).get("status"),
+                sources.get("EPSS", {}).get("status"),
+                sources.get("GITHUB", {}).get("status"),
+                sources.get("OSV", {}).get("status"),
+            )
+        except Exception:
+            logger.exception("Scheduled ingestion cycle failed.")
 
     def stop(self):
-        """
-        Stop the background scheduler loop.
-        """
+        """Request a prompt, graceful stop of the scheduler loop."""
         logger.info("Stopping Threat Ingestion Scheduler...")
         self._running = False
-        if self._task and not self._task.done():
-            self._task.cancel()
+        self._stop_event.set()
