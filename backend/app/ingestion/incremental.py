@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 from datetime import datetime, timezone
 
@@ -87,6 +88,22 @@ class IncrementalIngestionOrchestrator:
             logger.error("OSV ingestion failed: %s", exc)
             summary["sources"]["OSV"] = {"status": "failed", "error": str(exc)}
 
+        # 6. Automatic Embedding Worker Step (Sync Qdrant vector database)
+        try:
+            logger.info("Triggering automatic EmbeddingWorker sync for pending records...")
+            from indexing.embedding_worker import EmbeddingWorker
+            
+            def _embed():
+                worker = EmbeddingWorker(batch_size=100)
+                return worker.run_until_empty()
+
+            embedding_stats = await asyncio.to_thread(_embed)
+            summary["embedding_sync"] = embedding_stats
+            logger.info("EmbeddingWorker sync completed: %s", embedding_stats)
+        except Exception as exc:
+            logger.error("EmbeddingWorker sync step failed: %s", exc)
+            summary["embedding_sync"] = {"status": "failed", "error": str(exc)}
+
         end_time = datetime.now(timezone.utc)
 
         failed_sources = [
@@ -114,3 +131,4 @@ class IncrementalIngestionOrchestrator:
         )
 
         return summary
+

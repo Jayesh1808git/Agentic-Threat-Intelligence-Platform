@@ -1,138 +1,184 @@
+import logging
+import time
+from typing import Any
+
 from app.core.config import settings
 from app.database.postgres import SessionLocal
 from app.embeddings.service import EmbeddingService
-from backend.app.repositories.vulnerability import (
-    VulnerabilityRepository,
+from app.repositories.vulnerability import VulnerabilityRepository
+from indexing.qdrant import QdrantVectorStore
+from app.models.vulnerability import Vulnerability
+from sqlalchemy import select, func
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
-from app.indexing.qdrant import QdrantVectorStore
+logger = logging.getLogger("embedding_worker")
 
 
 class EmbeddingWorker:
 
-    def __init__(
-        self,
-        batch_size: int = 100,
-    ):
-
+    def __init__(self, batch_size: int = 100):
         self.batch_size = batch_size
+        self.embeddings = EmbeddingService(settings.EMBEDDING_MODEL)
+        self.vector_store = QdrantVectorStore()
 
-        self.embeddings = EmbeddingService(
-            settings.EMBEDDING_MODEL
-        )
+    def get_remaining_count(self, db) -> int:
+        return db.scalar(
+            select(func.count(Vulnerability.id)).where(
+                Vulnerability.embedding_status.in_(["pending", "failed"])
+            )
+        ) or 0
 
-        self.vector_store = (
-            QdrantVectorStore()
-        )
-
-    def run_once(self) -> int:
-
+    def run_once(self) -> dict[str, int]:
         db = SessionLocal()
+        stats = {"processed": 0, "completed": 0, "failed": 0, "skipped": 0}
 
         try:
+            repository = VulnerabilityRepository(db)
 
-            repository = (
-                VulnerabilityRepository(db)
-            )
-
-            records = (
-                repository.get_pending_embeddings(
-                    self.batch_size
-                )
-            )
-
+            # Query records pending embedding
+            records = repository.get_pending_embeddings(self.batch_size)
             if not records:
-                return 0
+                return stats
 
-            texts = [
-                self.embeddings.build_text(
-                    record
-                )
-                for record in records
-            ]
+            stats["processed"] = len(records)
+            texts = [self.embeddings.build_text(record) for record in records]
 
-            vectors = (
-                self.embeddings.embed_batch(
-                    texts
-                )
-            )
+            try:
+                vectors = self.embeddings.embed_batch(texts)
+            except Exception as exc:
+                logger.error("Failed to generate embedding batch: %s", exc)
+                for record in records:
+                    repository.mark_embedding_failed(record)
+                db.commit()
+                stats["failed"] = len(records)
+                return stats
 
-            indexed = 0
+            # Prepare items for Qdrant batch upsert
+            records_and_vectors = list(zip(records, vectors))
 
-            for record, vector in zip(
-                records,
-                vectors,
-            ):
-
-                try:
-
-                    self.vector_store.upsert(
-                        record,
-                        vector,
-                    )
-
+            try:
+                self.vector_store.upsert_batch(records_and_vectors)
+                for record in records:
                     repository.mark_embedding_indexed(
                         record,
                         self.embeddings.model_name,
                     )
+                db.commit()
+                stats["completed"] = len(records)
+            except Exception as exc:
+                logger.error("Qdrant batch upsert failed, retrying individually: %s", exc)
+                db.rollback()
 
-                    indexed += 1
+                # Fallback to item-by-item upsert if batch fails
+                for record, vector in records_and_vectors:
+                    try:
+                        self.vector_store.upsert(record, vector)
+                        repository.mark_embedding_indexed(
+                            record,
+                            self.embeddings.model_name,
+                        )
+                        db.commit()
+                        stats["completed"] += 1
+                    except Exception as ind_exc:
+                        db.rollback()
+                        logger.error(
+                            "Failed to index vulnerability %s: %s",
+                            record.vulnerability_id,
+                            ind_exc,
+                        )
+                        repository.mark_embedding_failed(record)
+                        db.commit()
+                        stats["failed"] += 1
 
-                except Exception as exc:
+            return stats
 
-                    print(
-                        "Qdrant indexing failed "
-                        f"for {record.vulnerability_id}: "
-                        f"{exc}"
-                    )
-
-                    repository.mark_embedding_failed(
-                        record
-                    )
-
-            db.commit()
-
-            return indexed
-
-        except Exception:
-
+        except Exception as exc:
             db.rollback()
+            logger.error("Error during embedding worker run_once: %s", exc)
             raise
-
         finally:
-
             db.close()
 
-    def run_until_empty(self) -> int:
+    def run_until_empty(self) -> dict[str, int]:
+        total_stats = {
+            "processed": 0,
+            "completed": 0,
+            "failed": 0,
+            "skipped": 0,
+        }
 
-        total = 0
+        db = SessionLocal()
+        initial_remaining = self.get_remaining_count(db)
+        db.close()
 
+        logger.info("Starting embedding worker. Initial pending records: %d", initial_remaining)
+
+        start_time = time.time()
         while True:
-
-            count = self.run_once()
-
-            if count == 0:
+            stats = self.run_once()
+            if stats["processed"] == 0:
                 break
 
-            total += count
+            total_stats["processed"] += stats["processed"]
+            total_stats["completed"] += stats["completed"]
+            total_stats["failed"] += stats["failed"]
+            total_stats["skipped"] += stats["skipped"]
 
-            print(
-                f"Indexed embeddings: "
-                f"{total}"
+            db = SessionLocal()
+            remaining = self.get_remaining_count(db)
+            db.close()
+
+            logger.info(
+                "Progress -> Processed: %d | Completed: %d | Failed: %d | Remaining: %d",
+                total_stats["processed"],
+                total_stats["completed"],
+                total_stats["failed"],
+                remaining,
             )
 
+        elapsed = time.time() - start_time
+        logger.info(
+            "Embedding indexing complete in %.2f seconds. Final Stats: %s",
+            elapsed,
+            total_stats,
+        )
         self.vector_store.close()
-
-        return total
+        return total_stats
 
 
 if __name__ == "__main__":
+    import argparse
+    from sqlalchemy import update
 
-    worker = EmbeddingWorker(
-        batch_size=100
+    parser = argparse.ArgumentParser(description="CyberRAG Vulnerability Embedding Worker")
+    parser.add_argument(
+        "--rebuild",
+        "--force",
+        action="store_true",
+        help="Reset embedding status for all vulnerabilities to 'pending' and re-embed all records into Qdrant.",
     )
-
-    total = worker.run_until_empty()
-
-    print(
-        f"Embedding indexing complete: {total}"
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=100,
+        help="Batch size for embedding generation (default: 100).",
     )
+    args = parser.parse_args()
+
+    if args.rebuild:
+        db = SessionLocal()
+        reset_count = db.execute(
+            update(Vulnerability).values(embedding_status="pending")
+        ).rowcount
+        db.commit()
+        db.close()
+        logger.info("Rebuild flag specified. Reset %d records to 'pending'.", reset_count)
+
+    worker = EmbeddingWorker(batch_size=args.batch_size)
+    final_stats = worker.run_until_empty()
+    print("Embedding worker completed with stats:", final_stats)
+
+
