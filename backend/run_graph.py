@@ -1,34 +1,14 @@
 from app.graph import cyberrag_graph
 
 
-def main():
-    # ---------------------------------------------------------
-    # Initial CyberRAG State
-    # ---------------------------------------------------------
-    state = {
-        "project_input": {
-            "name": "Adobe Campaign Security Assessment",
+def build_initial_state(project_input: dict) -> dict:
+    """
+    Build the initial CyberRAG state expected by LangGraph.
+    """
 
-            # Agent 1 expects structured technology information.
-            # Organizational context is included here so that
-            # Risk Assessment can consider asset criticality
-            # and business impact later in the pipeline.
-            "technologies": [
-                {
-                    "name": "Campaign",
-                    "type": "application",
-                    "version": "7.4.2",
-                    "vendor": "adobe",
-                    "ecosystem": "enterprise",
-                    "criticality": "critical",
-                    "business_impact": "high",
-                }
-            ],
-        },
+    return {
+        "project_input": project_input,
 
-        # -----------------------------------------------------
-        # Shared CyberRAG State
-        # -----------------------------------------------------
         "assets": [],
         "candidate_vulnerabilities": [],
         "internal_evidence": [],
@@ -41,6 +21,41 @@ def main():
         "citations": [],
     }
 
+
+def run_cyberrag(project_input: dict) -> dict:
+    """
+    Run the complete CyberRAG LangGraph pipeline.
+
+    This function is reusable by:
+    - FastAPI
+    - CLI
+    - local testing
+    """
+
+    state = build_initial_state(project_input)
+
+    return cyberrag_graph.invoke(state)
+
+
+def main():
+    # ---------------------------------------------------------
+    # Example local project input
+    # ---------------------------------------------------------
+    project_input = {
+        "name": "Adobe Campaign Security Assessment",
+        "technologies": [
+            {
+                "name": "Campaign",
+                "type": "application",
+                "version": "7.4.2",
+                "vendor": "adobe",
+                "ecosystem": "enterprise",
+                "criticality": "critical",
+                "business_impact": "high",
+            }
+        ],
+    }
+
     print("=" * 60)
     print("STARTING CYBERRAG LANGGRAPH")
     print("=" * 60)
@@ -48,7 +63,7 @@ def main():
     # ---------------------------------------------------------
     # Run complete LangGraph pipeline
     # ---------------------------------------------------------
-    result = cyberrag_graph.invoke(state)
+    result = run_cyberrag(project_input)
 
     # ---------------------------------------------------------
     # Pipeline Summary

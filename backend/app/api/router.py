@@ -1,9 +1,8 @@
 from fastapi import APIRouter
 
+from app.api.routes.assessment import router as assessment_router
 from app.api.routes.health import router as health_router
-from app.api.routes.retrieval import (
-    router as retrieval_router,
-)
+from app.api.routes.retrieval import router as retrieval_router
 
 
 api_router = APIRouter()
@@ -20,4 +19,11 @@ api_router.include_router(
     retrieval_router,
     prefix="/retrieval",
     tags=["Retrieval"],
-)
+)
+
+
+api_router.include_router(
+    assessment_router,
+    prefix="/v1/assessment",
+    tags=["Assessment"],
+)

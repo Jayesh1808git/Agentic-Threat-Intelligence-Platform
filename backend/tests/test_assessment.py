@@ -1,0 +1,90 @@
+from fastapi.testclient import TestClient
+
+from app.main import app
+from app.api.routes import assessment
+
+
+client = TestClient(app)
+
+
+VALID_REQUEST = {
+    "project_input": {
+        "name": "Test Project",
+        "technologies": [
+            {
+                "name": "Campaign",
+                "type": "application",
+                "version": "7.4.2",
+                "vendor": "adobe",
+                "ecosystem": "enterprise",
+                "criticality": "high",
+                "business_impact": "high",
+            }
+        ],
+    }
+}
+
+
+def test_assessment_success(monkeypatch):
+    def fake_run_cyberrag(project_input):
+        return {
+            "report": {
+                "title": "Test Report"
+            },
+            "validated_findings": [],
+            "errors": [],
+        }
+
+    monkeypatch.setattr(
+        assessment,
+        "run_cyberrag",
+        fake_run_cyberrag,
+    )
+
+    response = client.post(
+        "/v1/assessment",
+        json=VALID_REQUEST,
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["status"] == "completed"
+    assert data["project_name"] == "Test Project"
+    assert data["report"]["title"] == "Test Report"
+
+
+def test_assessment_invalid_request():
+    response = client.post(
+        "/v1/assessment",
+        json={
+            "project_input": {
+                "name": "Invalid Test"
+            }
+        },
+    )
+
+    assert response.status_code == 400
+
+
+def test_assessment_workflow_failure(monkeypatch):
+    def fake_run_cyberrag(project_input):
+        raise RuntimeError("Test workflow failure")
+
+    monkeypatch.setattr(
+        assessment,
+        "run_cyberrag",
+        fake_run_cyberrag,
+    )
+
+    response = client.post(
+        "/v1/assessment",
+        json=VALID_REQUEST,
+    )
+
+    assert response.status_code == 500
+
+    data = response.json()
+
+    assert "Assessment workflow failed" in data["detail"]
