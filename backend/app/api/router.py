@@ -27,3 +27,9 @@ api_router.include_router(
     prefix="/v1/assessment",
     tags=["Assessment"],
 )
+
+api_router.include_router(
+    assessment_router,
+    prefix="/api/v1/assessment",
+    tags=["Assessment"],
+)

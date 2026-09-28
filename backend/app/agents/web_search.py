@@ -6,7 +6,7 @@ import requests
 from app.agents.state import CyberRAGState
 
 
-REQUEST_TIMEOUT = 10
+REQUEST_TIMEOUT = 3
 
 
 # =========================================================
@@ -516,7 +516,7 @@ def _search_references(
     if not isinstance(references, list):
         return results
 
-    for reference in references[:10]:
+    for reference in references[:2]:
 
         if not isinstance(reference, str):
             continue
@@ -636,6 +636,7 @@ def web_search_agent(
                 nvd_result["vulnerability_id"] = (
                     candidate.get("vulnerability_id")
                 )
+                nvd_result["reason_relevant"] = f"Authoritative NVD feed record for {cve}"
 
                 web_evidence.append(
                     nvd_result
@@ -654,6 +655,7 @@ def web_search_agent(
                 cisa_result["vulnerability_id"] = (
                     candidate.get("vulnerability_id")
                 )
+                cisa_result["reason_relevant"] = f"CISA Known Exploited Vulnerability catalog entry for {cve}"
 
                 web_evidence.append(
                     cisa_result
@@ -672,6 +674,7 @@ def web_search_agent(
                 github_result["vulnerability_id"] = (
                     candidate.get("vulnerability_id")
                 )
+                github_result["reason_relevant"] = f"GitHub Advisory Database record for {cve}"
 
                 web_evidence.append(
                     github_result
@@ -692,6 +695,7 @@ def web_search_agent(
                 result["vulnerability_id"] = (
                     candidate.get("vulnerability_id")
                 )
+                result["reason_relevant"] = f"Vendor or security advisory reference page for {cve}"
 
                 web_evidence.append(
                     result

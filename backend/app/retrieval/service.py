@@ -80,6 +80,7 @@ class VulnerabilityRetriever:
             lexical_results = []
 
         # 2. Semantic retrieval from Qdrant
+        qdrant_success = False
         try:
             semantic_results = self.semantic_retriever.search(
                 query=query,
@@ -87,9 +88,12 @@ class VulnerabilityRetriever:
                 limit=limit * 2,
             )
             logger.info("Semantic results count: %d", len(semantic_results))
+            qdrant_success = True
         except Exception as exc:
             logger.error("Semantic search failed (falling back to lexical): %s", exc)
             semantic_results = []
+
+        retrieval_mode = "HYBRID" if qdrant_success else "POSTGRESQL_FALLBACK"
 
         # 3. Perform RRF Fusion & Exact CVE ranking
         fused_results = rrf_fusion(
@@ -99,8 +103,57 @@ class VulnerabilityRetriever:
             top_k=limit,
         )
 
-        logger.info("Retrieval completed -> fused results count: %d", len(fused_results))
+        logger.info("Retrieval completed (%s) -> fused results count: %d", retrieval_mode, len(fused_results))
         return fused_results
+
+    def retrieve_with_mode(
+        self,
+        query: str,
+        vendor: str | None = None,
+        product: str | None = None,
+        severity: float | None = None,
+        source: str | None = None,
+        kev: bool | None = None,
+        exploit_available: bool | None = None,
+        filters: RetrievalFilters | None = None,
+        limit: int = 20,
+    ) -> tuple[list[NormalizedVulnerabilityResult], str]:
+        """
+        Retrieves vulnerabilities and explicitly returns (results, retrieval_mode).
+        retrieval_mode is 'HYBRID' or 'POSTGRESQL_FALLBACK'.
+        """
+        if filters is None:
+            filters = RetrievalFilters(
+                vendor=vendor,
+                product=product,
+                severity=severity,
+                source=source,
+                kev=kev,
+                exploit_available=exploit_available,
+            )
+
+        qdrant_success = False
+        try:
+            lexical_results = self.lexical_retriever.search(query=query, filters=filters, limit=limit * 2)
+        except Exception as exc:
+            logger.error("Lexical search failed: %s", exc)
+            lexical_results = []
+
+        try:
+            semantic_results = self.semantic_retriever.search(query=query, filters=filters, limit=limit * 2)
+            qdrant_success = True
+        except Exception as exc:
+            logger.error("Semantic search failed: %s", exc)
+            semantic_results = []
+
+        retrieval_mode = "HYBRID" if qdrant_success else "POSTGRESQL_FALLBACK"
+        fused_results = rrf_fusion(
+            lexical_results=lexical_results,
+            semantic_results=semantic_results,
+            query=query,
+            top_k=limit,
+        )
+        return fused_results, retrieval_mode
 
     def search(
         self,

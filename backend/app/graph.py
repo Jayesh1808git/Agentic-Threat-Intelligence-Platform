@@ -11,25 +11,23 @@ from app.agents.recommendation import recommendation_agent
 from app.agents.report import report_agent
 
 
+from app.agents.web_search import evidence_is_sufficient, web_search_agent
+
+
 def evidence_decision(state: CyberRAGState) -> str:
+    candidates = state.get("candidate_vulnerabilities", [])
     internal_evidence = state.get("internal_evidence", [])
 
-    # No internal evidence → use Web Search
+    if not candidates:
+        return "validation"
+
     if not internal_evidence:
         return "web_search"
 
-    # Check whether important information is missing
-    for evidence in internal_evidence:
-
-        # Missing patch/fixed-version information
-        if not evidence.get("patched_versions"):
+    for candidate in candidates:
+        if not evidence_is_sufficient(candidate, internal_evidence):
             return "web_search"
 
-        # Unknown exploit status
-        if evidence.get("exploit_available") is None:
-            return "web_search"
-
-    # Internal evidence is sufficiently complete
     return "validation"
 
 

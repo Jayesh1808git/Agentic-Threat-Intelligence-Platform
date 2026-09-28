@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, HTTPException, status
 
 from app.api.schemas.assessment import (
@@ -22,7 +21,7 @@ def create_assessment(
     request: AssessmentRequest,
 ):
     try:
-        project_input = request.project_input.model_dump()
+        project_input = request.project_input.model_dump(exclude_none=True)
 
         result = run_cyberrag(project_input)
 
@@ -38,10 +37,20 @@ def create_assessment(
             detail=f"Assessment workflow failed: {exc}",
         ) from exc
 
+    retrieval_mode = result.get("retrieval_mode", "HYBRID")
+    assessment_status = "completed"
+    if retrieval_mode == "POSTGRESQL_FALLBACK":
+        assessment_status = "partial"
+    if result.get("errors") and not result.get("report"):
+        assessment_status = "failed"
+    llm_metadata = result.get("llm_metadata", {})
+
     return AssessmentResponse(
-        status="completed",
+        status=assessment_status,
+        retrieval_mode=retrieval_mode,
         project_name=request.project_input.name,
         report=result.get("report", {}),
         findings=result.get("validated_findings", []),
         errors=result.get("errors", []),
+        **llm_metadata,
     )

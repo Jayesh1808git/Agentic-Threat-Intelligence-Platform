@@ -1,47 +1,332 @@
+import json
+import logging
 from typing import Any
-
 from packaging.specifiers import SpecifierSet
 from packaging.version import InvalidVersion, Version
+from pydantic import BaseModel, Field
 
+from app.core.config import settings
 from app.agents.state import CyberRAGState
+from app.schemas.agent_outputs import ValidatedFinding, ValidationResult
+from app.services.llm import llm_service
+
+logger = logging.getLogger("validation_agent")
 
 
-# =========================================================
-# Version helpers
-# =========================================================
+SYSTEM_PROMPT = """
+You are the Validation Agent in an AI-agent-driven CyberRAG vulnerability assessment workflow.
+Your task is to determine: "Is this candidate vulnerability actually applicable to this organization's asset?"
 
+You must evaluate and reason over:
+- Project Asset (name, vendor, product, version)
+- Candidate Vulnerability details
+- Affected version ranges
+- Patched/fixed versions
+- Internal Evidence (PostgreSQL + Qdrant)
+- Web Evidence (external advisories)
+
+Evaluate the following explicit factors:
+1. identity_match (boolean): Do the vulnerability/CVE IDs in candidate and evidence match?
+2. product_match (boolean): Does the vendor/product in the advisory match the project asset?
+   CRITICAL: Web evidence must NEVER automatically override an identity or product mismatch! If the product names are completely different technologies (e.g. Django vs Spring), product_match MUST be false.
+3. version_match (boolean or null): Does the project's installed version fall inside the affected version range and below patched versions?
+4. evidence_quality: Assessment of evidence reliability and corroboration across sources.
+5. evidence_conflicts: List any conflicting claims between internal DB and external web advisories.
+6. final_applicability (boolean or null): Is the vulnerability confirmed applicable (true), confirmed not affected (false), or uncertain/insufficient (null)?
+7. confidence (float 0.0 to 1.0): Confidence score in your applicability decision.
+8. reason: Detailed explanation justifying the validation determination.
+
+Return structured output matching the ValidationResult schema.
+"""
+
+
+def validation_agent(state: CyberRAGState) -> dict[str, Any]:
+    """
+    Agent 5: Validation Agent
+
+    Determines whether candidate vulnerabilities are genuinely applicable to project assets
+    by combining deterministic version checks with AI agent batched reasoning.
+    """
+    candidates = state.get("candidate_vulnerabilities", [])
+    assets = state.get("assets", [])
+    internal_evidence = state.get("internal_evidence", [])
+    web_evidence = state.get("web_evidence", [])
+    errors = list(state.get("errors", []))
+
+    if not candidates:
+        return {
+            "validated_findings": [],
+            "errors": errors,
+        }
+
+    max_candidates = getattr(settings, "MAX_VALIDATION_CANDIDATES", 10)
+    batch_size = getattr(settings, "MAX_VALIDATION_BATCH_SIZE", 10)
+    candidates_to_process = candidates[:max_candidates]
+
+    logger.info(
+        "validation_mode=batched candidate_count=%d validation_candidate_count=%d",
+        len(candidates),
+        len(candidates_to_process),
+    )
+
+    # Pre-process candidate items and deterministic checks
+    prepared_items = []
+    for candidate in candidates_to_process:
+        cve = candidate.get("cve")
+        vulnerability_id = candidate.get("vulnerability_id") or candidate.get("cve") or "Unknown"
+
+        # Evidence lookup
+        related_internal = [
+            item for item in internal_evidence
+            if (item.get("cve") and item.get("cve") == cve) or
+               (item.get("vulnerability_id") and item.get("vulnerability_id") == vulnerability_id)
+        ]
+        merged_internal = _merge_internal_evidence(related_internal)
+
+        related_web = [
+            item for item in web_evidence
+            if (item.get("cve") and item.get("cve") == cve) or
+               (item.get("vulnerability_id") and item.get("vulnerability_id") == vulnerability_id)
+        ]
+        merged_web = _merge_web_evidence(related_web)
+
+        candidate_asset = candidate.get("asset", {})
+        if not isinstance(candidate_asset, dict):
+            candidate_asset = {}
+
+        asset_name = candidate_asset.get("name") or candidate.get("product") or "Unknown"
+        installed_version = candidate.get("asset_version") or candidate_asset.get("version")
+
+        if not installed_version and asset_name:
+            for a in assets:
+                if isinstance(a, dict) and str(a.get("name", "")).lower() == str(asset_name).lower():
+                    installed_version = a.get("version")
+                    break
+
+        evidence_base = merged_internal[0] if merged_internal else candidate
+        affected_versions = evidence_base.get("affected_versions", [])
+        patched_versions = evidence_base.get("patched_versions", [])
+
+        # Deterministic version and product checks
+        version_affected = _version_in_range(installed_version, affected_versions)
+        patch_status = _version_is_patched(installed_version, patched_versions)
+        identity_valid = _validate_identity(candidate, merged_internal)
+        product_valid = _validate_product(candidate, merged_internal)
+
+        prepared_items.append({
+            "candidate": candidate,
+            "vulnerability_id": vulnerability_id,
+            "cve": cve,
+            "asset": candidate_asset,
+            "asset_name": asset_name,
+            "installed_version": installed_version,
+            "affected_versions": affected_versions,
+            "patched_versions": patched_versions,
+            "version_affected": version_affected,
+            "patch_status": patch_status,
+            "identity_valid": identity_valid,
+            "product_valid": product_valid,
+            "merged_internal": merged_internal,
+            "merged_web": merged_web,
+        })
+
+    # AI Batched Reasoning
+    llm_results = {}
+    if llm_service.is_configured() and prepared_items:
+        try:
+            compact_candidates = [
+                {
+                    "vulnerability_id": item["vulnerability_id"],
+                    "asset_name": item["asset_name"],
+                    "installed_version": item["installed_version"],
+                    "product": item["candidate"].get("product"),
+                    "affected_versions": item["affected_versions"],
+                    "patched_versions": item["patched_versions"],
+                    "description": str(item["candidate"].get("description", ""))[:250],
+                }
+                for item in prepared_items[:batch_size]
+            ]
+            prompt = f"Validate applicability for candidates:\n{json.dumps(compact_candidates, indent=2)}"
+            
+            from app.schemas.agent_outputs import BatchValidationResult
+            res: BatchValidationResult = llm_service.invoke_structured(
+                prompt=prompt,
+                response_model=BatchValidationResult,
+                system_prompt=SYSTEM_PROMPT,
+                agent_name="validation",
+            )
+            for res_item in res.results:
+                if res_item.vulnerability_id:
+                    llm_results[res_item.vulnerability_id] = res_item
+        except Exception as exc:
+            logger.warning("LLM batched validation failed: %s. Using deterministic fallback.", exc)
+            errors.append(f"LLM validation warning: {exc}")
+
+    validated_findings: list[dict[str, Any]] = []
+
+    for item in prepared_items:
+        v_id = item["vulnerability_id"]
+        candidate = item["candidate"]
+        asset_name = item["asset_name"]
+        installed_version = item["installed_version"]
+        affected_versions = item["affected_versions"]
+        patched_versions = item["patched_versions"]
+        identity_valid = item["identity_valid"]
+        product_valid = item["product_valid"]
+        version_affected = item["version_affected"]
+        patch_status = item["patch_status"]
+        merged_internal = item["merged_internal"]
+        merged_web = item["merged_web"]
+
+        llm_match = llm_results.get(v_id)
+
+        if llm_match:
+            applicable = llm_match.applicable
+            confidence = llm_match.confidence
+            reason = llm_match.reason or "Validated via AI batched reasoning."
+            if applicable and identity_valid and product_valid:
+                status = "validated"
+                affected = True
+            elif not applicable or not product_valid or not identity_valid:
+                status = "not_affected"
+                affected = False
+            else:
+                status = "needs_review"
+                affected = None
+        else:
+            # Deterministic Fallback if LLM unavailable or omitted candidate
+            if identity_valid and product_valid and version_affected is True and not patch_status:
+                status = "validated"
+                affected = True
+                reason = f"The project uses {asset_name} {installed_version} which falls within the affected version range ({affected_versions}) and is not patched."
+                confidence = 0.95
+            elif identity_valid and product_valid and (version_affected is False or patch_status is True):
+                status = "not_affected"
+                affected = False
+                reason = f"The installed version ({installed_version}) does not fall within affected ranges or is already patched (fixed in {patched_versions})."
+                confidence = 0.90
+            elif not product_valid or not identity_valid:
+                status = "not_affected"
+                affected = False
+                reason = f"Product/vendor mismatch: Asset '{asset_name}' does not match vulnerability target '{candidate.get('product')}'."
+                confidence = 0.95
+            else:
+                status = "needs_review"
+                affected = None
+                reason = "Available evidence is insufficient or version range requires manual review."
+                confidence = 0.50
+
+        # Construct final ValidatedFinding dictionary, preserving ALL trusted DB facts
+        finding_dict = {
+            "asset": item["asset"] or {"name": asset_name, "version": installed_version},
+            "vulnerability": v_id,
+            "vulnerability_id": v_id,
+            "cve": item["cve"],
+            "status": status,
+            "affected": affected,
+            "confidence": confidence,
+            "identity_match": identity_valid,
+            "product_match": product_valid,
+            "version_match": version_affected,
+            "patch_status": patch_status,
+            "source_corroborated": bool(merged_internal or merged_web),
+            "reason": reason,
+            "affected_versions": affected_versions,
+            "patched_versions": patched_versions,
+            "cvss": candidate.get("cvss") if candidate.get("cvss") is not None else (merged_internal[0].get("cvss") if merged_internal else None),
+            "cvss_vector": candidate.get("cvss_vector") if candidate.get("cvss_vector") is not None else (merged_internal[0].get("cvss_vector") if merged_internal else None),
+            "epss": candidate.get("epss") if candidate.get("epss") is not None else (merged_internal[0].get("epss") if merged_internal else None),
+            "kev": candidate.get("kev") if candidate.get("kev") is not None else (merged_internal[0].get("kev") if merged_internal else False),
+            "exploit_available": candidate.get("exploit_available") if candidate.get("exploit_available") is not None else (merged_internal[0].get("exploit_available") if merged_internal else False),
+            "evidence": _build_evidence_items(merged_internal, merged_web),
+        }
+        validated_findings.append(finding_dict)
+
+    return {
+        "validated_findings": validated_findings,
+        "errors": errors,
+    }
+
+
+def _build_validation_prompt(
+    candidate: dict[str, Any],
+    asset_name: str,
+    installed_version: str | None,
+    affected_versions: list[str],
+    patched_versions: list[str],
+    identity_valid: bool,
+    product_valid: bool,
+    version_affected: bool | None,
+    patch_status: bool | None,
+    internal_evidence: list[dict[str, Any]],
+    web_evidence: list[dict[str, Any]],
+) -> str:
+    return (
+        f"Validate vulnerability applicability:\n\n"
+        f"Target Asset: {asset_name} (Installed Version: {installed_version or 'Not specified'})\n"
+        f"Vulnerability: {candidate.get('cve') or candidate.get('vulnerability_id')}\n"
+        f"Candidate Vendor/Product: {candidate.get('vendor')} / {candidate.get('product')}\n"
+        f"Vulnerability Description: {candidate.get('description', '')[:400]}\n"
+        f"Affected Versions in DB: {affected_versions}\n"
+        f"Patched Versions in DB: {patched_versions}\n"
+        f"Deterministic Identity Match: {identity_valid}\n"
+        f"Deterministic Product Match: {product_valid}\n"
+        f"Deterministic Version Match (in range): {version_affected}\n"
+        f"Deterministic Patch Status (is patched): {patch_status}\n\n"
+        f"Internal Evidence Count: {len(internal_evidence)}\n"
+        f"Web Evidence Count: {len(web_evidence)}\n"
+    )
+
+
+def _build_evidence_items(internal: list[dict[str, Any]], web: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    items = []
+    for item in internal:
+        items.append({
+            "type": "internal",
+            "vulnerability_id": item.get("vulnerability_id"),
+            "cve": item.get("cve"),
+            "title": item.get("title"),
+            "vendor": item.get("vendor"),
+            "product": item.get("product"),
+            "affected_versions": item.get("affected_versions", []),
+            "patched_versions": item.get("patched_versions", []),
+            "cvss": item.get("cvss"),
+            "epss": item.get("epss"),
+            "kev": item.get("kev"),
+            "exploit_available": item.get("exploit_available"),
+            "semantic_score": item.get("semantic_score"),
+            "lexical_score": item.get("lexical_score"),
+            "retrieval_sources": item.get("retrieval_sources", []),
+        })
+    for item in web:
+        items.append({
+            "type": "external",
+            "source_type": item.get("source_type"),
+            "source": item.get("source"),
+            "url": item.get("url"),
+            "cve": item.get("cve"),
+            "vulnerability_id": item.get("vulnerability_id"),
+            "reason_relevant": item.get("reason_relevant"),
+        })
+    return items
+
+
+# Version comparison helpers
 def _parse_version(value: Any) -> Version | None:
-    """Safely convert a version string into packaging Version."""
-
     if value is None:
         return None
-
-    value = str(value).strip()
-
-    if not value:
+    val_str = str(value).strip()
+    if not val_str:
         return None
-
     try:
-        return Version(value)
+        return Version(val_str)
     except InvalidVersion:
         return None
 
 
-def _version_in_range(
-    installed_version: Any,
-    affected_ranges: Any,
-) -> bool | None:
-    """
-    Determine whether installed version falls inside
-    the vulnerability affected version range.
-    """
-
+def _version_in_range(installed_version: Any, affected_ranges: Any) -> bool | None:
     installed = _parse_version(installed_version)
-
-    if installed is None:
-        return None
-
-    if not affected_ranges:
+    if installed is None or not affected_ranges:
         return None
 
     if isinstance(affected_ranges, str):
@@ -51,78 +336,41 @@ def _version_in_range(
         return None
 
     for raw_range in affected_ranges:
-
-        if raw_range is None:
+        if not raw_range:
             continue
-
         range_text = str(raw_range).strip()
-
-        if not range_text:
-            continue
-
-        # Python packaging specifiers
         try:
-            if any(
-                operator in range_text
-                for operator in ["<", ">", "=", "!", "~"]
-            ):
+            if any(op in range_text for op in ["<", ">", "=", "!", "~"]):
                 try:
-                    specifier = SpecifierSet(range_text)
-
-                    if installed in specifier:
+                    spec = SpecifierSet(range_text)
+                    if installed in spec:
                         return True
-
                     continue
                 except Exception:
                     pass
-
         except Exception:
             pass
 
-        # Human-readable range
-        # Example: 2.0 - 2.14.1
         if " - " in range_text:
-
             parts = range_text.split(" - ", 1)
-
             if len(parts) == 2:
-
                 lower = _parse_version(parts[0])
                 upper = _parse_version(parts[1])
-
                 if lower and upper:
-
                     if lower <= installed <= upper:
                         return True
-
                     continue
 
-        # Exact version
         exact = _parse_version(range_text)
-
-        if exact is not None:
-
-            if installed == exact:
-                return True
+        if exact is not None and installed == exact:
+            return True
 
     return False
 
 
-def _version_is_patched(
-    installed_version: Any,
-    patched_versions: Any,
-) -> bool | None:
-    """
-    Determine whether installed version is at or above
-    a known patched version.
-    """
-
+def _version_is_patched(installed_version: Any, patched_versions: Any) -> bool | None:
     installed = _parse_version(installed_version)
-
-    if installed is None:
-        return None
-
-    if not patched_versions:
+    if installed is None or not patched_versions:
         return None
 
     if isinstance(patched_versions, str):
@@ -131,325 +379,15 @@ def _version_is_patched(
     if not isinstance(patched_versions, list):
         return None
 
-    parsed_patches: list[Version] = []
-
-    for value in patched_versions:
-
-        parsed = _parse_version(value)
-
-        if parsed:
-            parsed_patches.append(parsed)
-
+    parsed_patches = [_parse_version(v) for v in patched_versions if _parse_version(v) is not None]
     if not parsed_patches:
         return None
 
     earliest_patch = min(parsed_patches)
-
     return installed >= earliest_patch
 
 
-# =========================================================
-# Deduplication / merge helpers
-# =========================================================
-
-def _merge_unique_values(*values: Any) -> list[Any]:
-    """
-    Merge list/scalar values while preserving order
-    and removing duplicates.
-    """
-
-    result: list[Any] = []
-
-    for value in values:
-
-        if value is None:
-            continue
-
-        if isinstance(value, (list, tuple, set)):
-            items = value
-        else:
-            items = [value]
-
-        for item in items:
-
-            if item is None:
-                continue
-
-            if item not in result:
-                result.append(item)
-
-    return result
-
-
-def _best_numeric_value(*values: Any) -> Any:
-    """
-    Return the strongest/largest numeric value available.
-
-    Used for retrieval scores where multiple retrieval
-    records exist for the same vulnerability.
-    """
-
-    numeric_values: list[float] = []
-
-    original_values: list[Any] = []
-
-    for value in values:
-
-        if value is None:
-            continue
-
-        original_values.append(value)
-
-        try:
-            numeric_values.append(float(value))
-        except (TypeError, ValueError):
-            continue
-
-    if numeric_values:
-        return max(numeric_values)
-
-    if original_values:
-        return original_values[0]
-
-    return None
-
-
-def _merge_internal_evidence(
-    related_internal: list[dict[str, Any]],
-) -> list[dict[str, Any]]:
-    """
-    Deduplicate internal PostgreSQL/Qdrant evidence.
-
-    Multiple lexical/semantic retrieval records for the
-    same vulnerability are merged into ONE evidence record.
-
-    Important:
-    - lexical_score is preserved
-    - semantic_score is preserved
-    - retrieval_sources are unioned
-    - CVSS/EPSS/KEV/exploit information is preserved
-    - affected/patched versions are merged
-    - references are merged
-    """
-
-    merged: dict[str, dict[str, Any]] = {}
-
-    for item in related_internal:
-
-        cve = str(item.get("cve") or "").strip()
-        vulnerability_id = str(
-            item.get("vulnerability_id") or ""
-        ).strip()
-
-        # Prefer CVE as primary identity.
-        if cve:
-            key = f"cve:{cve}"
-        elif vulnerability_id:
-            key = f"id:{vulnerability_id}"
-        else:
-            # Unknown identity should not accidentally merge
-            # unrelated evidence.
-            key = f"unknown:{id(item)}"
-
-        if key not in merged:
-
-            merged[key] = dict(item)
-
-            merged[key]["affected_versions"] = (
-                _merge_unique_values(
-                    item.get("affected_versions", [])
-                )
-            )
-
-            merged[key]["patched_versions"] = (
-                _merge_unique_values(
-                    item.get("patched_versions", [])
-                )
-            )
-
-            merged[key]["references"] = (
-                _merge_unique_values(
-                    item.get("references", [])
-                )
-            )
-
-            merged[key]["retrieval_sources"] = (
-                _merge_unique_values(
-                    item.get("retrieval_sources", [])
-                )
-            )
-
-            merged[key]["lexical_score"] = item.get(
-                "lexical_score"
-            )
-
-            merged[key]["semantic_score"] = item.get(
-                "semantic_score"
-            )
-
-            continue
-
-        existing = merged[key]
-
-        # -------------------------------------------------
-        # Fill missing scalar information
-        # -------------------------------------------------
-
-        scalar_fields = [
-            "vulnerability_id",
-            "cve",
-            "title",
-            "description",
-            "vendor",
-            "product",
-            "cvss",
-            "cvss_vector",
-            "epss",
-            "kev",
-            "exploit_available",
-        ]
-
-        for field in scalar_fields:
-
-            if existing.get(field) is None:
-                if item.get(field) is not None:
-                    existing[field] = item.get(field)
-
-        # -------------------------------------------------
-        # Merge version information
-        # -------------------------------------------------
-
-        existing["affected_versions"] = _merge_unique_values(
-            existing.get("affected_versions", []),
-            item.get("affected_versions", []),
-        )
-
-        existing["patched_versions"] = _merge_unique_values(
-            existing.get("patched_versions", []),
-            item.get("patched_versions", []),
-        )
-
-        # -------------------------------------------------
-        # Merge references
-        # -------------------------------------------------
-
-        existing["references"] = _merge_unique_values(
-            existing.get("references", []),
-            item.get("references", []),
-        )
-
-        # -------------------------------------------------
-        # Merge retrieval sources
-        # -------------------------------------------------
-
-        existing["retrieval_sources"] = _merge_unique_values(
-            existing.get("retrieval_sources", []),
-            item.get("retrieval_sources", []),
-        )
-
-        # -------------------------------------------------
-        # Preserve BEST lexical score
-        # -------------------------------------------------
-
-        existing["lexical_score"] = _best_numeric_value(
-            existing.get("lexical_score"),
-            item.get("lexical_score"),
-        )
-
-        # -------------------------------------------------
-        # Preserve BEST semantic score
-        # -------------------------------------------------
-
-        existing["semantic_score"] = _best_numeric_value(
-            existing.get("semantic_score"),
-            item.get("semantic_score"),
-        )
-
-    return list(merged.values())
-
-
-def _merge_web_evidence(
-    related_web: list[dict[str, Any]],
-) -> list[dict[str, Any]]:
-    """
-    Deduplicate external evidence.
-
-    Stable identity:
-        source_type + URL + CVE
-
-    This keeps different sources separate while removing
-    exact duplicates.
-    """
-
-    merged: dict[str, dict[str, Any]] = {}
-
-    for item in related_web:
-
-        source_type = str(
-            item.get("source_type") or ""
-        ).strip()
-
-        url = str(
-            item.get("url") or ""
-        ).strip()
-
-        cve = str(
-            item.get("cve")
-            or item.get("vulnerability_id")
-            or ""
-        ).strip()
-
-        key = "|".join(
-            [
-                source_type,
-                url,
-                cve,
-            ]
-        )
-
-        if not key.strip("|"):
-
-            key = f"unknown:{id(item)}"
-
-        if key not in merged:
-
-            merged[key] = dict(item)
-            continue
-
-        existing = merged[key]
-
-        # Fill missing fields.
-        for field in [
-            "source_type",
-            "source",
-            "url",
-            "cve",
-            "vulnerability_id",
-            "cvss",
-            "epss",
-            "kev",
-            "exploit_available",
-            "published_at",
-            "relevant_information",
-        ]:
-
-            if existing.get(field) is None:
-
-                if item.get(field) is not None:
-                    existing[field] = item.get(field)
-
-    return list(merged.values())
-
-
-# =========================================================
-# Identity validation
-# =========================================================
-
-def _validate_identity(
-    candidate: dict[str, Any],
-    evidence: list[dict[str, Any]],
-) -> bool:
-
+def _validate_identity(candidate: dict[str, Any], evidence: list[dict[str, Any]]) -> bool:
     candidate_cve = candidate.get("cve")
     candidate_id = candidate.get("vulnerability_id")
 
@@ -457,687 +395,68 @@ def _validate_identity(
         return False
 
     for item in evidence:
-
         if candidate_cve and item.get("cve") == candidate_cve:
             return True
-
-        if (
-            candidate_id
-            and item.get("vulnerability_id") == candidate_id
-        ):
+        if candidate_id and item.get("vulnerability_id") == candidate_id:
             return True
 
-    return False
+    return bool(candidate_cve or candidate_id)
 
 
-# =========================================================
-# Product validation
-# =========================================================
-
-def _validate_product(
-    candidate: dict[str, Any],
-    evidence: list[dict[str, Any]],
-) -> bool:
-
+def _validate_product(candidate: dict[str, Any], evidence: list[dict[str, Any]]) -> bool:
     candidate_vendor = candidate.get("vendor")
     candidate_product = candidate.get("product")
+    asset = candidate.get("asset", {})
+    asset_name = asset.get("name") if isinstance(asset, dict) else candidate_product
+
+    # Asset name vs Candidate product check
+    if asset_name and candidate_product:
+        c_prod = str(candidate_product).lower()
+        a_name = str(asset_name).lower()
+        if c_prod not in a_name and a_name not in c_prod:
+            return False
+
+    if not evidence:
+        return True
 
     for item in evidence:
+        v_match = True
+        p_match = True
 
-        vendor_matches = True
-        product_matches = True
+        if candidate_vendor and item.get("vendor"):
+            ev_vendor = str(item.get("vendor")).lower()
+            cand_vendor = str(candidate_vendor).lower()
+            v_match = cand_vendor in ev_vendor or ev_vendor in cand_vendor
 
-        if candidate_vendor:
+        if candidate_product and item.get("product"):
+            ev_prod = str(item.get("product")).lower()
+            cand_prod = str(candidate_product).lower()
+            p_match = cand_prod in ev_prod or ev_prod in cand_prod or (asset_name and str(asset_name).lower() in ev_prod)
 
-            evidence_vendor = item.get("vendor")
-
-            if evidence_vendor:
-
-                vendor_matches = (
-                    str(candidate_vendor).lower()
-                    == str(evidence_vendor).lower()
-                )
-
-        if candidate_product:
-
-            evidence_product = item.get("product")
-
-            if evidence_product:
-
-                product_matches = (
-                    str(candidate_product).lower()
-                    == str(evidence_product).lower()
-                )
-
-        if vendor_matches and product_matches:
+        if v_match and p_match:
             return True
 
     return False
 
 
-# =========================================================
-# Source corroboration
-# =========================================================
-
-def _collect_sources(
-    internal_evidence: list[dict[str, Any]],
-    web_evidence: list[dict[str, Any]],
-) -> list[str]:
-
-    sources: list[str] = []
-
-    for item in internal_evidence:
-
-        for source in item.get(
-            "retrieval_sources",
-            [],
-        ):
-
-            if source not in sources:
-                sources.append(source)
-
-    for item in web_evidence:
-
-        source_type = item.get("source_type")
-
-        if source_type and source_type not in sources:
-            sources.append(source_type)
-
-    return sources
-
-
-# =========================================================
-# Vulnerability intelligence extraction
-# =========================================================
-
-def _extract_vulnerability_intelligence(
-    candidate: dict[str, Any],
-    internal_evidence: list[dict[str, Any]],
-    web_evidence: list[dict[str, Any]],
-) -> dict[str, Any]:
-    """
-    Preserve vulnerability intelligence from PostgreSQL/Qdrant
-    and external web evidence.
-
-    This data is required by the Risk Assessment Agent.
-    """
-
-    result = {
-        "cvss": candidate.get("cvss"),
-        "cvss_vector": candidate.get("cvss_vector"),
-        "epss": candidate.get("epss"),
-        "kev": candidate.get("kev"),
-        "exploit_available": candidate.get(
-            "exploit_available"
-        ),
-    }
-
-    # Internal evidence is authoritative when available.
-    for item in internal_evidence:
-
-        if item.get("cvss") is not None:
-            result["cvss"] = item.get("cvss")
-
-        if item.get("cvss_vector") is not None:
-            result["cvss_vector"] = item.get(
-                "cvss_vector"
-            )
-
-        if item.get("epss") is not None:
-            result["epss"] = item.get("epss")
-
-        if item.get("kev") is not None:
-            result["kev"] = item.get("kev")
-
-        if item.get("exploit_available") is not None:
-            result["exploit_available"] = item.get(
-                "exploit_available"
-            )
-
-    # Web evidence can supplement missing values.
-    for item in web_evidence:
-
-        if (
-            result["cvss"] is None
-            and item.get("cvss") is not None
-        ):
-            result["cvss"] = item.get("cvss")
-
-        if (
-            result["epss"] is None
-            and item.get("epss") is not None
-        ):
-            result["epss"] = item.get("epss")
-
-        if (
-            result["kev"] is None
-            and item.get("kev") is not None
-        ):
-            result["kev"] = item.get("kev")
-
-        if (
-            result["exploit_available"] is None
-            and item.get("exploit_available") is not None
-        ):
-            result["exploit_available"] = item.get(
-                "exploit_available"
-            )
-
-    return result
-
-
-# =========================================================
-# Validation Agent
-# =========================================================
-
-def validation_agent(
-    state: CyberRAGState,
-) -> dict[str, Any]:
-    """
-    Agent 5: Validation Agent.
-
-    Determines whether candidate vulnerabilities are
-    sufficiently supported and applicable.
-
-    Validation checks:
-
-    1. Identity
-    2. Product
-    3. Installed version
-    4. Patch information
-    5. Source corroboration
-
-    This agent does NOT calculate organizational risk.
-    """
-
-    candidates = state.get(
-        "candidate_vulnerabilities",
-        [],
-    )
-
-    assets = state.get(
-        "assets",
-        [],
-    )
-
-    internal_evidence = state.get(
-        "internal_evidence",
-        [],
-    )
-
-    web_evidence = state.get(
-        "web_evidence",
-        [],
-    )
-
-    errors = list(
-        state.get(
-            "errors",
-            [],
-        )
-    )
-
-    validated_findings: list[dict[str, Any]] = []
-
-    for candidate in candidates:
-
-        cve = candidate.get("cve")
-
-        vulnerability_id = candidate.get(
-            "vulnerability_id"
-        )
-
-        # -------------------------------------------------
-        # Find related internal evidence
-        # -------------------------------------------------
-
-        related_internal_raw = [
-            item
-            for item in internal_evidence
-            if (
-                item.get("cve") == cve
-                or item.get("vulnerability_id")
-                == vulnerability_id
-            )
-        ]
-
-        # IMPORTANT:
-        # Merge duplicate lexical/semantic retrieval
-        # records before doing validation.
-        related_internal = _merge_internal_evidence(
-            related_internal_raw
-        )
-
-        # -------------------------------------------------
-        # Find related web evidence
-        # -------------------------------------------------
-
-        related_web_raw = [
-            item
-            for item in web_evidence
-            if (
-                item.get("cve") == cve
-                or item.get("vulnerability_id")
-                == vulnerability_id
-            )
-        ]
-
-        related_web = _merge_web_evidence(
-            related_web_raw
-        )
-
-        # -------------------------------------------------
-        # Find asset
-        # -------------------------------------------------
-
-        candidate_asset = candidate.get(
-            "asset",
-            {},
-        )
-
-        if not isinstance(candidate_asset, dict):
-            candidate_asset = {}
-
-        asset_name = (
-            candidate_asset.get("name")
-            or candidate.get("product")
-        )
-
-        installed_version = (
-            candidate.get("asset_version")
-            or candidate_asset.get("version")
-        )
-
-        # If asset was not embedded in candidate,
-        # find it in state.
-        if not installed_version and asset_name:
-
-            for asset in assets:
-
-                if (
-                    str(asset.get("name", "")).lower()
-                    == str(asset_name).lower()
-                ):
-
-                    installed_version = asset.get(
-                        "version"
-                    )
-
-                    break
-
-        # -------------------------------------------------
-        # Use merged internal evidence
-        # -------------------------------------------------
-
-        evidence = (
-            related_internal[0]
-            if related_internal
-            else candidate
-        )
-
-        affected_versions = evidence.get(
-            "affected_versions"
-        )
-
-        patched_versions = evidence.get(
-            "patched_versions"
-        )
-
-        # -------------------------------------------------
-        # Validation checks
-        # -------------------------------------------------
-
-        identity_valid = _validate_identity(
-            candidate,
-            related_internal,
-        )
-
-        if not identity_valid and related_web:
-            identity_valid = True
-
-        product_valid = _validate_product(
-            candidate,
-            related_internal,
-        )
-
-        if not product_valid and related_web:
-            product_valid = True
-
-        version_affected = _version_in_range(
-            installed_version,
-            affected_versions,
-        )
-
-        patch_status = _version_is_patched(
-            installed_version,
-            patched_versions,
-        )
-
-        corroborating_sources = _collect_sources(
-            related_internal,
-            related_web,
-        )
-
-        source_corroborated = (
-            len(corroborating_sources) > 0
-        )
-
-        # -------------------------------------------------
-        # Discrepancies
-        # -------------------------------------------------
-
-        discrepancies: list[str] = []
-
-        if not identity_valid:
-
-            discrepancies.append(
-                "Vulnerability identity could not "
-                "be corroborated."
-            )
-
-        if not product_valid:
-
-            discrepancies.append(
-                "Vendor/product could not be "
-                "corroborated."
-            )
-
-        if version_affected is None:
-
-            discrepancies.append(
-                "Installed version or affected "
-                "version range is unavailable."
-            )
-
-        if patch_status is None:
-
-            discrepancies.append(
-                "Patched/fixed version information "
-                "is unavailable."
-            )
-
-        if not source_corroborated:
-
-            discrepancies.append(
-                "No supporting evidence source "
-                "was identified."
-            )
-
-        # -------------------------------------------------
-        # Final validation determination
-        # -------------------------------------------------
-
-        if (
-            identity_valid
-            and product_valid
-            and version_affected is True
-            and source_corroborated
-        ):
-
-            status = "validated"
-            affected = True
-
-            reason = (
-                "The candidate vulnerability is supported "
-                "by the available evidence and the "
-                "installed version falls within the "
-                "identified affected range."
-            )
-
-        elif (
-            identity_valid
-            and product_valid
-            and version_affected is False
-        ):
-
-            status = "not_affected"
-            affected = False
-
-            reason = (
-                "The installed version does not fall "
-                "within the identified affected range."
-            )
-
+def _merge_internal_evidence(related: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for item in related:
+        key = item.get("cve") or item.get("vulnerability_id") or str(id(item))
+        if key not in merged:
+            merged[key] = dict(item)
         else:
-
-            status = "needs_review"
-            affected = None
-
-            reason = (
-                "The available evidence is insufficient "
-                "to establish applicability conclusively."
-            )
-
-        # -------------------------------------------------
-        # Extract vulnerability intelligence
-        # -------------------------------------------------
-
-        vulnerability_intelligence = (
-            _extract_vulnerability_intelligence(
-                candidate,
-                related_internal,
-                related_web,
-            )
-        )
-
-        # -------------------------------------------------
-        # Preserve evidence
-        # -------------------------------------------------
-
-        evidence_items: list[dict[str, Any]] = []
-
-        # Each vulnerability now produces ONE merged
-        # internal evidence item.
-        for item in related_internal:
-
-            evidence_items.append(
-                {
-                    "type": "internal",
-
-                    "vulnerability_id": item.get(
-                        "vulnerability_id"
-                    ),
-
-                    "cve": item.get("cve"),
-
-                    "title": item.get("title"),
-
-                    "description": item.get(
-                        "description"
-                    ),
-
-                    "vendor": item.get("vendor"),
-
-                    "product": item.get("product"),
-
-                    "affected_versions": item.get(
-                        "affected_versions",
-                        [],
-                    ),
-
-                    "patched_versions": item.get(
-                        "patched_versions",
-                        [],
-                    ),
-
-                    # Risk intelligence
-                    "cvss": item.get("cvss"),
-
-                    "cvss_vector": item.get(
-                        "cvss_vector"
-                    ),
-
-                    "epss": item.get("epss"),
-
-                    "kev": item.get("kev"),
-
-                    "exploit_available": item.get(
-                        "exploit_available"
-                    ),
-
-                    "references": item.get(
-                        "references",
-                        [],
-                    ),
-
-                    # IMPORTANT:
-                    # Both retrieval scores are preserved.
-                    "semantic_score": item.get(
-                        "semantic_score"
-                    ),
-
-                    "lexical_score": item.get(
-                        "lexical_score"
-                    ),
-
-                    # IMPORTANT:
-                    # Example:
-                    # ["lexical", "semantic"]
-                    "retrieval_sources": item.get(
-                        "retrieval_sources",
-                        [],
-                    ),
-                }
-            )
-
-        # Web evidence stays separate.
-        for item in related_web:
-
-            evidence_items.append(
-                {
-                    "type": "external",
-
-                    "source_type": item.get(
-                        "source_type"
-                    ),
-
-                    "source": item.get("source"),
-
-                    "url": item.get("url"),
-
-                    "cve": item.get("cve"),
-
-                    "vulnerability_id": item.get(
-                        "vulnerability_id"
-                    ),
-
-                    "cvss": item.get("cvss"),
-
-                    "epss": item.get("epss"),
-
-                    "kev": item.get("kev"),
-
-                    "exploit_available": item.get(
-                        "exploit_available"
-                    ),
-
-                    "published_at": item.get(
-                        "published_at"
-                    ),
-
-                    "relevant_information": item.get(
-                        "relevant_information"
-                    ),
-                }
-            )
-
-        # -------------------------------------------------
-        # Final validated finding
-        # -------------------------------------------------
-
-        validated_findings.append(
-            {
-                "asset": {
-                    "name": asset_name,
-
-                    "version": installed_version,
-
-                    "vendor": candidate.get(
-                        "vendor"
-                    ),
-
-                    "product": candidate.get(
-                        "product"
-                    ),
-
-                    # Optional organizational
-                    # risk attributes.
-                    "criticality": candidate_asset.get(
-                        "criticality"
-                    ),
-
-                    "business_impact": candidate_asset.get(
-                        "business_impact"
-                    ),
-                },
-
-                "vulnerability": (
-                    cve
-                    or vulnerability_id
-                ),
-
-                "vulnerability_id": vulnerability_id,
-
-                "status": status,
-
-                "affected": affected,
-
-                "reason": reason,
-
-                "validation_checks": {
-                    "identity": identity_valid,
-
-                    "product": product_valid,
-
-                    "version": version_affected,
-
-                    "patch": patch_status,
-
-                    "source_corroboration": (
-                        source_corroborated
-                    ),
-                },
-
-                "affected_versions": (
-                    affected_versions or []
-                ),
-
-                "patched_versions": (
-                    patched_versions or []
-                ),
-
-                # Risk Agent reads these directly.
-                "cvss": vulnerability_intelligence[
-                    "cvss"
-                ],
-
-                "cvss_vector": vulnerability_intelligence[
-                    "cvss_vector"
-                ],
-
-                "epss": vulnerability_intelligence[
-                    "epss"
-                ],
-
-                "kev": vulnerability_intelligence[
-                    "kev"
-                ],
-
-                "exploit_available": (
-                    vulnerability_intelligence[
-                        "exploit_available"
-                    ]
-                ),
-
-                "evidence": evidence_items,
-
-                "sources": corroborating_sources,
-
-                "discrepancies": discrepancies,
-            }
-        )
-
-    return {
-        "validated_findings": validated_findings,
-        "errors": errors,
-    }
+            for field in ["affected_versions", "patched_versions", "references", "retrieval_sources"]:
+                existing = merged[key].get(field, [])
+                new_items = item.get(field, [])
+                merged[key][field] = list(set(existing + new_items))
+    return list(merged.values())
+
+
+def _merge_web_evidence(related: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    merged: dict[str, dict[str, Any]] = {}
+    for item in related:
+        key = f"{item.get('source_type')}|{item.get('url')}|{item.get('cve')}"
+        if key not in merged:
+            merged[key] = dict(item)
+    return list(merged.values())

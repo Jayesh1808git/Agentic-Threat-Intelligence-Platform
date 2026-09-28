@@ -8,15 +8,24 @@ from app.database.qdrant import get_qdrant_client
 
 class QdrantVectorStore:
 
-    def __init__(self):
-        self.client: QdrantClient = get_qdrant_client()
-        self.collection_name: str = settings.QDRANT_COLLECTION
+    def __init__(
+        self,
+        url: str | None = None,
+        api_key: str | None = None,
+        collection_name: str | None = None,
+    ):
+        if url:
+            self.client = QdrantClient(url=url, api_key=api_key)
+        else:
+            self.client: QdrantClient = get_qdrant_client()
+        self.collection_name: str = collection_name or settings.QDRANT_COLLECTION
 
     def ensure_payload_indexes(self) -> None:
         payload_fields = [
             ("vendor", models.PayloadSchemaType.KEYWORD),
             ("product", models.PayloadSchemaType.KEYWORD),
             ("source", models.PayloadSchemaType.KEYWORD),
+            ("severity", models.PayloadSchemaType.KEYWORD),
             ("kev", models.PayloadSchemaType.BOOL),
             ("exploit_available", models.PayloadSchemaType.BOOL),
         ]
@@ -61,10 +70,11 @@ class QdrantVectorStore:
             "product": record.product or "",
             "title": record.title or "",
             "cvss": record.cvss,
+            "severity": str(record.cvss) if getattr(record, "cvss", None) is not None else "UNKNOWN",
             "epss": record.epss,
             "kev": bool(record.kev),
             "exploit_available": bool(record.exploit_available),
-            "content_hash": record.content_hash or "",
+            "content_hash": getattr(record, "content_hash", None) or "",
         }
 
     def upsert_batch(

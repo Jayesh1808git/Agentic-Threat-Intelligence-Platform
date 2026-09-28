@@ -1,666 +1,222 @@
+import logging
 from typing import Any
+from pydantic import BaseModel, Field
 
 from app.agents.state import CyberRAGState
+from app.schemas.agent_outputs import Recommendation, RecommendationResult
+from app.services.llm import llm_service
+
+logger = logging.getLogger("recommendation_agent")
 
 
-# =========================================================
-# Helper: Find documented fixed version
-# =========================================================
+SYSTEM_PROMPT = """
+You are the Recommendation Agent in an AI-agent-driven CyberRAG vulnerability assessment workflow.
+Your task is to generate evidence-based remediation recommendations for validated vulnerability findings.
 
-def _find_fixed_version(
-    finding: dict[str, Any],
-) -> str | None:
+Requirements:
+1. Determine appropriate remediation action:
+   - "upgrade": If a verified patched/fixed version exists in the evidence (e.g., "Upgrade Spring Boot from 3.2.5 to 3.2.8 or later").
+   - "patch": Apply official vendor security patch.
+   - "mitigation": Apply documented configuration changes, temporary workarounds, or firewall/WAF rules.
+   - "investigate": If no verified fixed version or official mitigation guidance exists in the evidence.
+
+2. CRITICAL CONSTRAINT:
+   Do NOT invent, fabricate, or hallucinate a target version or patched version if it is NOT present in the database or retrieved evidence!
+   If the evidence states "fixed in 3.2.8", recommend upgrading to 3.2.8 or later.
+   If no patched version is documented, set target_version to null and state clearly in description that no official fixed version is confirmed in current evidence.
+
+3. Assign priority based on risk level:
+   - "urgent": Critical risk
+   - "high": High risk
+   - "medium": Medium risk
+   - "low": Low risk
+
+4. Provide clear, actionable remediation instructions and mitigations.
+
+Return structured output matching the RecommendationResult schema.
+"""
+
+
+def recommendation_agent(state: CyberRAGState) -> dict[str, Any]:
     """
-    Extract a documented patched/fixed version.
+    Agent 7: Recommendation Agent
 
-    Never invent a target version.
+    Consumes validated findings, risk assessments, and retrieved evidence to build
+    evidence-based remediation recommendations.
     """
-
-    patched_versions = finding.get(
-        "patched_versions",
-        [],
-    )
-
-    if isinstance(patched_versions, str):
-        value = patched_versions.strip()
-
-        if value:
-            return value
-
-        return None
-
-    if isinstance(patched_versions, list):
-
-        valid_versions = [
-            str(version).strip()
-            for version in patched_versions
-            if version
-        ]
-
-        if valid_versions:
-            return ", ".join(valid_versions)
-
-    return None
-
-
-# =========================================================
-# Helper: Collect remediation-related evidence
-# =========================================================
-
-def _collect_remediation_evidence(
-    finding: dict[str, Any],
-) -> list[dict[str, Any]]:
-    """
-    Collect external evidence that may contain remediation,
-    patch, mitigation, or vendor guidance.
-
-    This function DOES NOT decide that the vulnerability is
-    fixed. It only collects evidence supplied by previous
-    agents.
-    """
-
-    evidence = finding.get(
-        "evidence",
-        [],
-    )
-
-    if not isinstance(evidence, list):
-        return []
-
-    remediation_evidence: list[dict[str, Any]] = []
-
-    allowed_source_types = {
-        "vendor_advisory",
-        "patch_information",
-        "security_advisory",
-        "mitigation",
-        "github_advisory",
-        "nvd",
-        "cisa_kev",
-    }
-
-    for item in evidence:
-
-        if not isinstance(item, dict):
-            continue
-
-        source_type = item.get(
-            "source_type"
-        )
-
-        if source_type in allowed_source_types:
-            remediation_evidence.append(item)
-
-    return remediation_evidence
-
-
-# =========================================================
-# Helper: Merge Web Evidence into Finding Evidence
-# =========================================================
-
-def _merge_web_evidence_into_finding(
-    finding: dict[str, Any],
-    web_evidence: list[dict[str, Any]],
-) -> dict[str, Any]:
-    """
-    Merge matching web evidence into the finding.
-
-    Only evidence belonging to the same vulnerability is added.
-    """
-
-    finding_copy = dict(finding)
-
-    existing_evidence = list(
-        finding_copy.get(
-            "evidence",
-            [],
-        )
-        or []
-    )
-
-    vulnerability_id = (
-        finding.get("vulnerability_id")
-        or finding.get("vulnerability")
-    )
-
-    cve = finding.get("cve")
-
-    existing_keys = set()
-
-    for item in existing_evidence:
-
-        if not isinstance(item, dict):
-            continue
-
-        key = (
-            item.get("source_type"),
-            item.get("url"),
-            item.get("cve"),
-        )
-
-        existing_keys.add(key)
-
-    for item in web_evidence:
-
-        if not isinstance(item, dict):
-            continue
-
-        same_vulnerability = False
-
-        item_vulnerability_id = item.get(
-            "vulnerability_id"
-        )
-
-        item_cve = item.get("cve")
-
-        if (
-            vulnerability_id
-            and item_vulnerability_id
-            and item_vulnerability_id == vulnerability_id
-        ):
-            same_vulnerability = True
-
-        if (
-            cve
-            and item_cve
-            and item_cve == cve
-        ):
-            same_vulnerability = True
-
-        if not same_vulnerability:
-            continue
-
-        key = (
-            item.get("source_type"),
-            item.get("url"),
-            item.get("cve"),
-        )
-
-        if key in existing_keys:
-            continue
-
-        existing_evidence.append(item)
-        existing_keys.add(key)
-
-    finding_copy["evidence"] = existing_evidence
-
-    # -----------------------------------------------------
-    # Recover patched versions from web evidence when
-    # previous agents have not already supplied them.
-    # -----------------------------------------------------
-
-    patched_versions = list(
-        finding_copy.get(
-            "patched_versions",
-            [],
-        )
-        or []
-    )
-
-    if isinstance(
-        finding_copy.get("patched_versions"),
-        str,
-    ):
-        patched_versions = [
-            finding_copy["patched_versions"]
-        ]
-
-    for item in existing_evidence:
-
-        if not isinstance(item, dict):
-            continue
-
-        source_type = item.get(
-            "source_type"
-        )
-
-        if source_type not in {
-            "patch_information",
-            "vendor_advisory",
-            "security_advisory",
-            "github_advisory",
-        }:
-            continue
-
-        relevant_information = item.get(
-            "relevant_information"
-        )
-
-        if not isinstance(
-            relevant_information,
-            dict,
-        ):
-            continue
-
-        versions_found = relevant_information.get(
-            "versions_found",
-            [],
-        )
-
-        if not isinstance(
-            versions_found,
-            list,
-        ):
-            continue
-
-        for version in versions_found:
-
-            if not version:
-                continue
-
-            version_string = str(version).strip()
-
-            if (
-                version_string
-                and version_string not in patched_versions
-            ):
-                patched_versions.append(
-                    version_string
-                )
-
-    finding_copy["patched_versions"] = patched_versions
-
-    return finding_copy
-
-
-# =========================================================
-# Helper: Collect references
-# =========================================================
-
-def _collect_references(
-    finding: dict[str, Any],
-    remediation_evidence: list[dict[str, Any]],
-) -> list[str]:
-    """
-    Collect URLs/references already supplied by evidence.
-    """
-
-    references: list[str] = []
-
-    finding_references = finding.get(
-        "references",
-        [],
-    )
-
-    if isinstance(
-        finding_references,
-        list,
-    ):
-
-        for reference in finding_references:
-
-            if (
-                reference
-                and reference not in references
-            ):
-                references.append(
-                    str(reference)
-                )
-
-    for item in finding.get(
-        "evidence",
-        [],
-    ):
-
-        if not isinstance(item, dict):
-            continue
-
-        url = item.get("url")
-
-        if (
-            url
-            and url not in references
-        ):
-            references.append(
-                str(url)
-            )
-
-        item_references = item.get(
-            "references",
-            [],
-        )
-
-        if isinstance(
-            item_references,
-            list,
-        ):
-
-            for reference in item_references:
-
-                if (
-                    reference
-                    and reference not in references
-                ):
-                    references.append(
-                        str(reference)
-                    )
-
-    return references
-
-
-# =========================================================
-# Helper: Build evidence summary
-# =========================================================
-
-def _build_evidence_summary(
-    finding: dict[str, Any],
-    remediation_evidence: list[dict[str, Any]],
-) -> dict[str, Any]:
-    """
-    Preserve what evidence was actually used.
-    """
-
-    source_types: list[str] = []
-
-    for item in remediation_evidence:
-
-        source_type = item.get(
-            "source_type"
-        )
-
-        if (
-            source_type
-            and source_type not in source_types
-        ):
-            source_types.append(
-                source_type
-            )
-
-    return {
-        "patched_versions": finding.get(
-            "patched_versions",
-            [],
-        ),
-        "remediation_evidence_count": len(
-            remediation_evidence
-        ),
-        "remediation_sources": source_types,
-    }
-
-
-# =========================================================
-# Build recommendation
-# =========================================================
-
-def _build_recommendation(
-    finding: dict[str, Any],
-    risk: dict[str, Any],
-) -> dict[str, Any]:
-    """
-    Build an evidence-based remediation recommendation.
-
-    The agent must not invent a target version or mitigation.
-    """
-
-    vulnerability_id = (
-        finding.get("vulnerability_id")
-        or finding.get("vulnerability")
-    )
-
-    asset = finding.get(
-        "asset",
-        {},
-    )
-
-    if not isinstance(
-        asset,
-        dict,
-    ):
-        asset = {}
-
-    asset_name = asset.get(
-        "name"
-    )
-
-    installed_version = asset.get(
-        "version"
-    )
-
-    patched_version = _find_fixed_version(
-        finding
-    )
-
-    risk_level = risk.get(
-        "risk_level",
-        "unknown",
-    )
-
-    risk_score = risk.get(
-        "risk_score"
-    )
-
-    remediation_evidence = (
-        _collect_remediation_evidence(
-            finding
-        )
-    )
-
-    references = _collect_references(
-        finding,
-        remediation_evidence,
-    )
-
-    # -----------------------------------------------------
-    # Determine recommendation
-    # -----------------------------------------------------
-
-    if patched_version:
-
-        action = "upgrade"
-
-        recommendation_text = (
-            f"Upgrade {asset_name or 'the affected asset'} "
-            f"from installed version "
-            f"{installed_version or 'the current version'} "
-            f"to the documented patched/fixed version: "
-            f"{patched_version}."
-        )
-
-        mitigation = (
-            "Apply the documented vendor security update "
-            "or other evidence-supported fixed version."
-        )
-
-    elif remediation_evidence:
-
-        action = "apply_vendor_guidance"
-
-        recommendation_text = (
-            "Review and apply the remediation or mitigation "
-            "guidance documented in the available security "
-            "advisory evidence."
-        )
-
-        mitigation = (
-            "Follow only the remediation or mitigation "
-            "guidance explicitly documented by the cited "
-            "security sources. Do not infer an unverified "
-            "target version."
-        )
-
-    else:
-
-        action = "investigate"
-
-        recommendation_text = (
-            "Obtain confirmed vendor remediation or "
-            "mitigation guidance before selecting a "
-            "specific remediation action."
-        )
-
-        mitigation = (
-            "Do not invent a target version or mitigation. "
-            "Further verification is required."
-        )
-
-    # -----------------------------------------------------
-    # Priority
-    # -----------------------------------------------------
-
-    if risk_level == "critical":
-        priority = "urgent"
-
-    elif risk_level == "high":
-        priority = "high"
-
-    elif risk_level == "medium":
-        priority = "medium"
-
-    elif risk_level == "low":
-        priority = "low"
-
-    else:
-        priority = "review"
-
-    return {
-        "vulnerability_id": vulnerability_id,
-
-        "asset": (
-            f"{asset_name} {installed_version}"
-            if asset_name and installed_version
-            else asset_name
-        ),
-
-        "recommendation": {
-            "action": action,
-            "target_version": patched_version,
-            "priority": priority,
-            "description": recommendation_text,
-            "mitigation": mitigation,
-        },
-
-        "risk": {
-            "risk_score": risk_score,
-            "risk_level": risk_level,
-        },
-
-        "references": references,
-
-        "evidence_used": _build_evidence_summary(
-            finding,
-            remediation_evidence,
-        ),
-    }
-
-
-# =========================================================
-# Recommendation Agent
-# =========================================================
-
-def recommendation_agent(
-    state: CyberRAGState,
-) -> dict[str, Any]:
-    """
-    Agent 7: Recommendation Agent.
-
-    Converts validated and risk-assessed findings into
-    evidence-supported remediation recommendations.
-
-    This agent does NOT:
-        - discover vulnerabilities
-        - change vulnerability facts
-        - perform validation
-        - calculate risk
-        - invent patched versions
-        - invent mitigation guidance
-    """
-
-    validated_findings = state.get(
-        "validated_findings",
-        [],
-    )
-
-    risk_assessments = state.get(
-        "risk_assessments",
-        [],
-    )
-
-    web_evidence = state.get(
-        "web_evidence",
-        [],
-    )
-
-    errors = list(
-        state.get(
-            "errors",
-            [],
-        )
-    )
+    validated_findings = state.get("validated_findings", [])
+    risk_assessments = state.get("risk_assessments", [])
+    web_evidence = state.get("web_evidence", [])
+    errors = list(state.get("errors", []))
+
+    if not validated_findings:
+        return {
+            "recommendations": [],
+            "errors": errors,
+        }
 
     recommendations: list[dict[str, Any]] = []
 
-    # -----------------------------------------------------
-    # Match validated finding with risk assessment
-    # -----------------------------------------------------
-
     for finding in validated_findings:
-
-        if finding.get("status") != "validated":
+        if finding.get("status") != "validated" or finding.get("affected") is not True:
             continue
 
-        vulnerability_id = (
-            finding.get("vulnerability_id")
-            or finding.get("vulnerability")
-        )
+        vulnerability_id = finding.get("vulnerability_id") or finding.get("vulnerability")
 
+        # Find matching risk assessment
         matching_risk = None
-
         for risk in risk_assessments:
-
-            if (
-                risk.get("vulnerability_id")
-                == vulnerability_id
-            ):
+            if risk.get("vulnerability_id") == vulnerability_id:
                 matching_risk = risk
                 break
 
-        # -------------------------------------------------
-        # Missing risk assessment
-        # -------------------------------------------------
+        if not matching_risk:
+            matching_risk = {
+                "risk_level": "medium",
+                "risk_score": 50.0,
+            }
 
-        if matching_risk is None:
+        # Extract verified patched versions from finding or evidence
+        patched_versions = finding.get("patched_versions", [])
+        evidence_items = finding.get("evidence", [])
 
-            errors.append(
-                "No risk assessment found for "
-                f"{vulnerability_id}."
-            )
+        # Recover patched version from web evidence if not in DB
+        verified_patch = _find_verified_patched_version(patched_versions, evidence_items, web_evidence, vulnerability_id)
 
-            continue
+        asset_info = finding.get("asset", {})
+        asset_name = asset_info.get("name", "Affected asset")
+        installed_version = asset_info.get("version")
 
-        # -------------------------------------------------
-        # Merge latest Web Search evidence
-        # -------------------------------------------------
+        # 1. AI Reasoning for Recommendation
+        if llm_service.is_configured():
+            try:
+                prompt = _build_recommendation_prompt(
+                    vulnerability_id=vulnerability_id,
+                    asset_name=asset_name,
+                    installed_version=installed_version,
+                    verified_patch=verified_patch,
+                    risk_level=matching_risk.get("risk_level"),
+                    risk_score=matching_risk.get("risk_score"),
+                    evidence=evidence_items,
+                    web_evidence=web_evidence,
+                )
+                res: RecommendationResult = llm_service.invoke_structured(
+                    prompt=prompt,
+                    response_model=RecommendationResult,
+                    system_prompt=SYSTEM_PROMPT,
+                    agent_name="recommendation",
+                )
+                if res.recommendations:
+                    rec_dict = res.recommendations[0].model_dump()
+                    # Ensure no hallucinated patch if not verified
+                    if not verified_patch:
+                        rec_dict["recommendation"]["target_version"] = None
+                    recommendations.append(rec_dict)
+                    continue
+            except Exception as exc:
+                logger.warning("LLM recommendation generation failed for %s: %s. Using heuristic fallback.", vulnerability_id, exc)
+                errors.append(f"LLM recommendation warning for {vulnerability_id}: {exc}")
 
-        finding_with_web_evidence = (
-            _merge_web_evidence_into_finding(
-                finding,
-                web_evidence,
-            )
+        # Deterministic Fallback if LLM unavailable
+        rec_item = _build_fallback_recommendation(
+            vulnerability_id=vulnerability_id,
+            asset_name=asset_name,
+            installed_version=installed_version,
+            verified_patch=verified_patch,
+            matching_risk=matching_risk,
+            evidence=evidence_items,
         )
-
-        # -------------------------------------------------
-        # Build recommendation
-        # -------------------------------------------------
-
-        try:
-
-            recommendation = _build_recommendation(
-                finding_with_web_evidence,
-                matching_risk,
-            )
-
-            recommendations.append(
-                recommendation
-            )
-
-        except Exception as exc:
-
-            errors.append(
-                "Recommendation generation failed "
-                f"for {vulnerability_id}: {exc}"
-            )
+        recommendations.append(rec_item.model_dump())
 
     return {
         "recommendations": recommendations,
         "errors": errors,
     }
+
+
+def _find_verified_patched_version(
+    patched_versions: list[Any],
+    evidence_items: list[dict[str, Any]],
+    web_evidence: list[dict[str, Any]],
+    vulnerability_id: Any,
+) -> str | None:
+    if isinstance(patched_versions, list) and patched_versions:
+        valid = [str(v).strip() for v in patched_versions if v and str(v).strip()]
+        if valid:
+            return ", ".join(valid)
+    elif isinstance(patched_versions, str) and patched_versions.strip():
+        return patched_versions.strip()
+
+    # Search web evidence for patch version string
+    for item in web_evidence + evidence_items:
+        if not isinstance(item, dict):
+            continue
+        rel = item.get("relevant_information")
+        if isinstance(rel, dict):
+            versions = rel.get("versions_found", [])
+            if isinstance(versions, list) and versions:
+                return str(versions[0]).strip()
+
+    return None
+
+
+def _build_recommendation_prompt(
+    vulnerability_id: Any,
+    asset_name: str,
+    installed_version: str | None,
+    verified_patch: str | None,
+    risk_level: str | None,
+    risk_score: float | None,
+    evidence: list[dict[str, Any]],
+    web_evidence: list[dict[str, Any]],
+) -> str:
+    return (
+        f"Generate remediation recommendation:\n\n"
+        f"Vulnerability ID: {vulnerability_id}\n"
+        f"Asset: {asset_name} (Installed Version: {installed_version or 'Unspecified'})\n"
+        f"Verified Patched/Fixed Version in Evidence: {verified_patch or 'NONE CONFIRMED'}\n"
+        f"Assessed Risk Level: {risk_level} (Score: {risk_score})\n"
+        f"Evidence Summary Count: {len(evidence) + len(web_evidence)}\n"
+    )
+
+
+def _build_fallback_recommendation(
+    vulnerability_id: Any,
+    asset_name: str,
+    installed_version: str | None,
+    verified_patch: str | None,
+    matching_risk: dict[str, Any],
+    evidence: list[dict[str, Any]],
+) -> Recommendation:
+    risk_level = matching_risk.get("risk_level", "medium")
+    priority_map = {"critical": "urgent", "high": "high", "medium": "medium", "low": "low"}
+    priority = priority_map.get(str(risk_level).lower(), "medium")
+
+    if verified_patch:
+        action = "upgrade"
+        description = f"Upgrade {asset_name} from version {installed_version or 'current'} to fixed version {verified_patch} or later."
+        mitigation = f"Apply official vendor patch updating to version {verified_patch}."
+    else:
+        action = "investigate"
+        description = f"No official fixed version is confirmed in database evidence for {vulnerability_id}. Obtain confirmed vendor remediation guidance."
+        mitigation = "Monitor vendor advisories and restrict network access or disable affected features as a temporary safeguard."
+
+    refs = [item.get("url") for item in evidence if item.get("url")]
+
+    return Recommendation(
+        vulnerability_id=str(vulnerability_id),
+        asset=f"{asset_name} {installed_version}" if installed_version else asset_name,
+        recommendation={
+            "action": action,
+            "target_version": verified_patch,
+            "priority": priority,
+            "description": description,
+            "mitigation": mitigation,
+        },
+        risk={
+            "risk_score": matching_risk.get("risk_score", 50.0),
+            "risk_level": risk_level,
+        },
+        references=list(set(filter(None, refs))),
+        evidence_used={"patched_versions": verified_patch, "evidence_count": len(evidence)},
+    )

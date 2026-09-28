@@ -68,10 +68,22 @@ class Settings(BaseSettings):
     # ---------------------------------------------------------
 
     LLM_PROVIDER: str = "groq"
+    LLM_ENABLED: bool = True
 
     GROQ_API_KEY: str = ""
+    GROQ_MODEL: str = "openai/gpt-oss-120b"
+    GROQ_FALLBACK_MODEL: str = "openai/gpt-oss-20b"
+    TECHNOLOGY_EXTRACTION_MODEL: str = "openai/gpt-oss-20b"
     GEMINI_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
+
+    LLM_MAX_RETRIES: int = 1
+    LLM_BASE_RETRY_DELAY: float = 2.0
+    LLM_MAX_RETRY_DELAY: float = 10.0
+
+    MAX_VALIDATION_CANDIDATES: int = 10
+    MAX_VALIDATION_BATCH_SIZE: int = 10
+    MAX_LLM_INPUT_CHARS: int = 12000
 
     # ---------------------------------------------------------
     # Threat Intelligence Sources

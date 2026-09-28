@@ -17,7 +17,7 @@ async def validation_exception_handler(
     exc: RequestValidationError,
 ):
     # Assessment endpoint ke validation errors ko 400 return karo
-    if request.url.path == "/v1/assessment":
+    if request.url.path in {"/v1/assessment", "/api/v1/assessment"}:
         return JSONResponse(
             status_code=400,
             content={

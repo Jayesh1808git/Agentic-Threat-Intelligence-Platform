@@ -1,4 +1,10 @@
+import threading
+
 from app.graph import cyberrag_graph
+from app.services.llm import llm_service
+
+
+_ASSESSMENT_RUN_LOCK = threading.Lock()
 
 
 def build_initial_state(project_input: dict) -> dict:
@@ -8,15 +14,16 @@ def build_initial_state(project_input: dict) -> dict:
 
     return {
         "project_input": project_input,
-
         "assets": [],
         "candidate_vulnerabilities": [],
+        "retrieval_queries": [],
         "internal_evidence": [],
         "web_evidence": [],
         "validated_findings": [],
         "risk_assessments": [],
         "recommendations": [],
         "report": {},
+        "retrieval_mode": "HYBRID",
         "errors": [],
         "citations": [],
     }
@@ -33,8 +40,11 @@ def run_cyberrag(project_input: dict) -> dict:
     """
 
     state = build_initial_state(project_input)
-
-    return cyberrag_graph.invoke(state)
+    with _ASSESSMENT_RUN_LOCK:
+        llm_service.reset_metrics()
+        result = cyberrag_graph.invoke(state)
+        result["llm_metadata"] = llm_service.metrics_snapshot()
+        return result
 
 
 def main():
@@ -106,7 +116,7 @@ def main():
     )
 
     for finding in result.get("validated_findings", []):
-        print("  -", finding)
+        print("  -", json.dumps(finding, default=str)[:200])
 
     print("\n[6] Risk Assessment")
     print(
@@ -115,7 +125,7 @@ def main():
     )
 
     for risk in result.get("risk_assessments", []):
-        print("  -", risk)
+        print("  -", json.dumps(risk, default=str)[:200])
 
     print("\n[7] Recommendation")
     print(
@@ -124,7 +134,7 @@ def main():
     )
 
     for recommendation in result.get("recommendations", []):
-        print("  -", recommendation)
+        print("  -", json.dumps(recommendation, default=str)[:200])
 
     print("\n[8] Report")
 
