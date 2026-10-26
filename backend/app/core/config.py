@@ -77,11 +77,18 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
 
-    LLM_MAX_RETRIES: int = 1
+    LLM_MAX_RETRIES: int = 3
     LLM_BASE_RETRY_DELAY: float = 2.0
-    LLM_MAX_RETRY_DELAY: float = 10.0
+    LLM_MAX_RETRY_DELAY: float = 60.0
+    LLM_MIN_REQUEST_INTERVAL_SECONDS: float = 2.0
+    # Hard cap on requests-per-minute; min_request_interval is derived from this.
+    # Set to 30 to match Groq's default free-tier RPM limit.
+    LLM_RATE_LIMIT_RPM: int = 30
+    LLM_CACHE_ENABLED: bool = True
+    LLM_CACHE_DIR: str = ".llm_cache"
+    LIGHTWEIGHT_LLM_MODEL: str = "openai/gpt-oss-20b"
 
-    MAX_VALIDATION_CANDIDATES: int = 10
+    MAX_VALIDATION_CANDIDATES: int = 20
     MAX_VALIDATION_BATCH_SIZE: int = 10
     MAX_LLM_INPUT_CHARS: int = 12000
 
@@ -131,6 +138,7 @@ class Settings(BaseSettings):
     REPORT_TEMPLATE: str = "default"
 
     THREAT_SYNC_INTERVAL_HOURS: int = 6
+    REPORT_LLM_ENABLED: bool = True
 
     # ---------------------------------------------------------
     # Pydantic

@@ -1,5 +1,5 @@
 from typing import Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class Asset(BaseModel):
@@ -25,6 +25,23 @@ class CandidateMatchEvaluation(BaseModel):
     match_confidence: float = Field(default=0.75, ge=0.0, le=1.0)
     reason: str = Field(default="", description="Reasoning for candidate relevance")
 
+    @field_validator("match_confidence", mode="before")
+    @classmethod
+    def coerce_confidence(cls, v: Any) -> float:
+        """Treat null/non-numeric LLM output as the default confidence."""
+        if v is None:
+            return 0.75
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return 0.75
+
+    @field_validator("reason", mode="before")
+    @classmethod
+    def coerce_reason(cls, v: Any) -> str:
+        """Treat null LLM output as an empty string."""
+        return str(v) if v is not None else ""
+
 
 class CandidateVulnerability(BaseModel):
     asset: dict | Asset = Field(default_factory=dict, description="Associated asset information")
@@ -48,11 +65,71 @@ class CandidateVulnerability(BaseModel):
     match_confidence: float = Field(default=1.0, ge=0.0, le=1.0)
     reason: str = Field(default="", description="Reasoning for candidate relevance")
 
+    @field_validator("affected_versions", "patched_versions", "cpe_matches", "references", mode="before")
+    @classmethod
+    def normalize_missing_lists(cls, value: Any) -> list[str]:
+        return [] if value is None else value
+
+    @field_validator("match_confidence", mode="before")
+    @classmethod
+    def coerce_confidence(cls, v: Any) -> float:
+        """Treat null/non-numeric LLM output as the default confidence."""
+        if v is None:
+            return 1.0
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return 1.0
+
+    @field_validator("reason", mode="before")
+    @classmethod
+    def coerce_reason(cls, v: Any) -> str:
+        """Treat null LLM output as an empty string."""
+        return str(v) if v is not None else ""
+
 
 class VulnerabilityMatchResult(BaseModel):
-    candidate_evaluations: list[CandidateMatchEvaluation] = Field(default_factory=list)
+    """LLM response schema for vulnerability matching.
+
+    The LLM is instructed to populate ``candidate_evaluations`` only.
+    ``candidate_vulnerabilities`` is kept for backward-compat but is never
+    sent as part of the schema instructions to the LLM.
+    """
+    candidate_evaluations: list[CandidateMatchEvaluation] = Field(
+        default_factory=list,
+        description="One entry per candidate: its ID and a match_confidence score (0.0-1.0) with reasoning.",
+    )
+    # Kept for backward-compat; populated only if the LLM ignores instructions.
     candidate_vulnerabilities: list[CandidateVulnerability] = Field(default_factory=list)
     reasoning: str | None = Field(default=None)
+
+    @classmethod
+    def model_json_schema_for_llm(cls) -> dict:
+        """Return a schema that only exposes candidate_evaluations to the LLM.
+
+        This prevents the model from getting confused by the large
+        CandidateVulnerability schema and returning null fields.
+        """
+        return {
+            "type": "object",
+            "required": ["candidate_evaluations"],
+            "properties": {
+                "candidate_evaluations": {
+                    "type": "array",
+                    "description": "One entry per candidate vulnerability evaluated.",
+                    "items": {
+                        "type": "object",
+                        "required": ["vulnerability_id", "match_confidence", "reason"],
+                        "properties": {
+                            "vulnerability_id": {"type": "string", "description": "The vulnerability or CVE ID"},
+                            "cve": {"type": "string", "description": "CVE ID if known"},
+                            "match_confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0, "description": "0.0=no match, 1.0=definite match"},
+                            "reason": {"type": "string", "description": "Brief explanation of match confidence"},
+                        },
+                    },
+                },
+            },
+        }
 
 
 class RetrievalQuery(BaseModel):
@@ -156,6 +233,16 @@ class RiskAssessment(BaseModel):
 class RiskAssessmentResult(BaseModel):
     risk_assessments: list[RiskAssessment] = Field(default_factory=list)
     errors: list[str] = Field(default_factory=list)
+
+
+class RiskRecommendationItem(BaseModel):
+    finding_key: str
+    rationale: str = ""
+    recommendation: dict = Field(default_factory=dict)
+
+
+class RiskRecommendationResult(BaseModel):
+    results: list[RiskRecommendationItem] = Field(default_factory=list)
 
 
 class Recommendation(BaseModel):

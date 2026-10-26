@@ -1,3 +1,4 @@
+import json
 import logging
 from typing import Any
 from pydantic import BaseModel, Field
@@ -55,18 +56,16 @@ def recommendation_agent(state: CyberRAGState) -> dict[str, Any]:
             "errors": errors,
         }
 
-    recommendations: list[dict[str, Any]] = []
-
+    target_items = []
     for finding in validated_findings:
         if finding.get("status") != "validated" or finding.get("affected") is not True:
             continue
 
-        vulnerability_id = finding.get("vulnerability_id") or finding.get("vulnerability")
+        vulnerability_id = str(finding.get("vulnerability_id") or finding.get("vulnerability"))
 
-        # Find matching risk assessment
         matching_risk = None
         for risk in risk_assessments:
-            if risk.get("vulnerability_id") == vulnerability_id:
+            if str(risk.get("vulnerability_id")) == vulnerability_id:
                 matching_risk = risk
                 break
 
@@ -76,57 +75,82 @@ def recommendation_agent(state: CyberRAGState) -> dict[str, Any]:
                 "risk_score": 50.0,
             }
 
-        # Extract verified patched versions from finding or evidence
         patched_versions = finding.get("patched_versions", [])
         evidence_items = finding.get("evidence", [])
-
-        # Recover patched version from web evidence if not in DB
         verified_patch = _find_verified_patched_version(patched_versions, evidence_items, web_evidence, vulnerability_id)
 
         asset_info = finding.get("asset", {})
+        if not isinstance(asset_info, dict):
+            asset_info = {}
         asset_name = asset_info.get("name", "Affected asset")
         installed_version = asset_info.get("version")
 
-        # 1. AI Reasoning for Recommendation
-        if llm_service.is_configured():
-            try:
-                prompt = _build_recommendation_prompt(
-                    vulnerability_id=vulnerability_id,
-                    asset_name=asset_name,
-                    installed_version=installed_version,
-                    verified_patch=verified_patch,
-                    risk_level=matching_risk.get("risk_level"),
-                    risk_score=matching_risk.get("risk_score"),
-                    evidence=evidence_items,
-                    web_evidence=web_evidence,
-                )
-                res: RecommendationResult = llm_service.invoke_structured(
-                    prompt=prompt,
-                    response_model=RecommendationResult,
-                    system_prompt=SYSTEM_PROMPT,
-                    agent_name="recommendation",
-                )
-                if res.recommendations:
-                    rec_dict = res.recommendations[0].model_dump()
-                    # Ensure no hallucinated patch if not verified
-                    if not verified_patch:
-                        rec_dict["recommendation"]["target_version"] = None
-                    recommendations.append(rec_dict)
-                    continue
-            except Exception as exc:
-                logger.warning("LLM recommendation generation failed for %s: %s. Using heuristic fallback.", vulnerability_id, exc)
-                errors.append(f"LLM recommendation warning for {vulnerability_id}: {exc}")
+        target_items.append({
+            "vulnerability_id": vulnerability_id,
+            "asset_name": asset_name,
+            "installed_version": installed_version,
+            "verified_patch": verified_patch,
+            "matching_risk": matching_risk,
+            "evidence_items": evidence_items,
+        })
 
-        # Deterministic Fallback if LLM unavailable
-        rec_item = _build_fallback_recommendation(
-            vulnerability_id=vulnerability_id,
-            asset_name=asset_name,
-            installed_version=installed_version,
-            verified_patch=verified_patch,
-            matching_risk=matching_risk,
-            evidence=evidence_items,
-        )
-        recommendations.append(rec_item.model_dump())
+    if not target_items:
+        return {
+            "recommendations": [],
+            "errors": errors,
+        }
+
+    llm_rec_map = {}
+    if llm_service.is_configured() and target_items:
+        try:
+            batch_prompt_data = [
+                {
+                    "vulnerability_id": item["vulnerability_id"],
+                    "asset_name": item["asset_name"],
+                    "installed_version": item["installed_version"],
+                    "verified_patch": item["verified_patch"],
+                    "risk_level": item["matching_risk"].get("risk_level"),
+                    "risk_score": item["matching_risk"].get("risk_score"),
+                    "evidence_count": len(item["evidence_items"]),
+                }
+                for item in target_items
+            ]
+            prompt = f"Generate remediation recommendations for the following validated vulnerabilities:\n{json.dumps(batch_prompt_data, indent=2)}"
+            res: RecommendationResult = llm_service.invoke_structured(
+                prompt=prompt,
+                response_model=RecommendationResult,
+                system_prompt=SYSTEM_PROMPT,
+                agent_name="recommendation",
+            )
+            for rec in res.recommendations:
+                if rec.vulnerability_id:
+                    rec_dict = rec.model_dump()
+                    # Ensure target_version is not hallucinated
+                    v_item = next((ti for ti in target_items if ti["vulnerability_id"] == rec.vulnerability_id), None)
+                    if v_item and not v_item["verified_patch"]:
+                        if "recommendation" in rec_dict and isinstance(rec_dict["recommendation"], dict):
+                            rec_dict["recommendation"]["target_version"] = None
+                    llm_rec_map[rec.vulnerability_id] = rec_dict
+        except Exception as exc:
+            logger.warning("LLM batched recommendation generation failed: %s. Using heuristic fallback.", exc)
+            errors.append(f"LLM recommendation warning: {exc}")
+
+    recommendations: list[dict[str, Any]] = []
+    for item in target_items:
+        v_id = item["vulnerability_id"]
+        llm_match = llm_rec_map.get(v_id)
+        if llm_match:
+            recommendations.append(llm_match)
+        else:
+            rec_item = _build_fallback_recommendation(
+                vulnerability_id=v_id,
+                asset_name=item["asset_name"],
+                installed_version=item["installed_version"],
+                verified_patch=item["verified_patch"],
+                matching_risk=item["matching_risk"],
+                evidence=item["evidence_items"],
+            )
+            recommendations.append(rec_item.model_dump())
 
     return {
         "recommendations": recommendations,

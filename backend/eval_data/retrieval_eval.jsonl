@@ -1,0 +1,709 @@
+{"qid": "id-CVE-2025-42999", "qtype": "id_exact", "query": "CVE-2025-42999", "relevant": ["CVE-2025-42999"]}
+{"qid": "id-CVE-2024-51378", "qtype": "id_exact", "query": "CVE-2024-51378", "relevant": ["CVE-2024-51378"]}
+{"qid": "id-GHSA-38wq-6q2w-hcf9", "qtype": "id_exact", "query": "CVE-2026-25138", "relevant": ["GHSA-38wq-6q2w-hcf9"]}
+{"qid": "id-CVE-2026-96603", "qtype": "id_exact", "query": "CVE-2026-96603", "relevant": ["CVE-2026-96603"]}
+{"qid": "id-CVE-2023-29552", "qtype": "id_exact", "query": "CVE-2023-29552", "relevant": ["CVE-2023-29552"]}
+{"qid": "id-GHSA-4grg-w6v8-c28g", "qtype": "id_exact", "query": "CVE-2025-47278", "relevant": ["GHSA-4grg-w6v8-c28g"]}
+{"qid": "id-GHSA-4hpj-8rhv-9x87", "qtype": "id_exact", "query": "CVE-2023-36814", "relevant": ["GHSA-4hpj-8rhv-9x87"]}
+{"qid": "id-GHSA-3863-2447-669p", "qtype": "id_exact", "query": "CVE-2023-6730", "relevant": ["GHSA-3863-2447-669p"]}
+{"qid": "id-GHSA-2586-f3p4-hq84", "qtype": "id_exact", "query": "CVE-2024-43598", "relevant": ["GHSA-2586-f3p4-hq84"]}
+{"qid": "id-GHSA-3r75-xc34-5f44", "qtype": "id_exact", "query": "CVE-2026-46497", "relevant": ["GHSA-3r75-xc34-5f44"]}
+{"qid": "id-CVE-2025-54068", "qtype": "id_exact", "query": "CVE-2025-54068", "relevant": ["CVE-2025-54068"]}
+{"qid": "id-GHSA-3c3g-7hwg-9qmr", "qtype": "id_exact", "query": "CVE-2026-10566", "relevant": ["GHSA-3c3g-7hwg-9qmr"]}
+{"qid": "id-CVE-2026-96882", "qtype": "id_exact", "query": "CVE-2026-96882", "relevant": ["CVE-2026-96882"]}
+{"qid": "id-CVE-2026-25089", "qtype": "id_exact", "query": "CVE-2026-25089", "relevant": ["CVE-2026-25089"]}
+{"qid": "id-GHSA-3v6v-2x6p-32mc", "qtype": "id_exact", "query": "CVE-2022-4223", "relevant": ["GHSA-3v6v-2x6p-32mc"]}
+{"qid": "id-CVE-2018-6530", "qtype": "id_exact", "query": "CVE-2018-6530", "relevant": ["CVE-2018-6530"]}
+{"qid": "id-CVE-2020-10148", "qtype": "id_exact", "query": "CVE-2020-10148", "relevant": ["CVE-2020-10148"]}
+{"qid": "id-CVE-2023-45249", "qtype": "id_exact", "query": "CVE-2023-45249", "relevant": ["CVE-2023-45249"]}
+{"qid": "id-CVE-2026-84714", "qtype": "id_exact", "query": "CVE-2026-84714", "relevant": ["CVE-2026-84714"]}
+{"qid": "id-CVE-2021-1782", "qtype": "id_exact", "query": "CVE-2021-1782", "relevant": ["CVE-2021-1782"]}
+{"qid": "id-CVE-2021-44026", "qtype": "id_exact", "query": "CVE-2021-44026", "relevant": ["CVE-2021-44026"]}
+{"qid": "id-CVE-2016-9563", "qtype": "id_exact", "query": "CVE-2016-9563", "relevant": ["CVE-2016-9563"]}
+{"qid": "id-CVE-2024-55956", "qtype": "id_exact", "query": "CVE-2024-55956", "relevant": ["CVE-2024-55956"]}
+{"qid": "id-GHSA-29pf-2h5f-8g72", "qtype": "id_exact", "query": "CVE-2026-4372", "relevant": ["GHSA-29pf-2h5f-8g72"]}
+{"qid": "id-GHSA-45h5-cqqw-9rjw", "qtype": "id_exact", "query": "CVE-2017-17554", "relevant": ["GHSA-45h5-cqqw-9rjw"]}
+{"qid": "id-GHSA-2gxp-6r36-m97r", "qtype": "id_exact", "query": "CVE-2025-53528", "relevant": ["GHSA-2gxp-6r36-m97r"]}
+{"qid": "id-GHSA-4r4c-66gf-g9g5", "qtype": "id_exact", "query": "CVE-2022-4969", "relevant": ["GHSA-4r4c-66gf-g9g5"]}
+{"qid": "id-CVE-2022-21999", "qtype": "id_exact", "query": "CVE-2022-21999", "relevant": ["CVE-2022-21999"]}
+{"qid": "id-CVE-2023-4863", "qtype": "id_exact", "query": "CVE-2023-4863", "relevant": ["CVE-2023-4863"]}
+{"qid": "id-CVE-2026-88846", "qtype": "id_exact", "query": "CVE-2026-88846", "relevant": ["CVE-2026-88846"]}
+{"qid": "id-CVE-2024-30040", "qtype": "id_exact", "query": "CVE-2024-30040", "relevant": ["CVE-2024-30040"]}
+{"qid": "id-CVE-2026-96545", "qtype": "id_exact", "query": "CVE-2026-96545", "relevant": ["CVE-2026-96545"]}
+{"qid": "id-CVE-2018-15961", "qtype": "id_exact", "query": "CVE-2018-15961", "relevant": ["CVE-2018-15961"]}
+{"qid": "id-CVE-2025-24201", "qtype": "id_exact", "query": "CVE-2025-24201", "relevant": ["CVE-2025-24201"]}
+{"qid": "id-GHSA-3wxx-q3gv-pvvv", "qtype": "id_exact", "query": "CVE-2025-5472", "relevant": ["GHSA-3wxx-q3gv-pvvv"]}
+{"qid": "id-CVE-2021-35587", "qtype": "id_exact", "query": "CVE-2021-35587", "relevant": ["CVE-2021-35587"]}
+{"qid": "id-CVE-2025-31324", "qtype": "id_exact", "query": "CVE-2025-31324", "relevant": ["CVE-2025-31324"]}
+{"qid": "id-CVE-2025-4427", "qtype": "id_exact", "query": "CVE-2025-4427", "relevant": ["CVE-2025-4427"]}
+{"qid": "id-CVE-2022-1388", "qtype": "id_exact", "query": "CVE-2022-1388", "relevant": ["CVE-2022-1388"]}
+{"qid": "id-CVE-2016-11021", "qtype": "id_exact", "query": "CVE-2016-11021", "relevant": ["CVE-2016-11021"]}
+{"qid": "prod-weblate", "qtype": "product_all", "query": "weblate vulnerabilities", "relevant": ["GHSA-2p9g-x3cv-5hh4", "GHSA-2q2q-jr9g-v9rf", "GHSA-3382-gw9x-477v", "GHSA-33fm-6gp7-4p47", "GHSA-377j-wj38-4728", "GHSA-3872-f48p-pxqj", "GHSA-3g2f-4rjg-9385", "GHSA-3pmh-24wp-xpf4", "GHSA-4qqf-9m5c-w2c5", "GHSA-558g-h753-6m33"]}
+{"qid": "prod-github.com/klever-io/klever-go", "qtype": "product_all", "query": "github.com/klever-io/klever-go vulnerabilities", "relevant": ["GHSA-26r5-4mm2-px5c", "GHSA-4fwh-wrm6-97xm", "GHSA-7c7c-373r-gfjj", "GHSA-97cv-x867-6xhm", "GHSA-9v8p-frvj-2pcm", "GHSA-9wh6-9hq7-9688"]}
+{"qid": "prod-numpy", "qtype": "product_all", "query": "numpy vulnerabilities", "relevant": ["GHSA-2fc2-6r4j-p65h", "GHSA-5545-2q6w-2gh6"]}
+{"qid": "prod-llama-index-core", "qtype": "product_all", "query": "llama-index-core vulnerabilities", "relevant": ["GHSA-2rhq-96q8-4vjq", "GHSA-3wxx-q3gv-pvvv", "GHSA-488g-hw5f-x29p"]}
+{"qid": "prod-cadwyn", "qtype": "product_all", "query": "cadwyn vulnerabilities", "relevant": ["GHSA-2gxp-6r36-m97r"]}
+{"qid": "prod-tensorflow-gpu", "qtype": "product_all", "query": "tensorflow-gpu vulnerabilities", "relevant": ["GHSA-23hm-7w47-xw72", "GHSA-2475-53vw-vp25", "GHSA-247x-2f9f-5wp7", "GHSA-24x4-6qmh-88qg", "GHSA-24x6-8c7m-hv3f", "GHSA-26j7-6w8w-7922", "GHSA-278g-rq84-9hmg", "GHSA-27j5-4p9v-pp67", "GHSA-27qf-jwm8-g7f3", "GHSA-27rc-728f-x5w2", "GHSA-2cpx-427x-q2c6", "GHSA-2gfx-95x2-5v3x", "GHSA-2p25-55c9-h58q", "GHSA-2p9q-h29j-3f5v", "GHSA-2r2f-g8mw-9gvr", "GHSA-2r8p-fg3c-wcj4", "GHSA-2vv3-56qg-g2cf", "GHSA-2wmv-37vq-52g5", "GHSA-2xgj-xhgf-ggjv", "GHSA-34f9-hjfq-rr8j", "GHSA-368v-7v32-52fx", "GHSA-36vm-xw34-x4pj", "GHSA-374m-jm66-3vj8", "GHSA-37jf-mjv6-xfqw", "GHSA-393f-2jr3-cp69", "GHSA-397c-5g2j-qxpv", "GHSA-3ff2-r28g-w7h9", "GHSA-3h8m-483j-7xxm", "GHSA-3hxh-8cp2-g4hg", "GHSA-3mw4-6rj6-74g5", "GHSA-3qgw-p4fm-x7gf", "GHSA-3qxp-qjq7-w4hf", "GHSA-3rcw-9p9x-582v", "GHSA-3w67-q784-6w7c", "GHSA-4278-2v5v-65r4", "GHSA-428x-9xc2-m8mj", "GHSA-43jf-985q-588j", "GHSA-43q8-3fv7-pr5x", "GHSA-44qp-9wwf-734r", "GHSA-452g-f7fp-9jf7", "GHSA-49rq-hwc3-x77w", "GHSA-49rx-x2rw-pc6f", "GHSA-4c4g-crqm-xrxw", "GHSA-4f99-p9c2-3j8x", "GHSA-4fg4-p75j-w5xj", "GHSA-4g9f-63rx-5cw4", "GHSA-4hrh-9vmp-2jgg", "GHSA-4hvf-hxvg-f67v", "GHSA-4hvv-7x94-7vq8", "GHSA-4j82-5ccr-4r8v", "GHSA-4p4p-www8-8fv9", "GHSA-4pc4-m9mj-v2r9", "GHSA-4v5p-v5h9-6xjx", "GHSA-4vf2-4xcg-65cx", "GHSA-4vrf-ff7v-hpgr", "GHSA-4w68-4x85-mjj9", "GHSA-4xfp-4pfp-89wg", "GHSA-545v-42p7-98fq", "GHSA-54ch-gjq5-4976", "GHSA-54pp-c6pp-7fpx", "GHSA-558h-mq8x-7q9g"]}
+{"qid": "prod-hermes-agent", "qtype": "product_all", "query": "hermes-agent vulnerabilities", "relevant": ["GHSA-238w-f66p-w349", "GHSA-33qv-c5qm-799v", "GHSA-4pqm-j46f-795x"]}
+{"qid": "prod-apache-airflow", "qtype": "product_all", "query": "apache-airflow vulnerabilities", "relevant": ["GHSA-22hf-vx2v-gjff", "GHSA-2522-mrjc-m688", "GHSA-269x-pg5c-5xgm", "GHSA-273c-4g26-4jpm", "GHSA-2883-wwh7-x57v", "GHSA-2943-9672-r45w", "GHSA-2h84-3crq-vgfj", "GHSA-2r5m-76wx-56gx", "GHSA-32wr-qqw6-5mfp", "GHSA-3322-mjxh-9mp5", "GHSA-33g2-gx67-c2h3", "GHSA-3h4m-m55v-gx4m", "GHSA-3q8r-f3pj-3gc4", "GHSA-3qmm-r55x-hpxx", "GHSA-3v7g-4pg3-7r6j", "GHSA-3xxv-p78r-4fc6", "GHSA-45r6-j3cc-6mxx", "GHSA-4fg5-j4mm-wfpg", "GHSA-4fh7-7jx4-8f6c", "GHSA-4fhm-p86v-hwpx", "GHSA-4g48-54q2-fg7q", "GHSA-4jh2-3c85-q67h", "GHSA-4m3h-wp5w-5hqh", "GHSA-4pwq-fj89-6rjc", "GHSA-52gm-qmg3-r4qp", "GHSA-563f-2439-rmq4"]}
+{"qid": "prod-apache-airflow-providers-cncf-kubernetes", "qtype": "product_all", "query": "apache-airflow-providers-cncf-kubernetes vulnerabilities", "relevant": ["GHSA-2rx4-9f5h-9gjf", "GHSA-524w-vq63-2xhf"]}
+{"qid": "prod-docling", "qtype": "product_all", "query": "docling vulnerabilities", "relevant": ["GHSA-2j5p-7p5m-cvqr"]}
+{"qid": "prod-tornado", "qtype": "product_all", "query": "tornado vulnerabilities", "relevant": ["GHSA-3x9g-8vmp-wqvf"]}
+{"qid": "prod-picklescan", "qtype": "product_all", "query": "picklescan vulnerabilities", "relevant": ["GHSA-2fh4-gpch-vqv4", "GHSA-3329-ghmp-jmv5", "GHSA-3gf5-cxq9-w223", "GHSA-3vg9-h568-4w9m", "GHSA-4675-36f9-wf6r", "GHSA-46h3-79wf-xr6c", "GHSA-49gj-c84q-6qm9", "GHSA-4mpj-78p6-rj59", "GHSA-4p4h-9gvq-7xfg", "GHSA-4r9r-ch6f-vxmx", "GHSA-4vr7-g93g-cf6m", "GHSA-4whj-rm5r-c2v8"]}
+{"qid": "prod-kas", "qtype": "product_all", "query": "kas vulnerabilities", "relevant": ["GHSA-4vqc-wpwg-vh7j"]}
+{"qid": "prod-gitpython", "qtype": "product_all", "query": "gitpython vulnerabilities", "relevant": ["GHSA-284h-m62q-gf8w", "GHSA-298h-jpq4-m665", "GHSA-2f96-g7mh-g2hx", "GHSA-2mqj-m65w-jghx", "GHSA-3f7w-8rr8-f37f", "GHSA-3rp5-jjmw-4wv2", "GHSA-3vrx-526r-64rm", "GHSA-3wxw-xv34-2frg", "GHSA-4gmw-gg2m-w46p", "GHSA-4vpg-pfj8-m33q", "GHSA-539m-9xh6-q6rr"]}
+{"qid": "prod-plone.app.dexterity", "qtype": "product_all", "query": "plone.app.dexterity vulnerabilities", "relevant": ["GHSA-5426-92w4-wvhv"]}
+{"qid": "prod-elysia", "qtype": "product_all", "query": "elysia vulnerabilities", "relevant": ["GHSA-9643-4qgh-g8mx"]}
+{"qid": "prod-awslabs-aws-api-mcp-server", "qtype": "product_all", "query": "awslabs-aws-api-mcp-server vulnerabilities", "relevant": ["GHSA-29w2-fq35-v728", "GHSA-2cpp-j2fc-qhp7"]}
+{"qid": "prod-pyfury", "qtype": "product_all", "query": "pyfury vulnerabilities", "relevant": ["GHSA-538v-3wq9-4h3r"]}
+{"qid": "prod-ckan", "qtype": "product_all", "query": "ckan vulnerabilities", "relevant": ["GHSA-2hvh-cw5c-8q8q", "GHSA-2r4h-8jxv-w2j8", "GHSA-2rqw-cfhc-35fh", "GHSA-446m-hmmm-hm8m"]}
+{"qid": "prod-astrbot", "qtype": "product_all", "query": "astrbot vulnerabilities", "relevant": ["GHSA-4m32-cjv7-f425"]}
+{"qid": "prod-nautobot-ssot", "qtype": "product_all", "query": "nautobot-ssot vulnerabilities", "relevant": ["GHSA-535g-62r7-cx6v"]}
+{"qid": "prod-dosage", "qtype": "product_all", "query": "dosage vulnerabilities", "relevant": ["GHSA-4vcx-3pj3-44m7"]}
+{"qid": "prod-pip", "qtype": "product_all", "query": "pip vulnerabilities", "relevant": ["GHSA-4gv5-qhvr-36vv", "GHSA-4xh5-x5gv-qwph", "GHSA-53mr-44pp-crf4"]}
+{"qid": "prod-peppol-py", "qtype": "product_all", "query": "peppol-py vulnerabilities", "relevant": ["GHSA-24hm-wm2h-h8w7"]}
+{"qid": "prod-octoprint", "qtype": "product_all", "query": "octoprint vulnerabilities", "relevant": ["GHSA-2p75-q37p-f852", "GHSA-2vjq-hg5w-5gm7", "GHSA-39gf-864w-pxw4", "GHSA-49mj-x8jp-qvfc", "GHSA-49wm-4fp6-h59c", "GHSA-5626-pw9c-hmjr"]}
+{"qid": "prod-comfy-cli", "qtype": "product_all", "query": "comfy-cli vulnerabilities", "relevant": ["GHSA-562r-8445-54r2"]}
+{"qid": "prod-feast", "qtype": "product_all", "query": "feast vulnerabilities", "relevant": ["GHSA-34wm-4hw7-qfjv"]}
+{"qid": "prod-dydx-v4-client", "qtype": "product_all", "query": "dydx-v4-client vulnerabilities", "relevant": ["GHSA-4f84-67cv-qrv3"]}
+{"qid": "prod-mitmproxy", "qtype": "product_all", "query": "mitmproxy vulnerabilities", "relevant": ["GHSA-22gh-3r9q-xf38", "GHSA-527g-3w9m-29hv"]}
+{"qid": "prod-linuxfabrik-lib", "qtype": "product_all", "query": "linuxfabrik-lib vulnerabilities", "relevant": ["GHSA-4jc5-g844-4x33"]}
+{"qid": "prod-kiwitcms", "qtype": "product_all", "query": "kiwitcms vulnerabilities", "relevant": ["GHSA-2fqm-m4r2-fh98", "GHSA-2wcr-87wf-cf9j", "GHSA-473p-56xx-vg67"]}
+{"qid": "prod-pydantic-ai-slim", "qtype": "product_all", "query": "pydantic-ai-slim vulnerabilities", "relevant": ["GHSA-2jrp-274c-jhv3"]}
+{"qid": "prod-litellm", "qtype": "product_all", "query": "litellm vulnerabilities", "relevant": ["GHSA-3926-2jvf-fg29", "GHSA-3xr8-qfvj-9p9j", "GHSA-46cm-pfwv-cgf8", "GHSA-4g5m-c9r5-49xf", "GHSA-4jcj-7x88-m979", "GHSA-4xpc-pv4p-pm3w", "GHSA-53gh-p8jc-7rg8", "GHSA-53mr-6c8q-9789"]}
+{"qid": "prod-plone-app-textfield", "qtype": "product_all", "query": "plone-app-textfield vulnerabilities", "relevant": ["GHSA-4r4f-gg25-rmg5"]}
+{"qid": "prod-openbabel", "qtype": "product_all", "query": "openbabel vulnerabilities", "relevant": ["GHSA-2m54-8m6g-qf93", "GHSA-3f56-w4g2-mx64", "GHSA-4r3q-94wc-xhq9", "GHSA-4w5w-4fhm-q483", "GHSA-55f6-pf8r-c2f4", "GHSA-55j6-rjhx-hwfh"]}
+{"qid": "prod-windows_10_1607", "qtype": "product_all", "query": "windows_10_1607 vulnerabilities", "relevant": ["CVE-2026-68876", "CVE-2026-68878", "CVE-2026-68880", "CVE-2026-69334", "CVE-2026-69335", "CVE-2026-69337", "CVE-2026-69341", "CVE-2026-69362", "CVE-2026-69364", "CVE-2026-69368", "CVE-2026-69373"]}
+{"qid": "prod-pyspector", "qtype": "product_all", "query": "pyspector vulnerabilities", "relevant": ["GHSA-2gmv-2r3v-jxj2"]}
+{"qid": "prod-onnx", "qtype": "product_all", "query": "onnx vulnerabilities", "relevant": ["GHSA-3r9x-f23j-gc73", "GHSA-486p-g8x4-77mg", "GHSA-538c-55jv-c5g9"]}
+{"qid": "prod-cbor2", "qtype": "product_all", "query": "cbor2 vulnerabilities", "relevant": ["GHSA-375g-39jq-vq7m", "GHSA-3c37-wwvx-h642"]}
+{"qid": "prod-archivebox", "qtype": "product_all", "query": "archivebox vulnerabilities", "relevant": ["GHSA-3h23-7824-pj8r"]}
+{"qid": "prod-nltk", "qtype": "product_all", "query": "nltk vulnerabilities", "relevant": ["GHSA-2rrw-hpqm-36pv", "GHSA-2ww3-fxvq-293j", "GHSA-343m-9fqq-97c7", "GHSA-3gq4-3j92-5w49", "GHSA-3gqm-fcw5-w839", "GHSA-3h2g-j4wp-7qqq", "GHSA-3hhw-38pf-pxj6", "GHSA-3m7f-6hxv-6796", "GHSA-469j-vmhf-r6v7", "GHSA-4xw3-jf9x-x7mf", "GHSA-54xp-3ww7-6wjg", "GHSA-568f-pv23-39p4"]}
+{"qid": "prod-windows_10_1809", "qtype": "product_all", "query": "windows_10_1809 vulnerabilities", "relevant": ["CVE-2026-69377"]}
+{"qid": "prod-lightrag-hku", "qtype": "product_all", "query": "lightrag-hku vulnerabilities", "relevant": ["GHSA-c759-cx9p-mrwq", "GHSA-frch-4w6v-q5xx", "GHSA-hrmj-7rvj-4hg8", "GHSA-vv3m-f8x4-7377", "GHSA-xpjq-3w4w-w5wr"]}
+{"qid": "prod-nautobot", "qtype": "product_all", "query": "nautobot vulnerabilities", "relevant": ["GHSA-56v6-2fhr-wxgq", "GHSA-56v6-2fhr-wxgq", "GHSA-q4c5-2j6f-r476"]}
+{"qid": "prod-org.typelevel:jawn-parser_2.12", "qtype": "product_all", "query": "org.typelevel:jawn-parser_2.12 vulnerabilities", "relevant": ["GHSA-cc4v-rvgp-2pf3", "GHSA-w4cm-gvhj-cgw6"]}
+{"qid": "prod-pytorch-lightning", "qtype": "product_all", "query": "pytorch-lightning vulnerabilities", "relevant": ["GHSA-2vj5-px25-gjrp", "GHSA-4cv3-v7pv-rfhf"]}
+{"qid": "prod-verbb/formie", "qtype": "product_all", "query": "verbb/formie vulnerabilities", "relevant": ["GHSA-584p-f93j-wpgc", "GHSA-9rg8-2wvr-fgjh", "GHSA-v3f3-cmj4-cvj9"]}
+{"qid": "prod-github.com/square/wire", "qtype": "product_all", "query": "github.com/square/wire vulnerabilities", "relevant": ["GHSA-86wm-r4c5-2rc9"]}
+{"qid": "prod-@openc3/vue-common", "qtype": "product_all", "query": "@openc3/vue-common vulnerabilities", "relevant": ["GHSA-gvf2-2rh5-mpgf"]}
+{"qid": "prod-suneditor", "qtype": "product_all", "query": "suneditor vulnerabilities", "relevant": ["GHSA-6rf4-v2fh-m6p4"]}
+{"qid": "prod-mcp-atlassian", "qtype": "product_all", "query": "mcp-atlassian vulnerabilities", "relevant": ["GHSA-2xj6-xx86-cwwc", "GHSA-2xj6-xx86-cwwc", "GHSA-3r68-hf9h-887v", "GHSA-3r68-hf9h-887v", "GHSA-4596-2p6p-28cv", "GHSA-4596-2p6p-28cv", "GHSA-489g-7rxv-6c8q", "GHSA-49xv-9743-pw8w", "GHSA-49xv-9743-pw8w", "GHSA-5wf4-jqxh-8gm3", "GHSA-6529-c226-h328", "GHSA-6cr4-ccf3-x7h4", "GHSA-6vmq-24h2-pj7j", "GHSA-93xw-j965-9mx3", "GHSA-cc5h-2pwp-pvcc", "GHSA-f26r-j276-ggg4", "GHSA-f4p7-qx46-wc5j", "GHSA-f6pj-qv47-g96w", "GHSA-g2r2-3j32-j27x", "GHSA-g5xv-mhgm-v5f6", "GHSA-h7wj-5v37-59r2", "GHSA-hgcf-4mq8-5266", "GHSA-mfv2-4wvm-9pgp", "GHSA-mrq8-fv7v-hhjg", "GHSA-p6hp-93wp-fh6p", "GHSA-v9m3-wfh8-5646", "GHSA-vc25-24vv-fxxm", "GHSA-w66g-j6c4-hcfc", "GHSA-wrhw-j3f9-8vc6", "GHSA-wv8v-v4c5-v75j"]}
+{"qid": "prod-org.jline:jline-builtins", "qtype": "product_all", "query": "org.jline:jline-builtins vulnerabilities", "relevant": ["GHSA-ph9c-7hw9-vhhw", "GHSA-r2xf-8xr9-62gw"]}
+{"qid": "prod-redaxo/source", "qtype": "product_all", "query": "redaxo/source vulnerabilities", "relevant": ["GHSA-4f5f-j737-pm58", "GHSA-m8r3-22v6-g877", "GHSA-mf2p-wjp4-99pq", "GHSA-w998-qmw9-mf4m"]}
+{"qid": "prod-streamlink", "qtype": "product_all", "query": "streamlink vulnerabilities", "relevant": ["GHSA-vf2x-4v53-pm7v"]}
+{"qid": "prod-marshmallow", "qtype": "product_all", "query": "marshmallow vulnerabilities", "relevant": ["GHSA-428g-f7cq-pgp5"]}
+{"qid": "prod-keylime", "qtype": "product_all", "query": "keylime vulnerabilities", "relevant": ["GHSA-27jc-jmp8-qfw5", "GHSA-4jqp-9qjv-57m2"]}
+{"qid": "prod-copier", "qtype": "product_all", "query": "copier vulnerabilities", "relevant": ["GHSA-3xw7-v6cj-5q8h", "GHSA-4fqp-r85r-hxqh"]}
+{"qid": "prod-urllib3", "qtype": "product_all", "query": "urllib3 vulnerabilities", "relevant": ["GHSA-2xpw-w6gg-jr37", "GHSA-34jh-p97f-mpxf", "GHSA-38jv-5279-wg99", "GHSA-48p4-8xcf-vxj5"]}
+{"qid": "prod-moonraker", "qtype": "product_all", "query": "moonraker vulnerabilities", "relevant": ["GHSA-3jqf-v4mv-747g"]}
+{"qid": "prod-twisted", "qtype": "product_all", "query": "twisted vulnerabilities", "relevant": ["GHSA-32gv-6cf3-wcmq", "GHSA-3c45-wgjp-7v9r", "GHSA-3gqj-cmxr-p4x2"]}
+{"qid": "prod-vllm", "qtype": "product_all", "query": "vllm vulnerabilities", "relevant": ["GHSA-2pc9-4j83-qjmr", "GHSA-33cg-gxv8-3p8g", "GHSA-3f6c-7fw2-ppm4", "GHSA-3mwp-wvh9-7528", "GHSA-3ww4-5jv9-j5gm", "GHSA-48jh-3gj7-fg8v", "GHSA-4hhp-h66f-j5j7", "GHSA-4qjh-9fv9-r85r", "GHSA-4r2x-xpjr-7cvv"]}
+{"qid": "prod-waitress", "qtype": "product_all", "query": "waitress vulnerabilities", "relevant": ["GHSA-3f84-rpwh-47g6", "GHSA-4f7p-27jc-3c36", "GHSA-4ppp-gpcr-7qf6"]}
+{"qid": "prod-langroid", "qtype": "product_all", "query": "langroid vulnerabilities", "relevant": ["GHSA-22c2-9gwg-mj59", "GHSA-2pq5-3q89-j7cc"]}
+{"qid": "prod-horovod", "qtype": "product_all", "query": "horovod vulnerabilities", "relevant": ["GHSA-47wv-vhj2-g66m"]}
+{"qid": "prod-wger", "qtype": "product_all", "query": "wger vulnerabilities", "relevant": ["GHSA-42cr-w2gr-m54q"]}
+{"qid": "prod-justhtml", "qtype": "product_all", "query": "justhtml vulnerabilities", "relevant": ["GHSA-3rcm-vjrc-p45j", "GHSA-4p64-v8f5-r2gx"]}
+{"qid": "prod-matrix-synapse", "qtype": "product_all", "query": "matrix-synapse vulnerabilities", "relevant": ["GHSA-22p3-qrh9-cx32", "GHSA-246w-56m2-5899", "GHSA-26c5-ppr8-f33p", "GHSA-2hwx-mjrm-v3g8", "GHSA-3h7q-rfh9-xm4v", "GHSA-3hfw-x7gx-437c", "GHSA-3x4c-pq33-4w3q", "GHSA-3x8c-fmpc-5rmq", "GHSA-45cj-f97f-ggwv", "GHSA-4822-jvwx-w47h", "GHSA-4f74-84v3-j9q5", "GHSA-4mhg-xv73-xq2x", "GHSA-4mp3-385r-v63f", "GHSA-56w4-5538-8v8h"]}
+{"qid": "prod-pypdf", "qtype": "product_all", "query": "pypdf vulnerabilities", "relevant": ["GHSA-23w6-3w8w-8484", "GHSA-248m-82v9-q6g6", "GHSA-2q4j-m29v-hq73", "GHSA-2rw7-x74f-jg35", "GHSA-3crg-w4f6-42mx", "GHSA-4f6g-68pf-7vhv", "GHSA-4pxv-j86v-mhcw", "GHSA-4xc4-762w-m6cg", "GHSA-52x6-gq3r-vpf4", "GHSA-55h5-xmcq-c37v"]}
+{"qid": "prod-motioneye", "qtype": "product_all", "query": "motioneye vulnerabilities", "relevant": ["GHSA-26f6-wm47-7h7j", "GHSA-2c7w-v459-cwgf"]}
+{"qid": "prod-simpleeval", "qtype": "product_all", "query": "simpleeval vulnerabilities", "relevant": ["GHSA-44vg-5wv2-h2hg"]}
+{"qid": "prod-flask-appbuilder", "qtype": "product_all", "query": "flask-appbuilder vulnerabilities", "relevant": ["GHSA-2ccw-7px8-vmpf", "GHSA-32ff-4g79-vgfc", "GHSA-434h-p4gx-jm89"]}
+{"qid": "prod-products-isurlinportal", "qtype": "product_all", "query": "products-isurlinportal vulnerabilities", "relevant": ["GHSA-43gx-6gv6-3jcp"]}
+{"qid": "prod-pygments", "qtype": "product_all", "query": "pygments vulnerabilities", "relevant": ["GHSA-5239-wwwm-4pmq"]}
+{"qid": "prod-jupyterhub", "qtype": "product_all", "query": "jupyterhub vulnerabilities", "relevant": ["GHSA-3vff-hjqv-m7h8"]}
+{"qid": "prod-salt", "qtype": "product_all", "query": "salt vulnerabilities", "relevant": ["GHSA-29j3-2446-5j4w", "GHSA-2q4g-wfm6-5fpm", "GHSA-2qw3-2wv6-p64x", "GHSA-3c56-vx6v-q5vh", "GHSA-4277-m35q-7c9w", "GHSA-4j59-vv55-q6h3"]}
+{"qid": "prod-ms-agent", "qtype": "product_all", "query": "ms-agent vulnerabilities", "relevant": ["GHSA-4gc2-344q-r2rw"]}
+{"qid": "prod-magic-wormhole", "qtype": "product_all", "query": "magic-wormhole vulnerabilities", "relevant": ["GHSA-4g4c-mfqg-pj8r"]}
+{"qid": "prod-ceilometer", "qtype": "product_all", "query": "ceilometer vulnerabilities", "relevant": ["GHSA-2cvf-r9jm-4qm9"]}
+{"qid": "prod-openssl-encrypt", "qtype": "product_all", "query": "openssl-encrypt vulnerabilities", "relevant": ["GHSA-2vhw-q7vh-7xv2", "GHSA-425g-fjhq-5h92", "GHSA-4rh7-jwg9-m28m"]}
+{"qid": "prod-mercurial", "qtype": "product_all", "query": "mercurial vulnerabilities", "relevant": ["GHSA-3mjj-mr4f-qxmx", "GHSA-3pmw-h7j4-rf54", "GHSA-3qmg-c9vc-r47j", "GHSA-3v62-ww8w-758m", "GHSA-49cw-434h-qc57", "GHSA-4mr4-7vjv-9hm6"]}
+{"qid": "prod-django", "qtype": "product_all", "query": "django vulnerabilities", "relevant": ["GHSA-2655-q453-22f9", "GHSA-296w-6qhq-gf92", "GHSA-2f9x-5v75-3qv4", "GHSA-2gwj-7jmv-h26r", "GHSA-2hrw-hx67-34x6", "GHSA-2m34-jcjv-45xf", "GHSA-2mcm-79hx-8fxw", "GHSA-337x-4q8g-prc5", "GHSA-33mw-q7rj-mjwj", "GHSA-37hp-765x-j95x", "GHSA-3f2c-jm6v-cr35", "GHSA-3gh2-xw74-jmcw", "GHSA-3h9f-r86x-qvjx", "GHSA-3jqw-crqj-w8qw", "GHSA-46x4-9jmv-jc8p", "GHSA-4894-5vqc-6r2r", "GHSA-4c42-4rxm-x6qf", "GHSA-4rrr-2h4v-f3j9", "GHSA-53qw-q765-4fww", "GHSA-54qj-48vx-cr9f"]}
+{"qid": "prod-apache-superset", "qtype": "product_all", "query": "apache-superset vulnerabilities", "relevant": ["GHSA-299q-3p96-5898", "GHSA-2cx9-54hp-r698", "GHSA-2q6j-vpvr-6pvj", "GHSA-35fc-9hrj-3585", "GHSA-392c-vjfv-h7wr", "GHSA-3hp7-4qq4-v5c6", "GHSA-3m2g-v7jf-7fxc", "GHSA-3v9r-885j-762g", "GHSA-42q4-9xf9-f67x", "GHSA-48m2-v2r8-h23m", "GHSA-4fg9-5w46-xmrj", "GHSA-5474-f7g5-273q"]}
+{"qid": "prod-superduper-framework", "qtype": "product_all", "query": "superduper-framework vulnerabilities", "relevant": ["GHSA-2799-6g5r-mmc7"]}
+{"qid": "prod-wireshark-mcp", "qtype": "product_all", "query": "wireshark-mcp vulnerabilities", "relevant": ["GHSA-3r68-x3xc-rxpg"]}
+{"qid": "prod-mako", "qtype": "product_all", "query": "mako vulnerabilities", "relevant": ["GHSA-2h4p-vjrc-8xpq"]}
+{"qid": "prod-keras", "qtype": "product_all", "query": "keras vulnerabilities", "relevant": ["GHSA-26c4-7vv6-867j", "GHSA-28jp-44vh-q42h", "GHSA-36fq-jgmw-4r9c", "GHSA-36rr-ww3j-vrjv", "GHSA-3m4q-jmj6-r34q", "GHSA-48g7-3x6r-xfhp", "GHSA-4f3f-g24h-fr8m", "GHSA-5478-v2w6-c6q7"]}
+{"qid": "prod-mlflow", "qtype": "product_all", "query": "mlflow vulnerabilities", "relevant": ["GHSA-2cm6-r77w-6g96", "GHSA-3v79-q7ph-j75h", "GHSA-42h5-h8qh-vv9v", "GHSA-43c4-9qgj-x742", "GHSA-46r5-x6jq-v8g6", "GHSA-49m6-vrr9-2cqm", "GHSA-4qq5-mxxx-m6gg", "GHSA-4rj2-9gcx-5qhx", "GHSA-4rqf-8pfm-p36r", "GHSA-4x5p-f36r-mxxr", "GHSA-554w-xh4j-8w64"]}
+{"qid": "prod-vyper", "qtype": "product_all", "query": "vyper vulnerabilities", "relevant": ["GHSA-22wc-c9wj-6q2v", "GHSA-2p94-8669-xg86", "GHSA-2q8v-3gqq-4f8p", "GHSA-375m-5fvv-xq23", "GHSA-3hg2-r75x-g69m", "GHSA-3p37-3636-q8wv", "GHSA-3vcg-j39x-cwfm", "GHSA-3whq-64q2-qfj6", "GHSA-4hg4-9mf5-wxxq", "GHSA-4hwq-4cpm-8vmx", "GHSA-4mrx-6fxm-8jpg", "GHSA-4v9q-cgpw-cf38", "GHSA-4w26-8p97-f4jp", "GHSA-52xq-j7v9-v4v2"]}
+{"qid": "prod-sentry", "qtype": "product_all", "query": "sentry vulnerabilities", "relevant": ["GHSA-444r-2whx-3685", "GHSA-4xqm-4p72-87h6", "GHSA-54m3-95j9-v89j"]}
+{"qid": "prod-codechecker", "qtype": "product_all", "query": "codechecker vulnerabilities", "relevant": ["GHSA-4v9x-cqc5-j645"]}
+{"qid": "prod-github.com/kubeedge/kubeedge", "qtype": "product_all", "query": "github.com/kubeedge/kubeedge vulnerabilities", "relevant": ["GHSA-5jpj-293f-rhvj", "GHSA-9vm9-pqxx-x83v", "GHSA-gfw4-49f9-cp25", "GHSA-m3c6-2p7h-cfr3"]}
+{"qid": "prod-keystone", "qtype": "product_all", "query": "keystone vulnerabilities", "relevant": ["GHSA-22q6-wwq7-2jj9", "GHSA-23x9-8hxr-978c", "GHSA-274v-r947-v34r", "GHSA-2j23-fwqm-mgwr", "GHSA-2r23-2g6v-2m5f", "GHSA-4225-97pr-rr52", "GHSA-4427-7f3w-mqv6", "GHSA-4phw-6824-6cfp", "GHSA-4ppj-4p4v-jf4p"]}
+{"qid": "prod-pgadmin4", "qtype": "product_all", "query": "pgadmin4 vulnerabilities", "relevant": ["GHSA-27jx-ffw8-xrqv", "GHSA-2mvc-557g-5638", "GHSA-2rrx-pphc-qfv9", "GHSA-3p7x-94q9-jq9x", "GHSA-3v6v-2x6p-32mc", "GHSA-4rhg-h8f2-v4jm"]}
+{"qid": "prod-glance", "qtype": "product_all", "query": "glance vulnerabilities", "relevant": ["GHSA-479j-jf2p-38pg", "GHSA-4jp4-3c62-r8jv", "GHSA-4xw6-hj5p-4j79"]}
+{"qid": "prod-django-mfa3", "qtype": "product_all", "query": "django-mfa3 vulnerabilities", "relevant": ["GHSA-3r7g-wrpr-j5g4"]}
+{"qid": "prod-praisonai", "qtype": "product_all", "query": "praisonai vulnerabilities", "relevant": ["GHSA-22cj-m4wf-fv2c", "GHSA-2763-cj5r-c79m", "GHSA-29w3-p9w9-wc47", "GHSA-2g3w-cpc4-chr4", "GHSA-2jgc-f764-c5r2", "GHSA-2xgv-5cv2-47vv", "GHSA-32vr-5gcf-3pw2", "GHSA-3643-7v76-5cj2", "GHSA-3c4r-6p77-xwr7", "GHSA-4mr5-g6f9-cfrh", "GHSA-4ph2-f6pf-79wv", "GHSA-4rx4-4r3x-6534", "GHSA-4wr3-f4p3-5wjh"]}
+{"qid": "prod-transformers", "qtype": "product_all", "query": "transformers vulnerabilities", "relevant": ["GHSA-282v-666c-3fvg", "GHSA-29pf-2h5f-8g72", "GHSA-37mw-44qp-f5jm", "GHSA-37q5-v5qm-c9v8", "GHSA-3863-2447-669p", "GHSA-489j-g2vx-39wf", "GHSA-4w7r-h757-3r74"]}
+{"qid": "prod-github.com/openbao/openbao", "qtype": "product_all", "query": "github.com/openbao/openbao vulnerabilities", "relevant": ["GHSA-34fc-gh42-pj53", "GHSA-444v-8vxr-p36h", "GHSA-59w7-v8rr-pr4p", "GHSA-xp3c-3jw3-4vcr"]}
+{"qid": "prod-praisonaiagents", "qtype": "product_all", "query": "praisonaiagents vulnerabilities", "relevant": ["GHSA-2rcg-mm5h-xchx", "GHSA-35w5-pcw4-jx94", "GHSA-44c2-3rw4-5gvh", "GHSA-4869-x4pr-q22x", "GHSA-4pcv-mg8v-vrgf"]}
+{"qid": "prod-campaign", "qtype": "product_all", "query": "campaign vulnerabilities", "relevant": ["CVE-2026-73369", "CVE-2026-75728", "CVE-2026-82011"]}
+{"qid": "prod-github.com/steveiliop56/tinyauth", "qtype": "product_all", "query": "github.com/steveiliop56/tinyauth vulnerabilities", "relevant": ["GHSA-9xhm-w3wj-xhqh"]}
+{"qid": "prod-github.com/tinyauthapp/tinyauth", "qtype": "product_all", "query": "github.com/tinyauthapp/tinyauth vulnerabilities", "relevant": ["GHSA-328g-jx67-v94g", "GHSA-456h-ww26-f758"]}
+{"qid": "prod-thunderbird", "qtype": "product_all", "query": "thunderbird vulnerabilities", "relevant": ["CVE-2026-92238", "CVE-2026-92239", "CVE-2026-92240"]}
+{"qid": "prod-djust", "qtype": "product_all", "query": "djust vulnerabilities", "relevant": ["GHSA-3492-cvg7-9mr2", "GHSA-4mf4-73j6-mvrw"]}
+{"qid": "prod-io.moquette:moquette-broker", "qtype": "product_all", "query": "io.moquette:moquette-broker vulnerabilities", "relevant": ["GHSA-5f42-97gr-vfhq"]}
+{"qid": "prod-github.com/hatchet-dev/hatchet", "qtype": "product_all", "query": "github.com/hatchet-dev/hatchet vulnerabilities", "relevant": ["GHSA-992g-9cr3-vm5x", "GHSA-9q4h-f4x5-ffq8"]}
+{"qid": "prod-zapros", "qtype": "product_all", "query": "zapros vulnerabilities", "relevant": ["GHSA-5vjj-2r48-q622", "GHSA-6cp7-3m3c-5x5c"]}
+{"qid": "prod-ctx", "qtype": "product_all", "query": "ctx vulnerabilities", "relevant": ["GHSA-4g82-3jcr-q52w"]}
+{"qid": "prod-sulu/sulu", "qtype": "product_all", "query": "sulu/sulu vulnerabilities", "relevant": ["GHSA-jg26-q8hg-3pq4"]}
+{"qid": "prod-plone.app.contenttypes", "qtype": "product_all", "query": "plone.app.contenttypes vulnerabilities", "relevant": ["GHSA-8pcw-h6w9-h46g"]}
+{"qid": "prod-sentry-sdk", "qtype": "product_all", "query": "sentry-sdk vulnerabilities", "relevant": ["GHSA-29pr-6jr8-q5jm"]}
+{"qid": "prod-@fecommunity/reactpress", "qtype": "product_all", "query": "@fecommunity/reactpress vulnerabilities", "relevant": ["GHSA-wmw4-mw6x-6vfm"]}
+{"qid": "prod-sgx-dcap-quote-verify-python", "qtype": "product_all", "query": "sgx-dcap-quote-verify-python vulnerabilities", "relevant": ["GHSA-344m-qcjq-xgrf"]}
+{"qid": "prod-wagtail", "qtype": "product_all", "query": "wagtail vulnerabilities", "relevant": ["GHSA-23m2-mghx-vqmf", "GHSA-2473-9hgq-j7xw", "GHSA-33pv-vcgh-jfg9", "GHSA-3vrh-m9w7-v94f", "GHSA-4qvv-g3vr-m348", "GHSA-5286-f2rf-35c2"]}
+{"qid": "prod-wlc", "qtype": "product_all", "query": "wlc vulnerabilities", "relevant": ["GHSA-2mmv-7rrp-g8xh", "GHSA-3mqq-hv9c-85hc"]}
+{"qid": "prod-safeurl-python", "qtype": "product_all", "query": "safeurl-python vulnerabilities", "relevant": ["GHSA-373w-rj84-pv6x"]}
+{"qid": "prod-unleash-server", "qtype": "product_all", "query": "unleash-server vulnerabilities", "relevant": ["GHSA-5ffh-6f9q-5hhr", "GHSA-72h8-wp98-7hch", "GHSA-8xcj-9hfr-fh9j"]}
+{"qid": "prod-torchserve", "qtype": "product_all", "query": "torchserve vulnerabilities", "relevant": ["GHSA-4mqg-h5jf-j9m7"]}
+{"qid": "prod-pillow", "qtype": "product_all", "query": "pillow vulnerabilities", "relevant": ["GHSA-3c5c-7235-994j", "GHSA-3f63-hfp8-52jq", "GHSA-3wvg-mj6g-m9cv", "GHSA-3xv8-3j54-hgrp", "GHSA-43fq-w8qq-v88h", "GHSA-44wm-f244-xhp3", "GHSA-45hq-cxwh-f6vc", "GHSA-4fx9-vc88-q2xc", "GHSA-4x4j-2g7c-83w6", "GHSA-56pw-mpj4-fxww"]}
+{"qid": "prod-traefik", "qtype": "product_all", "query": "Traefik vulnerabilities", "relevant": ["GHSA-8fcf-v89g-xpg6"]}
+{"qid": "prod-github.com/projectdiscovery/nuclei/v3", "qtype": "product_all", "query": "github.com/projectdiscovery/nuclei/v3 vulnerabilities", "relevant": ["GHSA-jpf4-98qj-qr67", "GHSA-jpvm-9frm-hjcq", "GHSA-qgw5-7j4f-fg97", "GHSA-vxg7-f2jj-jmqm", "GHSA-xhmx-w2j4-rw3q"]}
+{"qid": "prod-synthcity", "qtype": "product_all", "query": "synthcity vulnerabilities", "relevant": ["GHSA-4957-7vhp-7v59"]}
+{"qid": "prod-scrapy", "qtype": "product_all", "query": "scrapy vulnerabilities", "relevant": ["GHSA-23j4-mw76-5v7h", "GHSA-2qfp-q593-8484", "GHSA-4q82-j5c2-g2c5", "GHSA-4qqq-9vqf-3h3f"]}
+{"qid": "prod-gradio-pdf", "qtype": "product_all", "query": "gradio-pdf vulnerabilities", "relevant": ["GHSA-4m3g-6r7g-jv4f"]}
+{"qid": "prod-ansys-geometry-core", "qtype": "product_all", "query": "ansys-geometry-core vulnerabilities", "relevant": ["GHSA-38jr-29fh-w9vm"]}
+{"qid": "prod-org.jline:jline-reader", "qtype": "product_all", "query": "org.jline:jline-reader vulnerabilities", "relevant": ["GHSA-5q95-hrpc-m3w3"]}
+{"qid": "prod-eth-abi", "qtype": "product_all", "query": "eth-abi vulnerabilities", "relevant": ["GHSA-3qwc-47jf-5rf7"]}
+{"qid": "prod-uefi-firmware", "qtype": "product_all", "query": "uefi-firmware vulnerabilities", "relevant": ["GHSA-2689-5p89-6j3j"]}
+{"qid": "prod-yt-dlp", "qtype": "product_all", "query": "yt-dlp vulnerabilities", "relevant": ["GHSA-3ch3-jhc6-5r8x", "GHSA-3v33-3wmw-3785", "GHSA-42h4-v29r-42qg"]}
+{"qid": "prod-pretix", "qtype": "product_all", "query": "pretix vulnerabilities", "relevant": ["GHSA-2mm6-624x-fqrr", "GHSA-45rp-q25w-4426"]}
+{"qid": "prod-mindsdb", "qtype": "product_all", "query": "mindsdb vulnerabilities", "relevant": ["GHSA-2g5w-29q9-w6hx", "GHSA-32fj-r8qw-r8w8", "GHSA-34mr-6q8x-g9r6", "GHSA-4894-xqv6-vrfq", "GHSA-4jcv-vp96-94xr"]}
+{"qid": "prod-visual_studio_code", "qtype": "product_all", "query": "visual_studio_code vulnerabilities", "relevant": ["CVE-2026-59113"]}
+{"qid": "prod-pyspark", "qtype": "product_all", "query": "pyspark vulnerabilities", "relevant": ["GHSA-329j-jfvr-rhr6", "GHSA-4x9r-j582-cgr8"]}
+{"qid": "prod-gradio", "qtype": "product_all", "query": "gradio vulnerabilities", "relevant": ["GHSA-26jh-r8g2-6fpr", "GHSA-279j-x4gx-hfrh", "GHSA-34rf-p3r3-58x2", "GHSA-37qc-qgx6-9xjv", "GHSA-39mp-8hj3-5c49", "GHSA-3c67-5hwx-f6wx", "GHSA-3f95-mxq2-2f63", "GHSA-3gf9-wv65-gwh9", "GHSA-3qqg-pgqq-3695", "GHSA-3x5j-9vwr-8rr5", "GHSA-3x9g-xfj5-fq84", "GHSA-48cq-79qq-6f7x", "GHSA-4q3c-cj7g-jcwf", "GHSA-576c-3j53-r9jj"]}
+{"qid": "prod-ansible-core", "qtype": "product_all", "query": "ansible-core vulnerabilities", "relevant": ["GHSA-32p4-gm2c-wmch"]}
+{"qid": "prod-pyrage", "qtype": "product_all", "query": "pyrage vulnerabilities", "relevant": ["GHSA-47h8-jmp3-9f28"]}
+{"qid": "prod-opencv-contrib-python", "qtype": "product_all", "query": "opencv-contrib-python vulnerabilities", "relevant": ["GHSA-267x-w5hx-8hjr", "GHSA-33h2-69j3-r336"]}
+{"qid": "prod-red-discordbot", "qtype": "product_all", "query": "red-discordbot vulnerabilities", "relevant": ["GHSA-55j9-849x-26h4"]}
+{"qid": "prod-aubio", "qtype": "product_all", "query": "aubio vulnerabilities", "relevant": ["GHSA-3x58-8qmv-wqw5", "GHSA-45h5-cqqw-9rjw"]}
+{"qid": "prod-moin", "qtype": "product_all", "query": "moin vulnerabilities", "relevant": ["GHSA-2j76-26qq-7rvv", "GHSA-3x76-j3jj-439j", "GHSA-42fp-4hm3-j8r7", "GHSA-452h-rx28-49w9", "GHSA-4pfg-2frf-f67v", "GHSA-4q96-6xhq-ff43", "GHSA-52q8-877j-gghq", "GHSA-53wj-6m7w-j6mj", "GHSA-574f-mh6m-c6qm"]}
+{"qid": "prod-plone", "qtype": "product_all", "query": "plone vulnerabilities", "relevant": ["GHSA-22jm-p2vv-j2hc", "GHSA-25jh-5h5r-h33m", "GHSA-2q75-f7cp-w86q", "GHSA-2qx8-589j-gcpx", "GHSA-35rg-466w-77h3", "GHSA-38g6-x6jv-jwff", "GHSA-3g6w-4m7x-97v6", "GHSA-3qpr-7rmg-73v8", "GHSA-3v28-9jjp-4g5w", "GHSA-46f9-f8jm-mw2x", "GHSA-4793-w44w-m7xm", "GHSA-47p5-p3jw-w78w", "GHSA-48vv-2pmq-9fvv", "GHSA-4j3w-g62x-hrcp", "GHSA-4mg4-wvmx-5332", "GHSA-56p3-rrp4-2j82"]}
+{"qid": "prod-asyncpg", "qtype": "product_all", "query": "asyncpg vulnerabilities", "relevant": ["GHSA-2xpj-f5g2-8p7m"]}
+{"qid": "prod-python-gnupg", "qtype": "product_all", "query": "python-gnupg vulnerabilities", "relevant": ["GHSA-2fch-jvg5-crf6", "GHSA-2jc8-4r6g-282j"]}
+{"qid": "prod-qpid-python", "qtype": "product_all", "query": "qpid-python vulnerabilities", "relevant": ["GHSA-3g2p-7c6p-vj8c"]}
+{"qid": "prod-sqlite-web", "qtype": "product_all", "query": "sqlite-web vulnerabilities", "relevant": ["GHSA-2j58-pwwv-x666"]}
+{"qid": "prod-sopel-plugins-channelmgnt", "qtype": "product_all", "query": "sopel-plugins-channelmgnt vulnerabilities", "relevant": ["GHSA-23c7-6444-399m"]}
+{"qid": "prod-ipython", "qtype": "product_all", "query": "ipython vulnerabilities", "relevant": ["GHSA-29gw-9793-fvw7", "GHSA-4vwq-x64q-j4cj"]}
+{"qid": "prod-parso", "qtype": "product_all", "query": "parso vulnerabilities", "relevant": ["GHSA-22mf-97vh-x8rw"]}
+{"qid": "prod-tlslite", "qtype": "product_all", "query": "tlslite vulnerabilities", "relevant": ["GHSA-4749-p7rx-8jjj"]}
+{"qid": "prod-jinja2", "qtype": "product_all", "query": "jinja2 vulnerabilities", "relevant": ["GHSA-462w-v97r-4m45"]}
+{"qid": "prod-eyed3", "qtype": "product_all", "query": "eyed3 vulnerabilities", "relevant": ["GHSA-4r2w-w73w-36jm"]}
+{"qid": "prod-donfig", "qtype": "product_all", "query": "donfig vulnerabilities", "relevant": ["GHSA-3qr5-h7w4-3gx3"]}
+{"qid": "prod-qutebrowser", "qtype": "product_all", "query": "qutebrowser vulnerabilities", "relevant": ["GHSA-4rcq-jv2f-898j"]}
+{"qid": "prod-quokka", "qtype": "product_all", "query": "quokka vulnerabilities", "relevant": ["GHSA-3xg5-6c3j-vp8x", "GHSA-4q2r-qxp6-h5j6"]}
+{"qid": "prod-fastecdsa", "qtype": "product_all", "query": "fastecdsa vulnerabilities", "relevant": ["GHSA-56wv-2wr9-3h9r"]}
+{"qid": "prod-ansible", "qtype": "product_all", "query": "ansible vulnerabilities", "relevant": ["GHSA-2pfh-q76x-gwvm", "GHSA-3c67-gc48-983w", "GHSA-3m8p-xpm6-8ww3", "GHSA-3m93-m4q6-mc6v", "GHSA-3xvg-x47j-x75w", "GHSA-49m5-2838-q2rv", "GHSA-4cvm-5776-jx9f", "GHSA-4r65-35qq-ch8j"]}
+{"qid": "prod-flask-user", "qtype": "product_all", "query": "flask-user vulnerabilities", "relevant": ["GHSA-4298-89hc-6rfv"]}
+{"qid": "prod-setuptools", "qtype": "product_all", "query": "setuptools vulnerabilities", "relevant": ["GHSA-27x4-j476-jp5f"]}
+{"qid": "prod-beets", "qtype": "product_all", "query": "beets vulnerabilities", "relevant": ["GHSA-3gxm-wfjx-m847"]}
+{"qid": "prod-rembg", "qtype": "product_all", "query": "rembg vulnerabilities", "relevant": ["GHSA-3wqj-33cg-xc48", "GHSA-55v6-g8pm-pw4c"]}
+{"qid": "prod-uv", "qtype": "product_all", "query": "uv vulnerabilities", "relevant": ["GHSA-4gg8-gxpx-9rph"]}
+{"qid": "prod-phantom-audio", "qtype": "product_all", "query": "phantom-audio vulnerabilities", "relevant": ["GHSA-52vm-mxx8-f227"]}
+{"qid": "prod-rsa", "qtype": "product_all", "query": "rsa vulnerabilities", "relevant": ["GHSA-537h-rv9q-vvph"]}
+{"qid": "prod-vantage6", "qtype": "product_all", "query": "vantage6 vulnerabilities", "relevant": ["GHSA-2wgc-48g2-cj5w", "GHSA-36gx-9q6h-g429", "GHSA-47w6-gwp4-w6vc", "GHSA-4946-85pr-fvxh", "GHSA-4c5c-2vc3-x5w2", "GHSA-4w59-c3gc-rrhp", "GHSA-5549-c5q7-fj65"]}
+{"qid": "prod-instack-undercloud", "qtype": "product_all", "query": "instack-undercloud vulnerabilities", "relevant": ["GHSA-53wm-97p6-582f"]}
+{"qid": "prod-sqla-yaml-fixtures", "qtype": "product_all", "query": "sqla-yaml-fixtures vulnerabilities", "relevant": ["GHSA-2x54-j4m3-r6wx"]}
+{"qid": "prod-unoconv", "qtype": "product_all", "query": "unoconv vulnerabilities", "relevant": ["GHSA-27p5-7cw6-m45h"]}
+{"qid": "prod-recurly", "qtype": "product_all", "query": "recurly vulnerabilities", "relevant": ["GHSA-38rv-5jqc-m2cv"]}
+{"qid": "prod-nova", "qtype": "product_all", "query": "nova vulnerabilities", "relevant": ["GHSA-22jm-4hxw-35jf", "GHSA-22w9-j288-8p9w", "GHSA-27q4-38qf-m25h", "GHSA-2w87-5qcj-j6gx", "GHSA-3vx7-xff6-h2vx", "GHSA-43cm-73px-5v4m", "GHSA-43hc-pwvx-pmfg", "GHSA-46r8-9cj7-pw6g", "GHSA-49jv-37hm-6gfp", "GHSA-5644-2v3h-5w4x"]}
+{"qid": "prod-recommender-xblock", "qtype": "product_all", "query": "recommender-xblock vulnerabilities", "relevant": ["GHSA-3j5x-7ccf-ppgm"]}
+{"qid": "prod-feedparser", "qtype": "product_all", "query": "feedparser vulnerabilities", "relevant": ["GHSA-2p78-8hh6-96xc", "GHSA-3mwg-gp5g-fv3q", "GHSA-4m72-rmm9-2qjr"]}
+{"qid": "prod-sqlalchemy", "qtype": "product_all", "query": "sqlalchemy vulnerabilities", "relevant": ["GHSA-38fc-9xqv-7f7q"]}
+{"qid": "prod-psd-tools", "qtype": "product_all", "query": "psd-tools vulnerabilities", "relevant": ["GHSA-22jr-vc7j-g762", "GHSA-24p2-j2jr-386w", "GHSA-2rmg-vrx8-9j2f"]}
+{"qid": "prod-uvicorn", "qtype": "product_all", "query": "uvicorn vulnerabilities", "relevant": ["GHSA-33c7-2mpw-hg34"]}
+{"qid": "prod-python-bugzilla", "qtype": "product_all", "query": "python-bugzilla vulnerabilities", "relevant": ["GHSA-2q4h-27m7-rj67"]}
+{"qid": "prod-djblets", "qtype": "product_all", "query": "djblets vulnerabilities", "relevant": ["GHSA-4xf6-xr96-7vmp"]}
+{"qid": "prod-svglib", "qtype": "product_all", "query": "svglib vulnerabilities", "relevant": ["GHSA-3vcg-8p79-jpcv"]}
+{"qid": "prod-neutron", "qtype": "product_all", "query": "neutron vulnerabilities", "relevant": ["GHSA-3vj4-cvjp-482h", "GHSA-4pmp-38hf-rmwj"]}
+{"qid": "prod-plone-supermodel", "qtype": "product_all", "query": "plone-supermodel vulnerabilities", "relevant": ["GHSA-2c8c-84w2-j38j"]}
+{"qid": "prod-gunicorn", "qtype": "product_all", "query": "gunicorn vulnerabilities", "relevant": ["GHSA-32pc-xphx-q4f6"]}
+{"qid": "prod-indy-node", "qtype": "product_all", "query": "indy-node vulnerabilities", "relevant": ["GHSA-3gw4-m5w7-v89c"]}
+{"qid": "prod-notebook", "qtype": "product_all", "query": "notebook vulnerabilities", "relevant": ["GHSA-3p4q-x8f3-p7vq", "GHSA-44cc-43rp-5947", "GHSA-4952-p58q-6crx", "GHSA-49qr-xh3w-h436", "GHSA-4m77-cmpx-vjc4"]}
+{"qid": "prod-paramiko", "qtype": "product_all", "query": "paramiko vulnerabilities", "relevant": ["GHSA-232r-66cg-79px"]}
+{"qid": "prod-django-cms", "qtype": "product_all", "query": "django-cms vulnerabilities", "relevant": ["GHSA-2pqc-gv8q-pvqv", "GHSA-4xfr-4p46-gc6p"]}
+{"qid": "prod-cherrymusic", "qtype": "product_all", "query": "cherrymusic vulnerabilities", "relevant": ["GHSA-4wcc-jv3p-prqw"]}
+{"qid": "prod-tryton", "qtype": "product_all", "query": "tryton vulnerabilities", "relevant": ["GHSA-32w7-9whp-cjp9"]}
+{"qid": "prod-horizon", "qtype": "product_all", "query": "horizon vulnerabilities", "relevant": ["GHSA-47vp-44v9-rhgq"]}
+{"qid": "prod-python-docx", "qtype": "product_all", "query": "python-docx vulnerabilities", "relevant": ["GHSA-34wj-p5jm-2p96"]}
+{"qid": "prod-pyyaml", "qtype": "product_all", "query": "pyyaml vulnerabilities", "relevant": ["GHSA-3pqx-4fqf-j49f"]}
+{"qid": "prod-wiki", "qtype": "product_all", "query": "wiki vulnerabilities", "relevant": ["GHSA-3m3h-v9hv-9j4h"]}
+{"qid": "prod-pulpcore", "qtype": "product_all", "query": "pulpcore vulnerabilities", "relevant": ["GHSA-574p-6fw4-4hw8"]}
+{"qid": "prod-trac", "qtype": "product_all", "query": "trac vulnerabilities", "relevant": ["GHSA-2q26-r8c4-jfx5", "GHSA-437p-qw95-wqqr"]}
+{"qid": "prod-tuf", "qtype": "product_all", "query": "tuf vulnerabilities", "relevant": ["GHSA-2828-9vh6-9m6j"]}
+{"qid": "prod-rtv", "qtype": "product_all", "query": "rtv vulnerabilities", "relevant": ["GHSA-336h-q7mh-8vf8"]}
+{"qid": "prod-django-nopassword", "qtype": "product_all", "query": "django-nopassword vulnerabilities", "relevant": ["GHSA-37cf-r3w2-gjfw"]}
+{"qid": "prod-cobbler", "qtype": "product_all", "query": "cobbler vulnerabilities", "relevant": ["GHSA-4cfr-gjfx-fj3x", "GHSA-4vc9-4xpq-77vm"]}
+{"qid": "prod-slixmpp", "qtype": "product_all", "query": "slixmpp vulnerabilities", "relevant": ["GHSA-4g62-mfwx-4q48"]}
+{"qid": "prod-trytond", "qtype": "product_all", "query": "trytond vulnerabilities", "relevant": ["GHSA-2w93-qwpp-vgvj", "GHSA-52j9-v3jc-9xgc"]}
+{"qid": "prod-oic", "qtype": "product_all", "query": "oic vulnerabilities", "relevant": ["GHSA-4fjv-pmhg-3rfg"]}
+{"qid": "prod-zodb3", "qtype": "product_all", "query": "zodb3 vulnerabilities", "relevant": ["GHSA-4x83-5gw5-q346", "GHSA-5432-c996-hvhj"]}
+{"qid": "prod-opencv-contrib-python-headless", "qtype": "product_all", "query": "opencv-contrib-python-headless vulnerabilities", "relevant": ["GHSA-3448-vrgh-85xr"]}
+{"qid": "prod-soappy", "qtype": "product_all", "query": "soappy vulnerabilities", "relevant": ["GHSA-2gh8-gr6x-7q26", "GHSA-52wr-3vww-rmpq"]}
+{"qid": "prod-ipsilon", "qtype": "product_all", "query": "ipsilon vulnerabilities", "relevant": ["GHSA-376m-3rm2-9jm6"]}
+{"qid": "prod-nnabla", "qtype": "product_all", "query": "nnabla vulnerabilities", "relevant": ["GHSA-4q2w-rw7m-xqw6"]}
+{"qid": "prod-flask", "qtype": "product_all", "query": "flask vulnerabilities", "relevant": ["GHSA-4grg-w6v8-c28g", "GHSA-562c-5r94-xh97"]}
+{"qid": "prod-github.com/cloudreve/cloudreve/v4", "qtype": "product_all", "query": "github.com/cloudreve/Cloudreve/v4 vulnerabilities", "relevant": ["GHSA-jvh5-97xg-v99f", "GHSA-w89x-c962-c44g", "GHSA-xj3h-wwxq-gfcj"]}
+{"qid": "prod-mysql-connector-python", "qtype": "product_all", "query": "mysql-connector-python vulnerabilities", "relevant": ["GHSA-2cf3-g243-hhfx"]}
+{"qid": "prod-beaker", "qtype": "product_all", "query": "beaker vulnerabilities", "relevant": ["GHSA-39vm-p9mr-4r27", "GHSA-3cwm-7jmm-774w"]}
+{"qid": "prod-homeassistant", "qtype": "product_all", "query": "homeassistant vulnerabilities", "relevant": ["GHSA-46j8-vpx8-6p72", "GHSA-4ghv-53cq-7wp3", "GHSA-4ghv-53cq-7wp3", "GHSA-wx4m-69m9-gx3m"]}
+{"qid": "prod-cryptography", "qtype": "product_all", "query": "cryptography vulnerabilities", "relevant": ["GHSA-39hc-v87j-747x", "GHSA-3ww4-gg4f-jr7f", "GHSA-537c-gmf6-5ccf"]}
+{"qid": "prod-sosreport", "qtype": "product_all", "query": "sosreport vulnerabilities", "relevant": ["GHSA-3g56-2hh3-35ph"]}
+{"qid": "prod-easybuild-framework", "qtype": "product_all", "query": "easybuild-framework vulnerabilities", "relevant": ["GHSA-2wx6-wc87-rmjm"]}
+{"qid": "prod-pyopenssl", "qtype": "product_all", "query": "pyopenssl vulnerabilities", "relevant": ["GHSA-2rcm-phc9-3945"]}
+{"qid": "prod-oauthenticator", "qtype": "product_all", "query": "oauthenticator vulnerabilities", "relevant": ["GHSA-384w-5v3f-q499", "GHSA-55m3-44xf-hg4h"]}
+{"qid": "prod-ecdsa", "qtype": "product_all", "query": "ecdsa vulnerabilities", "relevant": ["GHSA-2mrj-435v-c2cr"]}
+{"qid": "prod-kotti", "qtype": "product_all", "query": "kotti vulnerabilities", "relevant": ["GHSA-3hq4-f2v6-q338"]}
+{"qid": "prod-werkzeug", "qtype": "product_all", "query": "werkzeug vulnerabilities", "relevant": ["GHSA-29vq-49wr-vm6x", "GHSA-2g68-c3qc-8985", "GHSA-3p3h-qghp-hvh2"]}
+{"qid": "prod-solspace/craft-freeform", "qtype": "product_all", "query": "solspace/craft-freeform vulnerabilities", "relevant": ["GHSA-gxrg-x694-283w"]}
+{"qid": "prod-ethyca-fides", "qtype": "product_all", "query": "ethyca-fides vulnerabilities", "relevant": ["GHSA-2h46-8gf5-fmxv", "GHSA-3rw2-wfc8-wmj5", "GHSA-3vpf-mcj7-5h38", "GHSA-53q7-4874-24qg"]}
+{"qid": "prod-jupyter-core", "qtype": "product_all", "query": "jupyter-core vulnerabilities", "relevant": ["GHSA-33p9-3p43-82vq"]}
+{"qid": "prod-dbgpt", "qtype": "product_all", "query": "dbgpt vulnerabilities", "relevant": ["GHSA-3248-f932-c76p", "GHSA-3xq5-x4fj-rff7"]}
+{"qid": "prod-rdiffweb", "qtype": "product_all", "query": "rdiffweb vulnerabilities", "relevant": ["GHSA-2wpw-cm9w-v4xm", "GHSA-3fhq-72hw-jqwv", "GHSA-4wph-9vrm-6v3w"]}
+{"qid": "prod-saleor", "qtype": "product_all", "query": "saleor vulnerabilities", "relevant": ["GHSA-3hvj-3cg9-v242"]}
+{"qid": "prod-ni-measurementlink-service", "qtype": "product_all", "query": "ni-measurementlink-service vulnerabilities", "relevant": ["GHSA-3f48-9j7q-q2gv"]}
+{"qid": "prod-langchain", "qtype": "product_all", "query": "langchain vulnerabilities", "relevant": ["GHSA-2qmj-7962-cjq8", "GHSA-3644-q5cj-c5c7", "GHSA-3hjh-jh2h-vrg6", "GHSA-45pg-36p6-83v9"]}
+{"qid": "prod-snowflake-connector-python", "qtype": "product_all", "query": "snowflake-connector-python vulnerabilities", "relevant": ["GHSA-2vpq-fh52-j3wv", "GHSA-4r6j-fwcx-94cf"]}
+{"qid": "prod-dash-html-components", "qtype": "product_all", "query": "dash-html-components vulnerabilities", "relevant": ["GHSA-547x-748v-vp6p"]}
+{"qid": "prod-lollms", "qtype": "product_all", "query": "lollms vulnerabilities", "relevant": ["GHSA-3x47-w4rx-6pm7"]}
+{"qid": "prod-9router", "qtype": "product_all", "query": "9router vulnerabilities", "relevant": ["GHSA-6mwv-4mrm-5p3m", "GHSA-cmhj-wh2f-9cgx", "GHSA-vmjq-hvgq-2wv4", "GHSA-x5c9-v98j-722r"]}
+{"qid": "prod-pheonixappapi", "qtype": "product_all", "query": "pheonixappapi vulnerabilities", "relevant": ["GHSA-258h-f687-4226"]}
+{"qid": "prod-whoogle-search", "qtype": "product_all", "query": "whoogle-search vulnerabilities", "relevant": ["GHSA-2689-cw26-6cpj", "GHSA-3q6g-qmpx-rqw4"]}
+{"qid": "prod-org.apache.spark:spark-core_2.10", "qtype": "product_all", "query": "org.apache.spark:spark-core_2.10 vulnerabilities", "relevant": ["GHSA-43xg-8wmj-cw8h"]}
+{"qid": "prod-plone.app.portlets", "qtype": "product_all", "query": "plone.app.portlets vulnerabilities", "relevant": ["GHSA-rr49-f9g6-c9r5"]}
+{"qid": "prod-crawl4ai", "qtype": "product_all", "query": "crawl4ai vulnerabilities", "relevant": ["GHSA-2jq4-q6vv-4cp3", "GHSA-365w-hqf6-vxfg", "GHSA-445m-27cf-gr3x", "GHSA-4qqr-vv2q-cmr5"]}
+{"qid": "prod-authlib", "qtype": "product_all", "query": "authlib vulnerabilities", "relevant": ["GHSA-5357-c2jx-v7qh"]}
+{"qid": "prod-consoleme", "qtype": "product_all", "query": "consoleme vulnerabilities", "relevant": ["GHSA-3783-62vc-jr7x"]}
+{"qid": "prod-calibreweb", "qtype": "product_all", "query": "calibreweb vulnerabilities", "relevant": ["GHSA-2647-c639-qv2j", "GHSA-2g7m-ph9x-7q7m", "GHSA-4w8p-x6g8-fv64"]}
+{"qid": "prod-esptool", "qtype": "product_all", "query": "esptool vulnerabilities", "relevant": ["GHSA-3f38-96qm-r3fw"]}
+{"qid": "prod-paddlepaddle", "qtype": "product_all", "query": "paddlepaddle vulnerabilities", "relevant": ["GHSA-275c-w5mq-v5m2", "GHSA-2hvc-hwg3-hpvw", "GHSA-2rp8-hff9-c5wr", "GHSA-2wcj-qr76-9768", "GHSA-3cr5-2446-8pg3", "GHSA-4rrv-8gcp-24v8", "GHSA-547m-23x7-cxg5"]}
+{"qid": "prod-spree_api", "qtype": "product_all", "query": "spree_api vulnerabilities", "relevant": ["GHSA-4825-p4xm-pcf2"]}
+{"qid": "prod-lxml", "qtype": "product_all", "query": "lxml vulnerabilities", "relevant": ["GHSA-55x5-fj6c-h6m8"]}
+{"qid": "prod-github.com/gardener/gardener", "qtype": "product_all", "query": "github.com/gardener/gardener vulnerabilities", "relevant": ["GHSA-gfjv-gqf2-c888"]}
+{"qid": "prod-grpc", "qtype": "product_all", "query": "grpc vulnerabilities", "relevant": ["GHSA-496j-2rq6-j6cc"]}
+{"qid": "prod-llama-hub", "qtype": "product_all", "query": "llama-hub vulnerabilities", "relevant": ["GHSA-297x-2qf3-jrj3"]}
+{"qid": "prod-plug", "qtype": "product_all", "query": "plug vulnerabilities", "relevant": ["GHSA-j43x-5hjq-rgxf"]}
+{"qid": "prod-lief", "qtype": "product_all", "query": "lief vulnerabilities", "relevant": ["GHSA-22x7-vwh9-5w4g", "GHSA-2p5h-hpj4-fxgg", "GHSA-377p-g8gr-5wpg", "GHSA-38hf-c37x-32hv", "GHSA-42vg-2q93-fj6j", "GHSA-52xx-r3g2-p8jm"]}
+{"qid": "prod-exiv2", "qtype": "product_all", "query": "exiv2 vulnerabilities", "relevant": ["GHSA-38h4-fx85-qcx7", "GHSA-496f-x7cq-cq39"]}
+{"qid": "prod-global-workqueue", "qtype": "product_all", "query": "global-workqueue vulnerabilities", "relevant": ["GHSA-4vq7-8699-4xgc"]}
+{"qid": "prod-apache-airflow-providers-ftp", "qtype": "product_all", "query": "apache-airflow-providers-ftp vulnerabilities", "relevant": ["GHSA-3gg8-mc87-cq3h"]}
+{"qid": "prod-enrocrypt", "qtype": "product_all", "query": "enrocrypt vulnerabilities", "relevant": ["GHSA-35m5-8cvj-8783"]}
+{"qid": "prod-git-url-parse", "qtype": "product_all", "query": "git-url-parse vulnerabilities", "relevant": ["GHSA-4xqq-73wg-5mjp"]}
+{"qid": "prod-pycti", "qtype": "product_all", "query": "pycti vulnerabilities", "relevant": ["GHSA-4mvw-j8r9-xcgc"]}
+{"qid": "prod-collective-task", "qtype": "product_all", "query": "collective-task vulnerabilities", "relevant": ["GHSA-4r9h-x77w-mffv"]}
+{"qid": "prod-social-auth-app-django", "qtype": "product_all", "query": "social-auth-app-django vulnerabilities", "relevant": ["GHSA-2gr8-3wc7-xhj3"]}
+{"qid": "prod-invokeai", "qtype": "product_all", "query": "invokeai vulnerabilities", "relevant": ["GHSA-227r-w5j2-6243"]}
+{"qid": "prod-nuitka", "qtype": "product_all", "query": "nuitka vulnerabilities", "relevant": ["GHSA-4v3r-hqr9-69jf"]}
+{"qid": "prod-paste", "qtype": "product_all", "query": "paste vulnerabilities", "relevant": ["GHSA-27px-qpmj-qg38"]}
+{"qid": "prod-ajenti", "qtype": "product_all", "query": "ajenti vulnerabilities", "relevant": ["GHSA-2ch8-f849-pjg3"]}
+{"qid": "prod-hail", "qtype": "product_all", "query": "hail vulnerabilities", "relevant": ["GHSA-487p-qx68-5vjw"]}
+{"qid": "prod-dulwich", "qtype": "product_all", "query": "dulwich vulnerabilities", "relevant": ["GHSA-4j5j-58j7-6c3w", "GHSA-555p-6grf-mh7f"]}
+{"qid": "prod-mailman", "qtype": "product_all", "query": "mailman vulnerabilities", "relevant": ["GHSA-2jg5-xgvv-4wq7"]}
+{"qid": "prod-loguru", "qtype": "product_all", "query": "loguru vulnerabilities", "relevant": ["GHSA-39ph-wr67-j4xq"]}
+{"qid": "prod-rasa", "qtype": "product_all", "query": "rasa vulnerabilities", "relevant": ["GHSA-4365-fhm5-qcrx"]}
+{"qid": "prod-changedetection-io", "qtype": "product_all", "query": "changedetection-io vulnerabilities", "relevant": ["GHSA-25g8-2mcf-fcx9", "GHSA-3c45-4pj5-ch7m", "GHSA-4c3j-3h7v-22q9", "GHSA-4r7v-whpg-8rx3"]}
+{"qid": "prod-zenml", "qtype": "product_all", "query": "zenml vulnerabilities", "relevant": ["GHSA-3434-hc3m-8mmm"]}
+{"qid": "prod-wordops", "qtype": "product_all", "query": "wordops vulnerabilities", "relevant": ["GHSA-23qq-p4gq-gc2g"]}
+{"qid": "prod-virtualenv", "qtype": "product_all", "query": "virtualenv vulnerabilities", "relevant": ["GHSA-3jhc-wjqf-5f2c"]}
+{"qid": "prod-products-cmfplone", "qtype": "product_all", "query": "products-cmfplone vulnerabilities", "relevant": ["GHSA-4vr8-r7qr-fpvq"]}
+{"qid": "prod-aim", "qtype": "product_all", "query": "aim vulnerabilities", "relevant": ["GHSA-35p3-6j45-prwm", "GHSA-36h2-g4c8-9xcm", "GHSA-38r9-3j52-h92v", "GHSA-4qcx-jx49-6qrh"]}
+{"qid": "prod-mistral", "qtype": "product_all", "query": "mistral vulnerabilities", "relevant": ["GHSA-443j-6p7g-6v4w"]}
+{"qid": "prod-torch", "qtype": "product_all", "query": "torch vulnerabilities", "relevant": ["GHSA-3749-ghw9-m3mg", "GHSA-47fc-vmwq-366v", "GHSA-4vmg-rw8f-92f9", "GHSA-53q9-r3pm-6pq6"]}
+{"qid": "prod-python-keystoneclient", "qtype": "product_all", "query": "python-keystoneclient vulnerabilities", "relevant": ["GHSA-4rrr-j7ff-r844"]}
+{"qid": "prod-st2client", "qtype": "product_all", "query": "st2client vulnerabilities", "relevant": ["GHSA-39mj-fpg2-3jrg"]}
+{"qid": "prod-executorch", "qtype": "product_all", "query": "executorch vulnerabilities", "relevant": ["GHSA-33r8-vrx9-rmcv"]}
+{"qid": "prod-streampipes", "qtype": "product_all", "query": "streampipes vulnerabilities", "relevant": ["GHSA-2qph-v9p2-q2gv"]}
+{"qid": "prod-python-multipart", "qtype": "product_all", "query": "python-multipart vulnerabilities", "relevant": ["GHSA-2jv5-9r88-3w3p"]}
+{"qid": "prod-python-openstackclient", "qtype": "product_all", "query": "python-openstackclient vulnerabilities", "relevant": ["GHSA-2ppf-2m6f-6v6f"]}
+{"qid": "prod-refuel-autolabel", "qtype": "product_all", "query": "refuel-autolabel vulnerabilities", "relevant": ["GHSA-4fgp-7vvm-m4jf"]}
+{"qid": "prod-rockhopper", "qtype": "product_all", "query": "rockhopper vulnerabilities", "relevant": ["GHSA-4r4c-66gf-g9g5"]}
+{"qid": "prod-azure-cli", "qtype": "product_all", "query": "azure-cli vulnerabilities", "relevant": ["GHSA-47xc-9rr2-q7p4"]}
+{"qid": "prod-binwalk", "qtype": "product_all", "query": "binwalk vulnerabilities", "relevant": ["GHSA-3cm8-v4mc-gppg"]}
+{"qid": "prod-dnspython", "qtype": "product_all", "query": "dnspython vulnerabilities", "relevant": ["GHSA-3rq5-2g8h-59hc"]}
+{"qid": "prod-aws-advanced-python-wrapper", "qtype": "product_all", "query": "aws-advanced-python-wrapper vulnerabilities", "relevant": ["GHSA-4jvf-wx3f-2x8q"]}
+{"qid": "prod-prefect", "qtype": "product_all", "query": "prefect vulnerabilities", "relevant": ["GHSA-4hh5-2678-83fx", "GHSA-4v9f-r55g-g6hc"]}
+{"qid": "prod-apache-dolphinscheduler", "qtype": "product_all", "query": "apache-dolphinscheduler vulnerabilities", "relevant": ["GHSA-4vvc-r4p4-qgrr"]}
+{"qid": "prod-django-helpdesk", "qtype": "product_all", "query": "django-helpdesk vulnerabilities", "relevant": ["GHSA-2v5j-q74q-r53f"]}
+{"qid": "prod-composio-core", "qtype": "product_all", "query": "composio-core vulnerabilities", "relevant": ["GHSA-38mg-wm59-g64x"]}
+{"qid": "prod-archivy", "qtype": "product_all", "query": "archivy vulnerabilities", "relevant": ["GHSA-28mg-98xm-q493"]}
+{"qid": "prod-django-photologue", "qtype": "product_all", "query": "django-photologue vulnerabilities", "relevant": ["GHSA-287q-jfcp-9vhv"]}
+{"qid": "prod-io.github.talelin:lin-cms-core", "qtype": "product_all", "query": "io.github.talelin:lin-cms-core vulnerabilities", "relevant": ["GHSA-4vrc-q7m6-vq7w"]}
+{"qid": "prod-openstack-heat", "qtype": "product_all", "query": "openstack-heat vulnerabilities", "relevant": ["GHSA-2fqr-cx7q-3ph8"]}
+{"qid": "prod-ydata-profiling", "qtype": "product_all", "query": "ydata-profiling vulnerabilities", "relevant": ["GHSA-2r57-2mrh-ggjv"]}
+{"qid": "prod-products-cmfcore", "qtype": "product_all", "query": "products-cmfcore vulnerabilities", "relevant": ["GHSA-4hpj-8rhv-9x87"]}
+{"qid": "prod-aiohttp", "qtype": "product_all", "query": "aiohttp vulnerabilities", "relevant": ["GHSA-27mf-ghqm-j3j8", "GHSA-2fqr-mr3j-6wp8", "GHSA-2vrm-gr82-f7m5", "GHSA-3wq7-rqq7-wx6j", "GHSA-45c4-8wx5-qw6w", "GHSA-4fvr-rgm6-gqmc", "GHSA-4m7w-qmgq-4wj5", "GHSA-54jq-c3m8-4m76"]}
+{"qid": "prod-golang.org/x/crypto", "qtype": "product_all", "query": "golang.org/x/crypto vulnerabilities", "relevant": ["GHSA-45x7-px36-x8w8"]}
+{"qid": "prod-oauthlib", "qtype": "product_all", "query": "oauthlib vulnerabilities", "relevant": ["GHSA-3pgj-pg6c-r5p7"]}
+{"qid": "prod-cbpi4", "qtype": "product_all", "query": "cbpi4 vulnerabilities", "relevant": ["GHSA-4f92-w438-f484"]}
+{"qid": "prod-sqlparse", "qtype": "product_all", "query": "sqlparse vulnerabilities", "relevant": ["GHSA-27jp-wm6q-gp25", "GHSA-2m57-hf25-phgg", "GHSA-3496-9g83-7v6x"]}
+{"qid": "prod-graphite-web", "qtype": "product_all", "query": "graphite-web vulnerabilities", "relevant": ["GHSA-3c5x-4hvx-qrrr"]}
+{"qid": "prod-ait-core", "qtype": "product_all", "query": "ait-core vulnerabilities", "relevant": ["GHSA-4gxj-5mmr-7pxq"]}
+{"qid": "prod-pretalx", "qtype": "product_all", "query": "pretalx vulnerabilities", "relevant": ["GHSA-23fx-92m6-4f2g"]}
+{"qid": "prod-ovpn-dco-win", "qtype": "product_all", "query": "ovpn-dco-win vulnerabilities", "relevant": ["CVE-2026-11604"]}
+{"qid": "prod-jupyter-server", "qtype": "product_all", "query": "jupyter-server vulnerabilities", "relevant": ["GHSA-24qx-w28j-9m6p", "GHSA-5789-5fc7-67v3"]}
+{"qid": "prod-openc3", "qtype": "product_all", "query": "openc3 vulnerabilities", "relevant": ["GHSA-4xqv-47rm-37mm", "GHSA-jjq7-m736-w977", "GHSA-vp3w-52v9-q57f"]}
+{"qid": "prod-rucio-webui", "qtype": "product_all", "query": "rucio-webui vulnerabilities", "relevant": ["GHSA-38wq-6q2w-hcf9"]}
+{"qid": "prod-utcp-http", "qtype": "product_all", "query": "utcp-http vulnerabilities", "relevant": ["GHSA-39j6-4867-gg4w"]}
+{"qid": "prod-plone-app-dexterity", "qtype": "product_all", "query": "plone-app-dexterity vulnerabilities", "relevant": ["GHSA-5426-92w4-wvhv"]}
+{"qid": "prod-mcp-memory-service", "qtype": "product_all", "query": "mcp-memory-service vulnerabilities", "relevant": ["GHSA-2r68-g678-7qr3"]}
+{"qid": "prod-nbconvert", "qtype": "product_all", "query": "nbconvert vulnerabilities", "relevant": ["GHSA-4c99-qj7h-p3vg"]}
+{"qid": "prod-langflow-base", "qtype": "product_all", "query": "langflow-base vulnerabilities", "relevant": ["GHSA-4gv9-mp8m-592r"]}
+{"qid": "prod-mesop", "qtype": "product_all", "query": "mesop vulnerabilities", "relevant": ["GHSA-3jr7-6hqp-x679", "GHSA-g7f6-rxc4-qhph"]}
+{"qid": "prod-azure-ai-language-conversations-authoring", "qtype": "product_all", "query": "azure-ai-language-conversations-authoring vulnerabilities", "relevant": ["GHSA-436v-jg82-p533"]}
+{"qid": "prod-unstructured", "qtype": "product_all", "query": "unstructured vulnerabilities", "relevant": ["GHSA-32r8-54hf-c9p3", "GHSA-4mvj-m6j5-pmf7"]}
+{"qid": "prod-open-webui", "qtype": "product_all", "query": "open-webui vulnerabilities", "relevant": ["GHSA-226f-f24g-524w", "GHSA-24c9-2m8q-qhmh", "GHSA-26g9-27vm-x3q8", "GHSA-26gm-93rw-cchf", "GHSA-2724-6cpj-gf3v", "GHSA-2f54-p244-32q6", "GHSA-2r4p-jpmg-48f4", "GHSA-2rf6-9rc8-rqch", "GHSA-2xwm-4h2q-ggfx", "GHSA-34r3-9m95-vq73", "GHSA-3856-3vxq-m6fc", "GHSA-3cg5-48j3-v4gv", "GHSA-3cgp-3cqx-j8w2", "GHSA-3g9q-v48f-hh9w", "GHSA-3p9q-7w63-3f8q", "GHSA-3pf7-q2g3-wj28", "GHSA-3r7g-q6cg-q2vx", "GHSA-3vf6-64vr-3g56", "GHSA-3vv5-8xxp-4f55", "GHSA-3wgj-c2hg-vm6q", "GHSA-3wp3-xxj9-5jqq", "GHSA-3x8w-4f7p-xxc2", "GHSA-3xpf-xq7r-v8c5", "GHSA-43g4-487m-5q6m", "GHSA-45m8-cpm2-3v65", "GHSA-482j-2pq6-q5w4", "GHSA-4g37-7p2c-38r9", "GHSA-4pcg-253r-rf9w", "GHSA-4qg5-cxx4-g927", "GHSA-4r2p-27mh-5m22", "GHSA-4r4w-2wgp-w7cj", "GHSA-4v28-j6q3-5m4r", "GHSA-4v7r-f4w8-8972", "GHSA-4vg5-rp28-gvjf", "GHSA-4vrc-m9ch-6m3r", "GHSA-54f4-v6v9-9q82"]}
+{"qid": "prod-openharness-ai", "qtype": "product_all", "query": "openharness-ai vulnerabilities", "relevant": ["GHSA-24cw-228q-3rx9", "GHSA-399c-3gm2-p29v"]}
+{"qid": "prod-litestar", "qtype": "product_all", "query": "litestar vulnerabilities", "relevant": ["GHSA-2p2x-hpg8-cqp2", "GHSA-3qmc-cj7q-62hv", "GHSA-4hq2-rpgc-r8r7", "GHSA-542p-wvx7-72m4"]}
+{"qid": "prod-sqladmin", "qtype": "product_all", "query": "sqladmin vulnerabilities", "relevant": ["GHSA-54mc-gghv-4cfj"]}
+{"qid": "prod-chainlit", "qtype": "product_all", "query": "chainlit vulnerabilities", "relevant": ["GHSA-2g59-m95p-pgfq"]}
+{"qid": "prod-ironic-python-agent", "qtype": "product_all", "query": "ironic-python-agent vulnerabilities", "relevant": ["GHSA-54w4-233h-x86g"]}
+{"qid": "prod-cognee", "qtype": "product_all", "query": "cognee vulnerabilities", "relevant": ["GHSA-49f7-whx5-4256"]}
+{"qid": "prod-materialx", "qtype": "product_all", "query": "materialx vulnerabilities", "relevant": ["GHSA-3jhf-gxhr-q4cx"]}
+{"qid": "prod-black", "qtype": "product_all", "query": "black vulnerabilities", "relevant": ["GHSA-3936-cmfr-pm3m"]}
+{"qid": "prod-ironic", "qtype": "product_all", "query": "ironic vulnerabilities", "relevant": ["GHSA-4g73-w726-53h3"]}
+{"qid": "prod-mcp-kubernetes-server", "qtype": "product_all", "query": "mcp-kubernetes-server vulnerabilities", "relevant": ["GHSA-4hqq-7q79-932p"]}
+{"qid": "prod-ajenti-plugin-core", "qtype": "product_all", "query": "ajenti-plugin-core vulnerabilities", "relevant": ["GHSA-3mcx-6wxm-qr8v"]}
+{"qid": "prod-taipy", "qtype": "product_all", "query": "taipy vulnerabilities", "relevant": ["GHSA-28gh-q3gw-pvx8"]}
+{"qid": "prod-llama-index-readers-obsidian", "qtype": "product_all", "query": "llama-index-readers-obsidian vulnerabilities", "relevant": ["GHSA-3j8r-jf9w-5cmh"]}
+{"qid": "prod-autobahn", "qtype": "product_all", "query": "autobahn vulnerabilities", "relevant": ["GHSA-hxp9-w8x3-p566"]}
+{"qid": "prod-esphome", "qtype": "product_all", "query": "esphome vulnerabilities", "relevant": ["GHSA-48mj-p7x2-5jfm", "GHSA-4h3h-63v6-88qx"]}
+{"qid": "prod-mobsf", "qtype": "product_all", "query": "mobsf vulnerabilities", "relevant": ["GHSA-3p54-567p-2wpr", "GHSA-4hh3-vj32-gr6j"]}
+{"qid": "prod-chromadb", "qtype": "product_all", "query": "chromadb vulnerabilities", "relevant": ["GHSA-2wm9-hf6c-p5cr", "GHSA-36p7-vc44-83pf"]}
+{"qid": "prod-composio", "qtype": "product_all", "query": "composio vulnerabilities", "relevant": ["GHSA-3mwv-j45g-vp3w"]}
+{"qid": "prod-wp-graphql/wp-graphql", "qtype": "product_all", "query": "wp-graphql/wp-graphql vulnerabilities", "relevant": ["GHSA-5mmc-8pc9-wggg"]}
+{"qid": "prod-chrome", "qtype": "product_all", "query": "chrome vulnerabilities", "relevant": ["CVE-2026-91749"]}
+{"qid": "prod-ujson", "qtype": "product_all", "query": "ujson vulnerabilities", "relevant": ["GHSA-3j69-69wj-xqx2"]}
+{"qid": "prod-sentencepiece", "qtype": "product_all", "query": "sentencepiece vulnerabilities", "relevant": ["GHSA-38vq-g6vr-w8wf"]}
+{"qid": "prod-anyio", "qtype": "product_all", "query": "anyio vulnerabilities", "relevant": ["GHSA-3w57-8xmc-8v26"]}
+{"qid": "prod-mcp", "qtype": "product_all", "query": "mcp vulnerabilities", "relevant": ["GHSA-3qhf-m339-9g5v"]}
+{"qid": "prod-spring_security", "qtype": "product_all", "query": "spring_security vulnerabilities", "relevant": ["CVE-2026-41707"]}
+{"qid": "prod-scitokens", "qtype": "product_all", "query": "scitokens vulnerabilities", "relevant": ["GHSA-3x2w-63fp-3qvw"]}
+{"qid": "prod-pocketsphinx", "qtype": "product_all", "query": "pocketsphinx vulnerabilities", "relevant": ["GHSA-56r5-2p2f-7cxp"]}
+{"qid": "prod-fastfeedparser", "qtype": "product_all", "query": "fastfeedparser vulnerabilities", "relevant": ["GHSA-4gx2-pc4f-wq37"]}
+{"qid": "prod-glances", "qtype": "product_all", "query": "glances vulnerabilities", "relevant": ["GHSA-3vwc-qwhc-3mj7", "GHSA-49g7-2ww7-3vf5", "GHSA-4h34-v6r8-mmjc"]}
+{"qid": "prod-nicegui", "qtype": "product_all", "query": "nicegui vulnerabilities", "relevant": ["GHSA-2m4f-cg75-76w2"]}
+{"qid": "prod-accelerate", "qtype": "product_all", "query": "accelerate vulnerabilities", "relevant": ["GHSA-4j2p-28q2-5m79"]}
+{"qid": "prod-bbot", "qtype": "product_all", "query": "bbot vulnerabilities", "relevant": ["GHSA-3mp7-vp6j-2mxx", "GHSA-3vgw-585j-4m45"]}
+{"qid": "prod-kafka-python", "qtype": "product_all", "query": "kafka-python vulnerabilities", "relevant": ["GHSA-2jcm-hq8r-84wx"]}
+{"qid": "prod-swift", "qtype": "product_all", "query": "swift vulnerabilities", "relevant": ["GHSA-274c-rx2j-2v3x"]}
+{"qid": "prod-redis", "qtype": "product_all", "query": "redis vulnerabilities", "relevant": ["GHSA-24wv-mv5m-xv4h"]}
+{"qid": "prod-utcp-cli", "qtype": "product_all", "query": "utcp-cli vulnerabilities", "relevant": ["GHSA-33p6-5jxp-p3x4"]}
+{"qid": "prod-irrd", "qtype": "product_all", "query": "irrd vulnerabilities", "relevant": ["GHSA-22m3-c7vp-49fj"]}
+{"qid": "prod-onionshare-cli", "qtype": "product_all", "query": "onionshare-cli vulnerabilities", "relevant": ["GHSA-22p9-r2f5-22mf"]}
+{"qid": "prod-pyblade", "qtype": "product_all", "query": "pyblade vulnerabilities", "relevant": ["GHSA-23jg-5f8m-gw8c"]}
+{"qid": "prod-fastapi-admin", "qtype": "product_all", "query": "fastapi-admin vulnerabilities", "relevant": ["GHSA-22xm-w7r2-834q"]}
+{"qid": "prod-vncauthproxy", "qtype": "product_all", "query": "vncauthproxy vulnerabilities", "relevant": ["GHSA-237r-mx84-7x8c"]}
+{"qid": "prod-mezzanine", "qtype": "product_all", "query": "mezzanine vulnerabilities", "relevant": ["GHSA-22cc-w7xm-rfhx", "GHSA-2544-hpcq-6g27", "GHSA-269j-37ww-cmh3"]}
+{"qid": "prod-bentoml", "qtype": "product_all", "query": "bentoml vulnerabilities", "relevant": ["GHSA-33xw-247w-6hmc", "GHSA-564p-rx2q-4c8v"]}
+{"qid": "prod-certifi", "qtype": "product_all", "query": "certifi vulnerabilities", "relevant": ["GHSA-248v-346w-9cwc", "GHSA-43fp-rhv2-5gv8"]}
+{"qid": "prod-poetry", "qtype": "product_all", "query": "poetry vulnerabilities", "relevant": ["GHSA-2599-h6xx-hpxp"]}
+{"qid": "prod-marimo", "qtype": "product_all", "query": "marimo vulnerabilities", "relevant": ["GHSA-2679-6mx9-h9xc"]}
+{"qid": "prod-lightgbm", "qtype": "product_all", "query": "lightgbm vulnerabilities", "relevant": ["GHSA-2586-f3p4-hq84"]}
+{"qid": "prod-elastic-apm", "qtype": "product_all", "query": "elastic-apm vulnerabilities", "relevant": ["GHSA-22jh-6gx8-f944"]}
+{"qid": "prod-praisonai-platform", "qtype": "product_all", "query": "praisonai-platform vulnerabilities", "relevant": ["GHSA-27p4-pjqv-whgj", "GHSA-2fjj-qqg8-fg7x", "GHSA-3qg8-5g3r-79v5", "GHSA-4x6r-9v57-3gqw"]}
+{"qid": "prod-dgl", "qtype": "product_all", "query": "dgl vulnerabilities", "relevant": ["GHSA-3x5x-fw77-g54c"]}
+{"qid": "prod-flyto-core", "qtype": "product_all", "query": "flyto-core vulnerabilities", "relevant": ["GHSA-2956-977x-2w3r"]}
+{"qid": "prod-asyncua", "qtype": "product_all", "query": "asyncua vulnerabilities", "relevant": ["GHSA-2894-qcqf-g23g"]}
+{"qid": "prod-redshift-connector", "qtype": "product_all", "query": "redshift-connector vulnerabilities", "relevant": ["GHSA-29h4-r29x-hchv"]}
+{"qid": "prod-langgraph-api", "qtype": "product_all", "query": "langgraph-api vulnerabilities", "relevant": ["GHSA-2c9q-c2q9-qgqv"]}
+{"qid": "prod-xgrammar", "qtype": "product_all", "query": "xgrammar vulnerabilities", "relevant": ["GHSA-389x-67px-mjg3"]}
+{"qid": "prod-hydra-core", "qtype": "product_all", "query": "hydra-core vulnerabilities", "relevant": ["GHSA-2cp2-2r3c-7p7r"]}
+{"qid": "prod-langchain-core", "qtype": "product_all", "query": "langchain-core vulnerabilities", "relevant": ["GHSA-2g6r-c272-w58r"]}
+{"qid": "prod-comfyui-manager", "qtype": "product_all", "query": "comfyui-manager vulnerabilities", "relevant": ["GHSA-2hc9-cc65-xwj8"]}
+{"qid": "prod-piccolo-admin", "qtype": "product_all", "query": "piccolo-admin vulnerabilities", "relevant": ["GHSA-2gh4-jmwq-rr8w"]}
+{"qid": "prod-scancodeio", "qtype": "product_all", "query": "scancodeio vulnerabilities", "relevant": ["GHSA-2ggp-cmvm-f62f"]}
+{"qid": "prod-mistune", "qtype": "product_all", "query": "mistune vulnerabilities", "relevant": ["GHSA-2hm2-hc3v-44h9", "GHSA-4j32-57v6-6g45"]}
+{"qid": "prod-plotai", "qtype": "product_all", "query": "plotai vulnerabilities", "relevant": ["GHSA-2hmp-5wqg-f24h"]}
+{"qid": "prod-django-allauth", "qtype": "product_all", "query": "django-allauth vulnerabilities", "relevant": ["GHSA-2jpr-83rg-v67j"]}
+{"qid": "prod-label-studio", "qtype": "product_all", "query": "label-studio vulnerabilities", "relevant": ["GHSA-2mq9-hm29-8qch"]}
+{"qid": "prod-skia-python", "qtype": "product_all", "query": "skia-python vulnerabilities", "relevant": ["GHSA-2mhw-8qcg-gr96"]}
+{"qid": "prod-djangorestframework", "qtype": "product_all", "query": "djangorestframework vulnerabilities", "relevant": ["GHSA-2m8g-3cmr-wg3w"]}
+{"qid": "prod-cleo", "qtype": "product_all", "query": "cleo vulnerabilities", "relevant": ["GHSA-2p9h-ccw7-33gf"]}
+{"qid": "prod-meta-ads-mcp", "qtype": "product_all", "query": "meta-ads-mcp vulnerabilities", "relevant": ["GHSA-2v2f-mvfg-ph56", "GHSA-45gf-fjxp-cjpq"]}
+{"qid": "prod-label-studio-ml", "qtype": "product_all", "query": "label-studio-ml vulnerabilities", "relevant": ["GHSA-55g9-6c2x-gf8q"]}
+{"qid": "prod-infinistore", "qtype": "product_all", "query": "infinistore vulnerabilities", "relevant": ["GHSA-2vrg-7rqv-prf9"]}
+{"qid": "prod-lmdeploy", "qtype": "product_all", "query": "lmdeploy vulnerabilities", "relevant": ["GHSA-2vh9-42vm-xmv2", "GHSA-39wr-7q6h-cf68", "GHSA-3hmm-rh5q-gwwr"]}
+{"qid": "prod-pyload-ng", "qtype": "product_all", "query": "pyload-ng vulnerabilities", "relevant": ["GHSA-25pw-q952-x37g", "GHSA-2wcm-vx67-3x4q", "GHSA-2wvg-62qm-gj33", "GHSA-3f7w-p8vr-4v5f", "GHSA-3wwm-hjv7-23r3", "GHSA-4744-96p5-mp2j", "GHSA-48rp-jc79-2264"]}
+{"qid": "prod-microsoft.semantickernel.core", "qtype": "product_all", "query": "Microsoft.SemanticKernel.Core vulnerabilities", "relevant": ["GHSA-2ww3-72rp-wpp4"]}
+{"qid": "prod-soupsieve", "qtype": "product_all", "query": "soupsieve vulnerabilities", "relevant": ["GHSA-2wc2-fm75-p42x"]}
+{"qid": "prod-tendenci", "qtype": "product_all", "query": "tendenci vulnerabilities", "relevant": ["GHSA-339m-4qw5-j2g3", "GHSA-4q3w-jgfx-4792"]}
+{"qid": "prod-asyncssh", "qtype": "product_all", "query": "asyncssh vulnerabilities", "relevant": ["GHSA-2wxc-x7rj-hg8f"]}
+{"qid": "prod-llama-index", "qtype": "product_all", "query": "llama-index vulnerabilities", "relevant": ["GHSA-2jxw-4hm4-6w87", "GHSA-2xxc-73fv-36f7"]}
+{"qid": "prod-sagemaker", "qtype": "product_all", "query": "sagemaker vulnerabilities", "relevant": ["GHSA-32g6-mg92-ghm2"]}
+{"qid": "prod-llama-index-retrievers-duckdb-retriever", "qtype": "product_all", "query": "llama-index-retrievers-duckdb-retriever vulnerabilities", "relevant": ["GHSA-339r-cjv9-x78g"]}
+{"qid": "prod-pipecat-ai", "qtype": "product_all", "query": "pipecat-ai vulnerabilities", "relevant": ["GHSA-3363-2ph6-35wh"]}
+{"qid": "prod-homeassistant-cli", "qtype": "product_all", "query": "homeassistant-cli vulnerabilities", "relevant": ["GHSA-33qf-q99x-wpm8"]}
+{"qid": "prod-diffoscope", "qtype": "product_all", "query": "diffoscope vulnerabilities", "relevant": ["GHSA-33w6-hvmq-gh4x"]}
+{"qid": "prod-langflow", "qtype": "product_all", "query": "langflow vulnerabilities", "relevant": ["GHSA-355v-2rjx-fpx7", "GHSA-3645-fxcv-hqr4", "GHSA-56m6-4mhw-h3g5", "GHSA-577h-p2hh-v4mv"]}
+{"qid": "prod-sglang", "qtype": "product_all", "query": "sglang vulnerabilities", "relevant": ["GHSA-36m8-w8qf-g76p"]}
+{"qid": "prod-intake", "qtype": "product_all", "query": "intake vulnerabilities", "relevant": ["GHSA-37g4-qqqv-7m99"]}
+{"qid": "prod-serena-agent", "qtype": "product_all", "query": "serena-agent vulnerabilities", "relevant": ["GHSA-37h2-6p4f-mp3q"]}
+{"qid": "prod-datamodel-code-generator", "qtype": "product_all", "query": "datamodel-code-generator vulnerabilities", "relevant": ["GHSA-386q-5hp3-95m9", "GHSA-442q-2j6p-642g", "GHSA-5578-w22f-pfx9"]}
+{"qid": "prod-eml-parser", "qtype": "product_all", "query": "eml-parser vulnerabilities", "relevant": ["GHSA-389r-rccm-h3h5"]}
+{"qid": "prod-jupyterlab", "qtype": "product_all", "query": "jupyterlab vulnerabilities", "relevant": ["GHSA-37w4-hwhx-4rc4"]}
+{"qid": "prod-libre-chat", "qtype": "product_all", "query": "libre-chat vulnerabilities", "relevant": ["GHSA-3864-rp2m-2qfj"]}
+{"qid": "prod-pytonapi", "qtype": "product_all", "query": "pytonapi vulnerabilities", "relevant": ["GHSA-3fcr-jvgp-7f58"]}
+{"qid": "prod-metagpt", "qtype": "product_all", "query": "metagpt vulnerabilities", "relevant": ["GHSA-3c3g-7hwg-9qmr", "GHSA-3ghp-8r47-4gj4"]}
+{"qid": "prod-openexr", "qtype": "product_all", "query": "openexr vulnerabilities", "relevant": ["GHSA-3h9h-qfvw-98hq", "GHSA-4r7w-q3jg-ff43"]}
+{"qid": "prod-lmcache", "qtype": "product_all", "query": "lmcache vulnerabilities", "relevant": ["GHSA-3hh9-752g-5g22"]}
+{"qid": "prod-frappe", "qtype": "product_all", "query": "frappe vulnerabilities", "relevant": ["GHSA-3hj6-r5c9-q8f3"]}
+{"qid": "prod-mcpo-simple-server", "qtype": "product_all", "query": "mcpo-simple-server vulnerabilities", "relevant": ["GHSA-3jmq-qhg3-f58j"]}
+{"qid": "prod-lnbits", "qtype": "product_all", "query": "lnbits vulnerabilities", "relevant": ["GHSA-3j4h-h3fp-vwww"]}
+{"qid": "prod-langbot", "qtype": "product_all", "query": "langbot vulnerabilities", "relevant": ["GHSA-3pvh-63gf-j9mw"]}
+{"qid": "prod-crawlee", "qtype": "product_all", "query": "crawlee vulnerabilities", "relevant": ["GHSA-3r75-xc34-5f44"]}
+{"qid": "prod-ray", "qtype": "product_all", "query": "ray vulnerabilities", "relevant": ["GHSA-3pww-qvr8-6mhp"]}
+{"qid": "prod-qiskit", "qtype": "product_all", "query": "qiskit vulnerabilities", "relevant": ["GHSA-3pwp-2fqj-6g2p"]}
+{"qid": "prod-starlette", "qtype": "product_all", "query": "starlette vulnerabilities", "relevant": ["GHSA-2c2j-9gv5-cj73", "GHSA-3qj8-93xh-pwh2"]}
+{"qid": "prod-lemur", "qtype": "product_all", "query": "lemur vulnerabilities", "relevant": ["GHSA-3r34-vq8m-39gh", "GHSA-4h97-p9wq-chqj", "GHSA-54vg-pfh7-jq95"]}
+{"qid": "prod-dash-uploader", "qtype": "product_all", "query": "dash-uploader vulnerabilities", "relevant": ["GHSA-3rf6-x59v-5jfv"]}
+{"qid": "prod-jupyter-lsp", "qtype": "product_all", "query": "jupyter-lsp vulnerabilities", "relevant": ["GHSA-4qhp-652w-c22x"]}
+{"qid": "prod-capstone", "qtype": "product_all", "query": "capstone vulnerabilities", "relevant": ["GHSA-3v99-hpv7-9hh9"]}
+{"qid": "prod-indico", "qtype": "product_all", "query": "indico vulnerabilities", "relevant": ["GHSA-3wg7-r7q5-r2jf", "GHSA-4269-mcfh-cp7q"]}
+{"qid": "prod-asteval", "qtype": "product_all", "query": "asteval vulnerabilities", "relevant": ["GHSA-3wwr-3g9f-9gc7"]}
+{"qid": "prod-rfc3161-client", "qtype": "product_all", "query": "rfc3161-client vulnerabilities", "relevant": ["GHSA-3xxc-pwj6-jgrj"]}
+{"qid": "prod-openvpn-monitor", "qtype": "product_all", "query": "openvpn-monitor vulnerabilities", "relevant": ["GHSA-4258-vcjw-wwxx"]}
+{"qid": "prod-nanobot-ai", "qtype": "product_all", "query": "nanobot-ai vulnerabilities", "relevant": ["GHSA-434r-7c99-hwf3"]}
+{"qid": "prod-dtale", "qtype": "product_all", "query": "dtale vulnerabilities", "relevant": ["GHSA-436g-fhfc-9g5w"]}
+{"qid": "prod-jupyterlab-git", "qtype": "product_all", "query": "jupyterlab-git vulnerabilities", "relevant": ["GHSA-436q-jwfr-rm2h"]}
+{"qid": "prod-deepsearcher", "qtype": "product_all", "query": "deepsearcher vulnerabilities", "relevant": ["GHSA-43px-gpwc-q84v"]}
+{"qid": "prod-flask-cors", "qtype": "product_all", "query": "flask-cors vulnerabilities", "relevant": ["GHSA-43qf-4rqw-9q2g"]}
+{"qid": "prod-aws-cdk-aws-codebuild", "qtype": "product_all", "query": "aws-cdk-aws-codebuild vulnerabilities", "relevant": ["GHSA-464c-974j-9xm6"]}
+{"qid": "prod-vantage6-server", "qtype": "product_all", "query": "vantage6-server vulnerabilities", "relevant": ["GHSA-45gq-q4xh-cp53"]}
+{"qid": "prod-pywasm3", "qtype": "product_all", "query": "pywasm3 vulnerabilities", "relevant": ["GHSA-46r6-92jg-22jg"]}
+{"qid": "prod-langgraph-checkpoint-sqlite", "qtype": "product_all", "query": "langgraph-checkpoint-sqlite vulnerabilities", "relevant": ["GHSA-47pj-3jcm-6whg", "GHSA-4h97-wpxp-3757"]}
+{"qid": "prod-ai.h2o:h2o-core", "qtype": "product_all", "query": "ai.h2o:h2o-core vulnerabilities", "relevant": ["GHSA-47f6-5p7h-5f3h"]}
+{"qid": "prod-stata-mcp", "qtype": "product_all", "query": "stata-mcp vulnerabilities", "relevant": ["GHSA-49m4-vp58-wgc9", "GHSA-4p62-hqp5-g644"]}
+{"qid": "prod-ryu", "qtype": "product_all", "query": "ryu vulnerabilities", "relevant": ["GHSA-4987-5p3p-9r27"]}
+{"qid": "prod-flawfinder", "qtype": "product_all", "query": "flawfinder vulnerabilities", "relevant": ["GHSA-4c3c-r6p8-c863"]}
+{"qid": "prod-cai-framework", "qtype": "product_all", "query": "cai-framework vulnerabilities", "relevant": ["GHSA-4c65-9gqf-4w8h"]}
+{"qid": "prod-zeep", "qtype": "product_all", "query": "zeep vulnerabilities", "relevant": ["GHSA-4cc2-g9w2-fhf6"]}
+{"qid": "prod-cloudtoken", "qtype": "product_all", "query": "cloudtoken vulnerabilities", "relevant": ["GHSA-4fpg-j5mp-783g"]}
+{"qid": "prod-malojaserver", "qtype": "product_all", "query": "malojaserver vulnerabilities", "relevant": ["GHSA-4h72-34j6-j8x7"]}
+{"qid": "prod-sqlite-mcp", "qtype": "product_all", "query": "sqlite-mcp vulnerabilities", "relevant": ["GHSA-4j28-22qp-rjcf"]}
+{"qid": "prod-kolibri", "qtype": "product_all", "query": "kolibri vulnerabilities", "relevant": ["GHSA-4mj9-pf4r-cqrc"]}
+{"qid": "prod-lxml-html-clean", "qtype": "product_all", "query": "lxml-html-clean vulnerabilities", "relevant": ["GHSA-4jhm-jv67-739f"]}
+{"qid": "prod-mage-ai", "qtype": "product_all", "query": "mage-ai vulnerabilities", "relevant": ["GHSA-4mrc-w7jh-hx4j"]}
+{"qid": "prod-compliance-trestle", "qtype": "product_all", "query": "compliance-trestle vulnerabilities", "relevant": ["GHSA-4q5v-7g7x-j79w"]}
+{"qid": "prod-apache-airflow-providers-apache-hive", "qtype": "product_all", "query": "apache-airflow-providers-apache-hive vulnerabilities", "relevant": ["GHSA-4q2q-q5pw-2342"]}
+{"qid": "prod-weasyprint", "qtype": "product_all", "query": "weasyprint vulnerabilities", "relevant": ["GHSA-35jj-wx47-4w8r"]}
+{"qid": "prod-skops", "qtype": "product_all", "query": "skops vulnerabilities", "relevant": ["GHSA-378x-6p4f-8jgm", "GHSA-4v6w-xpmh-gfgp"]}
+{"qid": "prod-voila", "qtype": "product_all", "query": "voila vulnerabilities", "relevant": ["GHSA-2q59-h24c-w6fg"]}
+{"qid": "prod-pypdf2", "qtype": "product_all", "query": "pypdf2 vulnerabilities", "relevant": ["GHSA-4vvm-4w3v-6mr8"]}
+{"qid": "prod-django-s3file", "qtype": "product_all", "query": "django-s3file vulnerabilities", "relevant": ["GHSA-4w8f-hjm9-xwgf"]}
+{"qid": "prod-pydantic-settings", "qtype": "product_all", "query": "pydantic-settings vulnerabilities", "relevant": ["GHSA-4xgf-cpjx-pc3j"]}
+{"qid": "prod-llamafactory", "qtype": "product_all", "query": "llamafactory vulnerabilities", "relevant": ["GHSA-527m-2xhr-j27g"]}
+{"qid": "prod-gmaps-mcp", "qtype": "product_all", "query": "gmaps-mcp vulnerabilities", "relevant": ["GHSA-52cq-7v8r-62c6"]}
+{"qid": "prod-langgraph-store-mongodb", "qtype": "product_all", "query": "langgraph-store-mongodb vulnerabilities", "relevant": ["GHSA-533j-2v4q-mw5h"]}
+{"qid": "prod-bugsink", "qtype": "product_all", "query": "bugsink vulnerabilities", "relevant": ["GHSA-5389-f7vh-wxj8"]}
+{"qid": "prod-deepdiff", "qtype": "product_all", "query": "deepdiff vulnerabilities", "relevant": ["GHSA-54jj-px8x-5w5q"]}
+{"qid": "prod-smolagents", "qtype": "product_all", "query": "smolagents vulnerabilities", "relevant": ["GHSA-54fq-v6x8-244g"]}
+{"qid": "prod-galaxy-importer", "qtype": "product_all", "query": "galaxy-importer vulnerabilities", "relevant": ["GHSA-55g2-vm3q-7w52"]}
+{"qid": "prod-fickling", "qtype": "product_all", "query": "fickling vulnerabilities", "relevant": ["GHSA-565g-hwwr-4pp3"]}
+{"qid": "prod-copyparty", "qtype": "product_all", "query": "copyparty vulnerabilities", "relevant": ["GHSA-5662-2rj7-f2v6"]}
+{"qid": "prod-khoj-assistant", "qtype": "product_all", "query": "khoj-assistant vulnerabilities", "relevant": ["GHSA-564j-v29w-rqr6"]}
+{"qid": "prod-llama-cpp-python", "qtype": "product_all", "query": "llama-cpp-python vulnerabilities", "relevant": ["GHSA-56xg-wfcc-g829"]}
+{"qid": "prod-gerapy", "qtype": "product_all", "query": "gerapy vulnerabilities", "relevant": ["GHSA-29vr-79w7-p649"]}
+{"qid": "prod-oauth2", "qtype": "product_all", "query": "oauth2 vulnerabilities", "relevant": ["GHSA-4433-4cxq-vv73"]}
+{"qid": "prod-xml2rfc", "qtype": "product_all", "query": "xml2rfc vulnerabilities", "relevant": ["GHSA-432c-wxpg-m4q3"]}
+{"qid": "prod-aiocpa", "qtype": "product_all", "query": "aiocpa vulnerabilities", "relevant": ["GHSA-486g-47cc-8wxf"]}
+{"qid": "prod-curl-cffi", "qtype": "product_all", "query": "curl-cffi vulnerabilities", "relevant": ["GHSA-3vpc-4p9p-47hc"]}
+{"qid": "prod-airflow", "qtype": "product_all", "query": "airflow vulnerabilities", "relevant": ["GHSA-46c3-5xc5-wwhv"]}
+{"qid": "prod-youtube-dl", "qtype": "product_all", "query": "youtube-dl vulnerabilities", "relevant": ["GHSA-22fp-mf44-f2mq"]}
+{"qid": "prod-amundsen-frontend", "qtype": "product_all", "query": "amundsen-frontend vulnerabilities", "relevant": ["GHSA-47qg-q58v-7vrp"]}
+{"qid": "prod-aws-encryption-sdk-cli", "qtype": "product_all", "query": "aws-encryption-sdk-cli vulnerabilities", "relevant": ["GHSA-2xwp-m7mq-7q3r"]}
+{"qid": "prod-localstack", "qtype": "product_all", "query": "localstack vulnerabilities", "relevant": ["GHSA-37m5-42qp-4qpr"]}
+{"qid": "prod-dynamodb-encryption-sdk", "qtype": "product_all", "query": "dynamodb-encryption-sdk vulnerabilities", "relevant": ["GHSA-4ph2-8337-hm62"]}
+{"qid": "prod-aioxmpp", "qtype": "product_all", "query": "aioxmpp vulnerabilities", "relevant": ["GHSA-32f7-cmr3-vpjv"]}
+{"qid": "prod-yamale", "qtype": "product_all", "query": "yamale vulnerabilities", "relevant": ["GHSA-435p-f82x-mxwm"]}
+{"qid": "prod-flask-restx", "qtype": "product_all", "query": "flask-restx vulnerabilities", "relevant": ["GHSA-3q6g-vf58-7m4g"]}
+{"qid": "prod-wasmtime", "qtype": "product_all", "query": "wasmtime vulnerabilities", "relevant": ["GHSA-4873-36h9-wv49"]}
+{"qid": "pv-single-0001", "qtype": "product_version", "query": "github.com/klever-io/klever-go 1.7.18 vulnerability", "relevant": ["GHSA-26r5-4mm2-px5c", "GHSA-4fwh-wrm6-97xm", "GHSA-7c7c-373r-gfjj", "GHSA-97cv-x867-6xhm", "GHSA-9v8p-frvj-2pcm", "GHSA-9wh6-9hq7-9688"]}
+{"qid": "pv-single-0002", "qtype": "product_version", "query": "github.com/klever-io/klever-go 1.6.19 vulnerability", "relevant": ["GHSA-26r5-4mm2-px5c", "GHSA-4fwh-wrm6-97xm", "GHSA-7c7c-373r-gfjj", "GHSA-97cv-x867-6xhm", "GHSA-9v8p-frvj-2pcm", "GHSA-9wh6-9hq7-9688"]}
+{"qid": "pv-single-0003", "qtype": "product_version", "query": "github.com/klever-io/klever-go 1.6.20 vulnerability", "relevant": ["GHSA-26r5-4mm2-px5c", "GHSA-4fwh-wrm6-97xm", "GHSA-7c7c-373r-gfjj", "GHSA-97cv-x867-6xhm", "GHSA-9v8p-frvj-2pcm", "GHSA-9wh6-9hq7-9688"]}
+{"qid": "pv-single-0007", "qtype": "product_version", "query": "plone.app.dexterity 5.0.0 vulnerability", "relevant": ["GHSA-5426-92w4-wvhv"]}
+{"qid": "pv-single-0011", "qtype": "product_version", "query": "elysia 1.4.28 vulnerability", "relevant": ["GHSA-9643-4qgh-g8mx"]}
+{"qid": "pv-single-0012", "qtype": "product_version", "query": "elysia 0.4.29 vulnerability", "relevant": ["GHSA-9643-4qgh-g8mx"]}
+{"qid": "pv-single-0013", "qtype": "product_version", "query": "elysia 1.3.29 vulnerability", "relevant": ["GHSA-9643-4qgh-g8mx"]}
+{"qid": "pv-single-0017", "qtype": "product_version", "query": "lightrag-hku 1.4.5 vulnerability", "relevant": ["GHSA-c759-cx9p-mrwq", "GHSA-frch-4w6v-q5xx", "GHSA-hrmj-7rvj-4hg8", "GHSA-vv3m-f8x4-7377", "GHSA-xpjq-3w4w-w5wr"]}
+{"qid": "pv-single-0018", "qtype": "product_version", "query": "lightrag-hku 0.5.4 vulnerability", "relevant": ["GHSA-c759-cx9p-mrwq", "GHSA-frch-4w6v-q5xx", "GHSA-hrmj-7rvj-4hg8", "GHSA-vv3m-f8x4-7377", "GHSA-xpjq-3w4w-w5wr"]}
+{"qid": "pv-single-0019", "qtype": "product_version", "query": "lightrag-hku 1.5.4 vulnerability", "relevant": ["GHSA-c759-cx9p-mrwq", "GHSA-frch-4w6v-q5xx", "GHSA-hrmj-7rvj-4hg8", "GHSA-vv3m-f8x4-7377", "GHSA-xpjq-3w4w-w5wr"]}
+{"qid": "pv-single-0023", "qtype": "product_version", "query": "nautobot 3.0.1 vulnerability", "relevant": ["GHSA-q4c5-2j6f-r476"]}
+{"qid": "pv-single-0024", "qtype": "product_version", "query": "nautobot 2.4.36 vulnerability", "relevant": ["GHSA-56v6-2fhr-wxgq"]}
+{"qid": "pv-single-0025", "qtype": "product_version", "query": "nautobot 3.0.8 vulnerability", "relevant": ["GHSA-q4c5-2j6f-r476"]}
+{"qid": "pv-single-0029", "qtype": "product_version", "query": "org.typelevel:jawn-parser_2.12 0.6.0 vulnerability", "relevant": ["GHSA-cc4v-rvgp-2pf3", "GHSA-w4cm-gvhj-cgw6"]}
+{"qid": "pv-single-0030", "qtype": "product_version", "query": "org.typelevel:jawn-parser_2.12 1.6.0 vulnerability", "relevant": ["GHSA-cc4v-rvgp-2pf3", "GHSA-w4cm-gvhj-cgw6"]}
+{"qid": "pv-single-0031", "qtype": "product_version", "query": "org.typelevel:jawn-parser_2.12 1.5.0 vulnerability", "relevant": ["GHSA-cc4v-rvgp-2pf3", "GHSA-w4cm-gvhj-cgw6"]}
+{"qid": "pv-single-0035", "qtype": "product_version", "query": "verbb/formie 3.1.0 vulnerability", "relevant": ["GHSA-584p-f93j-wpgc", "GHSA-9rg8-2wvr-fgjh", "GHSA-v3f3-cmj4-cvj9"]}
+{"qid": "pv-single-0036", "qtype": "product_version", "query": "verbb/formie 3.0.1 vulnerability", "relevant": ["GHSA-584p-f93j-wpgc", "GHSA-9rg8-2wvr-fgjh", "GHSA-v3f3-cmj4-cvj9"]}
+{"qid": "pv-single-0037", "qtype": "product_version", "query": "verbb/formie 3.0.0 vulnerability", "relevant": ["GHSA-584p-f93j-wpgc", "GHSA-9rg8-2wvr-fgjh", "GHSA-v3f3-cmj4-cvj9"]}
+{"qid": "pv-single-0041", "qtype": "product_version", "query": "github.com/square/wire 6.3.0 vulnerability", "relevant": ["GHSA-86wm-r4c5-2rc9"]}
+{"qid": "pv-single-0042", "qtype": "product_version", "query": "github.com/square/wire 5.4.0 vulnerability", "relevant": ["GHSA-86wm-r4c5-2rc9"]}
+{"qid": "pv-single-0043", "qtype": "product_version", "query": "github.com/square/wire 6.4.0 vulnerability", "relevant": ["GHSA-86wm-r4c5-2rc9"]}
+{"qid": "pv-single-0047", "qtype": "product_version", "query": "@openc3/vue-common 7.2.1 vulnerability", "relevant": ["GHSA-gvf2-2rh5-mpgf"]}
+{"qid": "pv-single-0048", "qtype": "product_version", "query": "@openc3/vue-common 5.0.7 vulnerability", "relevant": ["GHSA-gvf2-2rh5-mpgf"]}
+{"qid": "pv-single-0049", "qtype": "product_version", "query": "@openc3/vue-common 5.0.6 vulnerability", "relevant": ["GHSA-gvf2-2rh5-mpgf"]}
+{"qid": "pv-single-0053", "qtype": "product_version", "query": "suneditor 1.47.10 vulnerability", "relevant": ["GHSA-6rf4-v2fh-m6p4"]}
+{"qid": "pv-single-0054", "qtype": "product_version", "query": "suneditor 2.47.10 vulnerability", "relevant": ["GHSA-6rf4-v2fh-m6p4"]}
+{"qid": "pv-single-0055", "qtype": "product_version", "query": "suneditor 2.47.9 vulnerability", "relevant": ["GHSA-6rf4-v2fh-m6p4"]}
+{"qid": "pv-single-0059", "qtype": "product_version", "query": "mcp-atlassian 0.21.0 vulnerability", "relevant": ["GHSA-2xj6-xx86-cwwc", "GHSA-3r68-hf9h-887v", "GHSA-4596-2p6p-28cv", "GHSA-49xv-9743-pw8w", "GHSA-5wf4-jqxh-8gm3", "GHSA-6529-c226-h328", "GHSA-6cr4-ccf3-x7h4", "GHSA-6vmq-24h2-pj7j", "GHSA-93xw-j965-9mx3", "GHSA-cc5h-2pwp-pvcc", "GHSA-f26r-j276-ggg4", "GHSA-f4p7-qx46-wc5j", "GHSA-f6pj-qv47-g96w", "GHSA-g2r2-3j32-j27x", "GHSA-g5xv-mhgm-v5f6", "GHSA-h7wj-5v37-59r2", "GHSA-hgcf-4mq8-5266", "GHSA-mfv2-4wvm-9pgp", "GHSA-mrq8-fv7v-hhjg", "GHSA-p6hp-93wp-fh6p", "GHSA-v9m3-wfh8-5646", "GHSA-vc25-24vv-fxxm", "GHSA-w66g-j6c4-hcfc", "GHSA-wrhw-j3f9-8vc6", "GHSA-wv8v-v4c5-v75j"]}
+{"qid": "pv-single-0063", "qtype": "product_version", "query": "org.jline:jline-builtins 4.0.0 vulnerability", "relevant": ["GHSA-ph9c-7hw9-vhhw", "GHSA-r2xf-8xr9-62gw"]}
+{"qid": "pv-single-0064", "qtype": "product_version", "query": "org.jline:jline-builtins 4.2.1 vulnerability", "relevant": ["GHSA-ph9c-7hw9-vhhw", "GHSA-r2xf-8xr9-62gw"]}
+{"qid": "pv-single-0065", "qtype": "product_version", "query": "org.jline:jline-builtins 4.1.0 vulnerability", "relevant": ["GHSA-ph9c-7hw9-vhhw", "GHSA-r2xf-8xr9-62gw"]}
+{"qid": "pv-single-0069", "qtype": "product_version", "query": "redaxo/source 5.21.1 vulnerability", "relevant": ["GHSA-4f5f-j737-pm58", "GHSA-m8r3-22v6-g877", "GHSA-mf2p-wjp4-99pq", "GHSA-w998-qmw9-mf4m"]}
+{"qid": "pv-single-0070", "qtype": "product_version", "query": "redaxo/source 5.21.0 vulnerability", "relevant": ["GHSA-4f5f-j737-pm58", "GHSA-m8r3-22v6-g877", "GHSA-mf2p-wjp4-99pq", "GHSA-w998-qmw9-mf4m"]}
+{"qid": "pv-single-0071", "qtype": "product_version", "query": "redaxo/source 4.21.1 vulnerability", "relevant": ["GHSA-4f5f-j737-pm58", "GHSA-m8r3-22v6-g877", "GHSA-mf2p-wjp4-99pq", "GHSA-w998-qmw9-mf4m"]}
+{"qid": "pv-single-0075", "qtype": "product_version", "query": "streamlink 8.5.0 vulnerability", "relevant": ["GHSA-vf2x-4v53-pm7v"]}
+{"qid": "pv-single-0076", "qtype": "product_version", "query": "streamlink 7.5.0 vulnerability", "relevant": ["GHSA-vf2x-4v53-pm7v"]}
+{"qid": "pv-single-0077", "qtype": "product_version", "query": "streamlink 8.4.0 vulnerability", "relevant": ["GHSA-vf2x-4v53-pm7v"]}
+{"qid": "pv-single-0081", "qtype": "product_version", "query": "github.com/kubeedge/kubeedge 1.21.1 vulnerability", "relevant": ["GHSA-5jpj-293f-rhvj", "GHSA-9vm9-pqxx-x83v", "GHSA-gfw4-49f9-cp25", "GHSA-m3c6-2p7h-cfr3"]}
+{"qid": "pv-single-0082", "qtype": "product_version", "query": "github.com/kubeedge/kubeedge 1.0.0 vulnerability", "relevant": ["GHSA-gfw4-49f9-cp25"]}
+{"qid": "desc-CVE-2020-3952", "qtype": "description_semantic", "query": "the product the product contains an information disclosure vulnerability in the the product Directory Service (vmdir) when the Platform Services Controller (PSC) does not correctly implement access controls. Successful e", "relevant": ["CVE-2020-3952"]}
+{"qid": "desc-GHSA-2wx6-wc87-rmjm", "qtype": "description_semantic", "query": "### Impact\n\nThe GitHub Personal Access Token (PAT) used by EasyBuild for the GitHub integration features (like `--new-pr`, `--from-pr`, etc.) is shown in plain text in EasyBuild debug log files.\n\nScope:\n\n* the log messag", "relevant": ["GHSA-2wx6-wc87-rmjm"]}
+{"qid": "desc-GHSA-436q-jwfr-rm2h", "qtype": "description_semantic", "query": "## Summary\n\n`the product` 0.53.0 (latest, 2026-04-30) uses `fnmatch.fnmatchcase()` in `GitHandler.prepare()` (`jupyterlab_git/handlers.py:91`) to enforce the admin-configured `excluded_paths` security control. Because `f", "relevant": ["GHSA-436q-jwfr-rm2h"]}
+{"qid": "desc-CVE-2018-14667", "qtype": "description_semantic", "query": "the product the product contains an expression language injection vulnerability via the UserResource resource. A remote, unauthenticated attacker could exploit this vulnerability to execute malicious code using a chain o", "relevant": ["CVE-2018-14667"]}
+{"qid": "desc-GHSA-54m3-95j9-v89j", "qtype": "description_semantic", "query": "### Impact\nAn authenticated user may delete user issue alert notifications for arbitrary users given a known alert ID. \n\n### Patches\nA patch was issued to ensure authorization checks are properly scoped on requests to de", "relevant": ["GHSA-54m3-95j9-v89j"]}
+{"qid": "desc-CVE-2019-11634", "qtype": "description_semantic", "query": "the product the product contains remote code execution vulnerability resulting from local drive access preferences not being enforced into the clients' local drives.\n\nRequired Action: Apply updates per vendor instruction", "relevant": ["CVE-2019-11634"]}
+{"qid": "desc-GHSA-32ff-4g79-vgfc", "qtype": "description_semantic", "query": "### Impact\nAn authenticated Admin user could craft HTTP requests to filter users by their salted and hashed passwords strings. These filters could be made by using partial hashed password strings. The response would not ", "relevant": ["GHSA-32ff-4g79-vgfc"]}
+{"qid": "desc-GHSA-47h8-jmp3-9f28", "qtype": "description_semantic", "query": "`the product` uses the Rust `age` crate for its underlying operations, and `age` is vulnerable to GHSA-4fg7-vxc8-qx5w.\n\nAll details of GHSA-4fg7-vxc8-qx5w are relevant to `the product` for the versions specified in this ", "relevant": ["GHSA-47h8-jmp3-9f28"]}
+{"qid": "desc-CVE-2019-18935", "qtype": "description_semantic", "query": "the product the product contains a deserialization of untrusted data vulnerability through RadAsyncUpload which leads to code execution on the server in the context of the w3wp.exe process.\n\nRequired Action: Apply update", "relevant": ["CVE-2019-18935"]}
+{"qid": "desc-CVE-2016-0099", "qtype": "description_semantic", "query": "A privilege escalation vulnerability exists in the product the product if the the product Secondary Logon Service fails to properly manage request handles in memory. An attacker who successfully exploited this vulnerabil", "relevant": ["CVE-2016-0099"]}
+{"qid": "desc-GHSA-4q3w-jgfx-4792", "qtype": "description_semantic", "query": "the product 12.3.1 contains a CSV formula injection vulnerability in the contact form message field that allows attackers to inject malicious formulas during export. Attackers can submit crafted payloads like '=10+20+cmd", "relevant": ["GHSA-4q3w-jgfx-4792"]}
+{"qid": "desc-CVE-2019-5544", "qtype": "description_semantic", "query": "the product ESXi and Horizon Desktop as a Service (DaaS) OpenSLP contains a heap-based buffer overflow vulnerability that allows an attacker with network access to port 427 to overwrite the heap of the OpenSLP service to", "relevant": ["CVE-2019-5544"]}
+{"qid": "desc-GHSA-4278-2v5v-65r4", "qtype": "description_semantic", "query": "### Impact\nIf the `splits` argument of `RaggedBincount` does not specify a valid [`SparseTensor`](https://www.tensorflow.org/api_docs/python/tf/sparse/SparseTensor), then an attacker can trigger a heap buffer overflow:\n\n", "relevant": ["GHSA-4278-2v5v-65r4"]}
+{"qid": "desc-CVE-2017-9841", "qtype": "description_semantic", "query": "the product allows remote attackers to execute arbitrary PHP code via HTTP POST data beginning with a \"<?php \" substring, as demonstrated by an attack on a site with an exposed /vendor folder, i.e., external access to th", "relevant": ["CVE-2017-9841"]}
+{"qid": "desc-GHSA-gfw4-49f9-cp25", "qtype": "description_semantic", "query": "## Summary\n\nKubeEdge CloudHub uses the viaduct packer to decode messages received from connected peers. The packer reads a 32-bit payload length from the message header and previously allocated a buffer of that size with", "relevant": ["GHSA-gfw4-49f9-cp25"]}
+{"qid": "desc-GHSA-2c7w-v459-cwgf", "qtype": "description_semantic", "query": "the product v0.42.1 and below allows attackers to access sensitive information via a GET request to /config/list. To exploit this vulnerability, a regular user password must be unconfigured.", "relevant": ["GHSA-2c7w-v459-cwgf"]}
+{"qid": "desc-CVE-2020-12271", "qtype": "description_semantic", "query": "the product Firewall operating system (the product) firmware contains a SQL injection vulnerability when configured with either the administration (HTTPS) service or the User Portal is exposed on the WAN zone. Successful", "relevant": ["CVE-2020-12271"]}
+{"qid": "desc-CVE-2025-25181", "qtype": "description_semantic", "query": "the product the product contains a SQL injection vulnerability in timeoutWarning.asp that allows a remote attacker to execute arbitrary SQL commands via the PmSess1 parameter.\n\nRequired Action: Apply mitigations per vend", "relevant": ["CVE-2025-25181"]}
+{"qid": "desc-GHSA-36rr-ww3j-vrjv", "qtype": "description_semantic", "query": "**Note:** This report has already been discussed with the Google OSS VRP team, who recommended that I reach out directly to the the product team. I\u2019ve chosen to do so privately rather than opening a public issue, due to ", "relevant": ["GHSA-36rr-ww3j-vrjv"]}
+{"qid": "desc-CVE-2023-37580", "qtype": "description_semantic", "query": "the product the product contains a cross-site scripting vulnerability impacting the confidentiality and integrity of data.\n\nRequired Action: Apply mitigations per vendor instructions or discontinue use of the product if ", "relevant": ["CVE-2023-37580"]}
+{"qid": "desc-CVE-2022-2586", "qtype": "description_semantic", "query": "the product the product contains a use-after-free vulnerability in the nft_object, allowing local attackers to escalate privileges. \n\nRequired Action: Apply updates per vendor instructions or discontinue use of the produ", "relevant": ["CVE-2022-2586"]}
+{"qid": "desc-CVE-2026-20316", "qtype": "description_semantic", "query": "the product the product formerly known as Firepower Management Center contains a use of hard-coded password vulnerability that could allow an unauthenticated, remote attacker to log in to an affected device using a low-p", "relevant": ["CVE-2026-20316"]}
+{"qid": "desc-CVE-2018-6882", "qtype": "description_semantic", "query": "the product the product contains a cross-site scripting vulnerability that might allow remote attackers to inject arbitrary web script or HTML.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2018-6882"]}
+{"qid": "desc-CVE-2025-5777", "qtype": "description_semantic", "query": "the product the product contain an out-of-bounds read vulnerability due to insufficient input validation. This vulnerability can lead to memory overread when the NetScaler is configured as a Gateway (VPN virtual server, ", "relevant": ["CVE-2025-5777"]}
+{"qid": "desc-CVE-2019-11001", "qtype": "description_semantic", "query": "the product RLC-410W, C1 Pro, C2 Pro, RLC-422W, and RLC-511W IP cameras contain an authenticated OS command injection vulnerability. This vulnerability allows an authenticated admin to use the \"TestEmail\" functionality t", "relevant": ["CVE-2019-11001"]}
+{"qid": "desc-GHSA-496j-2rq6-j6cc", "qtype": "description_semantic", "query": "the product contains a vulnerability that allows hpack table accounting errors could lead to unwanted disconnects between clients and servers in exceptional cases/\u00a0Three vectors were found that allow the following DOS at", "relevant": ["GHSA-496j-2rq6-j6cc"]}
+{"qid": "desc-CVE-2025-32706", "qtype": "description_semantic", "query": "the product the product Common Log File System (CLFS) Driver contains a heap-based buffer overflow vulnerability that allows an authorized attacker to elevate privileges locally.\n\nRequired Action: Apply mitigations per v", "relevant": ["CVE-2025-32706"]}
+{"qid": "desc-GHSA-4r4c-66gf-g9g5", "qtype": "description_semantic", "query": "A vulnerability, which was classified as critical, has been found in bwoodsend the product up to 0.1.2. Affected by this issue is the function `count_rows` of the file `the product/src/ragged_array.c` of the component Bi", "relevant": ["GHSA-4r4c-66gf-g9g5"]}
+{"qid": "desc-GHSA-3w67-q784-6w7c", "qtype": "description_semantic", "query": "### Impact\nThe reference implementation of the `GatherNd` TFLite operator is [vulnerable to a division by zero error](https://github.com/tensorflow/tensorflow/blob/0d45ea1ca641b21b73bcf9c00e0179cda284e7e7/tensorflow/lite", "relevant": ["GHSA-3w67-q784-6w7c"]}
+{"qid": "desc-GHSA-4f6g-68pf-7vhv", "qtype": "description_semantic", "query": "### Impact\nAn attacker who exploits this vulnerability can craft a PDF which leads to possibly long runtimes for invalid `startxref` entries. When rebuilding the cross-reference table, PDF files with lots of whitespace c", "relevant": ["GHSA-4f6g-68pf-7vhv"]}
+{"qid": "desc-CVE-2019-0863", "qtype": "description_semantic", "query": "the product the product Error Reporting (WER) contains a privilege escalation vulnerability due to the way it handles files, allowing for code execution in kernel mode.\n\nRequired Action: Apply updates per vendor instruct", "relevant": ["CVE-2019-0863"]}
+{"qid": "desc-CVE-2026-48907", "qtype": "description_semantic", "query": "the product the productcontains an improper access control vulnerability which could allow for upload and execution of PHP code via the creation of new editor profiles for unauthenticated users. \n\nRequired Action: Apply ", "relevant": ["CVE-2026-48907"]}
+{"qid": "desc-CVE-2026-96774", "qtype": "description_semantic", "query": "A vulnerability was found in SPON Communications IP Network Audio Device XC-9603 1.2.3_20181106 Build 107. This affects the function loadCfg of the file /ini/sys_cfg.txt of the component Configuration File Download. The ", "relevant": ["CVE-2026-96774"]}
+{"qid": "desc-CVE-2021-1789", "qtype": "description_semantic", "query": "A type confusion issue affecting multiple the product products allows processing of maliciously crafted web content, leading to arbitrary code execution.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2021-1789"]}
+{"qid": "desc-GHSA-3856-3vxq-m6fc", "qtype": "description_semantic", "query": "As part of our research on improving our [AI pentest](https://www.aikido.dev/attack/aipentest), we have uncovered the following issue in Open WebUI. We've manually verified and tided up the report, but you can also find ", "relevant": ["GHSA-3856-3vxq-m6fc"]}
+{"qid": "desc-CVE-2021-36260", "qtype": "description_semantic", "query": "A command injection vulnerability in the web server of some the product product. Due to the insufficient input validation.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2021-36260"]}
+{"qid": "desc-GHSA-2pfh-q76x-gwvm", "qtype": "description_semantic", "query": "A flaw was found in the product, where a user's controller is vulnerable to template injection. This issue can occur through facts used in the template if the user is trying to put templates in multi-line YAML strings an", "relevant": ["GHSA-2pfh-q76x-gwvm"]}
+{"qid": "desc-GHSA-4mvw-j8r9-xcgc", "qtype": "description_semantic", "query": "### Summary\n\nThe regex validation used to prevent Introspection queries can be bypassed by removing the extra whitespace, carriage return, and line feed characters from the query.\n\n### Details\n\nGraphQL Queries in OpenCTI", "relevant": ["GHSA-4mvw-j8r9-xcgc"]}
+{"qid": "desc-GHSA-3f7w-8rr8-f37f", "qtype": "description_semantic", "query": "**Target:** the product-developers/the product\n**Tested:** HEAD `07e80555` (2026-07-25), latest release 3.1.55, `git version 2.50.1`\n**Reported instances:** 2 exploitable, from a sweep of 14 unguarded call sites\n\n## Summ", "relevant": ["GHSA-3f7w-8rr8-f37f"]}
+{"qid": "desc-GHSA-24x6-8c7m-hv3f", "qtype": "description_semantic", "query": "### Impact\nThe implementations of the `Minimum` and `Maximum` TFLite operators can be used to read data outside of bounds of heap allocated objects, if any of the two input tensor arguments are empty.\n\nThis is because [t", "relevant": ["GHSA-24x6-8c7m-hv3f"]}
+{"qid": "desc-GHSA-4r4f-gg25-rmg5", "qtype": "description_semantic", "query": "### Impact\n\nA stored XSS affecting RichText fields. RichTextValue.output returns the raw, unsanitized stored value whenever the stored mimeType equals the outputMimeType. Because the safe-HTML output type (`text/x-html-s", "relevant": ["GHSA-4r4f-gg25-rmg5"]}
+{"qid": "desc-CVE-2024-28995", "qtype": "description_semantic", "query": "the product the product contains a path traversal vulnerability that allows an attacker access to read sensitive files on the host machine.\n\nRequired Action: Apply mitigations per vendor instructions or discontinue use o", "relevant": ["CVE-2024-28995"]}
+{"qid": "desc-GHSA-4pwq-fj89-6rjc", "qtype": "description_semantic", "query": "In Apache Airflow < 1.10.12, the `origin` parameter passed to some of the endpoints like `/trigger` and was vulnerable to a XSS exploit.", "relevant": ["GHSA-4pwq-fj89-6rjc"]}
+{"qid": "desc-CVE-2021-27101", "qtype": "description_semantic", "query": "the product the product contains a SQL injection vulnerability exploited via a crafted host header in a request to document_root.html.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2021-27101"]}
+{"qid": "desc-GHSA-2hvc-hwg3-hpvw", "qtype": "description_semantic", "query": "Out-of-bounds read in `gather_tree` in the product before 2.4. A [patch](https://github.com/the product/Paddle/commit/6712e262fc6734873cc6d5ca4f45973339a88697) is available in the `release/2.4` branch.", "relevant": ["GHSA-2hvc-hwg3-hpvw"]}
+{"qid": "desc-GHSA-339m-4qw5-j2g3", "qtype": "description_semantic", "query": "A critical deserialization vulnerability exists in the product Helpdesk module (NOTE, by default, Helpdesk is NOT enabled), affecting the version 15.3.11 and earlier. This vulnerability allows remote code execution (RCE)", "relevant": ["GHSA-339m-4qw5-j2g3"]}
+{"qid": "desc-GHSA-22gh-3r9q-xf38", "qtype": "description_semantic", "query": "### Impact\n\nIn the product 7.0.2 and below, a malicious client or server is able to perform [HTTP request smuggling](https://en.wikipedia.org/wiki/HTTP_request_smuggling) attacks through the product. This means that a ma", "relevant": ["GHSA-22gh-3r9q-xf38"]}
+{"qid": "desc-CVE-2020-16013", "qtype": "description_semantic", "query": "the product the product Engine contains an inappropriate implementation vulnerability that allows a remote attacker to potentially exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple", "relevant": ["CVE-2020-16013"]}
+{"qid": "desc-CVE-2010-4398", "qtype": "description_semantic", "query": "Stack-based buffer overflow in the RtlQueryRegistryValues function in win32k.sys in the product the product allows local users to gain privileges, and bypass the User Account Control (UAC) feature.\n\nRequired Action: Appl", "relevant": ["CVE-2010-4398"]}
+{"qid": "desc-CVE-2025-26633", "qtype": "description_semantic", "query": "the product the product Management Console (MMC) contains an improper neutralization vulnerability that allows an unauthorized attacker to bypass a security feature locally.\n\nRequired Action: Apply mitigations per vendor", "relevant": ["CVE-2025-26633"]}
+{"qid": "desc-GHSA-cc4v-rvgp-2pf3", "qtype": "description_semantic", "query": "The Jawn parser before 1.6.1 is vulnerable to a denial of service attack via untrusted input.\n\n### Impact\n\nA remote attacker who can submit JSON to any jawn-backed parse method can exhaust JVM heap and trigger `java.lang", "relevant": ["GHSA-cc4v-rvgp-2pf3"]}
+{"qid": "desc-CVE-2018-0167", "qtype": "description_semantic", "query": "There is a buffer overflow vulnerability in the Link Layer Discovery Protocol (LLDP) subsystem of the product IOS Software, the product IOS XE Software, and the product IOS XR Software which could allow an unauthenticate", "relevant": ["CVE-2018-0167"]}
+{"qid": "desc-CVE-2026-85706", "qtype": "description_semantic", "query": "the product the product contains a path traversal vulnerability that allows an unauthenticated user to read arbitrary files due to an improper path confinement and missing authentication enforcement in the repository com", "relevant": ["CVE-2026-85706"]}
+{"qid": "desc-CVE-2022-27518", "qtype": "description_semantic", "query": "the product the product, when configured with SAML SP or IdP configuration, contain an authentication bypass vulnerability that allows an attacker to execute code as administrator.\n\nRequired Action: Apply updates per ven", "relevant": ["CVE-2022-27518"]}
+{"qid": "desc-GHSA-4rx4-4r3x-6534", "qtype": "description_semantic", "query": "### Summary\n\nthe product's recipe registry pull flow extracts attacker-controlled `.praison` tar archives with `tar.extractall()` and does not validate archive member paths before extraction. A malicious publisher can up", "relevant": ["GHSA-4rx4-4r3x-6534"]}
+{"qid": "desc-CVE-2026-93577", "qtype": "description_semantic", "query": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 19.2 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user to execute ", "relevant": ["CVE-2026-93577"]}
+{"qid": "desc-CVE-2023-6448", "qtype": "description_semantic", "query": "the product Vision Series PLCs and HMIs ship with an insecure default password, which if left unchanged, can allow attackers to execute remote commands.\n\nRequired Action: Apply mitigations per vendor instructions or disc", "relevant": ["CVE-2023-6448"]}
+{"qid": "desc-CVE-2014-1776", "qtype": "description_semantic", "query": "the product the product contains a memory corruption vulnerability that allows remote attackers to execute code in the context of the current user.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2014-1776"]}
+{"qid": "desc-CVE-2023-4863", "qtype": "description_semantic", "query": "the product the product contains a heap-based buffer overflow vulnerability that allows a remote attacker to perform an out-of-bounds memory write via a crafted HTML page. This vulnerability can affect applications that ", "relevant": ["CVE-2023-4863"]}
+{"qid": "desc-CVE-2026-78806", "qtype": "description_semantic", "query": "An issue in Matter Standard Specification-Implementation gap v1.5.1 Matter Project Chip V1.5.1 allows a local attacker to obtain sensitive information via the PerformCommissioningStep function in the ChipDeviceController", "relevant": ["CVE-2026-78806"]}
+{"qid": "desc-GHSA-48g7-3x6r-xfhp", "qtype": "description_semantic", "query": "### Impact\n\nThe the product `Model.load_model` function permits arbitrary code execution, even with `safe_mode=True`, through a manually constructed, malicious `.the product` archive. By altering the `config.json` file w", "relevant": ["GHSA-48g7-3x6r-xfhp"]}
+{"qid": "desc-CVE-2026-88847", "qtype": "description_semantic", "query": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not verify that a user is enrolled in a course before recording lesson completions against it, allowing any authenticated user, such as a subscrib", "relevant": ["CVE-2026-88847"]}
+{"qid": "desc-CVE-2011-2462", "qtype": "description_semantic", "query": "The Universal 3D (U3D) component in the product the product contains a memory corruption vulnerability which could allow remote attackers to execute code or cause denial-of-service (DoS).\n\nRequired Action: Apply updates ", "relevant": ["CVE-2011-2462"]}
+{"qid": "desc-GHSA-2g59-m95p-pgfq", "qtype": "description_semantic", "query": "the product versions prior to 2.9.4 contain a server-side request forgery (SSRF) vulnerability in the /project/element update flow when configured with the SQLAlchemy data layer backend. An authenticated client can provi", "relevant": ["GHSA-2g59-m95p-pgfq"]}
+{"qid": "desc-CVE-2021-33771", "qtype": "description_semantic", "query": "the product the product kernel contains an unspecified vulnerability that allows for privilege escalation.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2021-33771"]}
+{"qid": "desc-GHSA-4jvf-wx3f-2x8q", "qtype": "description_semantic", "query": "### Description of Vulnerability:\n\nAn issue in AWS Wrappers for Amazon Aurora PostgreSQL may allow for privilege escalation to rds_superuser role. A low privilege authenticated user can create a crafted function that cou", "relevant": ["GHSA-4jvf-wx3f-2x8q"]}
+{"qid": "desc-CVE-2024-3393", "qtype": "description_semantic", "query": "the product the product contains a vulnerability in parsing and logging malicious DNS packets in the DNS Security feature that, when exploited, allows an unauthenticated attacker to remotely reboot the firewall. Repeated", "relevant": ["CVE-2024-3393"]}
+{"qid": "desc-CVE-2024-4978", "qtype": "description_semantic", "query": "the product (JAVS) the productinstaller contains a malicious version of ffmpeg.exe, named fffmpeg.exe (SHA256: 421a4ad2615941b177b6ec4ab5e239c14e62af2ab07c6df1741e2a62223223c4). When run, this creates a backdoor connecti", "relevant": ["CVE-2024-4978"]}
+{"qid": "desc-CVE-2019-0808", "qtype": "description_semantic", "query": "the product the product contains a privilege escalation vulnerability due to the component failing to properly handle objects in memory. Successful exploitation allows an attacker to run code in kernel mode.\n\nRequired Ac", "relevant": ["CVE-2019-0808"]}
+{"qid": "desc-GHSA-56pw-mpj4-fxww", "qtype": "description_semantic", "query": "## Duplicate Advisory\nThis advisory has been withdrawn because it is a duplicate of GHSA-56pw-mpj4-fxww. This link is maintained to preserve external references.\n\n## Original Description\nthe product versions before v10.0", "relevant": ["GHSA-56pw-mpj4-fxww"]}
+{"qid": "desc-GHSA-55v6-g8pm-pw4c", "qtype": "description_semantic", "query": "# GitHub Security Lab (GHSL) Vulnerability Report, the product: `GHSL-2024-161`, `GHSL-2024-162`\n\nThe [GitHub Security Lab](https://securitylab.github.com) team has identified potential security vulnerabilities in [the p", "relevant": ["GHSA-55v6-g8pm-pw4c"]}
+{"qid": "desc-CVE-2025-29824", "qtype": "description_semantic", "query": "the product the product Common Log File System (CLFS) Driver contains a use-after-free vulnerability that allows an authorized attacker to elevate privileges locally.\n\nRequired Action: Apply mitigations per vendor instru", "relevant": ["CVE-2025-29824"]}
+{"qid": "desc-CVE-2025-27915", "qtype": "description_semantic", "query": "the product the product contains a cross-site scripting vulnerability that exists in the Classic Web Client due to insufficient sanitization of HTML content in ICS files. When a user views an e-mail message containing a ", "relevant": ["CVE-2025-27915"]}
+{"qid": "desc-CVE-2022-43769", "qtype": "description_semantic", "query": "the product Pentaho BA Server contains a special element injection vulnerability that allows an attacker to inject Spring templates into properties files, allowing for arbitrary command execution.\n\nRequired Action: Apply", "relevant": ["CVE-2022-43769"]}
+{"qid": "desc-CVE-2026-35616", "qtype": "description_semantic", "query": "the product the product contains an improper access control vulnerability that may allow an unauthenticated attacker to execute unauthorized code or commands via crafted requests.\n\nRequired Action: Apply mitigations per ", "relevant": ["CVE-2026-35616"]}
+{"qid": "desc-GHSA-55m3-44xf-hg4h", "qtype": "description_semantic", "query": "## Summary and impact\n\n[`Googlethe product.hosted_domain`] is used to restrict what Google accounts can be authorized to access a JupyterHub. The restriction _is intended_ to ensure Google accounts are part of one or mor", "relevant": ["GHSA-55m3-44xf-hg4h"]}
+{"qid": "desc-GHSA-56v6-2fhr-wxgq", "qtype": "description_semantic", "query": "### Impact\n_What kind of vulnerability is it? Who is impacted?_\n\nIt has two related instances that share the same root cause: a user-controlled model field is assigned verbatim to a form field's `help_text`, which is ren", "relevant": ["GHSA-56v6-2fhr-wxgq"]}
+{"qid": "desc-CVE-2025-0411", "qtype": "description_semantic", "query": "the product contains a protection mechanism failure vulnerability that allows remote attackers to bypass the Mark-of-the-Web security feature to execute arbitrary code in the context of the current user.\n\nRequired Action", "relevant": ["CVE-2025-0411"]}
+{"qid": "desc-CVE-2020-24557", "qtype": "description_semantic", "query": "the product the product on Microsoft Windows contain an improper access control vulnerability that may allow an attacker to manipulate a particular product folder to disable the security temporarily, abuse a specific Win", "relevant": ["CVE-2020-24557"]}
+{"qid": "desc-CVE-2013-5065", "qtype": "description_semantic", "query": "the product the product NDProxy.sys in the kernel contains an improper input validation vulnerability which can allow a local attacker to escalate privileges.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2013-5065"]}
+{"qid": "desc-CVE-2026-12569", "qtype": "description_semantic", "query": "the product the product contains an improper input validation vulnerability allowing an unauthenticated, remote attacker to execute arbitrary code by sending a malicious request to the network.\n\nRequired Action: Apply mi", "relevant": ["CVE-2026-12569"]}
+{"qid": "desc-CVE-2022-32893", "qtype": "description_semantic", "query": "the product the product contain an out-of-bounds write vulnerability that could allow for remote code execution when processing malicious crafted web content.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2022-32893"]}
+{"qid": "desc-GHSA-3f84-rpwh-47g6", "qtype": "description_semantic", "query": "### Impact\n\nWhen a remote client closes the connection before the product has had the opportunity to call `getpeername()` the product won't correctly clean up the connection leading to the main thread attempting to write", "relevant": ["GHSA-3f84-rpwh-47g6"]}
+{"qid": "desc-CVE-2017-11826", "qtype": "description_semantic", "query": "A remote code execution vulnerability exists in the product the product software when the software fails to properly handle objects in memory. An attacker who successfully exploited the vulnerability could run arbitrary ", "relevant": ["CVE-2017-11826"]}
+{"qid": "desc-CVE-2010-0840", "qtype": "description_semantic", "query": "Unspecified vulnerability in the the product in Java SE component allows remote attackers to affect confidentiality, integrity, and availability via Unknown vectors.\n\nRequired Action: Apply updates per vendor instruction", "relevant": ["CVE-2010-0840"]}
+{"qid": "desc-GHSA-33h2-69j3-r336", "qtype": "description_semantic", "query": "OpenCV (Open Source Computer Vision Library) through 3.3 (corresponding to OpenCV-Python 3.3.0.9) has an out-of-bounds read error in the cv::RBaseStream::readBlock function in modules/imgcodecs/src/bitstrm.cpp when readi", "relevant": ["GHSA-33h2-69j3-r336"]}
+{"qid": "desc-GHSA-2wcr-87wf-cf9j", "qtype": "description_semantic", "query": "### Impact\nKiwi TCMS accepts SVG files uploaded by users which could potentially contain JavaScript code. If SVG images are viewed directly, i.e. not rendered in an HTML page, this JavaScript code could execute. \n\n### Pa", "relevant": ["GHSA-2wcr-87wf-cf9j"]}
+{"qid": "desc-CVE-2025-42999", "qtype": "description_semantic", "query": "the product the product Visual Composer Metadata Uploader contains a deserialization vulnerability that allows a privileged attacker to compromise the confidentiality, integrity, and availability of the host system by de", "relevant": ["CVE-2025-42999"]}
+{"qid": "desc-GHSA-9v8p-frvj-2pcm", "qtype": "description_semantic", "query": "An unauthenticated client can connect to `GET /log`, send an arbitrary logger profile as the first WebSocket message, and mutate the node's global logging configuration before receiving live logs from the process. I conf", "relevant": ["GHSA-9v8p-frvj-2pcm"]}
+{"qid": "desc-GHSA-527m-2xhr-j27g", "qtype": "description_semantic", "query": "## Summary ##\n\nA Server-Side Request Forgery (SSRF) vulnerability in the chat API allows any authenticated user to force the server to make arbitrary HTTP requests to internal and external networks. This can lead to the ", "relevant": ["GHSA-527m-2xhr-j27g"]}
+{"qid": "desc-CVE-2023-2868", "qtype": "description_semantic", "query": "Barracuda the product contains an improper input validation vulnerability of a user-supplied .tar file, leading to remote command injection.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2023-2868"]}
+{"qid": "desc-CVE-2026-88846", "qtype": "description_semantic", "query": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.50 does not check whether user registration is enabled on the site before creating an account through one of its front-end registration flows, allowing un", "relevant": ["CVE-2026-88846"]}
+{"qid": "desc-GHSA-4v5p-v5h9-6xjx", "qtype": "description_semantic", "query": "### Impact\nAn attacker can trigger denial of service via assertion failure by altering a `SavedModel` on disk such that `AttrDef`s of some operation are duplicated.\n\n### Patches\nWe have patched the issue in GitHub commit", "relevant": ["GHSA-4v5p-v5h9-6xjx"]}
+{"qid": "desc-GHSA-2pc9-4j83-qjmr", "qtype": "description_semantic", "query": "# Summary\n\nthe product loads Hugging Face `auto_map` dynamic modules during model resolution **without gating on `trust_remote_code`**, allowing attacker-controlled Python code in a model repo/path to execute at server s", "relevant": ["GHSA-2pc9-4j83-qjmr"]}
+{"qid": "desc-CVE-2016-1019", "qtype": "description_semantic", "query": "the product the product allows remote attackers to cause a denial of service or possibly execute arbitrary code.\n\nRequired Action: The impacted product is end-of-life and should be disconnected if still in use.", "relevant": ["CVE-2016-1019"]}
+{"qid": "desc-CVE-2018-18809", "qtype": "description_semantic", "query": "the product the product Library contains a directory-traversal vulnerability that may allow web server users to access contents of the host system.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2018-18809"]}
+{"qid": "desc-CVE-2020-5410", "qtype": "description_semantic", "query": "Spring, by the product, Cloud Config contains a path traversal vulnerability that allows applications to serve arbitrary configuration files.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2020-5410"]}
+{"qid": "desc-CVE-2024-7971", "qtype": "description_semantic", "query": "the product the product contains a type confusion vulnerability that allows a remote attacker to exploit heap corruption via a crafted HTML page. This vulnerability could affect multiple web browsers that utilize Chromiu", "relevant": ["CVE-2024-7971"]}
+{"qid": "desc-CVE-2026-20079", "qtype": "description_semantic", "query": "the product Secure Firewall Management Center (FMC) Software and the product Security Cloud Control (SCC) Firewall Management contain an authentication Bypass using an alternate path or channel vulnerability that could a", "relevant": ["CVE-2026-20079"]}
+{"qid": "desc-CVE-2019-2725", "qtype": "description_semantic", "query": "Injection vulnerability in the the product the product component of the product Fusion Middleware (subcomponent: Web Services).\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2019-2725"]}
+{"qid": "desc-CVE-2026-92874", "qtype": "description_semantic", "query": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.3 before 19.2.7, 19.3 before 19.3.3, and 19.4 before 19.4.1 that under certain conditions could have allowed an authenticated user with an MCP", "relevant": ["CVE-2026-92874"]}
+{"qid": "desc-CVE-2025-54313", "qtype": "description_semantic", "query": "the product the product contains an embedded malicious code vulnerability. Installing an affected package executes an install.js file that launches the node-gyp.dll malware on Windows.\n\nRequired Action: Apply mitigations", "relevant": ["CVE-2025-54313"]}
+{"qid": "desc-CVE-2021-27562", "qtype": "description_semantic", "query": "the product the product contains an out-of-bounds write vulnerability allowing the non-secure (NS) world to trigger a system halt, overwrite secure data, or print out secure data when calling secure functions under the n", "relevant": ["CVE-2021-27562"]}
+{"qid": "desc-CVE-2020-0787", "qtype": "description_semantic", "query": "the product the product BITS is vulnerable to to a privilege elevation vulnerability if it improperly handles symbolic links. An actor can exploit this vulnerability to execute arbitrary code with system-level privileges", "relevant": ["CVE-2020-0787"]}
+{"qid": "desc-CVE-2022-27926", "qtype": "description_semantic", "query": "the product the product contains a cross-site scripting vulnerability by allowing an endpoint URL to accept parameters without sanitizing.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2022-27926"]}
+{"qid": "desc-CVE-2019-9874", "qtype": "description_semantic", "query": "the product the product contain a deserialization vulnerability in the the product.Security.AntiCSRF module that allows an unauthenticated attacker to execute arbitrary code by sending a serialized .NET object in the HTT", "relevant": ["CVE-2019-9874"]}
+{"qid": "desc-GHSA-3x47-w4rx-6pm7", "qtype": "description_semantic", "query": "A path traversal vulnerability exists in the parisneo/the product application, specifically within the `sanitize_path_from_endpoint` and `sanitize_path` functions in `the product_core\\the product\\security.py`. This vulne", "relevant": ["GHSA-3x47-w4rx-6pm7"]}
+{"qid": "desc-CVE-2026-50751", "qtype": "description_semantic", "query": "the product the product contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connecti", "relevant": ["CVE-2026-50751"]}
+{"qid": "desc-CVE-2025-54309", "qtype": "description_semantic", "query": "the product contains an unprotected alternate channel vulnerability. When the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS.\n\nRequired ", "relevant": ["CVE-2025-54309"]}
+{"qid": "desc-CVE-2026-55255", "qtype": "description_semantic", "query": "the product contains an authorization bypass through user-controlled key vulnerability which allows an authenticated attacker to execute any flow belonging to another user by specifying the victim's flow ID in the reques", "relevant": ["CVE-2026-55255"]}
+{"qid": "desc-CVE-2017-8540", "qtype": "description_semantic", "query": "The the product the product running on the product Forefront and the product Defender on the product Windows Server 2008 SP2 and R2 SP1, Windows 7 SP1, Windows 8.1, Windows Server 2012 Gold and R2, Windows RT 8.1, Window", "relevant": ["CVE-2017-8540"]}
+{"qid": "desc-CVE-2021-30952", "qtype": "description_semantic", "query": "the product tvOS, macOS, Safari, iPadOS and watchOS contain an integer overflow or wraparound vulnerability due to the processing of maliciously crafted web content that may lead to arbitrary code execution.\n\nRequired Ac", "relevant": ["CVE-2021-30952"]}
+{"qid": "desc-GHSA-45gq-q4xh-cp53", "qtype": "description_semantic", "query": "### Impact\nIt is possible to find out usernames from the response time of login requests. This could aid attackers in credential attacks\n\n### Workarounds\nNo\n", "relevant": ["GHSA-45gq-q4xh-cp53"]}
+{"qid": "desc-CVE-2023-23752", "qtype": "description_semantic", "query": "the product contains an improper access control vulnerability that allows unauthorized access to webservice endpoints.\n\nRequired Action: Apply mitigations per vendor instructions or discontinue use of the product if miti", "relevant": ["CVE-2023-23752"]}
+{"qid": "desc-CVE-2020-16846", "qtype": "description_semantic", "query": "the productStack the product allows an unauthenticated user with network access to the the product API to use shell injections to run code on the the product API using the SSH client. This vulnerability affects any users", "relevant": ["CVE-2020-16846"]}
+{"qid": "desc-GHSA-47qg-q58v-7vrp", "qtype": "description_semantic", "query": "### Impact\nAny install that has `UNEDITABLE_SCHEMAS` and/or `UNEDITABLE_TABLE_DESCRIPTION_MATCH_RULES` set in the front-end, is being impacted. The value of these properties is ignored if set, allowing any user to modify", "relevant": ["GHSA-47qg-q58v-7vrp"]}
+{"qid": "desc-CVE-2009-1151", "qtype": "description_semantic", "query": "Setup script used to generate configuration can be fooled using a crafted POST request to include arbitrary PHP code in generated configuration file.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2009-1151"]}
+{"qid": "desc-CVE-2022-35405", "qtype": "description_semantic", "query": "the product the product PAM360, Password Manager Pro, and Access Manager Plus contain an unspecified vulnerability that allows for remote code execution.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2022-35405"]}
+{"qid": "desc-CVE-2023-33010", "qtype": "description_semantic", "query": "the product ATP, USG FLEX, USG FLEX 50(W), USG20(W)-VPN, VPN, and ZyWALL/USG firewalls contain a buffer overflow vulnerability in the ID processing function that could allow an unauthenticated attacker to cause denial-of", "relevant": ["CVE-2023-33010"]}
+{"qid": "desc-CVE-2016-7836", "qtype": "description_semantic", "query": "the product the product contains an improper authentication vulnerability that allows remote code execution via a flaw in processing authentication on the TCP connection with the management console program.\n\nRequired Act", "relevant": ["CVE-2016-7836"]}
+{"qid": "desc-CVE-2014-6332", "qtype": "description_semantic", "query": "OleAut32.dll in OLE in the product the product allows remote attackers to remotely execute code via a crafted web site.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2014-6332"]}
+{"qid": "desc-GHSA-3rq5-2g8h-59hc", "qtype": "description_semantic", "query": "eventlet before 0.35.2, as used in the product before 2.6.0, allows remote attackers to interfere with DNS name resolution by quickly sending an invalid packet from the expected IP address and source port, aka a \"TuDoor\"", "relevant": ["GHSA-3rq5-2g8h-59hc"]}
+{"qid": "desc-CVE-2026-94127", "qtype": "description_semantic", "query": "the product the product contains a heap-based buffer overflow vulnerability when access policy and an OAuth profile are configured on a virtual server. This vulnerability could allow an unauthenticated attacker to perfor", "relevant": ["CVE-2026-94127"]}
+{"qid": "desc-CVE-2026-4806", "qtype": "description_semantic", "query": "The Custom Thank You Page for WooCommerce plugin for WordPress is vulnerable to unauthorized access and loss of data due to a missing capability check on the save_option() function in all versions up to, and including, 1", "relevant": ["CVE-2026-4806"]}
+{"qid": "desc-CVE-2026-63077", "qtype": "description_semantic", "query": "the product the product contains a deserialization of untrusted data vulnerability that could allow unauthenticated remote code execution via the agent polling protocol.\n\nRequired Action: Apply mitigations in accordance ", "relevant": ["CVE-2026-63077"]}
+{"qid": "desc-GHSA-4q96-6xhq-ff43", "qtype": "description_semantic", "query": "### Impact\nAn attacker with `write` permissions can upload an SVG file that contains malicious javascript. This javascript will be executed in a user's browser when the user is viewing that SVG file on the wiki.\n\n### Pat", "relevant": ["GHSA-4q96-6xhq-ff43"]}
+{"qid": "desc-GHSA-4pqm-j46f-795x", "qtype": "description_semantic", "query": "Hermes Agent before 0.16.0 contains a DNS rebinding vulnerability in WebSocket endpoints that allows remote attackers to bypass Host and Origin validation. FastAPI HTTP middleware does not execute for WebSocket upgrade r", "relevant": ["GHSA-4pqm-j46f-795x"]}
+{"qid": "desc-CVE-2020-29583", "qtype": "description_semantic", "query": "the product firewalls (ATP, USG, VM) and AP Controllers (NXC2500 and NXC5500) contain a use of hard-coded credentials vulnerability in an undocumented account (\"zyfwp\") with an unchangeable password.\n\nRequired Action: Ap", "relevant": ["CVE-2020-29583"]}
+{"qid": "desc-GHSA-2ww3-fxvq-293j", "qtype": "description_semantic", "query": "The the product package is vulnerable to ReDoS (regular expression denial of service). An attacker that is able to provide as an input to the [`_read_comparison_block()`(https://github.com/the product/the product/blob/23", "relevant": ["GHSA-2ww3-fxvq-293j"]}
+{"qid": "desc-CVE-2023-36846", "qtype": "description_semantic", "query": "the product the product on SRX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network-based attacker to cause limited impact to the file system integrity. Wit", "relevant": ["CVE-2023-36846"]}
+{"qid": "desc-GHSA-4j2p-28q2-5m79", "qtype": "description_semantic", "query": "Hugging Face the product through 1.14.0 contains a path traversal vulnerability in load_checkpoint_in_model and load_checkpoint_and_dispatch functions that fail to sanitize weight_map entries from sharded checkpoint inde", "relevant": ["GHSA-4j2p-28q2-5m79"]}
+{"qid": "desc-GHSA-28jp-44vh-q42h", "qtype": "description_semantic", "query": "### Duplicate Advisory\nThis advisory has been withdrawn because it is a duplicate of GHSA-hjqc-jx6g-rwp9. This link is maintained to preserve external references.\n\n### Original Description\nThe the product.utils.get_file ", "relevant": ["GHSA-28jp-44vh-q42h"]}
+{"qid": "desc-CVE-2020-13671", "qtype": "description_semantic", "query": "Improper sanitization in the extension file names is present in the product.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2020-13671"]}
+{"qid": "desc-CVE-2023-35311", "qtype": "description_semantic", "query": "the product the product contains a security feature bypass vulnerability that allows an attacker to bypass the the product the product Security Notice prompt.\n\nRequired Action: Apply updates per vendor instructions or di", "relevant": ["CVE-2023-35311"]}
+{"qid": "desc-CVE-2026-96550", "qtype": "description_semantic", "query": "A vulnerability was found in sfturing hosp_order up to 627f426331da8086ce8fff2017d65b1ddef384f8. This issue affects the function getProperties of the file ssm_pro/src/main/java/cn/sfturing/utils/MailUtil.java. Performing", "relevant": ["CVE-2026-96550"]}
+{"qid": "desc-CVE-2026-96773", "qtype": "description_semantic", "query": "A weakness has been identified in Intelliants Subrion CMS up to 4.2.1. This vulnerability affects the function iaUsers::authorize of the file front/login.php of the component Login Page. This manipulation of the argument", "relevant": ["CVE-2026-96773"]}
+{"qid": "desc-CVE-2020-3569", "qtype": "description_semantic", "query": "the product the product Distance Vector Multicast Routing Protocol (DVMRP) incorrectly handles Internet Group Management Protocol (IGMP) packets. Exploitation could allow an unauthenticated, remote attacker to immediatel", "relevant": ["CVE-2020-3569"]}
+{"qid": "desc-CVE-2026-15027", "qtype": "description_semantic", "query": "CGServiSign developed by Changing has a OS Command Injection vulnerability. Unauthenticated remote attackers can induce victims to visit a malicious web page and inject arbitrary OS commands through the local service int", "relevant": ["CVE-2026-15027"]}
+{"qid": "desc-CVE-2023-32373", "qtype": "description_semantic", "query": "the product iOS, iPadOS, macOS, tvOS, watchOS, and Safari WebKit contain a use-after-free vulnerability that leads to code execution when processing maliciously crafted web content. This vulnerability could impact HTML p", "relevant": ["CVE-2023-32373"]}
+{"qid": "desc-CVE-2019-0211", "qtype": "description_semantic", "query": "the product the product, with MPM event, worker or prefork, code executing in less-privileged child processes or threads (including scripts executed by an in-process scripting interpreter) could execute code with the pri", "relevant": ["CVE-2019-0211"]}
+{"qid": "desc-CVE-2012-1710", "qtype": "description_semantic", "query": "Unspecified vulnerability in the the product WebCenter Forms Recognition component in the product the product allows remote attackers to affect confidentiality, integrity, and availability via Unknown vectors related to ", "relevant": ["CVE-2012-1710"]}
+{"qid": "desc-GHSA-4m72-rmm9-2qjr", "qtype": "description_semantic", "query": "Cross-site scripting (XSS) vulnerability in the product.py in Universal Feed Parser (aka the product or python-the product) 5.x before 5.0.1 allows remote attackers to inject arbitrary web script or HTML via an unexpecte", "relevant": ["GHSA-4m72-rmm9-2qjr"]}
+{"qid": "desc-CVE-2023-36584", "qtype": "description_semantic", "query": "the product the product Mark of the Web (MOTW) contains a security feature bypass vulnerability resulting in a limited loss of integrity and availability of security features.\n\nRequired Action: Apply mitigations per vend", "relevant": ["CVE-2023-36584"]}
+{"qid": "desc-CVE-2026-21514", "qtype": "description_semantic", "query": "the product the product Word contains a reliance on untrusted inputs in a security decision vulnerability that could allow an authorized attacker to elevate privileges locally.\n\nRequired Action: Apply mitigations per ven", "relevant": ["CVE-2026-21514"]}
+{"qid": "desc-CVE-2021-21985", "qtype": "description_semantic", "query": "the product vSphere Client contains an improper input validation vulnerability in the Virtual SAN Health Check plug-in, which is enabled by default in the product, which allows for remote code execution.\n\nRequired Action", "relevant": ["CVE-2021-21985"]}
+{"qid": "desc-CVE-2022-1388", "qtype": "description_semantic", "query": "the product the product contains a missing authentication in critical function vulnerability which can allow for remote code execution, creation or deletion of files, or disabling services.\n\nRequired Action: Apply update", "relevant": ["CVE-2022-1388"]}
+{"qid": "desc-CVE-2012-1889", "qtype": "description_semantic", "query": "the product the product contains a memory corruption vulnerability which could allow for remote code execution.\n\nRequired Action: Apply updates per vendor instructions.", "relevant": ["CVE-2012-1889"]}
+{"qid": "desc-CVE-2024-6670", "qtype": "description_semantic", "query": "the product the product contains a SQL injection vulnerability that allows an unauthenticated attacker to retrieve the user's encrypted password if the application is configured with only a single user.\n\nRequired Action:", "relevant": ["CVE-2024-6670"]}
+{"qid": "desc-GHSA-2vv3-56qg-g2cf", "qtype": "description_semantic", "query": "### Impact\nThe implementation of [`tf.raw_ops.LSTMBlockCell`](https://github.com/tensorflow/tensorflow/blob/f3b9bf4c3c0597563b289c0512e98d4ce81f886e/tensorflow/core/kernels/rnn/lstm_ops.cc) does not fully validate the in", "relevant": ["GHSA-2vv3-56qg-g2cf"]}
+{"qid": "desc-CVE-2025-32975", "qtype": "description_semantic", "query": "the product the product contains an improper authentication vulnerability that could allow attackers to impersonate legitimate users without valid credentials.\n\nRequired Action: Apply mitigations per vendor instructions,", "relevant": ["CVE-2025-32975"]}

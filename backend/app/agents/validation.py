@@ -59,8 +59,8 @@ def validation_agent(state: CyberRAGState) -> dict[str, Any]:
             "errors": errors,
         }
 
-    max_candidates = getattr(settings, "MAX_VALIDATION_CANDIDATES", 10)
-    batch_size = getattr(settings, "MAX_VALIDATION_BATCH_SIZE", 10)
+    max_candidates = settings.MAX_VALIDATION_CANDIDATES
+    batch_size = settings.MAX_VALIDATION_BATCH_SIZE
     candidates_to_process = candidates[:max_candidates]
 
     logger.info(
@@ -132,7 +132,15 @@ def validation_agent(state: CyberRAGState) -> dict[str, Any]:
 
     # AI Batched Reasoning
     llm_results = {}
-    if llm_service.is_configured() and prepared_items:
+    ambiguous_items = [
+        item
+        for item in prepared_items
+        if item["identity_valid"]
+        and item["product_valid"]
+        and item["version_affected"] is None
+        and item["patch_status"] is not True
+    ]
+    if llm_service.is_configured() and ambiguous_items:
         try:
             compact_candidates = [
                 {
@@ -144,7 +152,7 @@ def validation_agent(state: CyberRAGState) -> dict[str, Any]:
                     "patched_versions": item["patched_versions"],
                     "description": str(item["candidate"].get("description", ""))[:250],
                 }
-                for item in prepared_items[:batch_size]
+                for item in ambiguous_items[:batch_size]
             ]
             prompt = f"Validate applicability for candidates:\n{json.dumps(compact_candidates, indent=2)}"
             
@@ -379,12 +387,36 @@ def _version_is_patched(installed_version: Any, patched_versions: Any) -> bool |
     if not isinstance(patched_versions, list):
         return None
 
-    parsed_patches = [_parse_version(v) for v in patched_versions if _parse_version(v) is not None]
+    parsed_patches = [
+        parsed
+        for value in patched_versions
+        if (parsed := _parse_version(value)) is not None
+    ]
     if not parsed_patches:
         return None
 
-    earliest_patch = min(parsed_patches)
+    installed_release = installed.release
+    matching_branch_patches = [
+        patch
+        for patch in parsed_patches
+        if _same_release_branch(installed_release, patch.release)
+    ]
+    if not matching_branch_patches:
+        return None
+
+    earliest_patch = min(matching_branch_patches)
     return installed >= earliest_patch
+
+
+def _same_release_branch(
+    installed_release: tuple[int, ...],
+    patch_release: tuple[int, ...],
+) -> bool:
+    if len(installed_release) >= 2 and len(patch_release) >= 2:
+        return installed_release[:2] == patch_release[:2]
+    if len(installed_release) == len(patch_release) == 1:
+        return installed_release == patch_release
+    return False
 
 
 def _validate_identity(candidate: dict[str, Any], evidence: list[dict[str, Any]]) -> bool:

@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
+from types import SimpleNamespace
 from fastapi.testclient import TestClient
 
 from app.main import app
@@ -14,6 +15,8 @@ from app.agents.recommendation import recommendation_agent
 from app.agents.report import report_agent
 from app.graph import cyberrag_graph, evidence_decision
 from app.retrieval.service import VulnerabilityRetriever
+from app.retrieval.semantic import SemanticRetriever
+from app.agents.validation import _version_is_patched
 from run_graph import run_cyberrag
 
 client = TestClient(app)
@@ -196,6 +199,118 @@ def test_unrelated_technology():
     finding = val_res["validated_findings"][0]
     assert finding["status"] == "not_affected"
     assert finding["affected"] is False
+
+
+def test_multibranch_patch_versions_only_apply_to_matching_release_branch():
+    assert _version_is_patched("1.5.2", ["1.4.9", "1.5.3"]) is False
+    assert _version_is_patched("1.5.4", ["1.4.9", "1.5.3"]) is True
+    assert _version_is_patched("1.6.1", ["1.4.9", "1.5.3"]) is None
+
+
+def test_multibranch_patch_does_not_hide_affected_finding():
+    candidate = create_sample_candidate(
+        asset_version="1.5.2",
+        affected_versions=["< 2.0"],
+        patched_versions=["1.4.9", "1.5.3"],
+    )
+    candidate["asset"]["version"] = "1.5.2"
+    candidate["asset_version"] = "1.5.2"
+    candidate["affected_versions"] = ["< 2.0"]
+    candidate["patched_versions"] = ["1.4.9", "1.5.3"]
+
+    state: CyberRAGState = {
+        "assets": [candidate["asset"]],
+        "candidate_vulnerabilities": [candidate],
+        "internal_evidence": [
+            {
+                "cve": candidate["cve"],
+                "vulnerability_id": candidate["vulnerability_id"],
+                "vendor": candidate["vendor"],
+                "product": candidate["product"],
+                "affected_versions": ["< 2.0"],
+                "patched_versions": ["1.4.9", "1.5.3"],
+            }
+        ],
+        "web_evidence": [],
+        "errors": [],
+    }
+
+    finding = validation_agent(state)["validated_findings"][0]
+    assert finding["status"] == "validated"
+    assert finding["affected"] is True
+
+
+def test_semantic_retriever_surfaces_qdrant_failure():
+    retriever = object.__new__(SemanticRetriever)
+    retriever.embedding_service = MagicMock()
+    retriever.embedding_service.embed.return_value = [0.1, 0.2]
+    retriever.vector_store = MagicMock()
+    retriever.vector_store.search.side_effect = [
+        RuntimeError("filtered query failed"),
+        RuntimeError("unfiltered query failed"),
+    ]
+
+    with pytest.raises(RuntimeError, match="failed after filtered and unfiltered"):
+        retriever.search(query="Spring Boot")
+
+
+def test_candidate_matching_uses_larger_ordered_pool(monkeypatch):
+    vulnerabilities = [
+        SimpleNamespace(
+            vulnerability_id=f"CVE-2024-{index:04}",
+            cve=f"CVE-2024-{index:04}",
+            source="NVD",
+            title="Spring Boot advisory",
+            description="Spring Boot vulnerability",
+            vendor="VMware",
+            product="Spring Boot",
+            affected_versions=["< 3.2.8"],
+            patched_versions=["3.2.8"],
+            cpe_matches=[],
+            cvss=8.0,
+            cvss_vector=None,
+            epss=None,
+            kev=False,
+            exploit_available=False,
+            references=[],
+            updated=None,
+        )
+        for index in range(12)
+    ]
+    session = MagicMock()
+    session.execute.return_value.scalars.return_value.all.return_value = vulnerabilities
+    session_context = MagicMock()
+    session_context.__enter__.return_value = session
+    monkeypatch.setattr(
+        "app.agents.vulnerability_matching.SessionLocal",
+        lambda: session_context,
+    )
+    monkeypatch.setattr(
+        "app.agents.vulnerability_matching.llm_service.is_configured",
+        lambda: False,
+    )
+    monkeypatch.setattr(
+        "app.agents.vulnerability_matching.settings.MAX_VALIDATION_CANDIDATES",
+        100,
+    )
+
+    result = vulnerability_matching_agent(
+        {
+            "assets": [
+                {
+                    "name": "Spring Boot",
+                    "vendor": "VMware",
+                    "version": "3.2.5",
+                }
+            ],
+            "errors": [],
+        }
+    )
+
+    query = session.execute.call_args.args[0]
+    assert query._limit_clause.value == 100
+    assert query._order_by_clauses
+    assert len(result["candidate_vulnerabilities"]) == 12
 
 
 # Test 4: Insufficient internal evidence triggers Web Search Agent

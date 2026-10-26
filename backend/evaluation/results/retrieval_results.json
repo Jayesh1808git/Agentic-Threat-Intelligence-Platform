@@ -1,0 +1,7303 @@
+[
+  {
+    "query_id": "retrieval_001",
+    "query": "CVE-2021-44228",
+    "category": "exact_cve",
+    "notes": "Expected label is a known Log4Shell identifier; database presence must be verified locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2021-45046",
+      "CVE-2026-69335",
+      "CVE-2026-69341",
+      "CVE-2026-69362",
+      "CVE-2026-15809",
+      "CVE-2026-69373",
+      "CVE-2026-81645",
+      "CVE-2026-96515",
+      "CVE-2026-97168"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 1.0,
+        "lexical_score": 1.0,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-69335",
+        "postgres_id": "1386e923-b386-4463-933d-9db04d9cb2ce",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.78,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-69341",
+        "postgres_id": "08b2620e-c72c-4812-aa15-7b67096e3f09",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7773,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-69362",
+        "postgres_id": "16c5a167-f02d-4e28-858f-a69871c81c78",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.7731,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-15809",
+        "postgres_id": "841aa391-5b3e-4b6d-a2e8-18e2177ac6bb",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7726,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-69373",
+        "postgres_id": "a212d2c6-44b7-478a-9a45-baaa6ab14a65",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.7713,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-81645",
+        "postgres_id": "a5a7a5bc-1ff5-49ce-8772-5c0914705135",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7684,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-96515",
+        "postgres_id": "82a52201-114d-4d62-bcbd-1e96be4362b6",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.7671,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-97168",
+        "postgres_id": "4d4b8a97-e630-4b07-9c99-1b9c7938c3a0",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.7658,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2655.944,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": true,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_001",
+    "query": "CVE-2021-44228",
+    "category": "exact_cve",
+    "notes": "Expected label is a known Log4Shell identifier; database presence must be verified locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2021-45046"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 1.0,
+        "lexical_score": 1.0,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 101.476,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": true,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 2,
+    "postgres_resolved_result_count": 2
+  },
+  {
+    "query_id": "retrieval_001",
+    "query": "CVE-2021-44228",
+    "category": "exact_cve",
+    "notes": "Expected label is a known Log4Shell identifier; database presence must be verified locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2026-69335",
+      "CVE-2026-69341",
+      "CVE-2026-69362",
+      "CVE-2026-15809",
+      "CVE-2026-69373",
+      "CVE-2026-81645",
+      "CVE-2026-96515",
+      "CVE-2026-97168",
+      "CVE-2026-69337",
+      "CVE-2026-69368"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2026-69335",
+        "postgres_id": "1386e923-b386-4463-933d-9db04d9cb2ce",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.78,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2026-69341",
+        "postgres_id": "08b2620e-c72c-4812-aa15-7b67096e3f09",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7773,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-69362",
+        "postgres_id": "16c5a167-f02d-4e28-858f-a69871c81c78",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.7731,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-15809",
+        "postgres_id": "841aa391-5b3e-4b6d-a2e8-18e2177ac6bb",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7726,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-69373",
+        "postgres_id": "a212d2c6-44b7-478a-9a45-baaa6ab14a65",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.7713,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-81645",
+        "postgres_id": "a5a7a5bc-1ff5-49ce-8772-5c0914705135",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7684,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-96515",
+        "postgres_id": "82a52201-114d-4d62-bcbd-1e96be4362b6",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.7671,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-97168",
+        "postgres_id": "4d4b8a97-e630-4b07-9c99-1b9c7938c3a0",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.7658,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-69337",
+        "postgres_id": "c6a4406b-b4ee-4c75-87b7-64d93e7f3870",
+        "score": 0.442,
+        "lexical_score": null,
+        "semantic_score": 0.7651,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-69368",
+        "postgres_id": "85b7d1e5-b469-4c87-899c-7a5e9a217581",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.7628,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 2366.658,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": false,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_001",
+    "query": "CVE-2021-44228",
+    "category": "exact_cve",
+    "notes": "Expected label is a known Log4Shell identifier; database presence must be verified locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2021-45046"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 1.0,
+        "lexical_score": 1.0,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 97.257,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": true,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 2,
+    "postgres_resolved_result_count": 2
+  },
+  {
+    "query_id": "retrieval_002",
+    "query": "GHSA-xxxx-xxxx-xxxx",
+    "category": "exact_advisory_id",
+    "notes": "Intentionally unlabelled placeholder: replace with an actual GHSA identifier present in PostgreSQL and label it before evaluation. This case is skipped with an explicit dataset validation error, never scored.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-32975",
+      "CVE-2026-73556",
+      "CVE-2026-77249",
+      "GHSA-2wcm-vx67-3x4q",
+      "GHSA-392c-vjfv-h7wr",
+      "GHSA-32f7-cmr3-vpjv",
+      "CVE-2019-10149",
+      "CVE-2024-56327",
+      "CVE-2019-14853",
+      "CVE-2023-23752"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-32975",
+        "postgres_id": "eb34d796-c372-44b8-9a60-bea06ea5a6c6",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.6458,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2026-73556",
+        "postgres_id": "a583bd62-608b-4c6f-b366-0b840b84d81d",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.6686,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-77249",
+        "postgres_id": "510425c6-b5ff-479d-96f4-48cc64ab3bf3",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.6647,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "GHSA-2wcm-vx67-3x4q",
+        "postgres_id": "10700319-4888-4481-9f1f-859b642742d8",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6597,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "GHSA-392c-vjfv-h7wr",
+        "postgres_id": "d28cd27c-7b6d-4dcb-aaa6-772857b31a50",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.6455,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "GHSA-32f7-cmr3-vpjv",
+        "postgres_id": "7614415a-5644-4f7d-b917-d5b88e02d923",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.6453,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4596,
+        "lexical_score": null,
+        "semantic_score": 0.6246,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2024-56327",
+        "postgres_id": "8260ed84-fbfd-425a-9e45-a4f42662861b",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.6416,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2019-14853",
+        "postgres_id": "f792cb84-2348-4ad8-a381-391f59643c7a",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6411,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2023-23752",
+        "postgres_id": "4f67951c-e0d6-4aa5-bde8-28317ed1c25b",
+        "score": 0.4478,
+        "lexical_score": null,
+        "semantic_score": 0.6241,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2533.016,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_002",
+    "query": "GHSA-xxxx-xxxx-xxxx",
+    "category": "exact_advisory_id",
+    "notes": "Intentionally unlabelled placeholder: replace with an actual GHSA identifier present in PostgreSQL and label it before evaluation. This case is skipped with an explicit dataset validation error, never scored.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [],
+    "rankings": [],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 98.697,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": null,
+    "postgres_resolvable_result_count": 0,
+    "postgres_resolved_result_count": 0
+  },
+  {
+    "query_id": "retrieval_002",
+    "query": "GHSA-xxxx-xxxx-xxxx",
+    "category": "exact_advisory_id",
+    "notes": "Intentionally unlabelled placeholder: replace with an actual GHSA identifier present in PostgreSQL and label it before evaluation. This case is skipped with an explicit dataset validation error, never scored.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-32975",
+      "CVE-2026-73556",
+      "CVE-2026-77249",
+      "GHSA-2wcm-vx67-3x4q",
+      "GHSA-392c-vjfv-h7wr",
+      "GHSA-32f7-cmr3-vpjv",
+      "CVE-2024-56327",
+      "CVE-2019-14853",
+      "CVE-2026-73497",
+      "CVE-2026-88010"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-32975",
+        "postgres_id": "eb34d796-c372-44b8-9a60-bea06ea5a6c6",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.6458,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2026-73556",
+        "postgres_id": "a583bd62-608b-4c6f-b366-0b840b84d81d",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.6686,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-77249",
+        "postgres_id": "510425c6-b5ff-479d-96f4-48cc64ab3bf3",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.6647,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "GHSA-2wcm-vx67-3x4q",
+        "postgres_id": "10700319-4888-4481-9f1f-859b642742d8",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6597,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "GHSA-392c-vjfv-h7wr",
+        "postgres_id": "d28cd27c-7b6d-4dcb-aaa6-772857b31a50",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.6455,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "GHSA-32f7-cmr3-vpjv",
+        "postgres_id": "7614415a-5644-4f7d-b917-d5b88e02d923",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.6453,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2024-56327",
+        "postgres_id": "8260ed84-fbfd-425a-9e45-a4f42662861b",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.6416,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2019-14853",
+        "postgres_id": "f792cb84-2348-4ad8-a381-391f59643c7a",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6411,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-73497",
+        "postgres_id": "68af5e76-79ce-47df-968c-a83ba6ee6948",
+        "score": 0.442,
+        "lexical_score": null,
+        "semantic_score": 0.6377,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-88010",
+        "postgres_id": "28918970-38f6-488a-8ef5-ee10aa2b566d",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.6251,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2366.93,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_002",
+    "query": "GHSA-xxxx-xxxx-xxxx",
+    "category": "exact_advisory_id",
+    "notes": "Intentionally unlabelled placeholder: replace with an actual GHSA identifier present in PostgreSQL and label it before evaluation. This case is skipped with an explicit dataset validation error, never scored.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [],
+    "rankings": [],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 82.063,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": true,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": null,
+    "postgres_resolvable_result_count": 0,
+    "postgres_resolved_result_count": 0
+  },
+  {
+    "query_id": "retrieval_003",
+    "query": "Apache Log4j remote code execution",
+    "category": "vendor_product",
+    "notes": "Candidate label for Log4Shell; verify against actual indexed record and add other relevant CVEs if that is the intended judgment.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2025-3935",
+      "CVE-2017-12617",
+      "CVE-2025-32433",
+      "CVE-2021-45046",
+      "CVE-2018-11776",
+      "CVE-2025-61622",
+      "CVE-2007-0671",
+      "CVE-2017-12149",
+      "CVE-2012-0151"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7926,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2017-12617",
+        "postgres_id": "b0c8706a-2fd0-4d8d-a68d-d7fe7a44bbfc",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7197,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5141,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7177,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2018-11776",
+        "postgres_id": "cc86e7ff-5469-4cbb-86a4-3e9d79be7bad",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7148,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-61622",
+        "postgres_id": "22ceeda5-5509-4e3f-a29d-b80d8a2da2dc",
+        "score": 0.5,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7139,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4921,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2466.605,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_003",
+    "query": "Apache Log4j remote code execution",
+    "category": "vendor_product",
+    "notes": "Candidate label for Log4Shell; verify against actual indexed record and add other relevant CVEs if that is the intended judgment.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-45360",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4552,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 11.993,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_003",
+    "query": "Apache Log4j remote code execution",
+    "category": "vendor_product",
+    "notes": "Candidate label for Log4Shell; verify against actual indexed record and add other relevant CVEs if that is the intended judgment.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2017-12617",
+      "CVE-2021-45046",
+      "CVE-2018-11776",
+      "CVE-2017-12149",
+      "CVE-2017-12615",
+      "CVE-2016-8735",
+      "CVE-2020-17530",
+      "CVE-2018-7602",
+      "CVE-2013-0422"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7926,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2017-12617",
+        "postgres_id": "b0c8706a-2fd0-4d8d-a68d-d7fe7a44bbfc",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7197,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7177,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2018-11776",
+        "postgres_id": "cc86e7ff-5469-4cbb-86a4-3e9d79be7bad",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7148,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7139,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2017-12615",
+        "postgres_id": "1917e5d7-d3ea-4e24-9698-42d67a2ab811",
+        "score": 0.4921,
+        "lexical_score": null,
+        "semantic_score": 0.7067,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2016-8735",
+        "postgres_id": "d76c7dc2-b165-4e18-bad4-426267998375",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.6985,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2020-17530",
+        "postgres_id": "b2363643-40d3-4160-8dfb-e8067c6f4a91",
+        "score": 0.4785,
+        "lexical_score": null,
+        "semantic_score": 0.6974,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2018-7602",
+        "postgres_id": "0fb2515b-de2e-458d-9163-527e9ea4d2b5",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.6933,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2013-0422",
+        "postgres_id": "029995ae-f97e-4945-9ad0-c177511c2a90",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.6928,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2380.828,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_003",
+    "query": "Apache Log4j remote code execution",
+    "category": "vendor_product",
+    "notes": "Candidate label for Log4Shell; verify against actual indexed record and add other relevant CVEs if that is the intended judgment.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-45360",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4552,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 11.41,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_004",
+    "query": "Log4j 2.14.1 remote code execution",
+    "category": "product_version",
+    "notes": "Candidate affected-version query label; confirm affected-version details against the database's record.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2021-44228",
+      "CVE-2025-32433",
+      "CVE-2017-12149",
+      "CVE-2021-45046",
+      "CVE-2007-0671",
+      "CVE-2018-11776",
+      "CVE-2012-0151",
+      "CVE-2010-1871",
+      "CVE-2019-16759"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7806,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7154,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7098,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2018-11776",
+        "postgres_id": "cc86e7ff-5469-4cbb-86a4-3e9d79be7bad",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7007,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2010-1871",
+        "postgres_id": "57147878-7ed4-4c82-8840-1f3e3ca16f37",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6932,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2019-16759",
+        "postgres_id": "3dd91a08-74b9-4574-af0c-3f8ba0921594",
+        "score": 0.4921,
+        "lexical_score": null,
+        "semantic_score": 0.6905,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      }
+    },
+    "latency_ms": 2422.935,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_004",
+    "query": "Log4j 2.14.1 remote code execution",
+    "category": "product_version",
+    "notes": "Candidate affected-version query label; confirm affected-version details against the database's record.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-67325",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-67325",
+        "postgres_id": "065310a5-91eb-4a60-a20e-7cc44819a746",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 19.408,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_004",
+    "query": "Log4j 2.14.1 remote code execution",
+    "category": "product_version",
+    "notes": "Candidate affected-version query label; confirm affected-version details against the database's record.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2017-12149",
+      "CVE-2021-45046",
+      "CVE-2018-11776",
+      "CVE-2010-1871",
+      "CVE-2019-16759",
+      "CVE-2022-41128",
+      "CVE-2022-22965",
+      "CVE-2017-1000353",
+      "CVE-2026-85475"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7806,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7154,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7098,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2018-11776",
+        "postgres_id": "cc86e7ff-5469-4cbb-86a4-3e9d79be7bad",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7007,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2010-1871",
+        "postgres_id": "57147878-7ed4-4c82-8840-1f3e3ca16f37",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6932,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2019-16759",
+        "postgres_id": "3dd91a08-74b9-4574-af0c-3f8ba0921594",
+        "score": 0.4921,
+        "lexical_score": null,
+        "semantic_score": 0.6905,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2022-41128",
+        "postgres_id": "0a9aa88a-dbf4-4e80-803d-fce0d9bf7005",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.6889,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2022-22965",
+        "postgres_id": "74d29f47-e5c7-4400-96d7-eb452ca95fd7",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.6879,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2017-1000353",
+        "postgres_id": "c013c573-ba2e-47cc-9521-0e2aed44cf10",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.6876,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-85475",
+        "postgres_id": "cda77ff6-0bd0-4c1b-8163-47006c21f3b5",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6887,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2447.069,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_004",
+    "query": "Log4j 2.14.1 remote code execution",
+    "category": "product_version",
+    "notes": "Candidate affected-version query label; confirm affected-version details against the database's record.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-67325",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-67325",
+        "postgres_id": "065310a5-91eb-4a60-a20e-7cc44819a746",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 15.261,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_005",
+    "query": "remote code execution in a Java logging library through JNDI lookup",
+    "category": "natural_language",
+    "notes": "Candidate natural-language relevance label; manual review should consider whether other records are equally relevant.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2021-44228",
+      "CVE-2025-32433",
+      "CVE-2013-0422",
+      "CVE-2017-12149",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2016-8735",
+      "CVE-2012-4681",
+      "CVE-2021-45046"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.777,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2013-0422",
+        "postgres_id": "029995ae-f97e-4945-9ad0-c177511c2a90",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.733,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7178,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2016-8735",
+        "postgres_id": "d76c7dc2-b165-4e18-bad4-426267998375",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7135,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2012-4681",
+        "postgres_id": "ae7ced7d-132d-4c27-ad11-22163ec794b8",
+        "score": 0.4921,
+        "lexical_score": null,
+        "semantic_score": 0.7132,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7119,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      }
+    },
+    "latency_ms": 2463.611,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_005",
+    "query": "remote code execution in a Java logging library through JNDI lookup",
+    "category": "natural_language",
+    "notes": "Candidate natural-language relevance label; manual review should consider whether other records are equally relevant.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2025-6209",
+      "CVE-2023-2533",
+      "CVE-2025-53528"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.4692,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.4657,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 11.75,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_005",
+    "query": "remote code execution in a Java logging library through JNDI lookup",
+    "category": "natural_language",
+    "notes": "Candidate natural-language relevance label; manual review should consider whether other records are equally relevant.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2013-0422",
+      "CVE-2017-12149",
+      "CVE-2016-8735",
+      "CVE-2012-4681",
+      "CVE-2021-45046",
+      "CVE-2015-2590",
+      "CVE-2026-77423",
+      "CVE-2011-3544",
+      "CVE-2014-3120"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.777,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2013-0422",
+        "postgres_id": "029995ae-f97e-4945-9ad0-c177511c2a90",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.733,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2017-12149",
+        "postgres_id": "57f132d7-4545-4ce5-8175-f277f2b7b503",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7178,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2016-8735",
+        "postgres_id": "d76c7dc2-b165-4e18-bad4-426267998375",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7135,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2012-4681",
+        "postgres_id": "ae7ced7d-132d-4c27-ad11-22163ec794b8",
+        "score": 0.4921,
+        "lexical_score": null,
+        "semantic_score": 0.7132,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7119,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2015-2590",
+        "postgres_id": "19072894-3c49-45cd-befc-ccb653e6b6e6",
+        "score": 0.4785,
+        "lexical_score": null,
+        "semantic_score": 0.71,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-77423",
+        "postgres_id": "edb1134d-8b4d-434f-a5d0-e752324b3f08",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7136,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2011-3544",
+        "postgres_id": "ef306965-1943-4f1d-bd26-db9ec50627bc",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.7096,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2014-3120",
+        "postgres_id": "fb1f8cc8-d112-4a25-ae78-2a4e909b0dfa",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.7076,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2396.228,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_005",
+    "query": "remote code execution in a Java logging library through JNDI lookup",
+    "category": "natural_language",
+    "notes": "Candidate natural-language relevance label; manual review should consider whether other records are equally relevant.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2025-6209",
+      "CVE-2023-2533",
+      "CVE-2025-53528"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.4692,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.4657,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 12.09,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_006",
+    "query": "remote code execution vulnerabilities",
+    "category": "vulnerability_type",
+    "notes": "Many records may be relevant. Define a judged candidate pool and manually label the relevant IDs before metric use.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2017-8570",
+      "CVE-2025-32433",
+      "CVE-2017-11826",
+      "CVE-2018-7602",
+      "CVE-2007-0671",
+      "CVE-2017-0262",
+      "CVE-2012-0151",
+      "CVE-2015-1671",
+      "CVE-2018-8414"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2017-8570",
+        "postgres_id": "6b3d6ce5-3d17-4599-a013-a948b9a63779",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.8193,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2017-11826",
+        "postgres_id": "e4cd29ab-bc6a-4607-bd4f-e79e515dfe33",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.8188,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2018-7602",
+        "postgres_id": "0fb2515b-de2e-458d-9163-527e9ea4d2b5",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.8159,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2017-0262",
+        "postgres_id": "5b1482df-59ca-4c11-81de-f111912cc37d",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.8115,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2015-1671",
+        "postgres_id": "b4e4a8b6-4937-43d4-9558-d6b34bf837bc",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.8026,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2018-8414",
+        "postgres_id": "87516a0b-ec75-4a06-93b4-51ea0356339c",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.797,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2508.392,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_006",
+    "query": "remote code execution vulnerabilities",
+    "category": "vulnerability_type",
+    "notes": "Many records may be relevant. Define a judged candidate pool and manually label the relevant IDs before metric use.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-67325",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-67325",
+        "postgres_id": "065310a5-91eb-4a60-a20e-7cc44819a746",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 15.132,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_006",
+    "query": "remote code execution vulnerabilities",
+    "category": "vulnerability_type",
+    "notes": "Many records may be relevant. Define a judged candidate pool and manually label the relevant IDs before metric use.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2017-8570",
+      "CVE-2017-11826",
+      "CVE-2018-7602",
+      "CVE-2017-0262",
+      "CVE-2015-1671",
+      "CVE-2018-8414",
+      "CVE-2018-8174",
+      "CVE-2014-4148",
+      "CVE-2019-0604",
+      "CVE-2026-70125"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2017-8570",
+        "postgres_id": "6b3d6ce5-3d17-4599-a013-a948b9a63779",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.8193,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2017-11826",
+        "postgres_id": "e4cd29ab-bc6a-4607-bd4f-e79e515dfe33",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.8188,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2018-7602",
+        "postgres_id": "0fb2515b-de2e-458d-9163-527e9ea4d2b5",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.8159,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2017-0262",
+        "postgres_id": "5b1482df-59ca-4c11-81de-f111912cc37d",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.8115,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2015-1671",
+        "postgres_id": "b4e4a8b6-4937-43d4-9558-d6b34bf837bc",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.8026,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2018-8414",
+        "postgres_id": "87516a0b-ec75-4a06-93b4-51ea0356339c",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.797,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2018-8174",
+        "postgres_id": "ab869737-e44f-429d-b5c5-5c9142e6a787",
+        "score": 0.4785,
+        "lexical_score": null,
+        "semantic_score": 0.7965,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2014-4148",
+        "postgres_id": "30f6cba2-94b0-4104-b056-4e2ffe0211ea",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.796,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2019-0604",
+        "postgres_id": "196b135a-aae7-4ae5-b307-37d565a8576c",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.7951,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-70125",
+        "postgres_id": "2ad73fa7-93cc-4790-868b-2f25e5f3c9bd",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7988,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2424.484,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_006",
+    "query": "remote code execution vulnerabilities",
+    "category": "vulnerability_type",
+    "notes": "Many records may be relevant. Define a judged candidate pool and manually label the relevant IDs before metric use.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2007-0671",
+      "CVE-2012-0151",
+      "CVE-2019-10149",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2021-44515",
+      "CVE-2026-67325",
+      "GHSA-4mpj-78p6-rj59"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2012-0151",
+        "postgres_id": "5a1896c8-c0fb-49e9-bb8e-cc1dbf4f4d45",
+        "score": 0.4992,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-10149",
+        "postgres_id": "4b30703e-28ca-481f-8f6d-63280c95e174",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-67325",
+        "postgres_id": "065310a5-91eb-4a60-a20e-7cc44819a746",
+        "score": 0.4621,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 12.689,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_007",
+    "query": "Log4j affected versions and patched version 2.17.0",
+    "category": "affected_patched_versions",
+    "notes": "Candidate label for a version-range evidence query; verify record fields locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2026-86064",
+      "CVE-2021-44228",
+      "CVE-2021-45046",
+      "CVE-2025-49706",
+      "CVE-2026-67325",
+      "CVE-2025-30066",
+      "CVE-2026-16584",
+      "CVE-2026-92905",
+      "CVE-2026-56679",
+      "CVE-2025-32433"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.9327,
+        "lexical_score": 0.7,
+        "semantic_score": 0.6394,
+        "retrieval_sources": [
+          "lexical",
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7455,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.6992,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.5066,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-67325",
+        "postgres_id": "065310a5-91eb-4a60-a20e-7cc44819a746",
+        "score": 0.5,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2025-30066",
+        "postgres_id": "741e640f-52f3-4286-9e4e-3de8811d46d4",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6456,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-16584",
+        "postgres_id": "ad5d3545-7f54-41a5-bd26-10438942dd3e",
+        "score": 0.4919,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-92905",
+        "postgres_id": "1bcaa394-8ae7-4a58-a4b4-eb92f2a41cb5",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6588,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-56679",
+        "postgres_id": "f288fa56-c496-4b2f-9f34-b81650cb4376",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.6518,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      }
+    },
+    "latency_ms": 2500.812,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_007",
+    "query": "Log4j affected versions and patched version 2.17.0",
+    "category": "affected_patched_versions",
+    "notes": "Candidate label for a version-range evidence query; verify record fields locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-49706",
+      "CVE-2026-86064",
+      "CVE-2025-32433",
+      "CVE-2022-21726",
+      "GHSA-43q8-3fv7-pr5x",
+      "CVE-2021-41216",
+      "CVE-2025-6209",
+      "CVE-2025-53528",
+      "CVE-2026-44022",
+      "CVE-2026-45360"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.5,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2022-21726",
+        "postgres_id": "53408c51-f62b-45de-a2e0-489a93ae9ac2",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "GHSA-43q8-3fv7-pr5x",
+        "postgres_id": "6de097f7-cf08-43fa-a564-5d44d042eb45",
+        "score": 0.4766,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-41216",
+        "postgres_id": "6fdc5b82-7c0c-432f-84ce-bfdbb1f270aa",
+        "score": 0.4692,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.4552,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-44022",
+        "postgres_id": "affa5ba8-d8a5-4bfb-8c49-897a2a8493c9",
+        "score": 0.442,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4357,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 8.872,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_007",
+    "query": "Log4j affected versions and patched version 2.17.0",
+    "category": "affected_patched_versions",
+    "notes": "Candidate label for a version-range evidence query; verify record fields locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-44228",
+      "CVE-2021-45046",
+      "CVE-2025-30066",
+      "CVE-2026-92905",
+      "CVE-2026-56679",
+      "CVE-2026-66384",
+      "CVE-2026-85475",
+      "CVE-2026-92530",
+      "CVE-2026-86064",
+      "CVE-2026-77267"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7455,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.6992,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-30066",
+        "postgres_id": "741e640f-52f3-4286-9e4e-3de8811d46d4",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6456,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-92905",
+        "postgres_id": "1bcaa394-8ae7-4a58-a4b4-eb92f2a41cb5",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6588,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-56679",
+        "postgres_id": "f288fa56-c496-4b2f-9f34-b81650cb4376",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.6518,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-66384",
+        "postgres_id": "820787aa-5081-4ecf-a7e7-96edc2e3413d",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.6384,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-85475",
+        "postgres_id": "cda77ff6-0bd0-4c1b-8163-47006c21f3b5",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.645,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-92530",
+        "postgres_id": "7340fcbe-30d4-46f2-bc47-6195cb6c9351",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.6429,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6394,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-77267",
+        "postgres_id": "6acb3195-7a60-4df2-9dad-5f0c7b4dda76",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.6357,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "ndcg": 1.0
+      }
+    },
+    "latency_ms": 2368.195,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_007",
+    "query": "Log4j affected versions and patched version 2.17.0",
+    "category": "affected_patched_versions",
+    "notes": "Candidate label for a version-range evidence query; verify record fields locally.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-49706",
+      "CVE-2026-86064",
+      "CVE-2025-32433",
+      "CVE-2022-21726",
+      "GHSA-43q8-3fv7-pr5x",
+      "CVE-2021-41216",
+      "CVE-2025-6209",
+      "CVE-2025-53528",
+      "CVE-2026-44022",
+      "CVE-2026-45360"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.5219,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.5,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2022-21726",
+        "postgres_id": "53408c51-f62b-45de-a2e0-489a93ae9ac2",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "GHSA-43q8-3fv7-pr5x",
+        "postgres_id": "6de097f7-cf08-43fa-a564-5d44d042eb45",
+        "score": 0.4766,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-41216",
+        "postgres_id": "6fdc5b82-7c0c-432f-84ce-bfdbb1f270aa",
+        "score": 0.4692,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.4552,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4485,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-44022",
+        "postgres_id": "affa5ba8-d8a5-4bfb-8c49-897a2a8493c9",
+        "score": 0.442,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4357,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 14.022,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_008",
+    "query": "CISA KEV Log4Shell exploited vulnerability",
+    "category": "kev_exploit",
+    "notes": "The current retriever accepts KEV/exploit filters, but query terms alone do not impose those filters; verify the record and search behavior.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-49706",
+      "CVE-2021-45046",
+      "CVE-2007-0671",
+      "CVE-2021-44228",
+      "CVE-2013-3918",
+      "CVE-2026-49869",
+      "CVE-2025-3935",
+      "CVE-2018-20753",
+      "CVE-2025-32433",
+      "CVE-2020-1472"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7629,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7565,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2013-3918",
+        "postgres_id": "286ee398-3052-4ecd-b168-90fcaf74debd",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-49869",
+        "postgres_id": "579cb70e-b7f7-461a-95a6-7bb26731b6e2",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7512,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5066,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2018-20753",
+        "postgres_id": "418ab130-8e3d-42c3-acf3-5b9b63b9704c",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7496,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.4992,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2020-1472",
+        "postgres_id": "2802b275-d61f-4857-92b3-07a4cd84ce29",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7361,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.25,
+        "ndcg": 0.43067655807339306
+      }
+    },
+    "latency_ms": 2445.054,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_008",
+    "query": "CISA KEV Log4Shell exploited vulnerability",
+    "category": "kev_exploit",
+    "notes": "The current retriever accepts KEV/exploit filters, but query terms alone do not impose those filters; verify the record and search behavior.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-49706",
+      "CVE-2007-0671",
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2021-25296",
+      "CVE-2022-21882",
+      "CVE-2021-44515",
+      "CVE-2026-86064",
+      "CVE-2021-41495"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5141,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4992,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.4852,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4785,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4621,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2021-41495",
+        "postgres_id": "1c42a34d-fa35-491e-bd36-a99b4c78499e",
+        "score": 0.4357,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 12.685,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_008",
+    "query": "CISA KEV Log4Shell exploited vulnerability",
+    "category": "kev_exploit",
+    "notes": "The current retriever accepts KEV/exploit filters, but query terms alone do not impose those filters; verify the record and search behavior.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-45046",
+      "CVE-2021-44228",
+      "CVE-2026-49869",
+      "CVE-2018-20753",
+      "CVE-2020-1472",
+      "CVE-2026-86218",
+      "CVE-2021-30116",
+      "CVE-2023-29360",
+      "CVE-2026-75887",
+      "CVE-2026-85475"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7629,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.5219,
+        "lexical_score": null,
+        "semantic_score": 0.7565,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-49869",
+        "postgres_id": "579cb70e-b7f7-461a-95a6-7bb26731b6e2",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7512,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2018-20753",
+        "postgres_id": "418ab130-8e3d-42c3-acf3-5b9b63b9704c",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7496,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2020-1472",
+        "postgres_id": "2802b275-d61f-4857-92b3-07a4cd84ce29",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.7361,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-86218",
+        "postgres_id": "86747f92-5886-4a9a-85cd-1f1f4fce221d",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7334,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2021-30116",
+        "postgres_id": "05158f62-bab2-4e1c-a0ea-d5e60e8f7f34",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.7271,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2023-29360",
+        "postgres_id": "73ccf7f8-d24f-4865-8800-80886d761fd1",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.7266,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-75887",
+        "postgres_id": "7cc214f4-ec81-440f-b5d3-9e60d15edad5",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7341,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-85475",
+        "postgres_id": "cda77ff6-0bd0-4c1b-8163-47006c21f3b5",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.7313,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      }
+    },
+    "latency_ms": 2369.145,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_008",
+    "query": "CISA KEV Log4Shell exploited vulnerability",
+    "category": "kev_exploit",
+    "notes": "The current retriever accepts KEV/exploit filters, but query terms alone do not impose those filters; verify the record and search behavior.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-49706",
+      "CVE-2007-0671",
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2021-25296",
+      "CVE-2022-21882",
+      "CVE-2021-44515",
+      "CVE-2026-86064",
+      "CVE-2021-41495"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5141,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4992,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.4852,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4785,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4621,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2021-41495",
+        "postgres_id": "1c42a34d-fa35-491e-bd36-a99b4c78499e",
+        "score": 0.4357,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 19.852,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_009",
+    "query": "EPSS probability and CVSS severity for Apache Log4j",
+    "category": "epss_cvss",
+    "notes": "Candidate record-retrieval label; retrieval relevance does not evaluate correctness of the EPSS/CVSS values.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2021-45046",
+      "CVE-2025-53528",
+      "CVE-2025-32433",
+      "CVE-2021-44228",
+      "CVE-2014-3931",
+      "CVE-2026-27173",
+      "CVE-2026-97062",
+      "CVE-2026-45360",
+      "CVE-2026-85475",
+      "CVE-2025-49706"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.728,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.5,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6848,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-27173",
+        "postgres_id": "aee867c3-f56f-408b-9a7d-864cebd2dfd5",
+        "score": 0.4919,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-97062",
+        "postgres_id": "fa8d3dc2-c7c9-4e00-8b9d-034a669edfd5",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.701,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-85475",
+        "postgres_id": "cda77ff6-0bd0-4c1b-8163-47006c21f3b5",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6935,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.25,
+        "ndcg": 0.43067655807339306
+      }
+    },
+    "latency_ms": 2526.058,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_009",
+    "query": "EPSS probability and CVSS severity for Apache Log4j",
+    "category": "epss_cvss",
+    "notes": "Candidate record-retrieval label; retrieval relevance does not evaluate correctness of the EPSS/CVSS values.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-32433",
+      "CVE-2025-53528",
+      "CVE-2014-3931",
+      "CVE-2026-27173",
+      "CVE-2025-49706",
+      "CVE-2026-45360",
+      "CVE-2020-25078",
+      "CVE-2026-86064",
+      "CVE-2022-21726",
+      "GHSA-43q8-3fv7-pr5x"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.5,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-27173",
+        "postgres_id": "aee867c3-f56f-408b-9a7d-864cebd2dfd5",
+        "score": 0.4919,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4621,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2022-21726",
+        "postgres_id": "53408c51-f62b-45de-a2e0-489a93ae9ac2",
+        "score": 0.442,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-43q8-3fv7-pr5x",
+        "postgres_id": "6de097f7-cf08-43fa-a564-5d44d042eb45",
+        "score": 0.4357,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 15.356,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_009",
+    "query": "EPSS probability and CVSS severity for Apache Log4j",
+    "category": "epss_cvss",
+    "notes": "Candidate record-retrieval label; retrieval relevance does not evaluate correctness of the EPSS/CVSS values.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2021-45046",
+      "CVE-2021-44228",
+      "CVE-2026-97062",
+      "CVE-2026-85475",
+      "CVE-2026-5696",
+      "CVE-2026-94214",
+      "CVE-2026-56260",
+      "CVE-2026-88360",
+      "CVE-2026-81645",
+      "CVE-2026-96889"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2021-45046",
+        "postgres_id": "fbc70010-0677-47e1-b9fc-232cba6b7241",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.728,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2021-44228",
+        "postgres_id": "d961280b-13f6-49fb-9299-eaad12d5765a",
+        "score": 0.4992,
+        "lexical_score": null,
+        "semantic_score": 0.6848,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-97062",
+        "postgres_id": "fa8d3dc2-c7c9-4e00-8b9d-034a669edfd5",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.701,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-85475",
+        "postgres_id": "cda77ff6-0bd0-4c1b-8163-47006c21f3b5",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.6935,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2026-5696",
+        "postgres_id": "18da51e0-2593-4f36-9fa7-a8bb54a62cce",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.6913,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-94214",
+        "postgres_id": "e3569e4a-da9c-4625-8381-619b324fcfb2",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.683,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-56260",
+        "postgres_id": "67a6e7c5-05c3-419c-a719-e1975b8bea04",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.6823,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-88360",
+        "postgres_id": "4c004390-0a3c-4317-8ec3-308133c49138",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6792,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-81645",
+        "postgres_id": "a5a7a5bc-1ff5-49ce-8772-5c0914705135",
+        "score": 0.442,
+        "lexical_score": null,
+        "semantic_score": 0.6771,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-96889",
+        "postgres_id": "7eb52316-414e-4b85-a452-6df9952d7709",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.6758,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "10": {
+        "hit_rate": 1.0,
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "ndcg": 0.6309297535714575
+      }
+    },
+    "latency_ms": 2407.387,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_009",
+    "query": "EPSS probability and CVSS severity for Apache Log4j",
+    "category": "epss_cvss",
+    "notes": "Candidate record-retrieval label; retrieval relevance does not evaluate correctness of the EPSS/CVSS values.",
+    "label_source": "manual_candidate_unverified",
+    "expected_relevant_ids": [
+      "CVE-2021-44228"
+    ],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-32433",
+      "CVE-2025-53528",
+      "CVE-2014-3931",
+      "CVE-2026-27173",
+      "CVE-2025-49706",
+      "CVE-2026-45360",
+      "CVE-2020-25078",
+      "CVE-2026-86064",
+      "CVE-2022-21726",
+      "GHSA-43q8-3fv7-pr5x"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.5,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-27173",
+        "postgres_id": "aee867c3-f56f-408b-9a7d-864cebd2dfd5",
+        "score": 0.4919,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-45360",
+        "postgres_id": "e80202fd-8c2b-433d-bb8d-ea66fae6ab3a",
+        "score": 0.4841,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4621,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2022-21726",
+        "postgres_id": "53408c51-f62b-45de-a2e0-489a93ae9ac2",
+        "score": 0.442,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-43q8-3fv7-pr5x",
+        "postgres_id": "6de097f7-cf08-43fa-a564-5d44d042eb45",
+        "score": 0.4357,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "ndcg": 0.0
+      }
+    },
+    "latency_ms": 17.769,
+    "error": null,
+    "has_relevant_labels": true,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_010",
+    "query": "Spring framework vulnerability",
+    "category": "ambiguous_product",
+    "notes": "Ambiguous product/vendor phrase; manually judge a candidate pool, potentially with multiple relevant IDs.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2020-36193",
+      "CVE-2022-22965",
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2022-22947",
+      "CVE-2014-3931",
+      "CVE-2021-25296",
+      "CVE-2026-96882",
+      "CVE-2022-21882",
+      "CVE-2022-22963"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2020-36193",
+        "postgres_id": "5c13f151-66d6-4869-aabc-c2a56d1873e9",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2022-22965",
+        "postgres_id": "74d29f47-e5c7-4400-96d7-eb452ca95fd7",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7772,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5141,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2022-22947",
+        "postgres_id": "93b8ddfb-db67-4144-8795-87b9c0b63286",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7461,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5066,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.4921,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-96882",
+        "postgres_id": "dc2341c9-b733-4ec7-8470-31ec0e5d3d45",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7464,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4852,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2022-22963",
+        "postgres_id": "72e0c1a1-a79f-453a-a901-2a08fe973ec1",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7087,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2488.072,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_010",
+    "query": "Spring framework vulnerability",
+    "category": "ambiguous_product",
+    "notes": "Ambiguous product/vendor phrase; manually judge a candidate pool, potentially with multiple relevant IDs.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2021-25296",
+      "CVE-2022-21882",
+      "CVE-2021-44515",
+      "CVE-2026-86064",
+      "CVE-2021-41495",
+      "CVE-2025-6209",
+      "CVE-2025-53528"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5141,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.4992,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4921,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4852,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4766,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-41495",
+        "postgres_id": "1c42a34d-fa35-491e-bd36-a99b4c78499e",
+        "score": 0.4485,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.442,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4357,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 8.059,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_010",
+    "query": "Spring framework vulnerability",
+    "category": "ambiguous_product",
+    "notes": "Ambiguous product/vendor phrase; manually judge a candidate pool, potentially with multiple relevant IDs.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2022-22965",
+      "CVE-2022-22947",
+      "CVE-2026-96882",
+      "CVE-2022-22963",
+      "CVE-2018-1273",
+      "CVE-2026-96880",
+      "CVE-2020-0646",
+      "CVE-2026-96881",
+      "CVE-2026-41707",
+      "CVE-2026-75887"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2022-22965",
+        "postgres_id": "74d29f47-e5c7-4400-96d7-eb452ca95fd7",
+        "score": 0.53,
+        "lexical_score": null,
+        "semantic_score": 0.7772,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2022-22947",
+        "postgres_id": "93b8ddfb-db67-4144-8795-87b9c0b63286",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7461,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-96882",
+        "postgres_id": "dc2341c9-b733-4ec7-8470-31ec0e5d3d45",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7464,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2022-22963",
+        "postgres_id": "72e0c1a1-a79f-453a-a901-2a08fe973ec1",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7087,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2018-1273",
+        "postgres_id": "ce2a8528-4d75-4283-974a-17fab8ae740c",
+        "score": 0.4785,
+        "lexical_score": null,
+        "semantic_score": 0.7026,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-96880",
+        "postgres_id": "5ed0ca74-a0c7-4851-adec-daece060b358",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7434,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2020-0646",
+        "postgres_id": "1221866d-f387-41e2-96ab-2fc95cb48f9a",
+        "score": 0.472,
+        "lexical_score": null,
+        "semantic_score": 0.7025,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-96881",
+        "postgres_id": "daf78c68-82f2-4a06-8198-f0a3d136d498",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.739,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-41707",
+        "postgres_id": "d131c3ee-132a-4896-9f4c-51a4745dbac8",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7203,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-75887",
+        "postgres_id": "7cc214f4-ec81-440f-b5d3-9e60d15edad5",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.6911,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2410.659,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_010",
+    "query": "Spring framework vulnerability",
+    "category": "ambiguous_product",
+    "notes": "Ambiguous product/vendor phrase; manually judge a candidate pool, potentially with multiple relevant IDs.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2021-25296",
+      "CVE-2022-21882",
+      "CVE-2021-44515",
+      "CVE-2026-86064",
+      "CVE-2021-41495",
+      "CVE-2025-6209",
+      "CVE-2025-53528"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5141,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.4992,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4921,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2021-44515",
+        "postgres_id": "1b43fdd7-e298-40c2-97a3-f49d9e29c49b",
+        "score": 0.4852,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4766,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-41495",
+        "postgres_id": "1c42a34d-fa35-491e-bd36-a99b4c78499e",
+        "score": 0.4485,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-6209",
+        "postgres_id": "c9fd78b7-f3cf-464d-8c50-d0a95ba238df",
+        "score": 0.442,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4357,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 11.352,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_011",
+    "query": "vulnerability affecting a fictional product named blue-koala-enterprise-999",
+    "category": "no_relevant_results",
+    "notes": "Intended known-negative query; confirm no relevant matching records exist before counting this as a true negative.",
+    "label_source": "manual_negative_unverified",
+    "expected_relevant_ids": [],
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2023-32435",
+      "CVE-2023-42917",
+      "CVE-2026-75887",
+      "CVE-2025-49706",
+      "CVE-2023-2533",
+      "CVE-2026-81645",
+      "CVE-2020-25078"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2023-32435",
+        "postgres_id": "f8d8b69d-b127-431d-b036-a53e8ed7737c",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7357,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2023-42917",
+        "postgres_id": "383ccb08-22bc-49c6-af50-01168ce927d5",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7355,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-75887",
+        "postgres_id": "7cc214f4-ec81-440f-b5d3-9e60d15edad5",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.7514,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-81645",
+        "postgres_id": "a5a7a5bc-1ff5-49ce-8772-5c0914705135",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7385,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2506.995,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": true,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_011",
+    "query": "vulnerability affecting a fictional product named blue-koala-enterprise-999",
+    "category": "no_relevant_results",
+    "notes": "Intended known-negative query; confirm no relevant matching records exist before counting this as a true negative.",
+    "label_source": "manual_negative_unverified",
+    "expected_relevant_ids": [],
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2025-49706",
+      "CVE-2023-2533",
+      "CVE-2020-25078",
+      "CVE-2007-0671",
+      "CVE-2026-86064",
+      "CVE-2021-25296",
+      "CVE-2022-21882"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4766,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 12.057,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": true,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_011",
+    "query": "vulnerability affecting a fictional product named blue-koala-enterprise-999",
+    "category": "no_relevant_results",
+    "notes": "Intended known-negative query; confirm no relevant matching records exist before counting this as a true negative.",
+    "label_source": "manual_negative_unverified",
+    "expected_relevant_ids": [],
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "CVE-2023-32435",
+      "CVE-2023-42917",
+      "CVE-2026-75887",
+      "CVE-2026-81645",
+      "CVE-2021-30665",
+      "CVE-2026-96880",
+      "CVE-2025-24201",
+      "CVE-2026-96763",
+      "CVE-2026-14780",
+      "CVE-2026-97179"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2023-32435",
+        "postgres_id": "f8d8b69d-b127-431d-b036-a53e8ed7737c",
+        "score": 0.5141,
+        "lexical_score": null,
+        "semantic_score": 0.7357,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2023-42917",
+        "postgres_id": "383ccb08-22bc-49c6-af50-01168ce927d5",
+        "score": 0.5066,
+        "lexical_score": null,
+        "semantic_score": 0.7355,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-75887",
+        "postgres_id": "7cc214f4-ec81-440f-b5d3-9e60d15edad5",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.7514,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2026-81645",
+        "postgres_id": "a5a7a5bc-1ff5-49ce-8772-5c0914705135",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7385,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2021-30665",
+        "postgres_id": "f803a10b-4f52-4582-99e5-180c5c03867a",
+        "score": 0.4852,
+        "lexical_score": null,
+        "semantic_score": 0.7332,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2026-96880",
+        "postgres_id": "5ed0ca74-a0c7-4851-adec-daece060b358",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.7345,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-24201",
+        "postgres_id": "1cc1d69c-988e-452d-9eec-e16ae594cb42",
+        "score": 0.4657,
+        "lexical_score": null,
+        "semantic_score": 0.7265,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-96763",
+        "postgres_id": "8db55d6f-df35-4c1a-8f78-601c06ea17d1",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.7344,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2026-14780",
+        "postgres_id": "819a0eb9-f86f-4464-b521-3e3041768a26",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.7304,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-97179",
+        "postgres_id": "fbec048c-1868-49aa-a4d4-49eebe5fd897",
+        "score": 0.442,
+        "lexical_score": null,
+        "semantic_score": 0.7294,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2438.484,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": true,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_011",
+    "query": "vulnerability affecting a fictional product named blue-koala-enterprise-999",
+    "category": "no_relevant_results",
+    "notes": "Intended known-negative query; confirm no relevant matching records exist before counting this as a true negative.",
+    "label_source": "manual_negative_unverified",
+    "expected_relevant_ids": [],
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2014-3931",
+      "CVE-2025-49706",
+      "CVE-2023-2533",
+      "CVE-2020-25078",
+      "CVE-2007-0671",
+      "CVE-2026-86064",
+      "CVE-2021-25296",
+      "CVE-2022-21882"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.53,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5219,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4992,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2007-0671",
+        "postgres_id": "026b0570-813f-489a-bee9-6515230e3c28",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.4766,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2021-25296",
+        "postgres_id": "17ddc50a-49b9-459b-99a9-4e5ebc59cdd0",
+        "score": 0.472,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4657,
+        "lexical_score": 0.5,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": 0.0,
+        "recall": null,
+        "precision": 0.0,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 12.859,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": true,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_012",
+    "query": "GHSA advisory for an installed package",
+    "category": "advisory_identifier",
+    "notes": "Needs a concrete GHSA or other supported identifier and verified labels before scoring.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "hybrid",
+    "retrieval_mode": "HYBRID",
+    "retrieved_ids": [
+      "CVE-2026-86064",
+      "GHSA-2wcm-vx67-3x4q",
+      "CVE-2025-53528",
+      "GHSA-4xw3-jf9x-x7mf",
+      "GHSA-4mpj-78p6-rj59",
+      "GHSA-32f7-cmr3-vpjv",
+      "CVE-2026-47192",
+      "GHSA-392c-vjfv-h7wr",
+      "CVE-2025-3935",
+      "GHSA-43q8-3fv7-pr5x"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.5,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "GHSA-2wcm-vx67-3x4q",
+        "postgres_id": "10700319-4888-4481-9f1f-859b642742d8",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.7537,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4919,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "GHSA-4xw3-jf9x-x7mf",
+        "postgres_id": "6fb4f719-8fae-4f86-9e7c-d66fe3e39d1c",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7305,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "GHSA-4mpj-78p6-rj59",
+        "postgres_id": "edfc7c83-b746-4098-8662-aadb2370d767",
+        "score": 0.4841,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "GHSA-32f7-cmr3-vpjv",
+        "postgres_id": "7614415a-5644-4f7d-b917-d5b88e02d923",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.7203,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2026-47192",
+        "postgres_id": "f23129a3-ac1d-4134-a77f-ac4e365cd540",
+        "score": 0.4766,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "GHSA-392c-vjfv-h7wr",
+        "postgres_id": "d28cd27c-7b6d-4dcb-aaa6-772857b31a50",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7057,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "GHSA-43q8-3fv7-pr5x",
+        "postgres_id": "6de097f7-cf08-43fa-a564-5d44d042eb45",
+        "score": 0.4692,
+        "lexical_score": 0.7,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2486.592,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_012",
+    "query": "GHSA advisory for an installed package",
+    "category": "advisory_identifier",
+    "notes": "Needs a concrete GHSA or other supported identifier and verified labels before scoring.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "lexical",
+    "retrieval_mode": "LEXICAL_ONLY",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2025-53528",
+      "CVE-2022-21882",
+      "CVE-2025-49706",
+      "CVE-2023-2533",
+      "CVE-2025-49134",
+      "CVE-2020-25078"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.5,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4919,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-49134",
+        "postgres_id": "b01b0b8b-d9e2-463c-af8a-fbef8f5ffb09",
+        "score": 0.4692,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4657,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 13.605,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_012",
+    "query": "GHSA advisory for an installed package",
+    "category": "advisory_identifier",
+    "notes": "Needs a concrete GHSA or other supported identifier and verified labels before scoring.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "semantic",
+    "retrieval_mode": "SEMANTIC_ONLY",
+    "retrieved_ids": [
+      "GHSA-2wcm-vx67-3x4q",
+      "GHSA-4xw3-jf9x-x7mf",
+      "GHSA-32f7-cmr3-vpjv",
+      "GHSA-392c-vjfv-h7wr",
+      "CVE-2019-14853",
+      "GHSA-3f95-mxq2-2f63",
+      "GHSA-3h2g-j4wp-7qqq",
+      "CVE-2021-44597",
+      "GHSA-3926-2jvf-fg29",
+      "CVE-2026-73556"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "GHSA-2wcm-vx67-3x4q",
+        "postgres_id": "10700319-4888-4481-9f1f-859b642742d8",
+        "score": 0.5,
+        "lexical_score": null,
+        "semantic_score": 0.7537,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "GHSA-4xw3-jf9x-x7mf",
+        "postgres_id": "6fb4f719-8fae-4f86-9e7c-d66fe3e39d1c",
+        "score": 0.4919,
+        "lexical_score": null,
+        "semantic_score": 0.7305,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "GHSA-32f7-cmr3-vpjv",
+        "postgres_id": "7614415a-5644-4f7d-b917-d5b88e02d923",
+        "score": 0.4841,
+        "lexical_score": null,
+        "semantic_score": 0.7203,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "GHSA-392c-vjfv-h7wr",
+        "postgres_id": "d28cd27c-7b6d-4dcb-aaa6-772857b31a50",
+        "score": 0.4766,
+        "lexical_score": null,
+        "semantic_score": 0.7057,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2019-14853",
+        "postgres_id": "f792cb84-2348-4ad8-a381-391f59643c7a",
+        "score": 0.4692,
+        "lexical_score": null,
+        "semantic_score": 0.7054,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "GHSA-3f95-mxq2-2f63",
+        "postgres_id": "efa134a0-63d4-487d-aa59-d967228cdc52",
+        "score": 0.4621,
+        "lexical_score": null,
+        "semantic_score": 0.703,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "GHSA-3h2g-j4wp-7qqq",
+        "postgres_id": "bc7ecd1d-5cef-4996-8e0d-c7b80c129e03",
+        "score": 0.4552,
+        "lexical_score": null,
+        "semantic_score": 0.6832,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2021-44597",
+        "postgres_id": "52915dd9-d636-47c7-b121-3b4c265c98a0",
+        "score": 0.4485,
+        "lexical_score": null,
+        "semantic_score": 0.6815,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "GHSA-3926-2jvf-fg29",
+        "postgres_id": "41a50836-97df-4781-9dc2-9402846d2b62",
+        "score": 0.442,
+        "lexical_score": null,
+        "semantic_score": 0.6808,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2026-73556",
+        "postgres_id": "a583bd62-608b-4c6f-b366-0b840b84d81d",
+        "score": 0.4357,
+        "lexical_score": null,
+        "semantic_score": 0.6807,
+        "retrieval_sources": [
+          "semantic"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 2416.939,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  },
+  {
+    "query_id": "retrieval_012",
+    "query": "GHSA advisory for an installed package",
+    "category": "advisory_identifier",
+    "notes": "Needs a concrete GHSA or other supported identifier and verified labels before scoring.",
+    "label_source": "needs_manual_label",
+    "expected_relevant_ids": null,
+    "strategy": "postgresql_fallback",
+    "retrieval_mode": "POSTGRESQL_FALLBACK_FORCED",
+    "retrieved_ids": [
+      "CVE-2025-3935",
+      "CVE-2025-32433",
+      "CVE-2026-86064",
+      "CVE-2014-3931",
+      "CVE-2025-53528",
+      "CVE-2022-21882",
+      "CVE-2025-49706",
+      "CVE-2023-2533",
+      "CVE-2025-49134",
+      "CVE-2020-25078"
+    ],
+    "rankings": [
+      {
+        "rank": 1,
+        "id": "CVE-2025-3935",
+        "postgres_id": "138a5c56-a99b-4123-9737-96652c56f99e",
+        "score": 0.5141,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 2,
+        "id": "CVE-2025-32433",
+        "postgres_id": "22eac89e-45da-43dd-b5c1-bae1ba998e5e",
+        "score": 0.5066,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 3,
+        "id": "CVE-2026-86064",
+        "postgres_id": "347fa3b2-637c-415b-b500-11230d84d0ea",
+        "score": 0.5,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 4,
+        "id": "CVE-2014-3931",
+        "postgres_id": "079d7480-e850-40c9-a385-1e535242ed3d",
+        "score": 0.4921,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 5,
+        "id": "CVE-2025-53528",
+        "postgres_id": "a6b4013f-a1d8-4f28-b499-e02392d69afd",
+        "score": 0.4919,
+        "lexical_score": 0.75,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 6,
+        "id": "CVE-2022-21882",
+        "postgres_id": "1378ca05-b0a9-4858-be75-f3a2af7765ae",
+        "score": 0.4852,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 7,
+        "id": "CVE-2025-49706",
+        "postgres_id": "f6ea9844-f9e0-4bdd-88b0-b7669365fc2d",
+        "score": 0.4785,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 8,
+        "id": "CVE-2023-2533",
+        "postgres_id": "c08fb7f0-ff9e-4fe0-9dde-d9970488b38f",
+        "score": 0.472,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 9,
+        "id": "CVE-2025-49134",
+        "postgres_id": "b01b0b8b-d9e2-463c-af8a-fbef8f5ffb09",
+        "score": 0.4692,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      },
+      {
+        "rank": 10,
+        "id": "CVE-2020-25078",
+        "postgres_id": "1a7fe33c-eabe-4c3e-8f31-588c03fc3055",
+        "score": 0.4657,
+        "lexical_score": 0.6,
+        "semantic_score": null,
+        "retrieval_sources": [
+          "lexical"
+        ]
+      }
+    ],
+    "metrics": {
+      "5": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      },
+      "10": {
+        "hit_rate": null,
+        "recall": null,
+        "precision": null,
+        "mrr": null,
+        "ndcg": null
+      }
+    },
+    "latency_ms": 8.2,
+    "error": null,
+    "has_relevant_labels": false,
+    "known_no_relevant": false,
+    "is_exact_identifier": false,
+    "exact_identifier_success": null,
+    "postgres_resolution_checked": true,
+    "postgres_ids_resolved": true,
+    "postgres_resolvable_result_count": 10,
+    "postgres_resolved_result_count": 10
+  }
+]

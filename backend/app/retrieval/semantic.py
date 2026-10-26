@@ -82,7 +82,9 @@ class SemanticRetriever:
                     "Qdrant semantic search failed: %s",
                     inner_exc,
                 )
-                return []
+                raise RuntimeError(
+                    "Qdrant semantic search failed after filtered and unfiltered attempts"
+                ) from inner_exc
 
         if not scored_points:
             return []

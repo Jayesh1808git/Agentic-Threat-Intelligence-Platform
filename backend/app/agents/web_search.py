@@ -1,3 +1,4 @@
+import time
 from typing import Any
 import re
 
@@ -7,6 +8,8 @@ from app.agents.state import CyberRAGState
 
 
 REQUEST_TIMEOUT = 3
+_CISA_KEV_CACHE: dict[str, Any] | None = None
+_CISA_KEV_CACHE_TIME: float = 0.0
 
 
 # =========================================================
@@ -419,18 +422,26 @@ def _search_nvd(
 def _search_cisa_kev(
     cve: str,
 ) -> dict[str, Any] | None:
+    global _CISA_KEV_CACHE, _CISA_KEV_CACHE_TIME
 
     url = (
         "https://www.cisa.gov/sites/default/files/"
         "feeds/known_exploited_vulnerabilities.json"
     )
 
-    data = _fetch_json(url)
+    now = time.time()
+    if _CISA_KEV_CACHE is None or (now - _CISA_KEV_CACHE_TIME) > 3600:
+        data = _fetch_json(url)
+        if isinstance(data, dict):
+            _CISA_KEV_CACHE = data
+            _CISA_KEV_CACHE_TIME = now
+        else:
+            _CISA_KEV_CACHE = None
 
-    if not isinstance(data, dict):
+    if not _CISA_KEV_CACHE:
         return None
 
-    vulnerabilities = data.get(
+    vulnerabilities = _CISA_KEV_CACHE.get(
         "vulnerabilities",
         [],
     )

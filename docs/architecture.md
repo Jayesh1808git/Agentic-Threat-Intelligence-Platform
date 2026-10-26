@@ -6,16 +6,17 @@ CyberRAG is an agentic threat intelligence and vulnerability intelligence platfo
 
 The objective is to replace manual vulnerability triage (analysts reading advisories and cross-referencing them against internal asset inventories by hand) with a continuously running, explainable, evidence-cited AI system.
 
-## Features
+## Current Implementation
 
-- **Continuous threat intelligence ingestion** from NVD, MITRE CVE, CISA KEV, FIRST EPSS, GitHub Security Advisories, OSV.dev, ExploitDB, OpenCVE, and vendor bulletins (Microsoft, Cisco, Red Hat, Oracle, VMware, Palo Alto, etc.)
-- **Vendor data normalization** into one unified vulnerability schema, decoupling downstream logic from source-specific formats
-- **Hybrid Retrieval-Augmented Generation** combining dense semantic search, BM25 keyword search, and graph traversal
-- **Knowledge graph reasoning** over relationships between vendors, products, versions, vulnerabilities, and exploits
+- **Scheduled incremental ingestion** from the configured NVD, CISA KEV, EPSS, GitHub Advisory, and OSV connectors
+- **Vendor data normalization** into one unified vulnerability schema
+- **Hybrid retrieval** combining PostgreSQL text search and Qdrant dense semantic search with Reciprocal Rank Fusion (RRF)
 - **Multi-agent decision making** — specialized agents for extraction, matching, retrieval, validation, risk scoring, remediation, and reporting
-- **Organizational vulnerability assessment** — given a repo, SBOM, or stack description, determine actual exposure
+- **Organizational vulnerability assessment** — accepts a stack description or structured technology list
 - **Automated risk prioritization** using CVSS, EPSS, CISA KEV status, exploit availability, and business/asset context
-- **Explainable, cited security reports** for both executive and technical audiences
+- **Structured security reports** with finding evidence and remediation recommendations
+
+BM25, Neo4j graph traversal, Kafka streaming, and repository/SBOM scanning are not part of the active request pipeline described below.
 
 ## Components
 
@@ -26,23 +27,22 @@ Pulls data from all configured threat intelligence sources on a continuous or sc
 Converts every heterogeneous advisory format into the Unified Vulnerability Schema (see `database.md`) so all downstream components operate on one consistent structure regardless of source.
 
 ### 3. Storage Layer
-- **PostgreSQL** — structured, transactional data (vulnerabilities, assets, users, reports)
-- **Qdrant (Vector DB)** — semantic embeddings of advisory text for similarity search
-- **Neo4j (Knowledge Graph)** — relationships between vendors, products, versions, CVEs, and exploit chains
+- **PostgreSQL** — authoritative vulnerability records
+- **Qdrant (Vector DB)** — derived semantic vectors, synchronized by the embedding worker
+- Neo4j settings exist, but graph retrieval is not currently wired into the active assessment or retrieval path.
 
 ### 4. Hybrid Retrieval Layer
-Combines three retrieval strategies and merges/re-ranks results:
-- Dense embedding similarity search (Qdrant)
-- BM25 lexical/keyword search
-- Graph-based relationship retrieval (Neo4j)
+The active retriever combines two result sets with RRF:
+- PostgreSQL text matching, including exact CVE/GHSA identifiers and `ILIKE` field matching (not BM25)
+- Dense embedding similarity search in Qdrant, with record details hydrated from PostgreSQL
 
-### 5. Multi-Agent Analysis Layer (LangGraph/LangChain-orchestrated)
+### 5. Multi-Agent Analysis Layer (LangGraph-orchestrated)
 - **Technology Extraction Agent** — parses project descriptions, repos, SBOMs, and documents to identify the org's tech stack
-- **Vulnerability Matching Agent** — maps extracted technologies/versions to known vulnerabilities
-- **Retrieval Agent** — pulls the most relevant intelligence via Hybrid RAG
+- **Vulnerability Matching Agent** — searches PostgreSQL for candidates by technology/vendor text
+- **Internal Retrieval Agent** — retrieves candidate evidence using the PostgreSQL/Qdrant retriever
+- **Web Search Agent** — conditionally gathers external evidence when internal evidence is incomplete
 - **Validation Agent** — cross-checks findings across sources to reduce false positives/hallucinations
-- **Risk Assessment Agent** — scores organizational risk from CVSS, EPSS, KEV status, exploit availability, and asset criticality
-- **Recommendation Agent** — generates patch/mitigation guidance
+- **Risk Assessment Agent** — scores confirmed findings and creates remediation recommendations
 - **Report Generation Agent** — produces cited executive and technical reports
 
 ### 6. API & Dashboard Layer
@@ -54,22 +54,21 @@ FastAPI backend exposing programmatic access (see `api.md`); Next.js (or Streaml
 Threat Intelligence Sources
         │
         ▼
-Streaming/Scheduled Ingestion (Kafka or cron)
+Scheduled Incremental Ingestion
         │
         ▼
 Data Normalization → Unified Vulnerability Schema
         │
         ▼
-Storage  (PostgreSQL ─ structured data)
-         (Qdrant ─ vector embeddings)
-         (Neo4j ─ relationship graph)
+PostgreSQL → Embedding Worker → Qdrant
         │
         ▼
-Hybrid Retrieval (semantic + BM25 + graph)
+PostgreSQL text + Qdrant semantic → RRF
         │
         ▼
 Multi-Agent Analysis Pipeline
-  (Extraction → Matching → Retrieval → Validation → Risk Scoring → Recommendation)
+  (Extraction → Matching → Internal Retrieval → Conditional Web Search
+   → Validation → Risk & Recommendation → Report)
         │
         ▼
 Report Generation (cited, evidence-backed)
@@ -78,48 +77,41 @@ Report Generation (cited, evidence-backed)
 User Dashboard / REST API
 ```
 
-At a request level: a user submits an organizational context (repo URL, SBOM, or stack description) → the Technology Extraction Agent identifies components and versions → the Vulnerability Matching Agent and Retrieval Agent pull candidate vulnerabilities → the Validation Agent cross-verifies them against multiple sources → the Risk Assessment Agent scores and prioritizes → the Recommendation Agent drafts remediation steps → the Report Generation Agent assembles a cited report returned via API/dashboard.
+At a request level: a user submits a stack description or structured technology list → extraction identifies components and versions → matching selects PostgreSQL candidates → internal retrieval enriches candidate evidence → web search runs when that evidence is incomplete → validation determines applicability → risk assessment calculates risk and creates recommendations → report generation returns the result through the API.
 
 ## Design Notes
 
 ### 1. How does data flow from external sources into your database?
 
-1. **Fetch** — the Ingestion Layer pulls raw advisories from each configured `ThreatFeed` (NVD, MITRE CVE, CISA KEV, EPSS, GitHub Security Advisories, OSV.dev, ExploitDB, OpenCVE, vendor bulletins), either via Kafka-fed streaming consumers (production scale) or scheduled cron polling (smaller deployments). Each source keeps its own polling interval and last-ingested checkpoint to support incremental pulls.
+1. **Fetch** — the incremental scheduler invokes the configured NVD, CISA KEV, EPSS, GitHub Advisory, and OSV ingestion services. NVD uses persisted checkpoints; secondary sources are refreshed by their ingestion services.
 2. **Normalize** — the Normalization Engine maps each source's raw payload (JSON, CVRF/CSAF, RSS, vendor-specific formats) into the Unified Vulnerability Schema, resolving field-name and unit differences (e.g. differing severity scales) and deduplicating records that describe the same CVE across multiple feeds.
-3. **Persist** — the normalized record is written to PostgreSQL as the system of record. In the same transaction/step, its description text is embedded and upserted into Qdrant, and its vendor/product/version relationships are upserted into Neo4j.
-4. **Reconcile** — a periodic reconciliation job re-checks existing records against their sources for updates (e.g. a CVE's CVSS score changing, or it being added to CISA KEV after initial publication) and updates all three stores accordingly.
+3. **Persist and index** — normalized records are upserted into PostgreSQL. The embedding worker processes pending/changed records and synchronizes derived vectors to Qdrant; it is a separate step, not one cross-store transaction.
+4. **Refresh** — scheduled incremental runs update source records and the embedding worker refreshes vectors when relevant content changes. Neo4j is not currently populated or queried by this active path.
 
-This keeps PostgreSQL, Qdrant, and Neo4j eventually consistent, with PostgreSQL as the authoritative source and the other two stores treated as derived, rebuildable indexes.
+PostgreSQL is authoritative; Qdrant is a derived index that can be rebuilt.
 
 ### 2. How will the RAG system retrieve relevant vulnerabilities?
 
-Retrieval is hybrid, combining three complementary signals and merging/re-ranking the results before they reach the agents:
+The active retrieval service combines two signals and merges results before they reach the agents:
 
-- **Dense semantic search (Qdrant)** — embeds the query (e.g. a CVE description, a technology name, or a natural-language question) and retrieves vulnerabilities with similar embeddings, catching semantically related matches even when wording differs.
-- **BM25 lexical search** — catches exact-match signals that dense embeddings can miss, such as precise version strings, CVE IDs, or package names.
-- **Graph retrieval (Neo4j)** — traverses vendor → product → vulnerability → exploit relationships to catch matches that depend on structure rather than text similarity, including transitive dependency exposure (e.g. a vulnerable library pulled in indirectly by a direct dependency).
+- **PostgreSQL text search** — exact CVE/GHSA checks and SQL `ILIKE` matching over identifiers, vendor, product, title, and description.
+- **Dense semantic search (Qdrant)** — embeds the query and retrieves similar vulnerability records, hydrating their details from PostgreSQL.
 
-The three result sets are merged and re-ranked (e.g. reciprocal rank fusion, then a lightweight relevance re-rank) before being passed to the Retrieval Agent, so the final candidate set balances precision (BM25/graph) with recall (dense search).
+The two result sets are merged with Reciprocal Rank Fusion. The active retriever does not implement BM25, a separate reranker, or graph traversal.
 
 ### 3. Where does LangGraph fit into the workflow?
 
-LangGraph is the orchestration layer for the Multi-Agent Analysis pipeline. It defines the workflow as a directed graph of agent nodes — Technology Extraction → Vulnerability Matching → Retrieval → Validation → Risk Assessment → Recommendation → Report Generation — with explicit state passed between nodes (extracted technologies, candidate vulnerabilities, validated findings, risk scores, remediation steps).
+LangGraph is the orchestration layer for the active assessment pipeline. It defines Technology Extraction → Vulnerability Matching → Internal Retrieval → conditional Web Search → Validation → Risk Assessment → Report Generation. The risk-assessment node currently produces both risk scores and remediation recommendations.
 
-Concretely, LangGraph is responsible for:
-- Maintaining shared state across agent steps (so later agents can see earlier agents' outputs and reasoning)
-- Conditional routing — e.g. looping back to the Retrieval Agent if the Validation Agent finds insufficient corroborating evidence, or skipping the Risk Assessment Agent for a simple single-CVE lookup
-- Parallelizing independent steps where possible (e.g. running Risk Assessment across multiple matched vulnerabilities concurrently)
-- Providing checkpointing/retries per node, and an audit trail of which agent produced which intermediate result, which feeds directly into the citations in the final report
-
-LangChain is used underneath individual nodes for model calls, tool use, and retrieval integrations; LangGraph is what turns those individual capabilities into a coherent, stateful, multi-step workflow.
+The graph passes shared assessment state between nodes and routes to web search when internal evidence is insufficient. It does not currently loop back for retrieval, parallelize assessment nodes, or configure LangGraph checkpointing/retries.
 
 ### 4. How are organization assets matched with vulnerabilities?
 
-1. The Technology Extraction Agent parses the submitted input (SBOM, repository, dependency manifest, or manual stack description) and produces a list of `OrganizationAsset` records — each with a name, version, and asset type (language, framework, library, database, cloud service, OS).
-2. The Vulnerability Matching Agent takes each asset and queries the unified vulnerability database for records where `vendor`/`product` matches the asset name and the asset's version falls within the vulnerability's `affected_versions` range (and outside `patched_versions`).
-3. In parallel, the same asset is looked up in the Neo4j graph to catch indirect matches — e.g. a vulnerability in a transitive dependency of a directly-referenced library — which a flat version-range comparison alone would miss.
-4. The Retrieval Agent supplements this with Hybrid RAG search in case an asset name doesn't exactly match a vendor/product string in the database (e.g. informal naming in an SBOM vs. the CPE-style naming used by NVD).
-5. The Validation Agent cross-checks each candidate match against multiple sources (e.g. confirming a GitHub Advisory match against the corresponding NVD/OSV entry) before it's treated as confirmed, reducing false positives from naming collisions or ambiguous version ranges.
+1. The Technology Extraction Agent accepts a structured technology list or stack description and produces asset records.
+2. The Vulnerability Matching Agent performs text-based candidate selection in PostgreSQL; it does not currently do graph-based dependency expansion.
+3. The Internal Retrieval Agent retrieves evidence for each candidate using PostgreSQL text search and Qdrant semantic search.
+4. The Web Search Agent supplements missing or incomplete internal evidence.
+5. The Validation Agent applies identity, product, and version checks and classifies findings as validated, not affected, or requiring review.
 
 Only matches that pass validation are carried forward into risk scoring and reporting.
 

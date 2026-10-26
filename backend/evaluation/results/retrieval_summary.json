@@ -1,0 +1,1109 @@
+{
+  "status": "completed",
+  "query_count": 12,
+  "result_rows": 48,
+  "strategies": {
+    "hybrid": {
+      "query_count": 12,
+      "queries_with_results": 12,
+      "queries_with_relevant_result": {
+        "5": 7,
+        "10": 7
+      },
+      "empty_result_rate": 0.0,
+      "average_latency_ms": 2500.3405,
+      "error_count": 0,
+      "mode_counts": {
+        "HYBRID": 12
+      },
+      "exact_identifier": {
+        "query_count": 2,
+        "success_count": 1,
+        "success_rate": 0.5
+      },
+      "postgres_resolution": {
+        "checked_count": 12,
+        "resolved_count": 12,
+        "resolution_rate": 1.0
+      },
+      "by_k": {
+        "5": {
+          "hit_rate": 0.875,
+          "recall": 1.0,
+          "precision": 0.17500000000000002,
+          "mrr": 0.5714285714285714,
+          "ndcg": 0.6791631966944512,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        },
+        "10": {
+          "hit_rate": 0.875,
+          "recall": 1.0,
+          "precision": 0.08750000000000001,
+          "mrr": 0.5714285714285714,
+          "ndcg": 0.6791631966944512,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        }
+      },
+      "by_category": {
+        "advisory_identifier": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "affected_patched_versions": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            }
+          }
+        },
+        "ambiguous_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "epss_cvss": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.25,
+              "ndcg": 0.43067655807339306
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.25,
+              "ndcg": 0.43067655807339306
+            }
+          }
+        },
+        "exact_advisory_id": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "exact_cve": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "kev_exploit": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.25,
+              "ndcg": 0.43067655807339306
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.25,
+              "ndcg": 0.43067655807339306
+            }
+          }
+        },
+        "natural_language": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            }
+          }
+        },
+        "no_relevant_results": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "product_version": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            }
+          }
+        },
+        "vendor_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "vulnerability_type": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        }
+      }
+    },
+    "lexical": {
+      "query_count": 12,
+      "queries_with_results": 11,
+      "queries_with_relevant_result": {
+        "5": 1,
+        "10": 1
+      },
+      "empty_result_rate": 0.08333333333333333,
+      "average_latency_ms": 27.424166666666668,
+      "error_count": 0,
+      "mode_counts": {
+        "LEXICAL_ONLY": 12
+      },
+      "exact_identifier": {
+        "query_count": 2,
+        "success_count": 1,
+        "success_rate": 0.5
+      },
+      "postgres_resolution": {
+        "checked_count": 12,
+        "resolved_count": 11,
+        "resolution_rate": 0.9166666666666666
+      },
+      "by_k": {
+        "5": {
+          "hit_rate": 0.125,
+          "recall": 0.14285714285714285,
+          "precision": 0.025,
+          "mrr": 0.14285714285714285,
+          "ndcg": 0.14285714285714285,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        },
+        "10": {
+          "hit_rate": 0.125,
+          "recall": 0.14285714285714285,
+          "precision": 0.0125,
+          "mrr": 0.14285714285714285,
+          "ndcg": 0.14285714285714285,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        }
+      },
+      "by_category": {
+        "advisory_identifier": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "affected_patched_versions": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "ambiguous_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "epss_cvss": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "exact_advisory_id": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "exact_cve": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "kev_exploit": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "natural_language": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "no_relevant_results": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "product_version": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "vendor_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "vulnerability_type": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        }
+      }
+    },
+    "postgresql_fallback": {
+      "query_count": 12,
+      "queries_with_results": 11,
+      "queries_with_relevant_result": {
+        "5": 1,
+        "10": 1
+      },
+      "empty_result_rate": 0.08333333333333333,
+      "average_latency_ms": 26.235333333333333,
+      "error_count": 0,
+      "mode_counts": {
+        "POSTGRESQL_FALLBACK_FORCED": 12
+      },
+      "exact_identifier": {
+        "query_count": 2,
+        "success_count": 1,
+        "success_rate": 0.5
+      },
+      "postgres_resolution": {
+        "checked_count": 12,
+        "resolved_count": 11,
+        "resolution_rate": 0.9166666666666666
+      },
+      "by_k": {
+        "5": {
+          "hit_rate": 0.125,
+          "recall": 0.14285714285714285,
+          "precision": 0.025,
+          "mrr": 0.14285714285714285,
+          "ndcg": 0.14285714285714285,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        },
+        "10": {
+          "hit_rate": 0.125,
+          "recall": 0.14285714285714285,
+          "precision": 0.0125,
+          "mrr": 0.14285714285714285,
+          "ndcg": 0.14285714285714285,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        }
+      },
+      "by_category": {
+        "advisory_identifier": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "affected_patched_versions": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "ambiguous_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "epss_cvss": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "exact_advisory_id": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "exact_cve": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "kev_exploit": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "natural_language": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "no_relevant_results": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "product_version": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "vendor_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "vulnerability_type": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        }
+      }
+    },
+    "semantic": {
+      "query_count": 12,
+      "queries_with_results": 12,
+      "queries_with_relevant_result": {
+        "5": 6,
+        "10": 6
+      },
+      "empty_result_rate": 0.0,
+      "average_latency_ms": 2399.4171666666666,
+      "error_count": 0,
+      "mode_counts": {
+        "SEMANTIC_ONLY": 12
+      },
+      "exact_identifier": {
+        "query_count": 2,
+        "success_count": 0,
+        "success_rate": 0.0
+      },
+      "postgres_resolution": {
+        "checked_count": 12,
+        "resolved_count": 12,
+        "resolution_rate": 1.0
+      },
+      "by_k": {
+        "5": {
+          "hit_rate": 0.75,
+          "recall": 0.8571428571428571,
+          "precision": 0.15000000000000002,
+          "mrr": 0.7142857142857143,
+          "ndcg": 0.7516942153061307,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        },
+        "10": {
+          "hit_rate": 0.75,
+          "recall": 0.8571428571428571,
+          "precision": 0.07500000000000001,
+          "mrr": 0.7142857142857143,
+          "ndcg": 0.7516942153061307,
+          "labelled_query_count": 7,
+          "known_no_relevant_count": 1
+        }
+      },
+      "by_category": {
+        "advisory_identifier": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "affected_patched_versions": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "ambiguous_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "epss_cvss": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            }
+          }
+        },
+        "exact_advisory_id": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "exact_cve": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": 0.0,
+              "precision": 0.0,
+              "mrr": 0.0,
+              "ndcg": 0.0
+            }
+          }
+        },
+        "kev_exploit": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 0.5,
+              "ndcg": 0.6309297535714575
+            }
+          }
+        },
+        "natural_language": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "no_relevant_results": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": 0.0,
+              "recall": null,
+              "precision": 0.0,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        },
+        "product_version": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "vendor_product": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.2,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            },
+            "10": {
+              "hit_rate": 1.0,
+              "recall": 1.0,
+              "precision": 0.1,
+              "mrr": 1.0,
+              "ndcg": 1.0
+            }
+          }
+        },
+        "vulnerability_type": {
+          "query_count": 1,
+          "by_k": {
+            "5": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            },
+            "10": {
+              "hit_rate": null,
+              "recall": null,
+              "precision": null,
+              "mrr": null,
+              "ndcg": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "conventions": {
+    "deduplication": "Keep first occurrence of each retrieved ID.",
+    "precision_at_k": "Divide by K, including unreturned positions when fewer than K results exist.",
+    "unlabelled": "Missing expected_relevant_ids is an error; no-label results are not silently treated as zero.",
+    "empty_ground_truth": "A known empty relevant set is excluded from Recall/MRR/nDCG aggregates and shown separately."
+  }
+}

@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Any
 from pydantic import BaseModel, Field
 
+from app.core.config import settings
 from app.agents.state import CyberRAGState
 from app.schemas.agent_outputs import AssessmentReport
 from app.services.llm import llm_service
@@ -60,7 +61,7 @@ def report_agent(state: CyberRAGState) -> dict[str, Any]:
     markdown_report = ""
     executive_summary = ""
 
-    if llm_service.is_configured():
+    if settings.REPORT_LLM_ENABLED:
         try:
             prompt = _build_report_prompt(
                 project_name=project_name,
@@ -76,6 +77,7 @@ def report_agent(state: CyberRAGState) -> dict[str, Any]:
                 prompt=prompt,
                 response_model=AssessmentReport,
                 system_prompt=SYSTEM_PROMPT,
+                model=settings.LIGHTWEIGHT_LLM_MODEL,
                 agent_name="report",
             )
             executive_summary = report_res.executive_summary
@@ -95,20 +97,14 @@ def report_agent(state: CyberRAGState) -> dict[str, Any]:
             logger.warning("LLM report generation failed: %s. Using deterministic markdown generator.", exc)
             errors.append(f"LLM report generation warning: {exc}")
             executive_summary = f"CyberRAG vulnerability assessment for {project_name}. Evaluated {len(assets)} technology assets and found {len(confirmed)} confirmed vulnerabilities."
-            markdown_report = _generate_fallback_markdown(
-                project_name=project_name,
-                executive_summary=executive_summary,
-                assets=assets,
-                confirmed=confirmed,
-                potential=potential,
-                not_applicable=not_applicable,
-                risk_assessments=risk_assessments,
-                recommendations=recommendations,
-                retrieval_mode=retrieval_mode,
-                errors=errors,
-            )
     else:
+        logger.info(
+            "[REPORT] Report LLM disabled. "
+            "Using deterministic markdown generator."
+        )
         executive_summary = f"CyberRAG vulnerability assessment for {project_name}. Evaluated {len(assets)} technology assets and found {len(confirmed)} confirmed vulnerabilities."
+
+    if not markdown_report:
         markdown_report = _generate_fallback_markdown(
             project_name=project_name,
             executive_summary=executive_summary,

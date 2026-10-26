@@ -1,6 +1,6 @@
 # 🛡️ Agentic Threat Intelligence Platform (CyberRAG)
 
-**AI-powered, agentic threat intelligence platform** that continuously ingests, normalizes, and reasons over live vulnerability data — using **Multi-Agent RAG**, **LangGraph**, **FastAPI**, **PostgreSQL**, **Qdrant**, and **Neo4j** — to automatically determine whether *your* organization's technology stack is exposed to newly disclosed CVEs, and to generate explainable, cited remediation reports.
+**AI-powered, agentic threat intelligence platform** that ingests and normalizes vulnerability data — using **LangGraph**, **FastAPI**, **PostgreSQL**, and **Qdrant** — to assess whether a submitted technology stack may be exposed to known CVEs and produce evidence-backed remediation reports.
 
 Unlike a traditional RAG chatbot that answers questions from a static document set, CyberRAG runs as a continuously updated system: new advisories flow in, get normalized, get matched against your assets, and get prioritized — before an analyst ever has to look for them.
 
@@ -16,46 +16,50 @@ CyberRAG automates that entire lifecycle: **ingest → normalize → retrieve �
 
 ## ✨ Key Features
 
-- 🔄 **Continuous ingestion** from NVD, MITRE CVE, CISA KEV, FIRST EPSS, GitHub Security Advisories, OSV.dev, ExploitDB, OpenCVE, and vendor bulletins
+- 🔄 **Scheduled incremental ingestion** from the configured NVD, CISA KEV, FIRST EPSS, GitHub Advisory, and OSV connectors
 - 🧩 **Unified vulnerability schema** — normalizes every source into one consistent format
-- 🔍 **Hybrid RAG retrieval** — dense semantic search + BM25 + knowledge graph traversal
-- 🕸️ **Knowledge graph reasoning** over vendor → product → vulnerability → exploit relationships (Neo4j)
+- 🔍 **Hybrid retrieval** — PostgreSQL text search + Qdrant dense semantic search, merged with Reciprocal Rank Fusion (RRF)
 - 🤖 **Multi-agent pipeline** (LangGraph) — extraction, matching, validation, risk scoring, remediation, and reporting agents working in sequence
-- 🎯 **Organizational vulnerability detection** — point it at a repo, SBOM, or stack description and it tells you what's actually at risk
+- 🎯 **Organizational vulnerability assessment** — submit a stack description or structured technology list to assess potential exposure
 - 📊 **Automated risk prioritization** using CVSS, EPSS, CISA KEV status, exploit availability, and asset criticality
-- 📄 **Explainable, cited reports** — every claim in a report traces back to a source advisory
+- 📄 **Evidence-backed reports** — findings include available supporting evidence and remediation guidance
 
 ---
 
 ## 🏗️ Architecture & Data Flow
 
 ```
-                     Threat Intelligence Sources
-        (NVD, CISA KEV, MITRE, EPSS, GitHub Advisories,
-              OSV.dev, ExploitDB, Vendor Bulletins)
+                     Configured Threat Sources
+                 (NVD, CISA KEV, EPSS, GitHub, OSV)
                             │
                             ▼
-              Streaming / Scheduled Ingestion
-                    (Kafka or Cron)
+               Scheduled Incremental Ingestion
+                  (Python scheduler / CLI)
                             │
                             ▼
              Data Normalization Engine
           → Unified Vulnerability Schema
-                            │
-              ┌─────────────┼─────────────┐
-              ▼             ▼             ▼
-         PostgreSQL      Qdrant         Neo4j
-       (structured)    (embeddings)  (relationships)
-              │             │             │
-              └─────────────┼─────────────┘
                             ▼
-              Hybrid Retrieval (RAG)
-        (Semantic Search + BM25 + Graph Traversal)
+                      PostgreSQL
+                   (source of truth)
+                            ▼
+                 Embedding Worker
+                            ▼
+                         Qdrant
+                   (derived vectors)
+                            │
+                 ┌──────────┴──────────┐
+                 ▼                     ▼
+          PostgreSQL text       Qdrant semantic
+             search                search
+                 └──────────┬──────────┘
+                            ▼
+                    RRF Hybrid Retrieval
                             │
                             ▼
             Multi-Agent Analysis (LangGraph)
-   Extraction → Matching → Retrieval → Validation
-           → Risk Scoring → Recommendation
+   Extraction → Matching → Retrieval → Conditional Web Search
+              → Validation → Risk & Recommendation
                             │
                             ▼
              Cited Report Generation
@@ -64,7 +68,7 @@ CyberRAG automates that entire lifecycle: **ingest → normalize → retrieve �
              REST API (FastAPI) / Web Dashboard
 ```
 
-**In practice:** you submit an organization's context (a repo URL, an SBOM, or a plain-text stack description) → the **Technology Extraction Agent** identifies your languages, frameworks, and dependencies → the **Vulnerability Matching** and **Retrieval Agents** pull candidate CVEs via Hybrid RAG → the **Validation Agent** cross-checks findings across sources to cut down false positives → the **Risk Assessment Agent** scores and ranks everything → the **Recommendation Agent** drafts remediation steps → the **Report Generation Agent** assembles a fully cited report, delivered via the API or dashboard.
+**In practice:** you submit a stack description or structured technology list → the **Technology Extraction Agent** identifies assets → **Vulnerability Matching** selects database candidates → **Internal Retrieval** enriches those candidates with PostgreSQL/Qdrant evidence, with external web lookups when evidence is incomplete → **Validation** determines applicability → **Risk Assessment** calculates risk and creates recommendations → **Report Generation** assembles the report for the API. The current active retrieval path does not implement BM25 or Neo4j graph traversal; those are not represented as live pipeline stages.
 
 ---
 
@@ -75,11 +79,10 @@ CyberRAG automates that entire lifecycle: **ingest → normalize → retrieve �
 | **Backend** | Python, FastAPI |
 | **Agent Orchestration** | LangGraph, LangChain |
 | **LLMs** | Llama 3 / Qwen / Gemma (or GPT-compatible APIs) |
-| **Retrieval** | Hybrid Search — BM25 + Dense Embeddings |
+| **Retrieval** | PostgreSQL text search + Qdrant dense embeddings + RRF |
 | **Vector Database** | Qdrant |
-| **Knowledge Graph** | Neo4j |
 | **Relational Database** | PostgreSQL |
-| **Streaming/Ingestion** | Apache Kafka (or cron-based polling for smaller deployments) |
+| **Ingestion** | Scheduled incremental Python workers |
 | **Frontend** | Next.js (preferred) or Streamlit |
 | **Deployment** | Docker, deployable to Railway / AWS / Azure / GCP |
 

@@ -1,3 +1,4 @@
+import json
 import threading
 
 from app.graph import cyberrag_graph
@@ -173,7 +174,10 @@ def main():
     markdown_report = report.get("markdown")
 
     if markdown_report:
-        print(markdown_report)
+        try:
+            print(markdown_report)
+        except UnicodeEncodeError:
+            print(markdown_report.encode("ascii", errors="replace").decode("ascii"))
     else:
         print("No markdown report generated.")
 

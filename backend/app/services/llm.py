@@ -1,8 +1,10 @@
+import hashlib
 import json
 import logging
 import random
 import threading
 import time
+from pathlib import Path
 from typing import Any, Type, TypeVar
 import requests
 from pydantic import BaseModel, ValidationError
@@ -13,6 +15,7 @@ logger = logging.getLogger("llm_service")
 
 T = TypeVar("T", bound=BaseModel)
 _GROQ_REQUEST_LOCK = threading.Lock()
+_LAST_GROQ_REQUEST_AT = 0.0
 
 
 class LLMService:
@@ -27,12 +30,22 @@ class LLMService:
         self.groq_api_key = settings.GROQ_API_KEY
         self.openai_api_key = settings.OPENAI_API_KEY
         self.gemini_api_key = settings.GEMINI_API_KEY
-        self.primary_model = getattr(settings, "GROQ_MODEL", "openai/gpt-oss-120b")
+        self.primary_model = getattr(settings, "GROQ_MODEL", "openai/gpt-oss-20b")
         self.fallback_model = getattr(settings, "GROQ_FALLBACK_MODEL", "openai/gpt-oss-20b")
-        self.max_retries = min(1, max(0, getattr(settings, "LLM_MAX_RETRIES", 1)))
+        self.max_retries = max(1, getattr(settings, "LLM_MAX_RETRIES", 3))
         self.base_delay = getattr(settings, "LLM_BASE_RETRY_DELAY", 2.0)
-        self.max_delay = min(10.0, max(0.0, getattr(settings, "LLM_MAX_RETRY_DELAY", 10.0)))
+        self.max_delay = max(0.0, getattr(settings, "LLM_MAX_RETRY_DELAY", 60.0))
+        rpm = max(1, getattr(settings, "LLM_RATE_LIMIT_RPM", 30))
+        # Proactive spacing: keep at least 60/RPM seconds between requests
+        # but no less than the explicit setting.
+        interval_from_rpm = 60.0 / rpm
+        self.min_request_interval = max(
+            interval_from_rpm,
+            getattr(settings, "LLM_MIN_REQUEST_INTERVAL_SECONDS", 2.0),
+        )
         self.max_input_chars = getattr(settings, "MAX_LLM_INPUT_CHARS", 12000)
+        self.cache_enabled = getattr(settings, "LLM_CACHE_ENABLED", True)
+        self.cache_dir = Path(getattr(settings, "LLM_CACHE_DIR", ".llm_cache"))
         self._metrics_lock = threading.Lock()
         self._metrics: dict[str, Any] = {}
         self.reset_metrics()
@@ -104,8 +117,13 @@ class LLMService:
             messages.append({"role": "system", "content": system_prompt})
         messages.append({"role": "user", "content": prompt})
 
+        cache_key = self._cache_key(messages, model, json_output, temperature)
+        cached_response = self._read_cache(cache_key)
+        if cached_response is not None:
+            return cached_response
+
         if self.provider == "groq":
-            return self._call_groq(
+            result = self._call_groq(
                 messages,
                 model=model,
                 json_output=json_output,
@@ -113,11 +131,53 @@ class LLMService:
                 agent_name=agent_name,
             )
         elif self.provider == "openai":
-            return self._call_openai(messages, model=model or "gpt-4o-mini", json_output=json_output, temperature=temperature)
+            result = self._call_openai(messages, model=model or "gpt-4o-mini", json_output=json_output, temperature=temperature)
         elif self.provider == "gemini":
-            return self._call_gemini(prompt=prompt, system_prompt=system_prompt, model=model or "gemini-1.5-flash")
+            result = self._call_gemini(prompt=prompt, system_prompt=system_prompt, model=model or "gemini-1.5-flash")
         else:
             raise ValueError(f"Unsupported LLM provider: {self.provider}")
+
+        self._write_cache(cache_key, result)
+        return result
+
+    def _cache_key(
+        self,
+        messages: list[dict[str, str]],
+        model: str | None,
+        json_output: bool,
+        temperature: float,
+    ) -> str:
+        key_data = json.dumps(
+            {
+                "provider": self.provider,
+                "model": model or self.primary_model,
+                "messages": messages,
+                "json_output": json_output,
+                "temperature": temperature,
+            },
+            sort_keys=True,
+        )
+        return hashlib.sha256(key_data.encode("utf-8")).hexdigest()
+
+    def _read_cache(self, key: str) -> str | None:
+        if not self.cache_enabled:
+            return None
+        cache_path = self.cache_dir / f"{key}.txt"
+        try:
+            return cache_path.read_text(encoding="utf-8") if cache_path.is_file() else None
+        except OSError:
+            logger.warning("Unable to read LLM response cache at %s", cache_path)
+            return None
+
+    def _write_cache(self, key: str, response: str) -> None:
+        if not self.cache_enabled:
+            return
+        cache_path = self.cache_dir / f"{key}.txt"
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(response, encoding="utf-8")
+        except OSError:
+            logger.warning("Unable to write LLM response cache at %s", cache_path)
 
     def _call_groq(
         self,
@@ -127,6 +187,7 @@ class LLMService:
         temperature: float = 0.1,
         agent_name: str | None = None,
     ) -> str:
+        global _LAST_GROQ_REQUEST_AT
         with _GROQ_REQUEST_LOCK:
             url = "https://api.groq.com/openai/v1/chat/completions"
             headers = {
@@ -152,7 +213,6 @@ class LLMService:
             for model_index, current_model in enumerate(models_to_try):
                 logger.info("[LLM] agent=%s model=%s", agent_name or "llm", current_model)
                 rate_limit_retries = 0
-                compacted = False
 
                 while True:
                     payload: dict[str, Any] = {
@@ -164,8 +224,13 @@ class LLMService:
                         payload["response_format"] = {"type": "json_object"}
 
                     try:
+                        elapsed = time.monotonic() - _LAST_GROQ_REQUEST_AT
+                        wait_time = self.min_request_interval - elapsed
+                        if wait_time > 0:
+                            time.sleep(wait_time)
+                        _LAST_GROQ_REQUEST_AT = time.monotonic()
                         self._increment_metric("llm_call_count")
-                        response = requests.post(url, headers=headers, json=payload, timeout=25)
+                        response = requests.post(url, headers=headers, json=payload, timeout=60)
                     except requests.RequestException as exc:
                         self.mark_fallback("groq_unavailable")
                         raise RuntimeError("Groq request unavailable") from exc
@@ -177,51 +242,97 @@ class LLMService:
 
                     if response.status_code == 429:
                         self._increment_metric("rate_limit_count")
-                        if model_index == 0 and rate_limit_retries < self.max_retries:
-                            retry_after = response.headers.get("Retry-After") or response.headers.get("retry-after")
-                            try:
-                                retry_delay = float(retry_after) if retry_after else self.base_delay * (2 ** rate_limit_retries)
-                            except ValueError:
-                                retry_delay = self.base_delay * (2 ** rate_limit_retries)
-                            delay = min(10.0, self.max_delay, max(0.0, retry_delay) + random.uniform(0.1, 0.5))
-                            rate_limit_retries += 1
+                        rate_limit_retries += 1
+
+                        retry_after = self._resolve_retry_after(
+                            response.headers,
+                            attempt=rate_limit_retries,
+                        )
+
+                        logger.warning(
+                            "[LLM] 429 rate-limited agent=%s model=%s "
+                            "retry=%d/%d sleep=%.1fs "
+                            "remaining_requests=%s reset_requests=%s "
+                            "remaining_tokens=%s reset_tokens=%s",
+                            agent_name or "llm",
+                            current_model,
+                            rate_limit_retries,
+                            self.max_retries,
+                            retry_after,
+                            response.headers.get("x-ratelimit-remaining-requests"),
+                            response.headers.get("x-ratelimit-reset-requests"),
+                            response.headers.get("x-ratelimit-remaining-tokens"),
+                            response.headers.get("x-ratelimit-reset-tokens"),
+                        )
+
+                        if rate_limit_retries <= self.max_retries:
                             self._increment_metric("retry_count")
-                            logger.warning("[LLM] rate_limited retry=%d/1 delay=%.1fs", rate_limit_retries, delay)
-                            time.sleep(delay)
-                            continue
+                            time.sleep(retry_after)
+                            _LAST_GROQ_REQUEST_AT = time.monotonic()
+                            continue  # retry same model
 
-                        if model_index == 0 and len(models_to_try) > 1:
-                            self.mark_fallback("groq_rate_limit")
-                            logger.info("[LLM] fallback model=%s", models_to_try[1])
-                            break
-                        self.mark_fallback("groq_rate_limit")
-                        logger.warning("[LLM] fallback -> deterministic agent=%s", agent_name or "llm")
-                        raise RuntimeError("Groq rate limit persisted after the bounded retry")
+                        # Exhausted retries for this model — try fallback
+                        logger.warning(
+                            "[LLM] Exhausted %d retries on model=%s. Moving to next model.",
+                            self.max_retries,
+                            current_model,
+                        )
+                        break  # break inner while → next model in for-loop
 
-                    error_text = response.text.lower()
-                    oversized = response.status_code == 413 or (
-                        response.status_code == 400
-                        and any(term in error_text for term in ("context_length_exceeded", "too large", "reduce"))
+                    # Any other non-200 status: log and move to next model
+                    logger.warning(
+                        "[LLM] Unexpected status=%d agent=%s model=%s body=%s",
+                        response.status_code,
+                        agent_name or "llm",
+                        current_model,
+                        response.text[:200],
                     )
-                    if oversized:
-                        if compacted:
-                            self.mark_fallback("context_length_exceeded")
-                            raise RuntimeError("Groq request remained too large after compaction")
-                        logger.warning("[LLM] compacting oversized request agent=%s", agent_name or "llm")
-                        current_messages = compact_messages(messages, max(1000, min(4000, self.max_input_chars // 3)))
-                        compacted = True
-                        continue
+                    break  # break inner while → next model
 
-                    if response.status_code == 404:
-                        self.mark_fallback("model_not_found")
-                        logger.error("[LLM] model_not_found model=%s", current_model)
-                        raise RuntimeError(f"Groq model configuration error: '{current_model}' was not found")
+            self.mark_fallback("all_models_failed")
+            raise RuntimeError(
+                f"All LLM models exhausted (rate-limited or error) for agent={agent_name}. "
+                "Check Groq RPM quota or increase LLM_RATE_LIMIT_RPM spacing."
+            )
 
-                    self.mark_fallback("groq_request_failed")
-                    logger.warning("[LLM] request failed agent=%s status=%d", agent_name or "llm", response.status_code)
-                    raise RuntimeError(f"Groq request failed with HTTP {response.status_code}")
+    def _resolve_retry_after(
+        self,
+        headers: Any,
+        attempt: int,
+    ) -> float:
+        """
+        Determine how many seconds to wait after a 429 response.
 
-            raise RuntimeError("Groq primary and single fallback model were rate limited")
+        Priority:
+        1. ``retry-after`` header (integer seconds or float).
+        2. ``x-ratelimit-reset-requests`` header (seconds until request quota resets).
+        3. Exponential backoff: base_delay * 2^(attempt-1) + small jitter, capped at max_delay.
+        """
+        # --- retry-after header ---
+        retry_after_raw = headers.get("retry-after")
+        if retry_after_raw is not None:
+            try:
+                wait = float(retry_after_raw)
+                if wait > 0:
+                    return min(wait + 0.5, self.max_delay)  # tiny buffer
+            except (ValueError, TypeError):
+                pass
+
+        # --- x-ratelimit-reset-requests header (e.g. "1.5s" or "60") ---
+        reset_raw = headers.get("x-ratelimit-reset-requests")
+        if reset_raw is not None:
+            try:
+                reset_str = str(reset_raw).rstrip("s")
+                wait = float(reset_str)
+                if 0 < wait <= self.max_delay:
+                    return wait + 0.5
+            except (ValueError, TypeError):
+                pass
+
+        # --- exponential backoff with jitter ---
+        delay = min(self.base_delay * (2 ** (attempt - 1)), self.max_delay)
+        jitter = random.uniform(0.0, min(1.0, delay * 0.1))
+        return delay + jitter
 
     def _call_openai(
         self,
@@ -273,14 +384,20 @@ class LLMService:
         system_prompt: str | None = None,
         model: str | None = None,
         agent_name: str | None = None,
+        json_schema_override: dict[str, Any] | None = None,
     ) -> T:
         """
         Invoke LLM and parse the output directly into a Pydantic model.
         Retries once if JSON validation fails.
         """
+        schema = (
+            json_schema_override
+            if json_schema_override is not None
+            else response_model.model_json_schema()
+        )
         json_instruction = (
             "\n\nReturn ONLY a valid JSON object strictly matching this schema:\n"
-            f"{json.dumps(response_model.model_json_schema(), indent=2)}\n"
+            f"{json.dumps(schema, indent=2)}\n"
             "Do NOT include any markdown backticks (```json), preamble, or extra text."
         )
         full_system_prompt = (system_prompt or "") + json_instruction

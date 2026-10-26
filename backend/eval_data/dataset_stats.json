@@ -1,0 +1,19 @@
+{
+  "corpus_rows": 3009,
+  "rows_with_product_and_versions (usable for ground truth)": 1124,
+  "distinct_products": 479,
+  "assessment_cases": {
+    "alias_positive": 30,
+    "mixed_project": 40,
+    "single_negative": 117,
+    "single_positive": 114,
+    "unrelated": 4
+  },
+  "extraction_cases": 40,
+  "retrieval_queries": {
+    "description_semantic": 150,
+    "id_exact": 40,
+    "product_all": 479,
+    "product_version": 40
+  }
+}

@@ -7,7 +7,6 @@ from app.agents.internal_retrieval import internal_hybrid_retrieval_agent
 from app.agents.web_search import web_search_agent
 from app.agents.validation import validation_agent
 from app.agents.risk_assessment import risk_assessment_agent
-from app.agents.recommendation import recommendation_agent
 from app.agents.report import report_agent
 
 
@@ -67,11 +66,6 @@ def build_cyberrag_graph():
     )
 
     graph.add_node(
-        "recommendation",
-        recommendation_agent
-    )
-
-    graph.add_node(
         "report",
         report_agent
     )
@@ -114,11 +108,6 @@ def build_cyberrag_graph():
 
     graph.add_edge(
         "risk_assessment",
-        "recommendation"
-    )
-
-    graph.add_edge(
-        "recommendation",
         "report"
     )
 
